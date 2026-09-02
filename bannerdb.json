@@ -1,0 +1,158 @@
+{
+  "beginner": {
+    "name": "New Horizons",
+    "rateUpIds": [],
+    "type": "New Horizons"
+  },
+  "standard": {
+    "name": "Basic Headhunting",
+    "rateUpIds": [],
+    "type": "Standard"
+  },
+  "special_1_0_1": {
+    "name": "Scars of the Forge",
+    "rateUpIds": ["chr_0016_laevat"],
+    "type": "Special"
+  },
+  "special_1_0_2": {
+    "name": "Hues of Passion",
+    "rateUpIds": ["chr_0017_yvonne"],
+    "type": "Special"
+  },
+  "special_1_0_3": {
+    "name": "The Floaty Messenger",
+    "rateUpIds": ["chr_0013_aglina"],
+    "type": "Special"
+  },
+  "special_1_1_1": {
+    "name": "River's Daughter",
+    "rateUpIds": ["chr_0027_tangtang"],
+    "type": "Special"
+  },
+  "special_1_1_2": {
+    "name": "Wolf Pearl",
+    "rateUpIds": ["chr_0028_wulfa"],
+    "type": "Special"
+  },
+  "special_1_2_1": {
+    "name": "Thunder of Renewal",
+    "rateUpIds": ["chr_0030_zhuangfy"],
+    "type": "Special"
+  },
+  "joint_1_0_1": {
+    "name": "Joint Operation 1",
+    "rateUpIds": [
+      "chr_0016_laevat",
+      "chr_0017_yvonne",
+      "chr_0013_aglina",
+      "chr_0027_tangtang"
+    ],
+    "type": "Special"
+  },
+  "special_1_3_1": {
+    "name": "Fists of No Regrets",
+    "rateUpIds": ["chr_0031_mifu"],
+    "type": "Special"
+  },
+  "special_1_3_2": {
+    "name": "Expunger of Sin",
+    "rateUpIds": ["chr_0033_camille"],
+    "type": "Special"
+  },
+  "special_1_4_1": {
+    "name": "North Yearns The Rift Vigile",
+    "rateUpIds": ["chr_0032_lizhiyan"],
+    "type": "Special"
+  },
+  "special_1_4_2": {
+    "name": "Good Morning from Your Dawnstar",
+    "rateUpIds": ["chr_0035_liino"],
+    "type": "Special"
+  },
+  "special_1_5_1": {
+    "name": "Winter Hunt",
+    "rateUpIds": ["chr_0034_typhoea"],
+    "type": "Special"
+  },
+
+  "weponbox_1_0_1": {
+    "name": "Smelting Forge Issue",
+    "rateUpIds": ["wpn_sword_0006"],
+    "type": "Weapon"
+  },
+  "weponbox_1_0_2": {
+    "name": "Graffiti Issue",
+    "rateUpIds": ["wpn_pistol_0010"],
+    "type": "Weapon"
+  },
+  "weponbox_1_0_3": {
+    "name": "Express Delivery Issue",
+    "rateUpIds": ["wpn_funnel_0011"],
+    "type": "Weapon"
+  },
+  "weponbox_1_1_1": {
+    "name": "Budding Anew",
+    "rateUpIds": ["wpn_pistol_0011"],
+    "type": "Weapon"
+  },
+  "weponbox_1_1_2": {
+    "name": "Scarlet Pearl",
+    "rateUpIds": ["wpn_sword_0022"],
+    "type": "Weapon"
+  },
+  "weponbox_1_2_1": {
+    "name": "Drifting Raft",
+    "rateUpIds": ["wpn_funnel_0015"],
+    "type": "Weapon"
+  },
+  "weponbox_1_3_1": {
+    "name": "Scarlet Knot Issue",
+    "rateUpIds": ["wpn_claym_0017"],
+    "type": "Weapon"
+  },
+  "weponbox_1_3_2": {
+    "name": "Crimson Hued Issue",
+    "rateUpIds": ["wpn_lance_0015"],
+    "type": "Weapon"
+  },
+  "weponbox_1_4_1": {
+    "name": "Military Grade Issue",
+    "rateUpIds": ["wpn_funnel_0016"],
+    "type": "Weapon"
+  },
+  "weponbox_1_4_2": {
+    "name": "Bedazzled Issue",
+    "rateUpIds": ["wpn_lance_0014"],
+    "type": "Weapon"
+  },
+  "weponbox_1_5_1": {
+    "name": "Deep Cold Issue",
+    "rateUpIds": ["wpn_funnel_0019"],
+    "type": "Weapon"
+  },
+  "weaponbox_constant_1": {
+    "name": "Constant Issue",
+    "rateUpIds": ["wpn_claym_0013"],
+    "type": "Weapon"
+  },
+  "weaponbox_constant_2": {
+    "name": "Constant Issue",
+    "rateUpIds": ["wpn_funnel_0013"],
+    "type": "Weapon"
+  },
+  "weaponbox_constant_3": {
+    "name": "Constant Issue",
+    "rateUpIds": ["wpn_sword_0016"],
+    "type": "Weapon"
+  },
+  "weaponbox_constant_4": {
+    "name": "Constant Issue",
+    "rateUpIds": ["wpn_lance_0012"],
+    "type": "Weapon"
+  },
+  "weaponbox_constant_5": {
+    "name": "Constant Issue",
+    "rateUpIds": ["wpn_claym_0007"],
+    "type": "Weapon"
+  }
+}
