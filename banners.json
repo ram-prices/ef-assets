@@ -89,7 +89,7 @@
   },
   "special_1_5_1": {
     "name": "Winter Hunt",
-    "rateUpIds": ["chr_0034_typhoea"],
+    "rateUpIds": ["chr_0034_typhoea", "chr_0034_typhoeus"],
     "rateupName": ["Typhoeus"],
     "type": "Special"
   },
@@ -112,19 +112,19 @@
     "type": "Weapon"
   },
   "weponbox_1_1_1": {
-    "name": "Budding Anew",
+    "name": "Budding Anew Issue",
     "rateUpIds": ["wpn_pistol_0011"],
     "rateupName": ["Brigand's Calling"],
     "type": "Weapon"
   },
   "weponbox_1_1_2": {
-    "name": "Scarlet Pearl",
+    "name": "Scarlet Pearl Issue",
     "rateUpIds": ["wpn_sword_0022"],
     "rateupName": ["Lupine Scarlet"],
     "type": "Weapon"
   },
   "weponbox_1_2_1": {
-    "name": "Drifting Raft",
+    "name": "Drifting Raft Issue",
     "rateUpIds": ["wpn_funnel_0015"],
     "rateupName": ["Lone Barge"],
     "type": "Weapon"
