@@ -165,6 +165,12 @@
     "rateupName": ["Umbra of Frigid Eventide"],
     "type": "Weapon"
   },
+    "weponbox_1_6_1": {
+    "name": "Seal of Jade Issue",
+    "rateUpIds": ["wpn_claym_0018"],
+    "rateupName": ["Jade Vessel"],
+    "type": "Weapon"
+  },
   "weaponbox_constant_1": {
     "name": "Constant Issue",
     "rateUpIds": ["wpn_claym_0013"],
