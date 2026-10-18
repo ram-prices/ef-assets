@@ -93,6 +93,12 @@
     "rateupName": ["Typhoeus"],
     "type": "Special"
   },
+    "special_1_6_1": {
+    "name": "Rejuvenation",
+    "rateUpIds": ["chr_0036_jsspsi"],
+    "rateupName": ["Si"],
+    "type": "Special"
+  },
   "weponbox_1_0_1": {
     "name": "Smelting Forge Issue",
     "rateUpIds": ["wpn_sword_0006"],
