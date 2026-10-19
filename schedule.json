@@ -125,7 +125,7 @@
         "asia": "2026-02-07T11:59:00+08:00"
       },
       "availability": "After start of the official release – Feb. 7, 2026 at 11:59 AM (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260120/b6fe0366fb53bda1b54a1ef2742fa822.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/laevatain.webp",
       "posts": [
         "3847"
       ]
@@ -169,7 +169,7 @@
         "asia": "2026-02-24T11:59:00+08:00"
       },
       "availability": "Feb. 7, 2026 at 12:00 – Feb. 24, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260202/218a298600ef5bb8b662041adfa2f187.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/gilberta.webp",
       "posts": [
         "7028"
       ]
@@ -213,7 +213,7 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "availability": null,
-      "art": null,
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/yvonne.webp",
       "posts": [],
       "notes": [
         "No post of its own: dates inferred from [Graffiti Issue]"
@@ -259,7 +259,7 @@
         "asia": "2026-03-29T11:59:00+08:00"
       },
       "availability": "After [Old Deep Water Dies, by Rising Tide It is Denied] version release – Mar. 29, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260310/83e2f066299177bdff5cc143b41bf076.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/tangtang.webp",
       "posts": [
         "1338",
         "8907"
@@ -305,7 +305,7 @@
         "asia": "2026-04-17T06:00:00+08:00"
       },
       "availability": "Mar. 29, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260326/d13f0d8d040c82c36e756bb10c35bcbc.png",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/rossi.webp",
       "posts": [
         "8907",
         "3843"
@@ -351,7 +351,7 @@
         "asia": "2026-05-22T11:59:00+08:00"
       },
       "availability": "After [At the Wake of Spring] version release – May 22, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260415/a2c29eb120c83c92d086e86df1c1760e.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/zhuang-fangyi.webp",
       "posts": [
         "9579",
         "0751"
@@ -463,7 +463,7 @@
         "asia": "2026-06-26T11:59:00+08:00"
       },
       "availability": "After [Sketches of Lost Heirlooms] version release – June 26, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260602/5a12d7c068f0fe9f774025c1f4f97876.png",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/mi-fu.webp",
       "posts": [
         "0759",
         "0758"
@@ -509,7 +509,7 @@
         "asia": "2026-07-16T06:00:00+08:00"
       },
       "availability": "June 26, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260623/94a24581d688ef409392c8c5acc72ee4.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/camille.webp",
       "posts": [
         "0758",
         "6175"
@@ -555,7 +555,7 @@
         "asia": "2026-08-09T11:59:00+08:00"
       },
       "availability": "After [Homecoming] version release – Aug. 9, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260713/a1e1b78eb8dc250d3e5b5820a5da71c0.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/arcane.webp",
       "posts": [
         "2656",
         "5200"
@@ -601,7 +601,7 @@
         "asia": "2026-09-02T06:00:00+08:00"
       },
       "availability": "Aug. 9, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260805/1dd8dfffe67309c7d649d6b44ca7dfc2.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/liino.webp",
       "posts": [
         "5200",
         "3831"
@@ -647,7 +647,7 @@
         "asia": "2026-09-30T11:59:00+08:00"
       },
       "availability": "After [Dreamscape of Wind and Snow] version release – Sept. 30, 2026, 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260831/9937940f4ed675d8a78f2c640f23819f.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/typhoeus.webp",
       "posts": [
         "6172",
         "5208"
@@ -693,7 +693,7 @@
         "asia": "2026-10-15T06:00:00+08:00"
       },
       "availability": "Sept. 24, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "art": "https://web-static.hg-cdn.com/upload/image/20260922/8e90c45ea77f1a1f092e5e7a718ae493.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/yvonne.webp",
       "posts": [
         "5208",
         "3839"
@@ -739,7 +739,7 @@
         "asia": "2026-11-05T11:59:00+08:00"
       },
       "availability": "After [Sanctuary of Ink] version update – Nov. 5, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20261012/c9e7aee99096e8ddc164a35c095762d7.jpg",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/si.webp",
       "posts": [
         "4489",
         "9560"
@@ -785,7 +785,7 @@
         "asia": "2026-11-19T11:59:00+08:00"
       },
       "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 11:59 (server time)",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/banners/special_1_1_1.webp",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/tangtang.webp",
       "posts": [
         "9560"
       ]

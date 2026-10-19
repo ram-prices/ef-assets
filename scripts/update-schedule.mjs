@@ -47,7 +47,7 @@ const DRY = args.includes('--dry-run');
 const FIND_POOLS = args.includes('--find-pools');
 const CACHE = args.includes('--cache') ? args[args.indexOf('--cache') + 1] : null;
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
-const ISSUE_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues';
+const ASSETS = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main';
 const EVENT_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/events';
 const BANNER_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/banners';
 const PREVIEW_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/previews';
@@ -165,6 +165,14 @@ function issueArt(b) {
   const file = isIssue(b) && b.rateUps[0] ? `${slug(b.rateUps[0])}.webp` : null;
   return file && existsSync(join(ROOT, 'issues', file)) ? file : null;
 }
+const isHeadhunting = (b) => ['chartered', 'special', 'refactor'].includes(b.kind);
+/** The file name of a one-rate-up Headhunting banner's headhunting/<operator>.webp, when one has been made. */
+function headhuntingArt(b) {
+  const file = isHeadhunting(b) && b.rateUps.length === 1 ? `${slug(b.rateUps[0])}.webp` : null;
+  return file && existsSync(join(ROOT, 'headhunting', file)) ? file : null;
+}
+/** The text-free art made for a banner (issues/ or headhunting/), as a path under ef-assets. */
+const madeArt = (b) => (issueArt(b) ? `issues/${issueArt(b)}` : headhuntingArt(b) ? `headhunting/${headhuntingArt(b)}` : null);
 /** events/<event>.webp's URL, when the guide gave the event art. */
 /** previews/<banner>.webp's URL: art for a Headhunting banner announced before its own cover (from the guide). */
 function previewArt(name) {
@@ -546,7 +554,7 @@ async function build() {
       start: isoBoth(b.start),
       end: isoBoth(b.end),
       availability: b.avail,
-      art: issueArt(b) ? `${ISSUE_ART}/${issueArt(b)}` : b.cover ?? previewArt(b.name),
+      art: madeArt(b) ? `${ASSETS}/${madeArt(b)}` : b.cover ?? previewArt(b.name),
       posts: b.posts,
       ...(notes.length ? { notes } : {}),
       ...(unresolved || b.inferredFrom ? { needsReview: true } : {}),
@@ -672,7 +680,7 @@ async function findPools(schedule, db) {
     db[found.id] = { name: b.name, rateUpIds: ids, rateupName: b.rateUps, type: b.kind === 'issue' ? 'Weapon' : 'Special' };
     b.poolId = found.id;
     const file = join(ROOT, 'banners', `${found.id}.webp`);
-    if (!DRY && issueArt(b)) await copyFile(join(ROOT, 'issues', issueArt(b)), file);
+    if (!DRY && madeArt(b)) await copyFile(join(ROOT, madeArt(b)), file);
     else if (b.art && !DRY) await saveArt(b.art, file);
     for (const id of ids) {
       const dir = id.startsWith('wpn_') ? 'arsenals' : 'operators';
@@ -794,9 +802,10 @@ if (FIND_POOLS) {
   for (const m of missingIcons) report += `Needs an icon: ${m}\n`;
   if (!DRY && added.some((a) => a.poolId)) await writeFile(join(ROOT, 'banners.json'), JSON.stringify(db, null, 2) + '\n');
 }
-// Issues still showing their official cover, names printed in the art.
+// Banners still showing their official cover, names printed in the art.
 for (const b of schedule.banners) {
   if (isIssue(b) && b.rateUps[0] && !issueArt(b)) report += `Needs an Issue banner: issues/${slug(b.rateUps[0])}.webp (scripts/issue-banner.py)\n`;
+  if (isHeadhunting(b) && b.rateUps.length === 1 && !headhuntingArt(b)) report += `Needs a Headhunting banner: headhunting/${slug(b.rateUps[0])}.webp (scripts/headhunting-banner.py)\n`;
 }
 
 const json = JSON.stringify(schedule, null, 2) + '\n';
