@@ -12,7 +12,10 @@ The close-up is framed where the wiki's own close-up ("<Name> Banner.png",
 900x352) sits in the splash: found by colour template matching (locate()).
 Where that misses, FOCUS gives the box by hand.
 
-    python scripts/headhunting-banner.py <chr id> <splash.png> <closeup.png> <out.webp> [--element Heat]
+    python scripts/headhunting-banner.py <chr id> <splash.png> <closeup.png> <out.webp> [--element Heat] [--guide]
+
+--guide: the art is the version guide's (visual + thumbnail), for operators the
+wiki doesn't have yet.
 
 Needs Pillow and NumPy.
 """
@@ -28,6 +31,10 @@ ELEMENT = {'Heat': (255, 106, 61), 'Cryo': (34, 195, 214), 'Electric': (255, 194
 # The window is ZOOM close-up widths wide, the face at FACE_X across and FACE_Y
 # down: right of centre, since the site's names sit bottom-left.
 ZOOM, FACE_X, FACE_Y = 1.9, 0.62, 0.36
+# Unreleased operators come from the official version guide instead: its
+# 1920x897 character art, with its thumbnail (a 350x112 face close-up) as the
+# close-up. Operators are drawn smaller there, so the window is wider.
+GUIDE_ZOOM = 3.1
 # A match scoring under this is treated as a miss.
 MIN_SCORE = 0.5
 # Close-up boxes (splash pixels) where the match misses.
@@ -133,9 +140,9 @@ def backdrop(colour):
     return out
 
 
-def closeup_window(splash, box):
+def closeup_window(splash, box, zoom=ZOOM):
     x0, y0, x1, y1 = box
-    ww = (x1 - x0) * ZOOM
+    ww = (x1 - x0) * zoom
     wh = ww * H / W
     fx, fy = (x0 + x1) / 2, (y0 + y1) / 2
     left, top = fx - ww * FACE_X, fy - wh * FACE_Y
@@ -147,8 +154,9 @@ def closeup_window(splash, box):
     return win.resize((W, H), Image.LANCZOS)
 
 
-def banner(chr_id, splash, closeup, element):
-    """(image, score, box)."""
+def banner(chr_id, splash, closeup, element, zoom=ZOOM):
+    """(image, score, box). `zoom`: window width in close-up widths (the
+    version guide's art draws operators smaller: GUIDE_ZOOM)."""
     splash = splash.convert('RGBA')
     if chr_id in FOCUS:
         score, box = 1.0, FOCUS[chr_id]
@@ -156,7 +164,7 @@ def banner(chr_id, splash, closeup, element):
         score, box = locate(splash, closeup)
         if score < MIN_SCORE:
             raise ValueError(f'{chr_id}: close-up not found (score {score:.2f}); add its box to FOCUS')
-    art = closeup_window(splash, box)
+    art = closeup_window(splash, box, zoom)
     out = backdrop(ELEMENT.get(element, (200, 200, 200)))
     shadow = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     shadow.putalpha(art.getchannel('A').point(lambda a: int(a * 0.5)))
@@ -173,6 +181,10 @@ def banner(chr_id, splash, closeup, element):
 if __name__ == '__main__':
     args = sys.argv[1:]
     element = None
+    zoom = ZOOM
+    if '--guide' in args:
+        args.remove('--guide')
+        zoom = GUIDE_ZOOM
     if '--element' in args:
         i = args.index('--element')
         element = args[i + 1]
@@ -180,6 +192,6 @@ if __name__ == '__main__':
     if len(args) != 4:
         sys.exit(__doc__)
     chr_id, splash, closeup, out = args
-    im, score, box = banner(chr_id, Image.open(splash), Image.open(closeup), element)
+    im, score, box = banner(chr_id, Image.open(splash), Image.open(closeup), element, zoom)
     im.save(out, 'WEBP', quality=86)
     print(f'{chr_id}: score {score:.2f}, box {box}')

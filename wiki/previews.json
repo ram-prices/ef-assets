@@ -1,0 +1,49 @@
+{
+ "attribution": {
+  "source": "Arknights: Endfield New Version Guide",
+  "url": "https://endfield.gryphline.com/version_briefing/latest",
+  "fetched": "2026-10-19"
+ },
+ "operators": {
+  "chr_0037_minghe": {
+   "name": "Argent Flow",
+   "rarity": 6,
+   "class": "Guard",
+   "element": "Electric",
+   "weapon": "Sword",
+   "tags": [
+    "Electrify",
+    "Crush"
+   ],
+   "summary": "Argent Flow is an Electric guard who can apply Electrification that increases All DMG Taken by the enemy. He can also apply and detonate Sunderization stacks to deal Area DMG.",
+   "banner": {
+    "name": "The Hearth Fire Beckons the Starry Flow",
+    "poolId": "special_1_6_2"
+   },
+   "art": {
+    "visual": "https://web-static.hg-cdn.com/endfield/webview/_version_briefing/v1d6/assets/imgs/visual.083f4b.png",
+    "thumbnail": "https://web-static.hg-cdn.com/endfield/webview/_version_briefing/v1d6/assets/imgs/thumbnail.e7113d.png"
+   }
+  }
+ },
+ "weapons": {
+  "wpn_sword_0025": {
+   "name": "Lunar Calling",
+   "rarity": 6,
+   "type": "Sword",
+   "traits": [
+    "Will Boost",
+    "Attack Boost",
+    "Infliction"
+   ],
+   "banner": {
+    "name": "Moongleam Issue",
+    "poolId": "weaponbox_1_6_2"
+   },
+   "art": {
+    "visual": "https://web-static.hg-cdn.com/endfield/webview/_version_briefing/v1d6/assets/imgs/visual.568916.png",
+    "thumbnail": "https://web-static.hg-cdn.com/endfield/webview/_version_briefing/v1d6/assets/imgs/thumbnail.36f191.png"
+   }
+  }
+ }
+}

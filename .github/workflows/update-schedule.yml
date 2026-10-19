@@ -2,8 +2,11 @@ name: Update banner schedule
 
 # Reads the official news feed into schedule.json, adds banners that have
 # opened since the last run to banners.json (with their art), and saves the
-# event art from the current New Version Guide to events/. Changes arrive as
-# a pull request to review; nothing is pushed to main directly.
+# event art from the current New Version Guide to events/. Unreleased
+# operators and weapons from the guide go to wiki/previews.json with icons and
+# banners made from its art (guide-previews.mjs, guide-art.py), until the wiki
+# has them. Changes arrive as a pull request to review; nothing is pushed to
+# main directly.
 #
 # Banners are announced about a day before they open and run for weeks, so
 # every three days is plenty. Run it by hand from the Actions tab any time.
@@ -30,9 +33,17 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install pillow numpy
+      - name: Save unreleased operators and weapons from the version guide
+        run: |
+          node scripts/guide-previews.mjs 2>&1 | tee report.txt
+          python scripts/guide-art.py 2>&1 | tee -a report.txt
       - name: Update schedule.json and banners.json
         # GitHub's bash runs with pipefail, so a failing script still fails the job.
-        run: node scripts/update-schedule.mjs --find-pools 2>&1 | tee report.txt
+        run: node scripts/update-schedule.mjs --find-pools 2>&1 | tee -a report.txt
       - name: Write the pull request text
         run: |
           {
@@ -56,4 +67,9 @@ jobs:
             banners/*.webp
             events/*.webp
             previews/*.webp
+            wiki/previews.json
+            operators/*.webp
+            arsenals/*.webp
+            headhunting/*.webp
+            issues/*.webp
           delete-branch: true
