@@ -73,6 +73,8 @@ def backdrop():
 
 
 def ornaments():
+    """(rule, rest): the dotted rule, drawn under the weapon like the official
+    banners, and the other ornaments (header, UP glyphs), drawn over it."""
     layer = Image.open(os.path.join(ART, 'ornaments.webp')).convert('RGBA')
     layer.paste((0, 0, 0, 0), ARMAMENTS)
     # The guide fades its ornaments; the banners print the coloured ones solid.
@@ -84,12 +86,14 @@ def ornaments():
     band = (0, RULE_ROWS[0], layer.width, RULE_ROWS[1])
     rule.paste(layer.crop(band), band[:2])
     layer.paste((0, 0, 0, 0), band)
-    out = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     x, y = ORNAMENTS_AT
-    for part, px_ in ((layer, x), (rule, x - SHIFT)):
+    out = []
+    for part, px_ in ((rule, x - SHIFT), (layer, x)):
         part = part.resize(ORNAMENTS_SIZE, Image.LANCZOS)
-        out.alpha_composite(part, (max(0, px_), y), (max(0, -px_), 0))
-    return out
+        full = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+        full.alpha_composite(part, (max(0, px_), y), (max(0, -px_), 0))
+        out.append(full)
+    return tuple(out)
 
 
 def trim(im):
@@ -128,9 +132,11 @@ def banner(weapon_id, render, from_guide=False):
         weapon, at = fit(weapon, PISTOL_BOX if kind == 'pistol' else LONG_BOX)
     if kind == 'lance':
         at = (at[0] - round(LANCE_SLIDE * math.cos(LANCE_ANGLE)), at[1] - round(LANCE_SLIDE * math.sin(LANCE_ANGLE)))
+    rule, rest = ornaments()
     out = backdrop()
+    out.alpha_composite(rule)  # the dotted rule runs behind the weapon...
     out.alpha_composite(weapon, at)
-    out.alpha_composite(ornaments())  # in front of the weapon, like the official banners
+    out.alpha_composite(rest)  # ...and the header and UP glyphs sit in front, like the official banners
     return out.convert('RGB')
 
 
