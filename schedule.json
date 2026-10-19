@@ -859,6 +859,7 @@
   ],
   "events": [
     {
+      "id": 1,
       "name": "Gently Flows Qingbo",
       "type": "Sign-In Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -875,6 +876,7 @@
       "post": "8907"
     },
     {
+      "id": 2,
       "name": "Quietly Flows the Spring",
       "type": "Guide Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -891,6 +893,7 @@
       "post": "8907"
     },
     {
+      "id": 3,
       "name": "Supply: Exploration Day",
       "type": "Supply Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -907,6 +910,7 @@
       "post": "8907"
     },
     {
+      "id": 4,
       "name": "Pearl of the Pack",
       "type": "Sign-In Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -923,6 +927,7 @@
       "post": "8907"
     },
     {
+      "id": 5,
       "name": "The Red Knight",
       "type": "Narrative Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -939,6 +944,7 @@
       "post": "8907"
     },
     {
+      "id": 6,
       "name": "Cleanse and Rinse",
       "type": "Fun & Games Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -955,6 +961,7 @@
       "post": "8907"
     },
     {
+      "id": 7,
       "name": "Survival Training",
       "type": "Challenge Event",
       "version": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -971,6 +978,7 @@
       "post": "8907"
     },
     {
+      "id": 8,
       "name": "Pristine Monthly Pass Tribute",
       "type": "Tribute Event",
       "version": "At the Wake of Spring",
@@ -987,6 +995,7 @@
       "post": "0751"
     },
     {
+      "id": 9,
       "name": "Blitz of Verdance",
       "type": "Sign-In Event",
       "version": "At the Wake of Spring",
@@ -1003,6 +1012,7 @@
       "post": "0751"
     },
     {
+      "id": 10,
       "name": "Subduer of the Blighted Sea",
       "type": "Guide Event",
       "version": "At the Wake of Spring",
@@ -1019,6 +1029,7 @@
       "post": "0751"
     },
     {
+      "id": 11,
       "name": "Snapshot: Etchings of Our Cosmic Dreams",
       "type": "Space Exploration Event",
       "version": "At the Wake of Spring",
@@ -1035,6 +1046,7 @@
       "post": "0751"
     },
     {
+      "id": 12,
       "name": "Etchings of Our Cosmic Dreams Sign-In",
       "type": "Space Exploration Event",
       "version": "At the Wake of Spring",
@@ -1051,6 +1063,7 @@
       "post": "0751"
     },
     {
+      "id": 13,
       "name": "AIC Support: Palm-Top Savior",
       "type": "AIC Production Event",
       "version": "At the Wake of Spring",
@@ -1067,6 +1080,7 @@
       "post": "0751"
     },
     {
+      "id": 14,
       "name": "Shimmering Moment",
       "type": "Sign-In Event",
       "version": "At the Wake of Spring",
@@ -1083,6 +1097,7 @@
       "post": "0751"
     },
     {
+      "id": 15,
       "name": "Supply: Wuling Super Chef",
       "type": "Supply Event",
       "version": "At the Wake of Spring",
@@ -1099,6 +1114,7 @@
       "post": "0751"
     },
     {
+      "id": 16,
       "name": "Curious Use of Xiranite",
       "type": "Guide Event",
       "version": "At the Wake of Spring",
@@ -1115,6 +1131,7 @@
       "post": "0751"
     },
     {
+      "id": 17,
       "name": "Search for Sword Vault Dale",
       "type": "Guide Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1131,6 +1148,7 @@
       "post": "0758"
     },
     {
+      "id": 18,
       "name": "One with Her Fists",
       "type": "Sign-In Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1147,6 +1165,7 @@
       "post": "0758"
     },
     {
+      "id": 19,
       "name": "A Fistful of Reflections",
       "type": "Narrative Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1163,6 +1182,7 @@
       "post": "0758"
     },
     {
+      "id": 20,
       "name": "Contingency Readiness",
       "type": "Limited-Time Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1179,6 +1199,7 @@
       "post": "0758"
     },
     {
+      "id": 21,
       "name": "Contingency Contract: Re-Ignition Experimental Operation",
       "type": "Challenge Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1195,6 +1216,7 @@
       "post": "0758"
     },
     {
+      "id": 22,
       "name": "Peacekeeper's Nocturne",
       "type": "Sign-In Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1211,6 +1233,7 @@
       "post": "0758"
     },
     {
+      "id": 23,
       "name": "Danse Macabre",
       "type": "Narrative Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1227,6 +1250,7 @@
       "post": "0758"
     },
     {
+      "id": 24,
       "name": "Carly's Fairytale of Wuling",
       "type": "Camera Event",
       "version": "Sketches of Lost Heirlooms",
@@ -1243,6 +1267,7 @@
       "post": "0758"
     },
     {
+      "id": 25,
       "name": "Tribute of Companionship",
       "type": "Celebration Event",
       "version": "Homecoming",
@@ -1259,6 +1284,7 @@
       "post": "5200"
     },
     {
+      "id": 26,
       "name": "Fortune Connect-and-Win",
       "type": "Celebration Event",
       "version": "Homecoming",
@@ -1275,6 +1301,7 @@
       "post": "5200"
     },
     {
+      "id": 27,
       "name": "Gaze Towards the Northern Exclusion",
       "type": "Guide Event",
       "version": "Homecoming",
@@ -1291,6 +1318,7 @@
       "post": "5200"
     },
     {
+      "id": 28,
       "name": "Gaze North to the Rift",
       "type": "Sign-In Event",
       "version": "Homecoming",
@@ -1307,6 +1335,7 @@
       "post": "5200"
     },
     {
+      "id": 29,
       "name": "HEAT RAGE! MEGA ARENA!",
       "type": "Challenge Event",
       "version": "Homecoming",
@@ -1323,6 +1352,7 @@
       "post": "5200"
     },
     {
+      "id": 30,
       "name": "Sanity Supply",
       "type": "Limited-Time Event",
       "version": "Homecoming",
@@ -1338,6 +1368,7 @@
       "post": "5200"
     },
     {
+      "id": 31,
       "name": "Like a Star Streaking Through the Boundaries",
       "type": "Narrative Event",
       "version": "Homecoming",
@@ -1354,6 +1385,7 @@
       "post": "5200"
     },
     {
+      "id": 32,
       "name": "Bedazzling Dawnstar",
       "type": "Sign-In Event",
       "version": "Homecoming",
@@ -1370,6 +1402,7 @@
       "post": "5200"
     },
     {
+      "id": 33,
       "name": "The Rooted Realm",
       "type": "Fun & Games Event",
       "version": "Homecoming",
@@ -1386,6 +1419,7 @@
       "post": "5200"
     },
     {
+      "id": 34,
       "name": "Sanity Supply",
       "type": "Limited-Time Event",
       "version": "Homecoming",
@@ -1401,6 +1435,7 @@
       "post": "5200"
     },
     {
+      "id": 35,
       "name": "A Winter Dream Fogged Deep in the Woods",
       "type": "Narrative Event",
       "version": "Dreamscape of Wind and Snow",
@@ -1417,6 +1452,7 @@
       "post": "5208"
     },
     {
+      "id": 36,
       "name": "Snow Over Deep Woods",
       "type": "Guide Event",
       "version": "Dreamscape of Wind and Snow",
@@ -1433,6 +1469,7 @@
       "post": "5208"
     },
     {
+      "id": 37,
       "name": "Trial of the Bow",
       "type": "Challenge Event",
       "version": "Dreamscape of Wind and Snow",
@@ -1449,6 +1486,7 @@
       "post": "5208"
     },
     {
+      "id": 38,
       "name": "AIC Support: Chubby Lung Attacks",
       "type": "AIC Production Event",
       "version": "Dreamscape of Wind and Snow",
@@ -1465,6 +1503,7 @@
       "post": "5208"
     },
     {
+      "id": 39,
       "name": "Sanity Supply",
       "type": "Limited-Time Event",
       "version": "Dreamscape of Wind and Snow",
@@ -1480,6 +1519,7 @@
       "post": "5208"
     },
     {
+      "id": 40,
       "name": "Sanity Supply",
       "type": "Limited-Time Event",
       "version": "Dreamscape of Wind and Snow",
@@ -1495,6 +1535,7 @@
       "post": "5208"
     },
     {
+      "id": 41,
       "name": "Yuanyuan's Blazing Stoves",
       "type": "Fun & Games Event",
       "version": "Sanctuary of Ink",
@@ -1509,6 +1550,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/yuanyuan-s-blazing-stoves.webp"
     },
     {
+      "id": 42,
       "name": "Spirit's Restoration",
       "type": "Sign-In Event",
       "version": "Sanctuary of Ink",
@@ -1525,6 +1567,7 @@
       "post": "9560"
     },
     {
+      "id": 43,
       "name": "All the Inky Hues",
       "type": "Guide Event",
       "version": "Sanctuary of Ink",
@@ -1542,6 +1585,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/all-the-inky-hues.webp"
     },
     {
+      "id": 44,
       "name": "Carly's Verdant Anthology",
       "type": "Camera Event",
       "version": "Sanctuary of Ink",
@@ -1559,6 +1603,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/carly-s-verdant-anthology.webp"
     },
     {
+      "id": 45,
       "name": "Contingency Readiness",
       "type": "Limited-Time Event",
       "version": "Sanctuary of Ink",
@@ -1575,6 +1620,7 @@
       "post": "9560"
     },
     {
+      "id": 46,
       "name": "Arena of Games",
       "type": "Challenge Event",
       "version": "Sanctuary of Ink",
@@ -1592,6 +1638,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/arena-of-games.webp"
     },
     {
+      "id": 47,
       "name": "New Era for the Myriad Souls",
       "type": "Fun & Games Event",
       "version": "Sanctuary of Ink",
@@ -1609,6 +1656,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/new-era-for-the-myriad-souls.webp"
     },
     {
+      "id": 48,
       "name": "Back to the Rustics",
       "type": "Narrative Event",
       "version": "Sanctuary of Ink",
@@ -1623,6 +1671,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/back-to-the-rustics.webp"
     },
     {
+      "id": 49,
       "name": "The Stars Are With Me",
       "type": "Sign-In Event",
       "version": "Sanctuary of Ink",
@@ -1636,6 +1685,7 @@
       "post": "9560"
     },
     {
+      "id": 50,
       "name": "Contingency Contract: Indigo Experimental Operation",
       "type": "Challenge Event",
       "version": "Sanctuary of Ink",
@@ -1650,6 +1700,7 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/contingency-contract-indigo-experimental-operation.webp"
     },
     {
+      "id": 51,
       "name": "Sanity Supply",
       "type": "Limited-Time Event",
       "version": "Sanctuary of Ink",

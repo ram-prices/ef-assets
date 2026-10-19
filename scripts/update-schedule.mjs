@@ -387,6 +387,34 @@ function eventsInNotes(post, lines) {
 // Build
 // ---------------------------------------------------------------------------
 
+/**
+ * Stable event numbers (the site's /event/<id> links): an event keeps the id
+ * it had in the last schedule.json, and a new one gets the next free number,
+ * so ids never move or get reused. An event is matched by name, post and which
+ * of that post's same-named windows it is (Sanity Supply runs several times).
+ */
+async function eventIds(events) {
+  let prev = [];
+  try {
+    prev = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8')).events ?? [];
+  } catch {
+    /* first run */
+  }
+  const keys = (list) => {
+    const seen = new Map();
+    return list.map((e) => {
+      const k = `${e.name}|${e.post}`;
+      const n = seen.get(k) ?? 0;
+      seen.set(k, n + 1);
+      return `${k}|${n}`;
+    });
+  };
+  const known = new Map();
+  keys(prev).forEach((k, i) => prev[i].id && known.set(k, prev[i].id));
+  let next = Math.max(0, ...known.values()) + 1;
+  return keys(events).map((k) => known.get(k) ?? next++);
+}
+
 async function build() {
   const list = await loadPostList();
   const posts = [...list].sort((a, b) => Number(a.displayTime) - Number(b.displayTime));
@@ -567,6 +595,7 @@ async function build() {
     events.push({ ...base, start, end, availability: e.avail, ...(start ? {} : { needsReview: true }) });
   }
   events.sort((a, b) => (a.start?.americas ?? Infinity) - (b.start?.americas ?? Infinity));
+  const ids = await eventIds(events);
   for (const e of events) if (!e.start) review.push(`event ${e.name}`);
 
   return {
@@ -580,7 +609,8 @@ async function build() {
         posts: v.posts,
       })),
       banners: out,
-      events: events.map((e) => ({
+      events: events.map((e, i) => ({
+        id: ids[i],
         name: e.name,
         type: e.type,
         version: e.version,
