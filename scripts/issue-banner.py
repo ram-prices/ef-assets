@@ -24,23 +24,25 @@ from PIL import Image
 
 ART = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'issue-art')
 W, H = 1024, 576
+# The official banners put the weapon on the left and their title on the
+# right. The site lays the names over the left of the art instead, so the
+# whole scene (ornaments, weapon, rock) slides right by this much.
+SHIFT = 300
 
 # The ornament layer is the guide's 1693x1006 weapon layout, drawn 1.2x on the
 # banner with its UP glyph at (255, 140) like the official banners.
-ORNAMENTS_AT, ORNAMENTS_SIZE = (-130, 28), (1256, 748)
+ORNAMENTS_AT, ORNAMENTS_SIZE = (-130 + SHIFT, 28), (1256, 748)
 # Its big ARMAMENTS lettering, shadow, and the small glyphs framing it, erased.
 ARMAMENTS = (830, 425, 1610, 720)
 
 # Where the weapon goes on the banner (x0, y0, x1, y1).
-LONG_BOX = (25, 65, 665, 525)      # swords, greatswords, lances
-PISTOL_BOX = (120, 190, 580, 480)
-COMPACT_SIZE, COMPACT_CENTRE = 310, (405, 300)  # arts units
+LONG_BOX = (25 + SHIFT, 65, 665 + SHIFT, 525)      # swords, greatswords, lances
+PISTOL_BOX = (120 + SHIFT, 190, 580 + SHIFT, 480)
+COMPACT_SIZE, COMPACT_CENTRE = 310, (405 + SHIFT, 300)  # arts units
 
 # Turning a wiki render the official way, degrees counter-clockwise: blades
-# hilt top-right, tip down-left; lances butt top-left, head down-right; arts
-# units mirrored. The official banners show guns from their other side,
-# muzzle down-left; the renders have only one side, so guns get the same tilt
-# but point down-right.
+# hilt top-right, tip down-left; lances butt top-left, head down-right; guns
+# tilted muzzle down-left, grip still down; arts units mirrored.
 TURN = {'sword': 135, 'claym': 118, 'lance': -123, 'pistol': 36, 'funnel': 0}
 # Weapons whose official banner shows them mirrored.
 MIRRORED = {'wpn_sword_0022'}  # Lupine Scarlet
@@ -48,10 +50,10 @@ MIRRORED = {'wpn_sword_0022'}  # Lupine Scarlet
 
 def backdrop():
     bg = Image.open(os.path.join(ART, 'background.png')).convert('RGBA')
-    s = 0.74  # puts the rock's peak (1040, 250 in the file) at (360, 140)
+    s = 0.74  # puts the rock's peak (1040, 250 in the file) at (360, 140), then shifted
     bg = bg.resize((round(bg.width * s), round(bg.height * s)), Image.LANCZOS)
     out = Image.new('RGBA', (W, H), (12, 13, 14, 255))
-    out.alpha_composite(bg, (360 - round(1040 * s), 140 - round(250 * s)))
+    out.alpha_composite(bg, (360 + SHIFT - round(1040 * s), 140 - round(250 * s)))
     # The official backdrop is a little darker and cooler.
     out.alpha_composite(Image.new('RGBA', (W, H), (8, 14, 22, 60)))
     return out
@@ -67,7 +69,7 @@ def ornaments():
     layer = Image.fromarray(px.astype(np.uint8), 'RGBA').resize(ORNAMENTS_SIZE, Image.LANCZOS)
     out = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     x, y = ORNAMENTS_AT
-    out.alpha_composite(layer, (0, y), (-x, 0))
+    out.alpha_composite(layer, (max(0, x), y), (max(0, -x), 0))
     return out
 
 
@@ -81,8 +83,6 @@ def orient(weapon, weapon_id):
         weapon = weapon.transpose(Image.FLIP_LEFT_RIGHT)
     if TURN[kind]:
         weapon = trim(weapon.rotate(TURN[kind], expand=True, resample=Image.BICUBIC))
-    if kind == 'pistol':
-        weapon = weapon.transpose(Image.FLIP_LEFT_RIGHT)
     return weapon
 
 
