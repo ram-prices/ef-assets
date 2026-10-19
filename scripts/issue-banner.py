@@ -16,6 +16,7 @@ tip-up, guns pointing left) or, with --guide, the version guide's weapon
 
 Needs Pillow and NumPy.
 """
+import math
 import os
 import sys
 
@@ -39,11 +40,16 @@ ARMAMENTS = (830, 425, 1610, 720)
 LONG_BOX = (25 + SHIFT, 65, 665 + SHIFT, 525)      # swords, greatswords, lances
 PISTOL_BOX = (120 + SHIFT, 190, 580 + SHIFT, 480)
 COMPACT_SIZE, COMPACT_CENTRE = 310, (405 + SHIFT, 300)  # arts units
+# Lances slide this far up-left along their shaft, bringing the head up to
+# the UP ornaments; the butt may leave the banner.
+LANCE_SLIDE = 140
 
 # Turning a wiki render the official way, degrees counter-clockwise: blades
-# hilt top-right, tip down-left; lances butt top-left, head down-right; guns
-# tilted muzzle down-left, grip still down; arts units mirrored.
-TURN = {'sword': 135, 'claym': 118, 'lance': -123, 'pistol': 36, 'funnel': 0}
+# hilt top-right, tip down-left; lances butt top-left, head down-right
+# (33 degrees below level); arts units mirrored. Guns are mirrored to point
+# right, then tilted muzzle up-right, grip down.
+TURN = {'sword': 135, 'claym': 118, 'lance': -123, 'pistol': 30, 'funnel': 0}
+LANCE_ANGLE = math.radians(33)
 # Weapons whose official banner shows them mirrored.
 MIRRORED = {'wpn_sword_0022'}  # Lupine Scarlet
 
@@ -79,7 +85,7 @@ def trim(im):
 
 def orient(weapon, weapon_id):
     kind = weapon_id.split('_')[1]
-    if kind == 'funnel' or weapon_id in MIRRORED:
+    if kind in ('funnel', 'pistol') or weapon_id in MIRRORED:
         weapon = weapon.transpose(Image.FLIP_LEFT_RIGHT)
     if TURN[kind]:
         weapon = trim(weapon.rotate(TURN[kind], expand=True, resample=Image.BICUBIC))
@@ -103,6 +109,8 @@ def banner(weapon_id, render, from_guide=False):
         weapon, at = fit(weapon, (cx - h, cy - h, cx + h, cy + h))
     else:
         weapon, at = fit(weapon, PISTOL_BOX if kind == 'pistol' else LONG_BOX)
+    if kind == 'lance':
+        at = (at[0] - round(LANCE_SLIDE * math.cos(LANCE_ANGLE)), at[1] - round(LANCE_SLIDE * math.sin(LANCE_ANGLE)))
     out = backdrop()
     out.alpha_composite(weapon, at)
     out.alpha_composite(ornaments())  # in front of the weapon, like the official banners
