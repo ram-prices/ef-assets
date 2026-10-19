@@ -1,6 +1,6 @@
-// Builds schedule.json (every banner's dates, rate-ups and version) from the
-// official Arknights: Endfield news feed, and adds newly opened banners to
-// banners.json with their art.
+// Builds schedule.json (every banner's and event's dates, rate-ups and
+// version) from the official Arknights: Endfield news feed, and adds newly
+// opened banners to banners.json with their art.
 //
 //   node scripts/update-schedule.mjs                write schedule.json
 //   node scripts/update-schedule.mjs --dry-run      print it, write nothing
@@ -13,8 +13,9 @@
 //   web-news.gryphline.com/api/bulletin   the news page's posts. Every banner has
 //     a post ("[Rejuvenation] Chartered Headhunting", "[Seal of Jade Issue] LTO
 //     Details", ...) giving its rate-up and availability; each version's
-//     "Version Update Notes" lists all its banners; the post cover is the
-//     banner art used in banners/.
+//     "Version Update Notes" lists all its banners, and under "New Events"
+//     every event with its times; the post cover is the banner art used in
+//     banners/.
 //   ef-webview.gryphline.com/api/content  pool details by pool id, for pools
 //     that are open right now (used only to find a new banner's pool id).
 //
@@ -266,8 +267,8 @@ function parseAvailability(text) {
   let start = null;
   if (/official release/i.test(head)) start = { launch: true };
   else {
-    const v = head.match(/After \[([^\]]+)\] version|Opens after \[([^\]]+)\] version/i);
-    if (v) start = { version: (v[1] ?? v[2]).trim() };
+    const v = head.match(/After \[([^\]]+)\] version|Opens after \[([^\]]+)\] version|Throughout the \[([^\]]+)\] version/i);
+    if (v) start = { version: (v[1] ?? v[2] ?? v[3]).trim() };
     else {
       const [d] = findDates(head);
       if (d) start = { date: d };
@@ -278,12 +279,77 @@ function parseAvailability(text) {
   const same = text.match(/ends at the same time as \[([^\]]+)\]/i);
   if (after) end = { afterChartered: after[1].trim() };
   else if (same) end = { sameAs: same[1].trim() };
-  else if (/Before version update and maintenance/i.test(tail)) end = { nextVersion: true };
+  else if (/Before (?:the next )?version update|Throughout the \[/i.test(text) && !findDates(tail).length) end = { nextVersion: true };
   else {
     const dates = findDates(tail);
     if (dates.length) end = { date: dates[dates.length - 1] };
   }
   return { start, end };
+}
+
+// ---------------------------------------------------------------------------
+// Events
+// ---------------------------------------------------------------------------
+
+/**
+ * "[Arena of Games] Challenge Event" -> {name, type}; "Argent Flow Narrative
+ * Event [Back to the Rustics]" -> name in brackets, type from the words before.
+ * Banners and permanent activities listed among the events are skipped.
+ */
+function eventHead(text) {
+  const m = text.match(/\[([^\]]+)\]/);
+  if (!m) return null;
+  const name = m[1].trim();
+  const rest = (text.slice(0, m.index) + ' ' + text.slice(m.index + m[0].length)).replace(/\s+/g, ' ').trim();
+  if (/Headhunting|^Open$|Permanent Activity/i.test(rest)) return null;
+  // "[Name] Fun & Games Event": everything after the name is the type.
+  // "Argent Flow Narrative Event [Name]": the operator's name comes first.
+  const type = m.index === 0 ? rest || 'Event' : rest.match(/(\S+ Event)$/)?.[1] ?? (rest || 'Event');
+  return { name, type };
+}
+
+/**
+ * Events from a version's notes ("■ New Events"). Each entry has an
+ * "· Event Time:" line, or an empty one followed by per-server windows:
+ *   Asia Server: / <range> [/ <range>] / Americas / Europe Server: / <range>...
+ * Returns [{name, type, version, avail | windows: {americas: [text], asia: [text]}, details}].
+ */
+function eventsInNotes(post, lines) {
+  if (!/Version Update Notes/.test(post.title)) return [];
+  const at = lines.findIndex((l) => /^■ New Events/.test(l));
+  if (at < 0) return [];
+  const version = post.title.match(VERSION_TITLE)?.[1].trim() ?? null;
+  const out = [];
+  let cur = null;
+  let region = null;
+  for (const l of lines.slice(at + 1)) {
+    if (/^■/.test(l) && !/Event Time/i.test(l)) break;
+    const head = l.match(/^\d+\.\s+(.+)$/);
+    if (head) {
+      cur = eventHead(head[1]);
+      region = null;
+      if (cur) out.push(Object.assign(cur, { version, post: post.cid, avail: null, windows: null, details: null }));
+      continue;
+    }
+    if (!cur) continue;
+    const time = l.match(/^[·■] Event (?:Time|Availability):\s*(.*)$/i);
+    if (time) {
+      if (time[1]) cur.avail = time[1];
+      else cur.windows = { americas: [], asia: [] };
+      continue;
+    }
+    const details = l.match(/^· Event Details:\s*(.*)$/);
+    if (details) {
+      cur.details = details[1].length > 220 ? `${details[1].slice(0, 217).trimEnd()}...` : details[1];
+      continue;
+    }
+    if (!cur.windows || /^·/.test(l)) continue;
+    if (/^Americas/i.test(l)) region = 'americas';
+    else if (/^Asia/i.test(l)) region = 'asia';
+    else if (region && findDates(l).length) cur.windows[region].push(l);
+  }
+  // Permanent activities have no dates to show.
+  return out.filter((e) => !/Permanently available/i.test(e.avail ?? ''));
 }
 
 // ---------------------------------------------------------------------------
@@ -295,6 +361,7 @@ async function build() {
   const posts = [...list].sort((a, b) => Number(a.displayTime) - Number(b.displayTime));
   const facts = [];
   const versionParts = [];
+  const eventFacts = [];
   for (const post of posts) {
     const t = post.title;
     const relevant =
@@ -302,6 +369,7 @@ async function build() {
     if (!relevant) continue;
     const lines = await loadPostText(post.cid);
     facts.push(...bannersInPost(post, lines));
+    eventFacts.push(...eventsInNotes(post, lines));
     const v = versionInPost(post, lines);
     if (v) versionParts.push(v);
     const launch = launchInPost(post, lines);
@@ -426,6 +494,39 @@ async function build() {
     };
   });
 
+  // Events: the same rules as banners; per-server windows are taken as given.
+  const events = [];
+  for (const e of eventFacts) {
+    const base = { name: e.name, type: e.type, version: e.version, details: e.details, post: e.post };
+    if (e.windows) {
+      const n = Math.max(e.windows.americas.length, e.windows.asia.length);
+      for (let i = 0; i < n; i++) {
+        const span = {};
+        for (const r of Object.keys(REGIONS)) {
+          const text = e.windows[r][i] ?? e.windows.americas[i] ?? e.windows.asia[i];
+          const [a, b] = findDates(text);
+          span[r] = { start: a ? wallToMs(a, REGIONS[r]) : null, end: b ? wallToMs(b, REGIONS[r]) : null };
+        }
+        const pick = (k) => (span.americas[k] != null && span.asia[k] != null ? { americas: span.americas[k], asia: span.asia[k] } : null);
+        events.push({ ...base, start: pick('start'), end: pick('end') });
+      }
+      continue;
+    }
+    const rule = parseAvailability(e.avail);
+    let start = null;
+    if (rule.start?.date) start = serverTime(rule.start.date);
+    else if (rule.start?.version && versionByName(rule.start.version)?.release != null) start = instant(versionByName(rule.start.version).release);
+    let end = null;
+    if (rule.end?.date) end = serverTime(rule.end.date);
+    else if (rule.end?.nextVersion && start) {
+      const v = nextVersionAfter(start);
+      if (v) end = instant(v.maintenance);
+    }
+    events.push({ ...base, start, end, availability: e.avail, ...(start ? {} : { needsReview: true }) });
+  }
+  events.sort((a, b) => (a.start?.americas ?? Infinity) - (b.start?.americas ?? Infinity));
+  for (const e of events) if (!e.start) review.push(`event ${e.name}`);
+
   return {
     schedule: {
       source: 'https://endfield.gryphline.com/en-us/news (web-news.gryphline.com)',
@@ -437,6 +538,17 @@ async function build() {
         posts: v.posts,
       })),
       banners: out,
+      events: events.map((e) => ({
+        name: e.name,
+        type: e.type,
+        version: e.version,
+        start: isoBoth(e.start),
+        end: isoBoth(e.end),
+        details: e.details,
+        ...(e.availability ? { availability: e.availability } : {}),
+        post: e.post,
+        ...(e.needsReview ? { needsReview: true } : {}),
+      })),
     },
     review,
     db,
@@ -519,7 +631,6 @@ const json = JSON.stringify(schedule, null, 2) + '\n';
 if (DRY) process.stdout.write(json);
 else await writeFile(join(ROOT, 'schedule.json'), json);
 
-const counts = schedule.banners.length;
-console.error(`${counts} banners across ${schedule.versions.length} versions.`);
+console.error(`${schedule.banners.length} banners and ${schedule.events.length} events across ${schedule.versions.length} versions.`);
 if (review.length) console.error(`Needs review: ${review.join(', ')}`);
 if (report) console.error(report.trim());
