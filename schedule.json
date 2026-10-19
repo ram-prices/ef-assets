@@ -1,0 +1,860 @@
+{
+  "source": "https://endfield.gryphline.com/en-us/news (web-news.gryphline.com)",
+  "timeZones": {
+    "americas": "UTC-05:00 (Americas / Europe servers)",
+    "asia": "UTC+08:00 (Asia server)"
+  },
+  "versions": [
+    {
+      "name": "Launch",
+      "release": {
+        "americas": "2026-01-21T22:00:00-05:00",
+        "asia": "2026-01-22T11:00:00+08:00"
+      },
+      "maintenance": null,
+      "posts": [
+        "9574"
+      ]
+    },
+    {
+      "name": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "release": {
+        "americas": "2026-03-11T23:00:00-05:00",
+        "asia": "2026-03-12T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "posts": [
+        "9570",
+        "8907"
+      ]
+    },
+    {
+      "name": "At the Wake of Spring",
+      "release": {
+        "americas": "2026-04-16T23:00:00-05:00",
+        "asia": "2026-04-17T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-04-16T17:00:00-05:00",
+        "asia": "2026-04-17T06:00:00+08:00"
+      },
+      "posts": [
+        "7025",
+        "0751"
+      ]
+    },
+    {
+      "name": "Sketches of Lost Heirlooms",
+      "release": {
+        "americas": "2026-06-04T23:00:00-05:00",
+        "asia": "2026-06-05T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-06-04T17:00:00-05:00",
+        "asia": "2026-06-05T06:00:00+08:00"
+      },
+      "posts": [
+        "8904",
+        "0758"
+      ]
+    },
+    {
+      "name": "Homecoming",
+      "release": {
+        "americas": "2026-07-15T23:00:00-05:00",
+        "asia": "2026-07-16T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-07-15T17:00:00-05:00",
+        "asia": "2026-07-16T06:00:00+08:00"
+      },
+      "posts": [
+        "5201",
+        "5200"
+      ]
+    },
+    {
+      "name": "Dreamscape of Wind and Snow",
+      "release": {
+        "americas": "2026-09-01T23:00:00-05:00",
+        "asia": "2026-09-02T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-09-01T17:00:00-05:00",
+        "asia": "2026-09-02T06:00:00+08:00"
+      },
+      "posts": [
+        "5209",
+        "5208"
+      ]
+    },
+    {
+      "name": "Sanctuary of Ink",
+      "release": {
+        "americas": "2026-10-14T23:00:00-05:00",
+        "asia": "2026-10-15T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-10-14T17:00:00-05:00",
+        "asia": "2026-10-15T06:00:00+08:00"
+      },
+      "posts": [
+        "0744",
+        "9560"
+      ]
+    }
+  ],
+  "banners": [
+    {
+      "name": "Scars of the Forge",
+      "kind": "chartered",
+      "rateUps": [
+        "Laevatain"
+      ],
+      "poolId": "special_1_0_1",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-01-21T22:00:00-05:00",
+        "asia": "2026-01-22T11:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-02-07T11:59:00-05:00",
+        "asia": "2026-02-07T11:59:00+08:00"
+      },
+      "availability": "After start of the official release – Feb. 7, 2026 at 11:59 AM (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260120/b6fe0366fb53bda1b54a1ef2742fa822.jpg",
+      "posts": [
+        "3847"
+      ]
+    },
+    {
+      "name": "Smelting Forge Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Forgeborn Scathe"
+      ],
+      "poolId": "weponbox_1_0_1",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-01-21T22:00:00-05:00",
+        "asia": "2026-01-22T11:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "availability": "Opens upon official release; ends after 3 Chartered Headhunting banners (counting from [Scars of the Forge])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260119/b55f1c2c325cf68f3cf2ebca73960ac0.jpg",
+      "posts": [
+        "5216"
+      ]
+    },
+    {
+      "name": "The Floaty Messenger",
+      "kind": "chartered",
+      "rateUps": [
+        "Gilberta"
+      ],
+      "poolId": "special_1_0_3",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-07T12:00:00-05:00",
+        "asia": "2026-02-07T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-02-24T11:59:00-05:00",
+        "asia": "2026-02-24T11:59:00+08:00"
+      },
+      "availability": "Feb. 7, 2026 at 12:00 – Feb. 24, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260202/218a298600ef5bb8b662041adfa2f187.jpg",
+      "posts": [
+        "7028"
+      ]
+    },
+    {
+      "name": "Express Delivery Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Delivery Guaranteed"
+      ],
+      "poolId": "weponbox_1_0_3",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-07T12:00:00-05:00",
+        "asia": "2026-02-07T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-29T11:59:00-05:00",
+        "asia": "2026-03-29T11:59:00+08:00"
+      },
+      "availability": "Opens Feb. 7, 2026 at 12:00 PM (server time); ends after 3 [Chartered Headhunting] banners (starting from [The Floaty Messenger])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260210/e29de01e5ffb6d1487cb68ec1f9c5727.jpg",
+      "posts": [
+        "0754"
+      ]
+    },
+    {
+      "name": "Hues of Passion",
+      "kind": "chartered",
+      "rateUps": [
+        "Yvonne"
+      ],
+      "poolId": "special_1_0_2",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-24T12:00:00-05:00",
+        "asia": "2026-02-24T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "availability": null,
+      "art": null,
+      "posts": [],
+      "notes": [
+        "No post of its own: dates inferred from [Graffiti Issue]"
+      ],
+      "needsReview": true
+    },
+    {
+      "name": "Graffiti Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Artzy Tyrannical"
+      ],
+      "poolId": "weponbox_1_0_2",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-24T12:00:00-05:00",
+        "asia": "2026-02-24T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-04-16T17:00:00-05:00",
+        "asia": "2026-04-17T06:00:00+08:00"
+      },
+      "availability": "Opens Feb. 24, 2026 at 12:00 PM (server time); ends after 3 [Chartered Headhunting] banners (starting from [Hues of Passion])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260211/0637320092dc0eb87eaa311410c60b85.jpg",
+      "posts": [
+        "8909"
+      ]
+    },
+    {
+      "name": "River's Daughter",
+      "kind": "chartered",
+      "rateUps": [
+        "Tangtang"
+      ],
+      "poolId": "special_1_1_1",
+      "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "start": {
+        "americas": "2026-03-11T23:00:00-05:00",
+        "asia": "2026-03-12T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-29T11:59:00-05:00",
+        "asia": "2026-03-29T11:59:00+08:00"
+      },
+      "availability": "After [Old Deep Water Dies, by Rising Tide It is Denied] version release – Mar. 29, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260310/83e2f066299177bdff5cc143b41bf076.jpg",
+      "posts": [
+        "1338",
+        "8907"
+      ]
+    },
+    {
+      "name": "Budding Anew Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Brigand's Calling"
+      ],
+      "poolId": "weponbox_1_1_1",
+      "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "start": {
+        "americas": "2026-03-11T23:00:00-05:00",
+        "asia": "2026-03-12T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-05-22T11:59:00-05:00",
+        "asia": "2026-05-22T11:59:00+08:00"
+      },
+      "availability": "Opens after [Old Deep Water Dies, by Rising Tide It is Denied] version update, and ends after 3 [Chartered Headhunting] banners (starting from [River's Daughter])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260310/231a8d4885837949eb209f5f09982e61.png",
+      "posts": [
+        "5213",
+        "8907"
+      ]
+    },
+    {
+      "name": "Wolf Pearl",
+      "kind": "chartered",
+      "rateUps": [
+        "Rossi"
+      ],
+      "poolId": "special_1_1_2",
+      "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "start": {
+        "americas": "2026-03-29T12:00:00-05:00",
+        "asia": "2026-03-29T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-04-16T17:00:00-05:00",
+        "asia": "2026-04-17T06:00:00+08:00"
+      },
+      "availability": "Mar. 29, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260326/d13f0d8d040c82c36e756bb10c35bcbc.png",
+      "posts": [
+        "8907",
+        "3843"
+      ]
+    },
+    {
+      "name": "Scarlet Pearl Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Lupine Scarlet"
+      ],
+      "poolId": "weponbox_1_1_2",
+      "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "start": {
+        "americas": "2026-03-29T12:00:00-05:00",
+        "asia": "2026-03-29T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-06-26T11:59:00-05:00",
+        "asia": "2026-06-26T11:59:00+08:00"
+      },
+      "availability": "Opens Mar. 29, 2026 at 12:00 (server time); ends after 3 [Chartered Headhunting] banners (starting from [Wolf Pearl])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260325/646f4a2a5c53898633ec24119a92e834.png",
+      "posts": [
+        "8907",
+        "2660"
+      ]
+    },
+    {
+      "name": "Thunder of Renewal",
+      "kind": "chartered",
+      "rateUps": [
+        "Zhuang Fangyi"
+      ],
+      "poolId": "special_1_2_1",
+      "version": "At the Wake of Spring",
+      "start": {
+        "americas": "2026-04-16T23:00:00-05:00",
+        "asia": "2026-04-17T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-05-22T11:59:00-05:00",
+        "asia": "2026-05-22T11:59:00+08:00"
+      },
+      "availability": "After [At the Wake of Spring] version release – May 22, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260415/a2c29eb120c83c92d086e86df1c1760e.jpg",
+      "posts": [
+        "9579",
+        "0751"
+      ]
+    },
+    {
+      "name": "Drifting Raft Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Lone Barge"
+      ],
+      "poolId": "weponbox_1_2_1",
+      "version": "At the Wake of Spring",
+      "start": {
+        "americas": "2026-04-16T23:00:00-05:00",
+        "asia": "2026-04-17T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-07-15T17:00:00-05:00",
+        "asia": "2026-07-16T06:00:00+08:00"
+      },
+      "availability": "Opens after [At the Wake of Spring] version update, and ends after 3 [Chartered Headhunting] banners (starting from [Thunder of Renewal])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260415/81c09de55f0a8b420b02dfcce368f3bf.jpg",
+      "posts": [
+        "5212",
+        "0751"
+      ]
+    },
+    {
+      "name": "Fest of Brilliance",
+      "kind": "special",
+      "rateUps": [],
+      "poolId": null,
+      "version": "At the Wake of Spring",
+      "start": {
+        "americas": "2026-05-14T12:00:00-05:00",
+        "asia": "2026-05-14T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-06-04T17:00:00-05:00",
+        "asia": "2026-06-05T06:00:00+08:00"
+      },
+      "availability": "May 14, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260508/fc997b32648f9c305a9f53ccfef096c4.jpg",
+      "posts": [
+        "7024"
+      ]
+    },
+    {
+      "name": "Smelting Fire Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Forgeborn Scathe"
+      ],
+      "poolId": null,
+      "version": "At the Wake of Spring",
+      "start": {
+        "americas": "2026-05-14T12:00:00-05:00",
+        "asia": "2026-05-14T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-06-04T17:00:00-05:00",
+        "asia": "2026-06-05T06:00:00+08:00"
+      },
+      "availability": "Opens May 14, 2026 at 12:00 (server time); ends at the same time as [Fest of Brilliance] Special Headhunting.",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260508/2f6a10a3178792fa72cfc1cf7dbc24db.jpg",
+      "posts": [
+        "0751",
+        "2669"
+      ]
+    },
+    {
+      "name": "Swift Walker Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Delivery Guaranteed"
+      ],
+      "poolId": null,
+      "version": "At the Wake of Spring",
+      "start": {
+        "americas": "2026-05-14T12:00:00-05:00",
+        "asia": "2026-05-14T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-06-04T17:00:00-05:00",
+        "asia": "2026-06-05T06:00:00+08:00"
+      },
+      "availability": "Opens May 14, 2026 at 12:00 (server time); ends at the same time as [Fest of Brilliance] Special Headhunting.",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260509/de1036fad914efaa6908cbf394c46916.jpg",
+      "posts": [
+        "0751",
+        "5210"
+      ]
+    },
+    {
+      "name": "Fists of No Regrets",
+      "kind": "chartered",
+      "rateUps": [
+        "Mi Fu"
+      ],
+      "poolId": "special_1_3_1",
+      "version": "Sketches of Lost Heirlooms",
+      "start": {
+        "americas": "2026-06-04T23:00:00-05:00",
+        "asia": "2026-06-05T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-06-26T11:59:00-05:00",
+        "asia": "2026-06-26T11:59:00+08:00"
+      },
+      "availability": "After [Sketches of Lost Heirlooms] version release – June 26, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260602/5a12d7c068f0fe9f774025c1f4f97876.png",
+      "posts": [
+        "0759",
+        "0758"
+      ]
+    },
+    {
+      "name": "Scarlet Knot Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Amaranthine Tassel"
+      ],
+      "poolId": "weponbox_1_3_1",
+      "version": "Sketches of Lost Heirlooms",
+      "start": {
+        "americas": "2026-06-04T23:00:00-05:00",
+        "asia": "2026-06-05T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-08-09T11:59:00-05:00",
+        "asia": "2026-08-09T11:59:00+08:00"
+      },
+      "availability": "Opens after [Sketches of Lost Heirlooms] version update, and ends after 3 [Chartered Headhunting] banners (starting from [Fists of No Regrets])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260602/763f9aa946af94c27361a6addcbd1100.jpg",
+      "posts": [
+        "4492",
+        "0758"
+      ]
+    },
+    {
+      "name": "Expunger of Sin",
+      "kind": "chartered",
+      "rateUps": [
+        "Camille"
+      ],
+      "poolId": "special_1_3_2",
+      "version": "Sketches of Lost Heirlooms",
+      "start": {
+        "americas": "2026-06-26T12:00:00-05:00",
+        "asia": "2026-06-26T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-07-15T17:00:00-05:00",
+        "asia": "2026-07-16T06:00:00+08:00"
+      },
+      "availability": "June 26, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260623/94a24581d688ef409392c8c5acc72ee4.jpg",
+      "posts": [
+        "0758",
+        "6175"
+      ]
+    },
+    {
+      "name": "Crimson Hued Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Blessing of Lustrous Carmine"
+      ],
+      "poolId": "weponbox_1_3_2",
+      "version": "Sketches of Lost Heirlooms",
+      "start": {
+        "americas": "2026-06-26T12:00:00-05:00",
+        "asia": "2026-06-26T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-09-01T17:00:00-05:00",
+        "asia": "2026-09-02T06:00:00+08:00"
+      },
+      "availability": "Opens June 26, 2026 at 12:00 (server time), and ends after 3 [Chartered Headhunting] banners (starting from [Expunger of Sin])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260623/8a718964566924b548a48277f5d9a081.jpg",
+      "posts": [
+        "0758",
+        "1321"
+      ]
+    },
+    {
+      "name": "North Yearns the Rift Vigile",
+      "kind": "chartered",
+      "rateUps": [
+        "Arcane"
+      ],
+      "poolId": "special_1_4_1",
+      "version": "Homecoming",
+      "start": {
+        "americas": "2026-07-15T23:00:00-05:00",
+        "asia": "2026-07-16T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-08-09T11:59:00-05:00",
+        "asia": "2026-08-09T11:59:00+08:00"
+      },
+      "availability": "After [Homecoming] version release – Aug. 9, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260713/a1e1b78eb8dc250d3e5b5820a5da71c0.jpg",
+      "posts": [
+        "2656",
+        "5200"
+      ]
+    },
+    {
+      "name": "Military Grade Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Type 42: Solemn Phalanx"
+      ],
+      "poolId": "weponbox_1_4_1",
+      "version": "Homecoming",
+      "start": {
+        "americas": "2026-07-15T23:00:00-05:00",
+        "asia": "2026-07-16T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-09-30T11:59:00-05:00",
+        "asia": "2026-09-30T11:59:00+08:00"
+      },
+      "availability": "Opens after [Homecoming] version update; ends after 3 [Chartered Headhunting] banners (starting from [North Yearns the Rift Vigile])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260714/1e6ccbede4be9ed21035ca0f017ab174.jpg",
+      "posts": [
+        "6174",
+        "5200"
+      ]
+    },
+    {
+      "name": "Good Morning from Your Dawnstar",
+      "kind": "chartered",
+      "rateUps": [
+        "Liino"
+      ],
+      "poolId": "special_1_4_2",
+      "version": "Homecoming",
+      "start": {
+        "americas": "2026-08-09T12:00:00-05:00",
+        "asia": "2026-08-09T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-09-01T17:00:00-05:00",
+        "asia": "2026-09-02T06:00:00+08:00"
+      },
+      "availability": "Aug. 9, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260805/1dd8dfffe67309c7d649d6b44ca7dfc2.jpg",
+      "posts": [
+        "5200",
+        "3831"
+      ]
+    },
+    {
+      "name": "Bedazzled Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Bedazzling Night Debut"
+      ],
+      "poolId": "weponbox_1_4_2",
+      "version": "Homecoming",
+      "start": {
+        "americas": "2026-08-09T12:00:00-05:00",
+        "asia": "2026-08-09T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-11-05T11:59:00-05:00",
+        "asia": "2026-11-05T11:59:00+08:00"
+      },
+      "availability": "Opens Aug. 9, 2026 at 12:00 (server time); ends after 3 [Chartered Headhunting] banners (starting from [Good Morning from Your Dawnstar])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260804/87773df611d5a2dec9628d792997c528.jpg",
+      "posts": [
+        "5200",
+        "9564"
+      ]
+    },
+    {
+      "name": "Winter Hunt",
+      "kind": "chartered",
+      "rateUps": [
+        "Typhoeus"
+      ],
+      "poolId": "special_1_5_1",
+      "version": "Dreamscape of Wind and Snow",
+      "start": {
+        "americas": "2026-09-01T23:00:00-05:00",
+        "asia": "2026-09-02T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-09-30T11:59:00-05:00",
+        "asia": "2026-09-30T11:59:00+08:00"
+      },
+      "availability": "After [Dreamscape of Wind and Snow] version release – Sept. 30, 2026, 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260831/9937940f4ed675d8a78f2c640f23819f.jpg",
+      "posts": [
+        "6172",
+        "5208"
+      ]
+    },
+    {
+      "name": "Deep Cold Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Umbra of Frigid Eventide"
+      ],
+      "poolId": "weponbox_1_5_1",
+      "version": "Dreamscape of Wind and Snow",
+      "start": {
+        "americas": "2026-09-01T23:00:00-05:00",
+        "asia": "2026-09-02T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Opens after [Dreamscape of Wind and Snow] version update; ends after 3 [Chartered Headhunting] banners (starting from [Winter Hunt])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260831/9ad5ba1516db578d6900bda6fc9aed0e.jpg",
+      "posts": [
+        "4480",
+        "5208"
+      ],
+      "notes": [
+        "Ends with the 3rd Chartered banner from [Winter Hunt] (not announced yet)"
+      ]
+    },
+    {
+      "name": "Resplendent Spectrum",
+      "kind": "refactor",
+      "rateUps": [
+        "Yvonne"
+      ],
+      "poolId": null,
+      "version": "Dreamscape of Wind and Snow",
+      "start": {
+        "americas": "2026-09-24T12:00:00-05:00",
+        "asia": "2026-09-24T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-10-14T17:00:00-05:00",
+        "asia": "2026-10-15T06:00:00+08:00"
+      },
+      "availability": "Sept. 24, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260922/8e90c45ea77f1a1f092e5e7a718ae493.jpg",
+      "posts": [
+        "5208",
+        "3839"
+      ]
+    },
+    {
+      "name": "Tag Artist Issue",
+      "kind": "refactorIssue",
+      "rateUps": [
+        "Artzy Tyrannical"
+      ],
+      "poolId": null,
+      "version": "Dreamscape of Wind and Snow",
+      "start": {
+        "americas": "2026-09-24T12:00:00-05:00",
+        "asia": "2026-09-24T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-10-14T17:00:00-05:00",
+        "asia": "2026-10-15T06:00:00+08:00"
+      },
+      "availability": "Sept. 24, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://web-static.hg-cdn.com/upload/image/20260922/8e90c45ea77f1a1f092e5e7a718ae493.jpg",
+      "posts": [
+        "5208",
+        "3839"
+      ]
+    },
+    {
+      "name": "Rejuvenation",
+      "kind": "chartered",
+      "rateUps": [
+        "Si"
+      ],
+      "poolId": "special_1_6_1",
+      "version": "Sanctuary of Ink",
+      "start": {
+        "americas": "2026-10-14T23:00:00-05:00",
+        "asia": "2026-10-15T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-11-05T11:59:00-05:00",
+        "asia": "2026-11-05T11:59:00+08:00"
+      },
+      "availability": "After [Sanctuary of Ink] version update – Nov. 5, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20261012/c9e7aee99096e8ddc164a35c095762d7.jpg",
+      "posts": [
+        "4489",
+        "9560"
+      ]
+    },
+    {
+      "name": "Seal of Jade Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Jade Vessel"
+      ],
+      "poolId": "weponbox_1_6_1",
+      "version": "Sanctuary of Ink",
+      "start": {
+        "americas": "2026-10-14T23:00:00-05:00",
+        "asia": "2026-10-15T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Opens after [Sanctuary of Ink] version update; ends after 3 [Chartered Headhunting] banners (starting from [Rejuvenation])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20261012/ae4a0d5301f2ecd124be805ebd31d30f.jpg",
+      "posts": [
+        "2652",
+        "9560"
+      ],
+      "notes": [
+        "Ends with the 3rd Chartered banner from [Rejuvenation] (not announced yet)"
+      ]
+    },
+    {
+      "name": "Ancestral Spring Flows Anew",
+      "kind": "refactor",
+      "rateUps": [
+        "Tangtang"
+      ],
+      "poolId": null,
+      "version": "Sanctuary of Ink",
+      "start": {
+        "americas": "2026-10-29T12:00:00-05:00",
+        "asia": "2026-10-29T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-11-19T11:59:00-05:00",
+        "asia": "2026-11-19T11:59:00+08:00"
+      },
+      "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 11:59 (server time)",
+      "art": null,
+      "posts": [
+        "9560"
+      ]
+    },
+    {
+      "name": "Tender Sprig Issue",
+      "kind": "refactorIssue",
+      "rateUps": [
+        "Brigand's Calling"
+      ],
+      "poolId": null,
+      "version": "Sanctuary of Ink",
+      "start": {
+        "americas": "2026-10-29T12:00:00-05:00",
+        "asia": "2026-10-29T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-11-19T11:59:00-05:00",
+        "asia": "2026-11-19T11:59:00+08:00"
+      },
+      "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 11:59 (server time)",
+      "art": null,
+      "posts": [
+        "9560"
+      ]
+    },
+    {
+      "name": "The Hearth Fire Beckons the Starry Flow",
+      "kind": "chartered",
+      "rateUps": [
+        "Argent Flow"
+      ],
+      "poolId": null,
+      "version": "Sanctuary of Ink",
+      "start": {
+        "americas": "2026-11-05T12:00:00-05:00",
+        "asia": "2026-11-05T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": null,
+      "posts": [
+        "9560"
+      ],
+      "notes": [
+        "Ends at the next version update (not announced yet)"
+      ]
+    },
+    {
+      "name": "Moongleam Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Lunar Calling"
+      ],
+      "poolId": null,
+      "version": "Sanctuary of Ink",
+      "start": {
+        "americas": "2026-11-05T12:00:00-05:00",
+        "asia": "2026-11-05T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Opens Nov. 5, 2026 at 12:00 (server time); ends after 3 [Chartered Headhunting] banners (starting from [The Hearth Fire Beckons the Starry Flow])",
+      "art": null,
+      "posts": [
+        "9560"
+      ],
+      "notes": [
+        "Ends with the 3rd Chartered banner from [The Hearth Fire Beckons the Starry Flow] (not announced yet)"
+      ]
+    }
+  ]
+}

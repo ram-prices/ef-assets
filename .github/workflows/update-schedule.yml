@@ -1,0 +1,56 @@
+name: Update banner schedule
+
+# Reads the official news feed into schedule.json, and adds banners that have
+# opened since the last run to banners.json (with their art). Changes arrive as
+# a pull request to review; nothing is pushed to main directly.
+#
+# Banners are announced about a day before they open and run for weeks, so
+# every three days is plenty. Run it by hand from the Actions tab any time.
+on:
+  schedule:
+    - cron: '17 5 */3 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: update-schedule
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Update schedule.json and banners.json
+        # GitHub's bash runs with pipefail, so a failing script still fails the job.
+        run: node scripts/update-schedule.mjs --find-pools 2>&1 | tee report.txt
+      - name: Write the pull request text
+        run: |
+          {
+            echo 'Automated update from the official news feed (web-news.gryphline.com).'
+            echo
+            echo '```'
+            cat report.txt
+            echo '```'
+            echo
+            echo 'Check any entry marked `needsReview` in schedule.json before merging.'
+          } > pr-body.md
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automated/update-schedule
+          commit-message: Update banner schedule from the official news feed
+          title: Update banner schedule
+          body-path: pr-body.md
+          add-paths: |
+            schedule.json
+            banners.json
+            banners/*.webp
+          delete-branch: true

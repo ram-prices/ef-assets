@@ -1,0 +1,12 @@
+{
+  "name": "ef-assets",
+  "private": true,
+  "type": "module",
+  "description": "Banner data and art for ItJustLogs. scripts/update-schedule.mjs keeps schedule.json and banners.json current.",
+  "scripts": {
+    "schedule": "node scripts/update-schedule.mjs --find-pools"
+  },
+  "dependencies": {
+    "sharp": "0.34.4"
+  }
+}
