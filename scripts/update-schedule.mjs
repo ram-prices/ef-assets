@@ -20,6 +20,10 @@
 //     scripts/issue-banner.py from the weapon's full render.
 //   ef-webview.gryphline.com/api/content  pool details by pool id, for pools
 //     that are open right now (used only to find a new banner's pool id).
+//   endfield.gryphline.com/version_briefing/latest  the official New Version
+//     Guide. It is up from each version's preview until the next one's and
+//     replaced every version, so each run saves its events' art to
+//     events/<event>.webp; schedule.json links the ones it has.
 //
 // Times: banner dates are "server time", i.e. local time on each server
 // (Americas/Europe UTC-5, Asia UTC+8), so the same date opens 13 hours apart.
@@ -42,6 +46,8 @@ const FIND_POOLS = args.includes('--find-pools');
 const CACHE = args.includes('--cache') ? args[args.indexOf('--cache') + 1] : null;
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const ISSUE_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues';
+const EVENT_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/events';
+const GUIDE = 'https://endfield.gryphline.com/version_briefing/latest';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -154,6 +160,11 @@ const isIssue = (b) => b.kind === 'issue' || b.kind === 'refactorIssue';
 function issueArt(b) {
   const file = isIssue(b) && b.rateUps[0] ? `${slug(b.rateUps[0])}.webp` : null;
   return file && existsSync(join(ROOT, 'issues', file)) ? file : null;
+}
+/** events/<event>.webp's URL, when the guide gave the event art. */
+function eventArt(name) {
+  const file = `${slug(name)}.webp`;
+  return existsSync(join(ROOT, 'events', file)) ? `${EVENT_ART}/${file}` : null;
 }
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const stripType = (s) => s.replace(/\s*\([^)]*\)\s*$/, '').trim(); // "Jade Vessel (Greatsword)" -> "Jade Vessel"
@@ -507,7 +518,7 @@ async function build() {
   // Events: the same rules as banners; per-server windows are taken as given.
   const events = [];
   for (const e of eventFacts) {
-    const base = { name: e.name, type: e.type, version: e.version, details: e.details, post: e.post };
+    const base = { name: e.name, type: e.type, version: e.version, details: e.details, post: e.post, art: eventArt(e.name) };
     if (e.windows) {
       const n = Math.max(e.windows.americas.length, e.windows.asia.length);
       for (let i = 0; i < n; i++) {
@@ -557,6 +568,7 @@ async function build() {
         details: e.details,
         ...(e.availability ? { availability: e.availability } : {}),
         post: e.post,
+        ...(e.art ? { art: e.art } : {}),
         ...(e.needsReview ? { needsReview: true } : {}),
       })),
     },
@@ -620,6 +632,56 @@ async function findPools(schedule, db) {
   return { added, missingIcons };
 }
 
+// ---------------------------------------------------------------------------
+// The New Version Guide's event art
+// ---------------------------------------------------------------------------
+
+/** A JS string literal's contents, unescaped (\', \xNN, \uNNNN). */
+const unescapeJs = (s) =>
+  s.replace(/\\(?:x([0-9a-fA-F]{2})|u([0-9a-fA-F]{4})|(.))/g, (_, x, u, c) => (x || u ? String.fromCharCode(parseInt(x || u, 16)) : c));
+
+/**
+ * Saves the art of every event in the current guide that events/ doesn't
+ * have yet. The guide is a script bundle: each event card is an entry
+ * {"id":..,"name":{.."en-us":..},..} whose media name an asset key
+ * ("gameplay.2.visual"), and an asset table maps keys to files. Only reads
+ * the bundle as text; nothing in it is run.
+ */
+async function saveGuideEventArt() {
+  const page = await fetch(GUIDE, { headers: UA, signal: AbortSignal.timeout(20000) }).then((r) => r.text());
+  const script = page.match(/<script[^>]+src="(https:\/\/[^"]+\/_version_briefing\/[^"]+\.js)"/)?.[1];
+  if (!script) throw new Error('no guide script on the page');
+  const bundle = await fetch(script, { headers: UA, signal: AbortSignal.timeout(30000) }).then((r) => r.text());
+  const base = script.slice(0, script.lastIndexOf('/') + 1);
+  const assets = Object.fromEntries([...bundle.matchAll(/"((?:gameplay|story)\.\d+\.visual)":\w+\.p\+"(assets\/[^"]+)"/g)].map((m) => [m[1], m[2]]));
+  const entry = /\{"id":"[^"]+","name":\{/g;
+  const saved = [];
+  await mkdir(join(ROOT, 'events'), { recursive: true });
+  for (const m of bundle.matchAll(/"assetKey":"((?:gameplay|story)\.\d+)\.visual"/g)) {
+    // The card is the last named entry before its media.
+    let start = -1;
+    entry.lastIndex = Math.max(0, m.index - 30000);
+    for (let e; (e = entry.exec(bundle)) && e.index < m.index; ) start = e.index;
+    const name = start < 0 ? null : bundle.slice(start, start + 3000).match(/"en-us":"((?:[^"\\]|\\.)*)"/)?.[1];
+    const file = assets[`${m[1]}.visual`];
+    if (!name || !file) continue;
+    const out = join(ROOT, 'events', `${slug(unescapeJs(name))}.webp`);
+    if (existsSync(out)) continue;
+    if (!DRY) await saveEventArt(base + file, out);
+    saved.push(unescapeJs(name));
+  }
+  return saved;
+}
+
+/** 640px wide webp, transparent parts on the site's dark background. */
+async function saveEventArt(url, file) {
+  const sharp = (await import('sharp')).default;
+  const res = await fetch(url, { headers: UA, signal: AbortSignal.timeout(30000) });
+  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  await sharp(buf).flatten({ background: '#0b0c0e' }).resize({ width: 640 }).webp({ quality: 80 }).toFile(file);
+}
+
 /** The post cover, 1024x576 webp like the rest of banners/. */
 async function saveArt(url, file) {
   const sharp = (await import('sharp')).default;
@@ -630,8 +692,16 @@ async function saveArt(url, file) {
 
 // ---------------------------------------------------------------------------
 
-const { schedule, review, db } = await build();
+// Event art first, so this run's schedule.json already links it. The guide is
+// a bonus: if it can't be read, the schedule still updates.
 let report = '';
+try {
+  for (const name of await saveGuideEventArt()) report += `Saved event art: ${name}\n`;
+} catch (e) {
+  report += `Could not read the version guide: ${e.message}\n`;
+}
+
+const { schedule, review, db } = await build();
 if (FIND_POOLS) {
   const { added, missingIcons } = await findPools(schedule, db);
   for (const a of added) report += a.poolId ? `Added ${a.name} as ${a.poolId}\n` : `Could not find the pool id of ${a.name}\n`;

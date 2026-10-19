@@ -1,7 +1,8 @@
 name: Update banner schedule
 
-# Reads the official news feed into schedule.json, and adds banners that have
-# opened since the last run to banners.json (with their art). Changes arrive as
+# Reads the official news feed into schedule.json, adds banners that have
+# opened since the last run to banners.json (with their art), and saves the
+# event art from the current New Version Guide to events/. Changes arrive as
 # a pull request to review; nothing is pushed to main directly.
 #
 # Banners are announced about a day before they open and run for weeks, so
@@ -53,4 +54,5 @@ jobs:
             schedule.json
             banners.json
             banners/*.webp
+            events/*.webp
           delete-branch: true

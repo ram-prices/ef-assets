@@ -1505,7 +1505,8 @@
       "end": null,
       "details": "Visit the [Si's Painting] area in [Wuling], manage [Yuanyuan Manor Inn], complete the corresponding Session Tasks, and increase your Inn Milestones to claim rewards including [Oroberyl]×1000 and [Mark of Perseverance].",
       "availability": "After [Sanctuary of Ink] version update – Before the next version update and maintenance",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/yuanyuan-s-blazing-stoves.webp"
     },
     {
       "name": "Spirit's Restoration",
@@ -1537,7 +1538,8 @@
       },
       "details": "Visit the [Si's Painting] area in the region of [Wuling] and complete specified missions to earn event rewards such as [Oroberyl]×1200 and [Mark of Perseverance].",
       "availability": "After [Sanctuary of Ink] version update – Nov. 5, 2026 at 12:00 (server time)",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/all-the-inky-hues.webp"
     },
     {
       "name": "Carly's Verdant Anthology",
@@ -1553,7 +1555,8 @@
       },
       "details": "Complete camera missions to earn event rewards that include: [Oroberyl]×1500, [Portrait Frame: Carly's Verdant Anthology], [Mark of Perseverance].",
       "availability": "Oct. 22, 2026 at 12:00 – Nov. 5, 2026 at 04:00 (server time)",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/carly-s-verdant-anthology.webp"
     },
     {
       "name": "Contingency Readiness",
@@ -1585,7 +1588,8 @@
       },
       "details": "During the event, take on [Arena of Games] challenges to earn Arena Points. Reach every tier in [Arena Milestone] to earn rewards including [Oroberyl]×1200 and [Mark of Perseverance].",
       "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 04:00 (server time)",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/arena-of-games.webp"
     },
     {
       "name": "New Era for the Myriad Souls",
@@ -1601,7 +1605,8 @@
       },
       "details": "Visit the event page, then add actors and props to complete a story shoot, unlock different endings, and claim rewards such as [Oroberyl]×300 and [T-Creds].",
       "availability": "Oct. 31, 2026 at 12:00 – Nov. 14, 2026 at 04:00 (server time)",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/new-era-for-the-myriad-souls.webp"
     },
     {
       "name": "Back to the Rustics",
@@ -1614,7 +1619,8 @@
       "end": null,
       "details": "Complete the side mission [Back to the Rustics] to earn [Oroberyl]×600, [Elementary Cognitive Carrier], and other rewards.",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/back-to-the-rustics.webp"
     },
     {
       "name": "The Stars Are With Me",
@@ -1640,7 +1646,8 @@
       "end": null,
       "details": "During the event, you can select any combination of Test Criteria for the challenge, and try to complete it. Complete event missions to earn rewards such as [Portrait: Silverblade Medal], [Portrait Frame: Contingency...",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "9560"
+      "post": "9560",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/contingency-contract-indigo-experimental-operation.webp"
     },
     {
       "name": "Sanity Supply",
