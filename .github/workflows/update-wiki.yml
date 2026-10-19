@@ -27,6 +27,12 @@ jobs:
       # No npm ci: the script only uses Node's built-ins.
       - name: Update wiki/*.json
         run: node scripts/update-wiki.mjs 2>&1 | tee report.txt
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install pillow
+      - name: Icons for new gear
+        run: python scripts/gear-icons.py 2>&1 | tee -a report.txt
       - name: Write the pull request text
         run: |
           {
@@ -44,4 +50,5 @@ jobs:
           body-path: pr-body.md
           add-paths: |
             wiki/*.json
+            gear/*.webp
           delete-branch: true

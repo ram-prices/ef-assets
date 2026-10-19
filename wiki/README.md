@@ -21,4 +21,5 @@ The wiki's content is licensed under
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). These files
 are derived from it and are shared under the same license; each carries an
 `attribution` block. Credit "endfield.wiki.gg" wherever the data is shown.
-No wiki images are copied.
+No wiki images are copied into these files; gear icons (`gear/<item id>.webp`)
+are fetched separately by `scripts/gear-icons.py`.

@@ -20,8 +20,9 @@
 // The Cargo Abilities table is skipped: it only covers a handful of skills.
 //
 // Wiki content is CC BY-SA 4.0, so every file carries an `attribution` block
-// and the derived data is under the same license. No images are copied: the
-// site uses ef-assets' own operators/ and arsenals/ art.
+// and the derived data is under the same license. No images are copied here:
+// the site uses ef-assets' own operators/ and arsenals/ art, and gear icons
+// come from scripts/gear-icons.py.
 //
 // Text fields use a small markup instead of HTML so the site can escape them:
 //   **bold**    ⟦class|text⟧ (highlight; class is num, key, phys, heat, cryo,
