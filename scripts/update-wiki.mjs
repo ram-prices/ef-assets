@@ -173,7 +173,14 @@ const hl = (cls, s) => {
 /** Wikitext → plain text with the **bold** / ⟦class|text⟧ / \n markup. */
 function text(src) {
   if (!src) return '';
-  let s = decode(src).replace(/<!--[\s\S]*?-->/g, '');
+  // Glossary terms (<span class="glossary" data-desc="...HTML...">Term</span>)
+  // become highlights and other spans lose their attributes first: the HTML
+  // inside data-desc would otherwise end the tag early, leaking its text.
+  const open = `<span\\b(?:[^>"']|"[^"]*"|'[^']*')*>`;
+  const raw = src
+    .replace(new RegExp(`(${open})([^<]*)</span>`, 'gi'), (m, tag, t) => (/class="glossary"/.test(tag) ? hl('key', t) : m))
+    .replace(new RegExp(open, 'gi'), '<span>');
+  let s = decode(raw).replace(/<!--[\s\S]*?-->/g, '');
   // Templates, innermost first.
   for (let guard = 0; guard < 50 && s.includes('{{'); guard++) {
     s = s.replace(/\{\{([^{}]*)\}\}/g, (call) => {
