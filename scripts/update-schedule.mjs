@@ -15,7 +15,9 @@
 //     Details", ...) giving its rate-up and availability; each version's
 //     "Version Update Notes" lists all its banners, and under "New Events"
 //     every event with its times; the post cover is the banner art used in
-//     banners/.
+//     banners/, except for Arsenal Issues: their covers print the names into
+//     the art, so they get issues/<weapon>.webp instead, made with
+//     scripts/issue-banner.py from the weapon's full render.
 //   ef-webview.gryphline.com/api/content  pool details by pool id, for pools
 //     that are open right now (used only to find a new banner's pool id).
 //
@@ -24,7 +26,7 @@
 // Version updates happen at one instant on both. Every time in schedule.json is
 // given for both servers as ISO strings with their offset.
 
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -39,6 +41,7 @@ const DRY = args.includes('--dry-run');
 const FIND_POOLS = args.includes('--find-pools');
 const CACHE = args.includes('--cache') ? args[args.indexOf('--cache') + 1] : null;
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+const ISSUE_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -145,6 +148,13 @@ const isoBoth = (time) => (time ? Object.fromEntries(Object.entries(REGIONS).map
 // Reading posts
 // ---------------------------------------------------------------------------
 
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const isIssue = (b) => b.kind === 'issue' || b.kind === 'refactorIssue';
+/** The file name of an Arsenal Issue's issues/<weapon>.webp, when one has been made. */
+function issueArt(b) {
+  const file = isIssue(b) && b.rateUps[0] ? `${slug(b.rateUps[0])}.webp` : null;
+  return file && existsSync(join(ROOT, 'issues', file)) ? file : null;
+}
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const stripType = (s) => s.replace(/\s*\([^)]*\)\s*$/, '').trim(); // "Jade Vessel (Greatsword)" -> "Jade Vessel"
 
@@ -487,7 +497,7 @@ async function build() {
       start: isoBoth(b.start),
       end: isoBoth(b.end),
       availability: b.avail,
-      art: b.cover,
+      art: issueArt(b) ? `${ISSUE_ART}/${issueArt(b)}` : b.cover,
       posts: b.posts,
       ...(notes.length ? { notes } : {}),
       ...(unresolved || b.inferredFrom ? { needsReview: true } : {}),
@@ -598,7 +608,9 @@ async function findPools(schedule, db) {
     const ids = b.rateUps.map((n) => all.find((x) => norm(x.name) === norm(n))?.id).filter(Boolean);
     db[found.id] = { name: b.name, rateUpIds: ids, rateupName: b.rateUps, type: b.kind === 'issue' ? 'Weapon' : 'Special' };
     b.poolId = found.id;
-    if (b.art && !DRY) await saveArt(b.art, join(ROOT, 'banners', `${found.id}.webp`));
+    const file = join(ROOT, 'banners', `${found.id}.webp`);
+    if (!DRY && issueArt(b)) await copyFile(join(ROOT, 'issues', issueArt(b)), file);
+    else if (b.art && !DRY) await saveArt(b.art, file);
     for (const id of ids) {
       const dir = id.startsWith('wpn_') ? 'arsenals' : 'operators';
       if (!existsSync(join(ROOT, dir, `${id}.webp`))) missingIcons.push(`${dir}/${id}.webp`);
@@ -625,6 +637,10 @@ if (FIND_POOLS) {
   for (const a of added) report += a.poolId ? `Added ${a.name} as ${a.poolId}\n` : `Could not find the pool id of ${a.name}\n`;
   for (const m of missingIcons) report += `Needs an icon: ${m}\n`;
   if (!DRY && added.some((a) => a.poolId)) await writeFile(join(ROOT, 'banners.json'), JSON.stringify(db, null, 2) + '\n');
+}
+// Issues still showing their official cover, names printed in the art.
+for (const b of schedule.banners) {
+  if (isIssue(b) && b.rateUps[0] && !issueArt(b)) report += `Needs an Issue banner: issues/${slug(b.rateUps[0])}.webp (scripts/issue-banner.py)\n`;
 }
 
 const json = JSON.stringify(schedule, null, 2) + '\n';
