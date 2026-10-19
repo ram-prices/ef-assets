@@ -42,8 +42,11 @@ RULE_ROWS = (264, 346)
 
 # Where the weapon goes on the banner (x0, y0, x1, y1).
 LONG_BOX = (25 + SHIFT, 65, 665 + SHIFT, 525)      # swords, greatswords, lances
-PISTOL_BOX = (120 + SHIFT, 190, 580 + SHIFT, 480)
+PISTOL_BOX = (180 + SHIFT, 130, 640 + SHIFT, 420)  # just below-right of UP, where its arrows point
 COMPACT_SIZE, COMPACT_CENTRE = 310, (405 + SHIFT, 300)  # arts units
+# Solid arts units look bigger than spiky ones in the same box, so they
+# shrink until their opaque area matches Delivery Guaranteed's.
+COMPACT_AREA = 42_000
 # Lances slide this far up-left along their shaft, bringing the head up to
 # the UP ornaments; the butt may leave the banner.
 LANCE_SLIDE = 140
@@ -117,6 +120,10 @@ def banner(weapon_id, render, from_guide=False):
     if kind == 'funnel':
         (cx, cy), h = COMPACT_CENTRE, COMPACT_SIZE // 2
         weapon, at = fit(weapon, (cx - h, cy - h, cx + h, cy + h))
+        area = weapon.getchannel('A').point(lambda a: 255 if a > 128 else 0).histogram()[255]
+        if area > COMPACT_AREA:
+            h = round(h * (COMPACT_AREA / area) ** 0.5)
+            weapon, at = fit(weapon, (cx - h, cy - h, cx + h, cy + h))
     else:
         weapon, at = fit(weapon, PISTOL_BOX if kind == 'pistol' else LONG_BOX)
     if kind == 'lance':
