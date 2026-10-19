@@ -35,6 +35,10 @@ SHIFT = 300
 ORNAMENTS_AT, ORNAMENTS_SIZE = (-130 + SHIFT, 28), (1256, 748)
 # Its big ARMAMENTS lettering, shadow, and the small glyphs framing it, erased.
 ARMAMENTS = (830, 425, 1610, 720)
+# The dotted rule across the banner and its small code marks (rows of the
+# layout file). It stays where the official banners have it, spanning the
+# width, instead of sliding right with the rest.
+RULE_ROWS = (264, 346)
 
 # Where the weapon goes on the banner (x0, y0, x1, y1).
 LONG_BOX = (25 + SHIFT, 65, 665 + SHIFT, 525)      # swords, greatswords, lances
@@ -72,10 +76,16 @@ def ornaments():
     px = np.asarray(layer).astype(np.float32)
     coloured = (px[..., :3].max(axis=2) - px[..., :3].min(axis=2)) > 80
     px[..., 3] = np.where(coloured, np.minimum(255, px[..., 3] * 2.4), px[..., 3])
-    layer = Image.fromarray(px.astype(np.uint8), 'RGBA').resize(ORNAMENTS_SIZE, Image.LANCZOS)
+    layer = Image.fromarray(px.astype(np.uint8), 'RGBA')
+    rule = Image.new('RGBA', layer.size, (0, 0, 0, 0))
+    band = (0, RULE_ROWS[0], layer.width, RULE_ROWS[1])
+    rule.paste(layer.crop(band), band[:2])
+    layer.paste((0, 0, 0, 0), band)
     out = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     x, y = ORNAMENTS_AT
-    out.alpha_composite(layer, (max(0, x), y), (max(0, -x), 0))
+    for part, px_ in ((layer, x), (rule, x - SHIFT)):
+        part = part.resize(ORNAMENTS_SIZE, Image.LANCZOS)
+        out.alpha_composite(part, (max(0, px_), y), (max(0, -px_), 0))
     return out
 
 
