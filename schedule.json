@@ -785,7 +785,7 @@
         "asia": "2026-11-19T11:59:00+08:00"
       },
       "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 11:59 (server time)",
-      "art": null,
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/banners/special_1_1_1.webp",
       "posts": [
         "9560"
       ]
@@ -826,7 +826,7 @@
       },
       "end": null,
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "art": null,
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/previews/the-hearth-fire-beckons-the-starry-flow.webp",
       "posts": [
         "9560"
       ],

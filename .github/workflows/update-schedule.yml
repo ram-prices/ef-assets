@@ -55,4 +55,5 @@ jobs:
             banners.json
             banners/*.webp
             events/*.webp
+            previews/*.webp
           delete-branch: true

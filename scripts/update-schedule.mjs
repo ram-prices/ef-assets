@@ -23,7 +23,9 @@
 //   endfield.gryphline.com/version_briefing/latest  the official New Version
 //     Guide. It is up from each version's preview until the next one's and
 //     replaced every version, so each run saves its events' art to
-//     events/<event>.webp; schedule.json links the ones it has.
+//     events/<event>.webp and each new operator's art as a preview of their
+//     banner (previews/<banner>.webp, until the banner's own cover arrives);
+//     schedule.json links the ones it has.
 //
 // Times: banner dates are "server time", i.e. local time on each server
 // (Americas/Europe UTC-5, Asia UTC+8), so the same date opens 13 hours apart.
@@ -47,6 +49,8 @@ const CACHE = args.includes('--cache') ? args[args.indexOf('--cache') + 1] : nul
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const ISSUE_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues';
 const EVENT_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/events';
+const BANNER_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/banners';
+const PREVIEW_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/previews';
 const GUIDE = 'https://endfield.gryphline.com/version_briefing/latest';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -162,6 +166,12 @@ function issueArt(b) {
   return file && existsSync(join(ROOT, 'issues', file)) ? file : null;
 }
 /** events/<event>.webp's URL, when the guide gave the event art. */
+/** previews/<banner>.webp's URL: art for a Headhunting banner announced before its own cover (from the guide). */
+function previewArt(name) {
+  const file = `${slug(name)}.webp`;
+  return existsSync(join(ROOT, 'previews', file)) ? `${PREVIEW_ART}/${file}` : null;
+}
+
 function eventArt(name) {
   const file = `${slug(name)}.webp`;
   return existsSync(join(ROOT, 'events', file)) ? `${EVENT_ART}/${file}` : null;
@@ -508,12 +518,23 @@ async function build() {
       start: isoBoth(b.start),
       end: isoBoth(b.end),
       availability: b.avail,
-      art: issueArt(b) ? `${ISSUE_ART}/${issueArt(b)}` : b.cover,
+      art: issueArt(b) ? `${ISSUE_ART}/${issueArt(b)}` : b.cover ?? previewArt(b.name),
       posts: b.posts,
       ...(notes.length ? { notes } : {}),
       ...(unresolved || b.inferredFrom ? { needsReview: true } : {}),
     };
   });
+
+  // A rerun with no cover of its own (RE-Factor posts often have none) shows
+  // the art of the earlier banner with the same rate-ups.
+  const weaponKinds = new Set(['issue', 'refactorIssue']);
+  for (const o of out) {
+    if (o.art || !o.rateUps.length) continue;
+    const same = out.find(
+      (x) => x !== o && x.poolId && weaponKinds.has(x.kind) === weaponKinds.has(o.kind) && x.rateUps.join('|') === o.rateUps.join('|') && existsSync(join(ROOT, 'banners', `${x.poolId}.webp`)),
+    );
+    if (same) o.art = `${BANNER_ART}/${same.poolId}.webp`;
+  }
 
   // Events: the same rules as banners; per-server windows are taken as given.
   const events = [];
@@ -653,7 +674,7 @@ async function saveGuideEventArt() {
   if (!script) throw new Error('no guide script on the page');
   const bundle = await fetch(script, { headers: UA, signal: AbortSignal.timeout(30000) }).then((r) => r.text());
   const base = script.slice(0, script.lastIndexOf('/') + 1);
-  const assets = Object.fromEntries([...bundle.matchAll(/"((?:gameplay|story)\.\d+\.visual)":\w+\.p\+"(assets\/[^"]+)"/g)].map((m) => [m[1], m[2]]));
+  const assets = Object.fromEntries([...bundle.matchAll(/"((?:gameplay|story|characters)\.\d+\.visual)":\w+\.p\+"(assets\/[^"]+)"/g)].map((m) => [m[1], m[2]]));
   const entry = /\{"id":"[^"]+","name":\{/g;
   const saved = [];
   await mkdir(join(ROOT, 'events'), { recursive: true });
@@ -668,9 +689,44 @@ async function saveGuideEventArt() {
     const out = join(ROOT, 'events', `${slug(unescapeJs(name))}.webp`);
     if (existsSync(out)) continue;
     if (!DRY) await saveEventArt(base + file, out);
-    saved.push(unescapeJs(name));
+    saved.push(`event art: ${unescapeJs(name)}`);
+  }
+
+  // Each new operator's card names their Headhunting banner: save its art as
+  // that banner's preview, used until the banner's own post brings a cover.
+  await mkdir(join(ROOT, 'previews'), { recursive: true });
+  const operator = /\{"id":"chr_[^"]+","gachaPoolId":"[^"]+","gachaPoolName":\{[^}]*?"en-us":"((?:[^"\\]|\\.)*)"/g;
+  for (const m of bundle.matchAll(operator)) {
+    const key = bundle.slice(m.index, m.index + 20000).match(/"assetKey":"(characters\.\d+)\.visual"/)?.[1];
+    const file = key && assets[`${key}.visual`];
+    if (!file) continue;
+    const pool = unescapeJs(m[1]);
+    const out = join(ROOT, 'previews', `${slug(pool)}.webp`);
+    if (existsSync(out)) continue;
+    if (!DRY) await savePreviewArt(base + file, out);
+    saved.push(`banner preview: ${pool}`);
   }
   return saved;
+}
+
+/**
+ * A guide character visual (1920x897, the operator on the right, fading out
+ * to the left) as a 1024x576 banner preview: the right-hand 16:9, on a light
+ * backdrop the art's own edges fade into.
+ */
+async function savePreviewArt(url, file) {
+  const sharp = (await import('sharp')).default;
+  const res = await fetch(url, { headers: UA, signal: AbortSignal.timeout(30000) });
+  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
+  const img = sharp(Buffer.from(await res.arrayBuffer()));
+  const { width, height } = await img.metadata();
+  const w = Math.min(width, Math.round((height * 16) / 9));
+  await img
+    .flatten({ background: '#ebe9e4' })
+    .extract({ left: width - w, top: 0, width: w, height })
+    .resize(1024, 576)
+    .webp({ quality: 82 })
+    .toFile(file);
 }
 
 /** 640px wide webp, transparent parts on the site's dark background. */
@@ -696,7 +752,7 @@ async function saveArt(url, file) {
 // a bonus: if it can't be read, the schedule still updates.
 let report = '';
 try {
-  for (const name of await saveGuideEventArt()) report += `Saved event art: ${name}\n`;
+  for (const what of await saveGuideEventArt()) report += `Saved ${what}\n`;
 } catch (e) {
   report += `Could not read the version guide: ${e.message}\n`;
 }
