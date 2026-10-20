@@ -2894,6 +2894,13 @@
     "5": 10,
     "6": 50
    }
+  },
+  "credit": {
+   "url": "https://endfield.wiki.gg/wiki/Acquisition_Center#Credit_Store",
+   "perDay": {
+    "Oroberyl": 12.5,
+    "Arsenal Ticket": 10
+   }
   }
  },
  "progression": {
@@ -2914,6 +2921,303 @@
     }
    }
   ]
+ },
+ "oneTime": {
+  "source": "endfield.wiki.gg (stage pages, Regional Development, Yuanyuan Manor Inn, Intel Gathering list, mail events); hand-kept: Intel Gathering 200 Oroberyl each (GameWith), Wuling Regional Development caps, launch codes",
+  "sources": [
+   "https://gamewith.net/akendfield/73034",
+   "https://www.icy-veins.com/arknights-endfield/how-to-reach-wulings-level-9-regional-development-in-arknights-endfield",
+   "https://www.keengamer.com/articles/guides/arknights-endfield-all-codes-how-to-redeem/",
+   "https://gamewith.net/akendfield/72499"
+  ],
+  "codes": {
+   "ALLFIELD": 1500,
+   "RETURNOFALL": 500,
+   "ENDFIELDGIFT": 150
+  },
+  "versions": {
+   "Launch": [
+    {
+     "count": 10,
+     "name": "RE-Crisis",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#RE-Crisis",
+     "rewards": {
+      "Oroberyl": 500
+     }
+    },
+    {
+     "count": 13,
+     "name": "Basic Training",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Training",
+     "rewards": {
+      "Oroberyl": 360
+     }
+    },
+    {
+     "count": 36,
+     "name": "Simulations",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Simulation",
+     "rewards": {
+      "Oroberyl": 1570
+     }
+    },
+    {
+     "count": 6,
+     "name": "Crisis Drills",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Crisis_Drills",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "count": 11,
+     "name": "Regional Development: Valley IV",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 14,
+      "Oroberyl": 2200
+     }
+    },
+    {
+     "count": 5,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 5,
+      "Oroberyl": 1000
+     },
+     "estimate": true
+    },
+    {
+     "count": 11,
+     "name": "Intel Gathering",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Intel_Gathering",
+     "rewards": {
+      "Oroberyl": 2200
+     }
+    },
+    {
+     "count": 1,
+     "name": "Fortune Connect-and-Win",
+     "section": "mailbox",
+     "url": "https://endfield.wiki.gg/wiki/Fortune_Connect-and-Win",
+     "rewards": {
+      "Oroberyl": 4920
+     },
+     "estimate": true
+    },
+    {
+     "count": 3,
+     "name": "Launch codes",
+     "section": "mailbox",
+     "url": "https://www.keengamer.com/articles/guides/arknights-endfield-all-codes-how-to-redeem/",
+     "rewards": {
+      "Oroberyl": 2150
+     }
+    }
+   ],
+   "Old Deep Water Dies, by Rising Tide It is Denied": [
+    {
+     "count": 3,
+     "name": "RE-Crisis",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#RE-Crisis",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "count": 3,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 3,
+      "Oroberyl": 600
+     }
+    },
+    {
+     "count": 1,
+     "name": "Intel Gathering",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Intel_Gathering",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    }
+   ],
+   "At the Wake of Spring": [
+    {
+     "count": 3,
+     "name": "RE-Crisis",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#RE-Crisis",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "count": 4,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 4,
+      "Oroberyl": 800
+     },
+     "estimate": true
+    },
+    {
+     "count": 1,
+     "name": "Intel Gathering",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Intel_Gathering",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    }
+   ],
+   "Sketches of Lost Heirlooms": [
+    {
+     "count": 2,
+     "name": "Crisis Fragments",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Crisis_Fragment",
+     "rewards": {
+      "Oroberyl": 60
+     }
+    },
+    {
+     "count": 4,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 4,
+      "Oroberyl": 800
+     },
+     "estimate": true
+    },
+    {
+     "count": 1,
+     "name": "Intel Gathering",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Intel_Gathering",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    }
+   ],
+   "Homecoming": [
+    {
+     "count": 2,
+     "name": "Crisis Fragments",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Crisis_Fragment",
+     "rewards": {
+      "Oroberyl": 60
+     }
+    },
+    {
+     "count": 3,
+     "name": "RE-Crisis",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#RE-Crisis",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "count": 1,
+     "name": "Yuanyuan Manor Inn milestones",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Yuanyuan_Manor_Inn",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "count": 4,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 4,
+      "Oroberyl": 800
+     },
+     "estimate": true
+    },
+    {
+     "count": 3,
+     "name": "Intel Gathering",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Intel_Gathering",
+     "rewards": {
+      "Oroberyl": 600
+     }
+    }
+   ],
+   "Dreamscape of Wind and Snow": [
+    {
+     "count": 2,
+     "name": "Crisis Fragments",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Crisis_Fragment",
+     "rewards": {
+      "Oroberyl": 60
+     }
+    },
+    {
+     "count": 3,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 3,
+      "Oroberyl": 600
+     },
+     "estimate": true
+    },
+    {
+     "count": 2,
+     "name": "Intel Gathering",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Intel_Gathering",
+     "rewards": {
+      "Oroberyl": 400
+     }
+    }
+   ],
+   "Sanctuary of Ink": [
+    {
+     "count": 3,
+     "name": "RE-Crisis",
+     "section": "modes",
+     "url": "https://endfield.wiki.gg/wiki/Operational_Manual#RE-Crisis",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "count": 3,
+     "name": "Regional Development: Wuling",
+     "section": "exploration",
+     "url": "https://endfield.wiki.gg/wiki/Regional_Development",
+     "rewards": {
+      "Basic HH Permit": 3,
+      "Oroberyl": 600
+     },
+     "estimate": true
+    }
+   ]
+  }
  },
  "modes": {
   "source": "Official Version Update Notes, \"Event & Gameplay Updates\"; amounts the notes leave out from endfield.wiki.gg",

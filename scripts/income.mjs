@@ -67,6 +67,18 @@
 //   banner, which the wiki says restocks them; and their price in AIC Quota.
 // - shops.bond: the Bond Quota Exchange's Chartered HH Permit price and what
 //   duplicate 5★ / 6★ operators give (wiki); the site counts the player's own.
+// - shops.credit: the Credit Store's daily stock (its free refresh only):
+//   Oroberyl or Arsenal Tickets, never both, so half of each a day on average
+//   (wiki's Credit Store table and rules).
+// - oneTime: one-time rewards by the version that added them, with where the
+//   site lists them (`section`): Operational Manual stages' first clears
+//   (Basic Training, Simulations with their bonus goal, RE-Crisis, Crisis
+//   Drills, Crisis Fragments: each stage page, version by its area or, for
+//   RE-Crisis, its story chapter), Yuanyuan Manor Inn milestones, Regional
+//   Development levels (wiki; which version raised a region's cap comes from
+//   the notes, to what level mostly not: see RD_CAPS), Intel Gathering (200
+//   Oroberyl per investigation, GameWith; version by the areas its page
+//   names), mail events (the vouchers' average, wiki) and the launch codes.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
 //   version preview livestream, the version survey, Combat Drills (per new
@@ -505,6 +517,166 @@ const progression = {
   ].filter((x) => Object.keys(x.rewards).length),
 };
 
+// One-time rewards, by the version that added them. `section` is where the site lists them.
+const oneTime = Object.fromEntries(schedule.versions.map((v) => [v.name, []]));
+const launch = schedule.versions[0].name;
+const vIndex = (v) => schedule.versions.findIndex((x) => x.name === v);
+const later = (...vs) => vs.filter(Boolean).sort((a, b) => vIndex(b) - vIndex(a))[0] ?? null;
+const byPlace = new Map([...areaLinks].map(([a, v]) => [norm(a.replace(/\s*\(location\)$/i, '')), v]));
+for (const [r, v] of regionIn) if (!byPlace.has(r)) byPlace.set(r, v);
+/** "[[Wuling City]]", "Valley IV": the version that added that area or region. */
+const placeVersion = (s) => byPlace.get(norm(String(s ?? '').replace(/\[\[|\]\]/g, '').split('|')[0].replace(/\s*\(location\)$/i, ''))) ?? null;
+/** "Chapter II: Process VIII" in a page's text: the first version whose main story reaches it. */
+const storyVersion = (text) => {
+  const m = String(text ?? '').match(/Chapter\s+([IVXⅠ-Ⅹ\d]+):?\s+Process\s+([IVXⅠ-Ⅹ\d]+)/i);
+  if (!m) return null;
+  const [c, p] = [roman(m[1]), roman(m[2])];
+  return caps.find((x) => {
+    const cap = parseCap(x.cap);
+    return cap && (cap.chapter > c || (cap.chapter === c && cap.process >= p));
+  })?.version ?? null;
+};
+const addOneTime = (version, item) => {
+  const list = oneTime[version ?? launch];
+  const same = list.find((x) => x.name === item.name && x.section === item.section);
+  if (!same) return list.push({ count: 1, ...item });
+  same.count += item.count ?? 1;
+  for (const [k, n] of Object.entries(item.rewards)) same.rewards[k] = (same.rewards[k] ?? 0) + n;
+  if (item.estimate) same.estimate = true;
+};
+
+// Operational Manual stages: each stage page's first clear (and Simulations' bonus goal), once.
+// Version: the area its page names (location or region); RE-Crisis: where the story unlocks it.
+const STAGES = {
+  'Basic Training': { name: 'Basic Training', anchor: 'Training' },
+  Simulation: { name: 'Simulations', anchor: 'Simulation' },
+  'RE-Crisis': { name: 'RE-Crisis', anchor: 'RE-Crisis' },
+  'Crisis Drills': { name: 'Crisis Drills', anchor: 'Crisis_Drills' },
+  'Crisis Fragment': { name: 'Crisis Fragments', anchor: 'Crisis_Fragment' },
+};
+const guideTitles = [];
+for (let cont = {}; ; ) {
+  const d = await api({ action: 'query', list: 'embeddedin', eititle: 'Template:Guide', einamespace: '0', eilimit: '500', ...cont });
+  guideTitles.push(...d.query.embeddedin.map((p) => p.title));
+  if (!d.continue) break;
+  cont = d.continue;
+}
+const guideText = await texts(guideTitles);
+const bosses = [...new Set([...guideText].filter(([, w]) => field(w, 'type') === 'RE-Crisis').map(([t]) => `RE-Crisis: ${t.split(': ').slice(1).join(': ')}`))];
+const bossText = await texts(bosses);
+let stageCount = 0;
+for (const [title, w] of guideText) {
+  const type = w.slice(w.search(/\{\{Guide\s*\n/)).match(/\|\s*type\s*=\s*([^\n|]*)/)?.[1]?.trim();
+  const stage = STAGES[type];
+  if (!stage) continue;
+  const rewards = {};
+  for (const k of ['first', 'bonus']) itemsIn(w.match(new RegExp(`\\|\\s*${k}\\s*=([^\\n]*)`))?.[1] ?? '', rewards);
+  if (!Object.keys(rewards).length) continue;
+  const place = placeVersion(field(w, 'location')) ?? placeVersion(field(w, 'region'));
+  const story = type === 'RE-Crisis' ? storyVersion(bossText.get(`RE-Crisis: ${title.split(': ').slice(1).join(': ')}`)) : null;
+  addOneTime(later(place, story), { name: stage.name, section: 'modes', url: urlOf('Operational Manual') + '#' + stage.anchor, rewards });
+  stageCount++;
+}
+
+// Yuanyuan Manor Inn: its milestone rewards, by the story chapter that unlocks it.
+const innText = (await texts(['Yuanyuan Manor Inn'])).get('Yuanyuan Manor Inn') ?? '';
+const innRewards = itemsIn(sectionOr(innText, 'Inn Milestone Phase'));
+if (Object.keys(innRewards).length) {
+  // Unlocked by a side mission after a main mission its page names; else its region.
+  addOneTime(later(storyVersion(innText), placeVersion(field(innText, 'region'))), { name: 'Yuanyuan Manor Inn milestones', section: 'modes', url: urlOf('Yuanyuan Manor Inn'), rewards: innRewards });
+}
+
+// Regional Development: each level's rewards (wiki). The notes say when a region's level cap rose, not
+// to what: levels up to a known cap go to that version; the rest are split evenly over the later raises.
+/** Known caps (hand-kept): Wuling reached level 9 in 1.1 (Icy Veins); its launch cap of 6 is our guess. */
+const RD_CAPS = { Wuling: { [launch]: 6, [schedule.versions[1].name]: 9 } };
+const RD_SOURCES = ['https://www.icy-veins.com/arknights-endfield/how-to-reach-wulings-level-9-regional-development-in-arknights-endfield'];
+const rdText = (await texts(['Regional Development'])).get('Regional Development') ?? '';
+const rdLevels = {};
+for (const m of rdText.matchAll(/\{\{Regional Development Metric level\|(\d+)\|([^|\n]+)\|[^\n]*\n\|items\s*=\s*([^\n]*)/g)) {
+  const rewards = {};
+  for (const it of m[3].matchAll(/([^,:]+):\s*([\d,]+)/g)) add(rewards, it[1], Number(it[2].replace(/,/g, '')));
+  (rdLevels[m[2].trim()] ??= []).push({ level: Number(m[1]), rewards });
+}
+const REGION_PAGE = { Valley: 'Valley IV', Wuling: 'Wuling' };
+for (const [region, levels] of Object.entries(rdLevels)) {
+  const known = RD_CAPS[region] ?? {};
+  const raised = schedule.versions
+    .filter((v) => new RegExp(`Regional Development Level cap for (?:the )?\\[${region}`, 'i').test(notesText[v.name]?.text ?? ''))
+    .map((v) => v.name);
+  const top = Math.max(...levels.map((l) => l.level));
+  // Each version's cap: known ones, then the remaining levels split evenly over later raises.
+  const capOf = { ...known };
+  const lastKnown = Object.keys(known).sort((a, b) => vIndex(b) - vIndex(a))[0];
+  const rest = raised.filter((v) => !lastKnown || vIndex(v) > vIndex(lastKnown));
+  let from = lastKnown ? known[lastKnown] : top;
+  if (!lastKnown) capOf[launch] = top;
+  rest.forEach((v, i) => {
+    from += Math.ceil((top - from) / (rest.length - i));
+    capOf[v] = from;
+  });
+  const capVersions = Object.keys(capOf).sort((a, b) => vIndex(a) - vIndex(b));
+  for (const l of levels) {
+    const v = capVersions.find((x) => capOf[x] >= l.level) ?? capVersions.at(-1);
+    const guessed = v !== schedule.versions[1].name; // only 1.1's cap has a source
+    addOneTime(v, {
+      name: `Regional Development: ${REGION_PAGE[region] ?? region}`,
+      section: 'exploration',
+      url: urlOf('Regional Development'),
+      rewards: l.rewards,
+      ...(region in RD_CAPS && guessed ? { estimate: true } : {}),
+    });
+  }
+}
+
+// Intel Gathering: each investigation pays 200 Oroberyl (GameWith); by the latest area its page names.
+const INTEL_OROBERYL = 200;
+const intelList = [...(sectionOr((await texts(['Intel Gathering'])).get('Intel Gathering') ?? '', 'List of Intel Gathering')).matchAll(/\[\[([^\]|]+)/g)].map((m) => m[1]).filter((t) => !/^Category:/i.test(t));
+const intelText = await texts(intelList);
+for (const t of intelList) {
+  const w = intelText.get(t) ?? '';
+  const v = later(...[...byPlace.keys()].filter((p) => p.length > 3 && norm(w).includes(p)).map((p) => byPlace.get(p)));
+  addOneTime(v, { name: 'Intel Gathering', section: 'exploration', url: urlOf('Intel Gathering'), rewards: { Oroberyl: INTEL_OROBERYL } });
+}
+
+// Mail events (the wiki's Event table, type "mail"): their reward vouchers, at the average of what each
+// voucher holds, times the days it's sent ("on the first, second and seventh day").
+const eventsFile = JSON.parse(await readFile(join(ROOT, 'wiki', 'events.json'), 'utf8'));
+const counted = new Set(Object.values(eventsFile.extra ?? {}).map((e) => e.page));
+const mailRows = (await api({ action: 'cargoquery', tables: 'Events', fields: '_pageName=page,Type', where: 'Type="mail"', limit: '50' })).cargoquery.map((r) => r.title.page);
+const ORDINAL = /\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth)\b/gi;
+const wikiVersion = Object.fromEntries(schedule.versions.map((v) => [WIKI_VERSION[v.name] ?? v.name, v.name]));
+for (const [page, w] of await texts(mailRows.filter((p) => !counted.has(p)))) {
+  const rewards = {};
+  const vouchers = [...new Set([...sectionOr(w, 'Mail').matchAll(/\{\{I\|([^|}]+)\|\d+/g)].map((m) => m[1].trim()))];
+  const voucherText = await texts(vouchers);
+  for (const [name, iw] of voucherText) {
+    const options = [...sectionOr(iw, 'Usage').matchAll(/\{\{I\|Oroberyl\|(\d+)/g)].map((m) => Number(m[1]));
+    const days = (sectionOr(iw, 'Acquisition').match(ORDINAL) ?? []).length;
+    if (options.length && days) add(rewards, 'Oroberyl', Math.round((options.reduce((a, b) => a + b, 0) / options.length) * days));
+  }
+  itemsIn(sectionOr(w, 'Mail'), rewards);
+  const v = wikiVersion[field(w, 'version').replace(/\[\[|\]\]/g, '')] ?? launch;
+  if (Object.keys(rewards).length) addOneTime(v, { name: page, section: 'mailbox', url: urlOf(page), rewards, estimate: true });
+}
+
+// Launch codes (hand-kept; expired): ALLFIELD and RETURNOFALL (KeenGamer), ENDFIELDGIFT (GameWith).
+const LAUNCH_CODES = { ALLFIELD: 1500, RETURNOFALL: 500, ENDFIELDGIFT: 150 };
+addOneTime(launch, {
+  name: 'Launch codes',
+  section: 'mailbox',
+  url: 'https://www.keengamer.com/articles/guides/arknights-endfield-all-codes-how-to-redeem/',
+  rewards: { Oroberyl: Object.values(LAUNCH_CODES).reduce((a, b) => a + b, 0) },
+  count: Object.keys(LAUNCH_CODES).length,
+});
+const oneTimeOut = {
+  source:
+    'endfield.wiki.gg (stage pages, Regional Development, Yuanyuan Manor Inn, Intel Gathering list, mail events); hand-kept: Intel Gathering 200 Oroberyl each (GameWith), Wuling Regional Development caps, launch codes',
+  sources: ['https://gamewith.net/akendfield/73034', ...RD_SOURCES, 'https://www.keengamer.com/articles/guides/arknights-endfield-all-codes-how-to-redeem/', 'https://gamewith.net/akendfield/72499'],
+  codes: LAUNCH_CODES,
+  versions: oneTime,
+};
+
 const exploration = {
   source: 'endfield.wiki.gg area pages (crate and Aurylene counts); crate Oroberyl: GameWith; crate mix: Gamer Guides (Wuling)',
   crateOroberyl: CRATE_OROBERYL,
@@ -547,7 +719,14 @@ const shops = {
     },
   },
 };
-if (!shops.aic.price || !shops.bond.price || !shops.bond.duplicate[5] || !shops.bond.duplicate[6]) throw new Error('income: shop prices not found; the wiki layout may have changed');
+// The Credit Store: one stock a day holds Oroberyl or Arsenal Tickets (never both): half of each on average.
+const creditTable = sectionOr(center, 'Credit Store');
+const creditOffer = (item) => Number(creditTable.match(new RegExp(`\\{\\{I\\|${item}\\|(\\d+)`))?.[1]) || 0;
+shops.credit = {
+  url: urlOf('Acquisition Center') + '#Credit_Store',
+  perDay: { Oroberyl: creditOffer('Oroberyl') / 2, 'Arsenal Ticket': creditOffer('Arsenal Ticket') / 2 },
+};
+if (!shops.aic.price || !shops.bond.price || !shops.credit.perDay.Oroberyl || !shops.bond.duplicate[5] || !shops.bond.duplicate[6]) throw new Error('income: shop prices not found; the wiki layout may have changed');
 
 // Hand-kept: rewards no wiki page or official post lists with amounts.
 const extras = {
@@ -679,6 +858,7 @@ const out = {
   extras,
   shops,
   progression,
+  oneTime: oneTimeOut,
   modes: { source: 'Official Version Update Notes, "Event & Gameplay Updates"; amounts the notes leave out from endfield.wiki.gg', versions: modes },
 };
 
@@ -696,6 +876,8 @@ if (unplaced.length) console.log(`  main missions past every version's cap (left
 console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
 for (const [v, r] of Object.entries(aurylene)) console.log(`  aurylene ${v}: ${fmt(r.rewards)}${r.partial ? ` PARTIAL (${r.partial})` : ''}`);
 console.log(`  shops: AIC Quota ${shops.aic.price} a banner permit (${Object.entries(aicPermits).map(([v, l]) => `${v}: ${l.map((x) => `${x.permit} ×${x.count}`).join(', ')}`).join('; ')}); Bond Quota ${shops.bond.price} a Chartered HH Permit, duplicates ${shops.bond.duplicate[5]}/${shops.bond.duplicate[6]}`);
+for (const [v, list] of Object.entries(oneTime)) if (list.length) console.log(`  oneTime ${v}: ${list.map((x) => `${x.name} ×${x.count} ${fmt(x.rewards)}${x.estimate ? ' ESTIMATE' : ''}`).join('; ')}`);
+console.log(`  stages counted: ${stageCount}; Credit Store a day: ${fmt(shops.credit.perDay)}`);
 console.log(`  progression (${progression.version}): ${progression.items.map((x) => `${x.name} ${fmt(x.rewards)}`).join('; ')}`);
 for (const [v, c] of Object.entries(crafting)) if (c.items) console.log(`  crafting ${v}: ${c.items} items, ${fmt(c.rewards)}`);
 for (const [v, list] of Object.entries(outposts)) if (list.length) console.log(`  outposts ${v}: ${list.map((o) => `${o.outpost} ${fmt(o.rewards)}`).join('; ')}`);

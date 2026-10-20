@@ -60,7 +60,11 @@ Operator, weapon and gear data snapshotted from the
   Exchange's banner HH Permits (per version from the official notes, else
   `perBanner` per Chartered or Special banner) and their price, and the Bond
   Quota Exchange's Chartered HH Permit price and Bond Quota per duplicate 5★
-  / 6★ operator (wiki).
+  / 6★ operator (wiki); `shops.credit`: the Credit Store's daily Oroberyl
+  and Arsenal Tickets on average (one or the other each day). `oneTime`:
+  one-time rewards by version and site section (Operational Manual stages,
+  Yuanyuan Manor Inn, Regional Development levels, Intel Gathering, mail
+  events, launch codes).
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,
