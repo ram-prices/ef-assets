@@ -56,8 +56,7 @@ Operator, weapon and gear data snapshotted from the
   why, once a region's areas pass the end of its table on the wiki). And `extras`:
   hand-kept amounts no wiki page or official post lists (version preview
   livestream, version survey, Combat Drills per new
-  Chartered banner), each with its sources; `creditStore` is our own rough
-  estimate from the wiki's description of the Credit Store.
+  Chartered banner), each with its sources.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

@@ -63,9 +63,8 @@
 //   it; versions' wiki pages list their new areas and enemies); else Launch.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
-//   version preview livestream, the version survey, Combat Drills (per new Chartered Headhunting banner); and the Credit
-//   Store, our own rough estimate (25 Oroberyl on about half the days: each
-//   refresh shows either Oroberyl or Arsenal Tickets, per the wiki).
+//   version preview livestream, the version survey, Combat Drills (per new
+//   Chartered Headhunting banner).
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -539,12 +538,6 @@ const extras = {
     perBanner: { Oroberyl: 100 },
     kinds: ['chartered'],
     sources: ['https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html'],
-  },
-  creditStore: {
-    label: 'Credit Store',
-    note: 'Our rough estimate: the daily Credit Store shows either 25 Oroberyl or Arsenal Tickets, never both, so Oroberyl on about half the days.',
-    perDay: { Oroberyl: 12.5 },
-    sources: [urlOf('Acquisition Center') + '#Credit_Store'],
   },
 };
 

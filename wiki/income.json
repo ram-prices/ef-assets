@@ -2847,16 +2847,6 @@
    "sources": [
     "https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html"
    ]
-  },
-  "creditStore": {
-   "label": "Credit Store",
-   "note": "Our rough estimate: the daily Credit Store shows either 25 Oroberyl or Arsenal Tickets, never both, so Oroberyl on about half the days.",
-   "perDay": {
-    "Oroberyl": 12.5
-   },
-   "sources": [
-    "https://endfield.wiki.gg/wiki/Acquisition_Center#Credit_Store"
-   ]
   }
  },
  "progression": {
