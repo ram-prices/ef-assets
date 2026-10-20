@@ -44,6 +44,8 @@ jobs:
       - name: Update schedule.json and banners.json
         # GitHub's bash runs with pipefail, so a failing script still fails the job.
         run: node scripts/update-schedule.mjs --find-pools 2>&1 | tee -a report.txt
+      - name: Split new Arsenal Issue banners into layers
+        run: python scripts/issue-layers.py 2>&1 | tee -a report.txt
       - name: Write the pull request text
         run: |
           {
@@ -65,6 +67,7 @@ jobs:
             schedule.json
             banners.json
             banners/*.webp
+            banners/layers/*.webp
             events/*.webp
             previews/*.webp
             wiki/previews.json
