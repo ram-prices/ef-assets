@@ -18,7 +18,12 @@ Operator, weapon and gear data snapshotted from the
   Exchange): its whole stock counts, in groups with `exchange` naming the
   currency. `partial: true` when the page names rewards without (all) their
   amounts (story events: "Oroberyl and other rewards"): its totals are a
-  lower bound, and those items have a null count.
+  lower bound, and those items have a null count. `extra`: events the wiki's
+  event table has but `schedule.json` doesn't (announced mid-version), keyed
+  by wiki page, with `start` (UTC, per server) and the same fields. A page's
+  guaranteed minimum ("guaranteed to earn at least ...") is counted instead
+  of random prizes, and a Contingency Contract season counts its Secret
+  Sanctuary shop (on the Contingency Contract page).
 - `income.json`: regular income (`scripts/income.mjs`, `npm run
   income`): `daily` (Operational Manual → Daily, every day), `weekly` (Weekly
   Routine, every week), `passes` (each Protocol Pass season, its UTC
@@ -46,7 +51,8 @@ Operator, weapon and gear data snapshotted from the
   table and what each version's new areas' Aurylene unlocks (`partial`, with
   why, once a region's areas pass the end of its table on the wiki). And `extras`:
   hand-kept amounts no wiki page or official post lists (version preview
-  livestream, version survey, SKPORT web check-in), each with its sources.
+  livestream, version survey, SKPORT web check-in, Combat Drills per new
+  Chartered banner), each with its sources.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

@@ -18,6 +18,18 @@
 //
 // Wiki content is CC BY-SA 4.0, so the file carries an `attribution` block and
 // the derived data is under the same license.
+//
+// Beyond the schedule (built from each version's update notes), the wiki's
+// event table (Cargo `Events`) lists the events announced mid-version: those
+// go in `extra`, keyed by wiki page, with their UTC start per server. Mode
+// entries (Monumental Etching, Echoes of War, Umbral Monument series, Trial
+// Algorithmics: counted from income.json) and returning-player events are
+// left out. A schedule event's page is the table's row of that name starting
+// closest to it (Fortune Connect-and-Win is both a mail and a celebration).
+// A page saying you're "guaranteed to earn at least [item]" counts that
+// minimum instead of its random prizes. An event whose rewards are spent in a
+// shop on another page ("[[Contingency Contract#Secret Sanctuary]]") counts
+// that shop's tab for it, item times stock.
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -268,6 +280,67 @@ function eventRewards(text) {
   return groups;
 }
 
+/** "...you are guaranteed to earn at least {{I|Oroberyl|5000}}": the minimum, instead of random prizes. */
+function guaranteed(text) {
+  const m = text.match(/guaranteed to (?:earn|get|receive) at least[^\n]*?(\{\{\s*(?:I|Item)\s*\|[^{}]*\}\})/i);
+  const rw = m ? rewardsIn(m[1]) : [];
+  return rw.length ? [{ title: 'Guaranteed minimum', rows: [{ label: 'At least', rewards: rw }] }] : null;
+}
+
+/** HTML-table shop rows (Item | Cost | Stock) in a bit of wikitext: item times stock. */
+function htmlShop(part) {
+  const rows = [];
+  for (const tr of part.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)) {
+    const cells = [...tr[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => m[1]);
+    if (cells.length < 3) continue;
+    const item = rewardsIn(cells[0])[0];
+    const cost = rewardsIn(cells[1])[0];
+    const stock = Number(plain(cells[2]).replace(/,/g, ''));
+    if (!item || !Number.isFinite(stock) || stock <= 0) continue;
+    rows.push({ label: `${stock} in stock${cost ? ` · ${cost[1]} ${cost[0]} each` : ''}`, rewards: [[item[0], item[1] * stock]], currency: cost?.[0] });
+  }
+  return rows;
+}
+
+const flat = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+/**
+ * The shop this event's rewards are spent in, when it lives on another page:
+ * "[[Contingency Contract#Secret Sanctuary|...]]" and that section's tab named
+ * for this event ("Re-Ignition: Experimental Operation").
+ */
+async function linkedShop(text, eventName) {
+  const link = text.match(/\[\[([^\]|#]+)#([^\]|]+)/);
+  if (!link) return null;
+  const target = (await pages([link[1].trim()])).get(link[1].trim());
+  if (!target) return null;
+  const at = target.text.search(new RegExp(`^=+\\s*${link[2].trim()}\\s*=+\\s*$`, 'm'));
+  if (at < 0) return null;
+  const section = target.text.slice(at).split(/\n==[^=]/)[0];
+  for (const tab of section.split(/^\|-\|/m)) {
+    const label = tab.match(/^\s*([^=\n]+)=/)?.[1];
+    if (!label || !flat(eventName).endsWith(flat(label))) continue;
+    const rows = htmlShop(tab);
+    if (!rows.length) continue;
+    const currency = rows.find((r) => r.currency)?.currency;
+    if (currency && GENERAL_CURRENCY.test(currency)) return null;
+    return [{ title: `${link[2].trim()}`, exchange: currency, rows: rows.map(({ label: l, rewards }) => ({ label: l, rewards })) }];
+  }
+  return null;
+}
+
+/** An event's groups from its page: a guaranteed minimum wins; a shop on another page joins in. */
+async function rewardsOf(text, name) {
+  const g = guaranteed(text);
+  if (g) return g;
+  const groups = eventRewards(text);
+  const shop = await linkedShop(text, name);
+  if (shop) {
+    // The shop is where the page's "[Oroberyl] and other rewards" come from: its amounts replace the partial mention.
+    return [...groups.filter((x) => !x.partial), ...shop];
+  }
+  return groups;
+}
+
 function totalsOf(groups) {
   const t = {};
   for (const g of groups) for (const r of g.rows) for (const [name, n] of r.rewards) if (n !== null) t[name] = (t[name] ?? 0) + n;
@@ -278,19 +351,38 @@ function totalsOf(groups) {
 
 const schedule = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8'));
 const events = schedule.events ?? [];
-const names = [...new Set(events.map((e) => e.name))];
-const found = await pages(names);
+
+// The wiki's event table: name, type, and UTC start per server.
+const table = [];
+for (let offset = 0; ; offset += 500) {
+  const d = await api({ action: 'cargoquery', tables: 'Events', fields: '_pageName=page,Event,Type,AsiaStartTime,AmeuStartTime', order_by: 'AsiaStartTime', limit: '500', offset: String(offset) });
+  const rows = (d.cargoquery ?? []).map((r) => r.title);
+  table.push(...rows);
+  if (rows.length < 500) break;
+}
+const utc = (t) => (t ? `${t.replace(' ', 'T')}Z` : null);
+const baseName = (r) => (r.Event || r.page).replace(/\s*\([^)]*\)\s*$/, '');
+/** A schedule event's wiki page: the table's row of that name starting closest to it, else the page of that name. */
+const pageFor = (e) => {
+  const at = Date.parse(e.start?.asia ?? '');
+  const rows = table.filter((r) => flat(baseName(r)) === flat(e.name));
+  if (!rows.length) return e.name;
+  rows.sort((a, b) => Math.abs(Date.parse(utc(a.AsiaStartTime)) - at) - Math.abs(Date.parse(utc(b.AsiaStartTime)) - at));
+  return Number.isNaN(at) ? rows[0].page : rows[0].page;
+};
+const pageNames = new Map(events.map((e) => [e, pageFor(e)]));
+const found = await pages([...new Set(pageNames.values())]);
 
 const out = {};
 const missing = [];
 const empty = [];
 for (const e of events) {
-  const page = found.get(e.name);
+  const page = found.get(pageNames.get(e));
   if (!page) {
     missing.push(e.name);
     continue;
   }
-  const groups = eventRewards(page.text);
+  const groups = await rewardsOf(page.text, e.name);
   if (!groups.length) empty.push(e.name);
   // Partial: the page names rewards without (all) amounts, so totals are a lower bound.
   const partial = !groups.length || groups.some((g) => g.partial);
@@ -304,6 +396,34 @@ for (const e of events) {
   };
 }
 
+// Events the schedule doesn't have (announced mid-version), from the wiki's event table.
+const MODE = /^(Monumental Etching|Echoes of War|Trial Algorithmics)\b/i;
+const SKIP_TYPE = /^(Umbral Monument|Echoes of War|Permanent|Return)$/i;
+const used = new Set([...pageNames.values(), ...[...found.values()].map((p) => p.title)].map(flat)); // asked names and where they redirect
+const scheduled = new Set(events.map((e) => flat(e.name)));
+const extraRows = table.filter((r) => !used.has(flat(r.page)) && !SKIP_TYPE.test(r.Type ?? '') && !MODE.test(r.page) && r.AsiaStartTime);
+const extraPages = await pages(extraRows.map((r) => r.page));
+const extra = {};
+for (const r of extraRows) {
+  if (scheduled.has(flat(r.page))) continue; // the same event under its own name, already counted
+  const page = extraPages.get(r.page);
+  if (!page) continue;
+  const groups = await rewardsOf(page.text, r.page);
+  const partial = !groups.length || groups.some((g) => g.partial);
+  extra[r.page] = {
+    name: baseName(r),
+    type: r.Type ?? '',
+    page: page.title,
+    url: `https://endfield.wiki.gg/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
+    start: { asia: utc(r.AsiaStartTime), americas: utc(r.AmeuStartTime) ?? utc(r.AsiaStartTime) },
+    ...(partial ? { partial: true } : {}),
+    totals: totalsOf(groups),
+    groups,
+  };
+}
+console.log(`extra events (on the wiki, not in schedule.json): ${Object.keys(extra).length}`);
+for (const [k, x] of Object.entries(extra)) console.log(`  ${x.start.asia?.slice(0, 10)} ${k}: Oroberyl ${x.totals.Oroberyl ?? 0}${x.partial ? ' (partial)' : ''}`);
+
 const withRewards = Object.values(out).filter((e) => e.groups.length).length;
 const complete = Object.values(out).filter((e) => !e.partial).length;
 console.log(`events: ${events.length} in schedule.json, ${Object.keys(out).length} found on the wiki, ${withRewards} with rewards (${complete} complete, the rest partial)`);
@@ -313,6 +433,6 @@ const oro = Object.values(out).reduce((s, e) => s + (e.totals.Oroberyl ?? 0), 0)
 console.log(`Oroberyl across all events: ${oro}`);
 
 if (!DRY) {
-  await writeFile(join(ROOT, 'wiki', 'events.json'), JSON.stringify({ attribution: { ...ATTRIBUTION, fetched: TODAY }, fetched: TODAY, events: out }, null, 1) + '\n');
+  await writeFile(join(ROOT, 'wiki', 'events.json'), JSON.stringify({ attribution: { ...ATTRIBUTION, fetched: TODAY }, fetched: TODAY, events: out, extra }, null, 1) + '\n');
   console.log('wrote wiki/events.json');
 }

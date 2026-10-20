@@ -2753,6 +2753,19 @@
     "https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html"
    ]
   },
+  "combatDrills": {
+   "label": "Combat Drills",
+   "note": "Each new Chartered Headhunting banner's trial stages for its rate-up operator.",
+   "perBanner": {
+    "Oroberyl": 100
+   },
+   "kinds": [
+    "chartered"
+   ],
+   "sources": [
+    "https://docs.google.com/spreadsheets/d/1zGNuQ53R7c190RG40dHxcHv8tJuT3cBaclm8CjI-luY/"
+   ]
+  },
   "checkIn": {
    "label": "SKPORT web check-in",
    "note": "The monthly sign-in calendar: 80 Oroberyl on days 4 and 12, 100 on day 20; plus 300 for the first three sign-ins.",

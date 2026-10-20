@@ -56,7 +56,8 @@
 //   until the wiki lists more.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
-//   version preview livestream, the version survey, SKPORT's web check-in.
+//   version preview livestream, the version survey, SKPORT's web check-in,
+//   Combat Drills (per new Chartered Headhunting banner).
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -470,6 +471,13 @@ const extras = {
     perVersion: { Oroberyl: 300 },
     fromVersion: 0,
     sources: ['https://x.com/IAMCha0tik/status/2022427377570320425', 'https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html'],
+  },
+  combatDrills: {
+    label: 'Combat Drills',
+    note: "Each new Chartered Headhunting banner's trial stages for its rate-up operator.",
+    perBanner: { Oroberyl: 100 },
+    kinds: ['chartered'],
+    sources: ['https://docs.google.com/spreadsheets/d/1zGNuQ53R7c190RG40dHxcHv8tJuT3cBaclm8CjI-luY/'],
   },
   checkIn: {
     label: 'SKPORT web check-in',
