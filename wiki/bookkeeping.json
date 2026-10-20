@@ -1,0 +1,3486 @@
+{
+ "attribution": {
+  "source": "Endfield Bookkeeping (community spreadsheet)",
+  "url": "https://docs.google.com/spreadsheets/d/1zGNuQ53R7c190RG40dHxcHv8tJuT3cBaclm8CjI-luY/",
+  "note": "Amounts as listed by the sheet's author, for what no wiki page or official post lists.",
+  "fetched": "2026-10-20"
+ },
+ "fetched": "2026-10-20",
+ "versions": {
+  "Sanctuary of Ink": {
+   "permanent": {
+    "RE:Crisis": {
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "items": 3
+    },
+    "Crisis Drills": {
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "items": 1
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "items": 1
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "items": 2
+    },
+    "Wuling AIC Simulation": {
+     "rewards": {
+      "Oroberyl": 65
+     },
+     "items": 2
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 600,
+      "Basic HH Permit": 3
+     },
+     "items": 3
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 1
+     },
+     "items": 1
+    },
+    "Inn Milestones": {
+     "rewards": {
+      "Oroberyl": 225
+     },
+     "items": 9
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 400
+     },
+     "items": 2
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "items": 2
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "New Era for the Myriad Souls",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    }
+   ],
+   "named": {
+    "Si": {
+     "Oroberyl": 120
+    },
+    "Argent Flow": {
+     "Oroberyl": 120
+    },
+    "Sign-In": {
+     "Chartered HH Permit": 5
+    },
+    "The Stars Are With Me": {
+     "Chartered HH Permit": 5
+    },
+    "Carly's Verdant Anthology": {
+     "Oroberyl": 1500
+    },
+    "Arena of Games": {
+     "Oroberyl": 1200
+    },
+    "Contingency Contract: Indigo Experimental Operation": {
+     "Oroberyl": 2000
+    },
+    "Indigo Experimental Operation": {
+     "Oroberyl": 2000
+    },
+    "Yuanyuan's Blazing Stoves": {
+     "Oroberyl": 550
+    },
+    "All the Inky Hues": {
+     "Oroberyl": 1200
+    },
+    "X": {
+     "Oroberyl": 965,
+     "Basic HH Permit": 2
+    },
+    "Si Level 1": {
+     "Oroberyl": 50
+    },
+    "Si Level 2": {
+     "Oroberyl": 50
+    },
+    "Si Level 3": {
+     "Oroberyl": 50
+    },
+    "Protocol Space: Advanced Progression VI": {
+     "Oroberyl": 50
+    },
+    "Advanced Progression VI": {
+     "Oroberyl": 50
+    },
+    "Si's Painting": {
+     "Oroberyl": 3860,
+     "Origeometry": 3
+    },
+    "Level 28": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 29": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 30": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Yinglung Pass Level 3": {
+     "Basic HH Permit": 1
+    },
+    "Phase 20": {
+     "Origeometry": 3
+    },
+    "Phase 21": {
+     "Origeometry": 3
+    },
+    "Phase 22": {
+     "Origeometry": 3
+    },
+    "Phase 1": {
+     "Oroberyl": 25
+    },
+    "Phase 2": {
+     "Oroberyl": 25
+    },
+    "Phase 3": {
+     "Oroberyl": 25
+    },
+    "Phase 4": {
+     "Oroberyl": 25
+    },
+    "Phase 5": {
+     "Oroberyl": 25
+    },
+    "Phase 6": {
+     "Oroberyl": 25
+    },
+    "Phase 7": {
+     "Oroberyl": 25
+    },
+    "Phase 8": {
+     "Oroberyl": 25
+    },
+    "Phase 9": {
+     "Oroberyl": 25
+    },
+    "Enter the Painted World": {
+     "Origeometry": 3
+    },
+    "Learn of Rise and Fall": {
+     "Origeometry": 3
+    },
+    "Witness the Game Unfold": {
+     "Origeometry": 3
+    },
+    "See Through the Self": {
+     "Origeometry": 4
+    },
+    "Paint with Fresh Ink": {
+     "Origeometry": 3
+    },
+    "A Painting Open for Business": {
+     "Oroberyl": 50
+    },
+    "Back to the Rustics": {
+     "Oroberyl": 600
+    },
+    "Unrequited Love": {
+     "Oroberyl": 125
+    },
+    "The Story Continues": {
+     "Oroberyl": 75
+    },
+    "Farming Automation": {
+     "Oroberyl": 20
+    },
+    "Yuanyuan Innkeeper I": {
+     "Oroberyl": 30
+    },
+    "Yuanyuan Innkeeper II": {
+     "Oroberyl": 30
+    },
+    "Yuanyuan Innkeeper III": {
+     "Oroberyl": 30
+    },
+    "A Day to Remember": {
+     "Oroberyl": 100
+    },
+    "Miscellanies on Rampage": {
+     "Oroberyl": 75
+    },
+    "Ink Droplet": {
+     "Oroberyl": 75
+    },
+    "Calamity's Raindew": {
+     "Oroberyl": 75
+    },
+    "Delver of the Cryptic: Fade Beyond the Painting": {
+     "Oroberyl": 1200
+    },
+    "Fade Beyond the Painting": {
+     "Oroberyl": 1200
+    },
+    "Echoes of War: Season of Phantasia": {
+     "Oroberyl": 300
+    },
+    "Season of Phantasia": {
+     "Oroberyl": 300
+    },
+    "Echoes of War: Season of Fervor": {
+     "Oroberyl": 300
+    },
+    "Season of Fervor": {
+     "Oroberyl": 300
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 359
+    },
+    "Maintenance Compensation": {
+     "Oroberyl": 900
+    },
+    "Version Bug Fix Compensation": {
+     "Oroberyl": 900
+    },
+    "1.7 Preview Stream Gift": {
+     "Oroberyl": 1000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "New Era for the Myriad Souls": {
+     "Oroberyl": 300
+    },
+    "Daily Activity": {
+     "Oroberyl": 8820
+    },
+    "Weekly Routine": {
+     "Oroberyl": 3000,
+     "Arsenal Ticket": 600
+    },
+    "Monumental Etching": {
+     "Oroberyl": 1200
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1200,
+     "Basic HH Permit": 6,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 10
+  },
+  "Dreamscape of Wind and Snow": {
+   "permanent": {
+    "Crisis Fragment": {
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "items": 2
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "items": 1
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "items": 2
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 600,
+      "Basic HH Permit": 3
+     },
+     "items": 3
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 1
+     },
+     "items": 1
+    },
+    "Early Warning Terminal - Cloudseeder STN": {
+     "rewards": {
+      "Oroberyl": 80
+     },
+     "items": 1
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 400
+     },
+     "items": 2
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "OrbiPom! MERGE!",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "name": "09/02 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    }
+   ],
+   "named": {
+    "Typhoeus": {
+     "Oroberyl": 120
+    },
+    "Fletched Irontip": {
+     "Chartered HH Permit": 5
+    },
+    "AIC Support: Chubby Lung Attacks": {
+     "Oroberyl": 1600
+    },
+    "Chubby Lung Attacks": {
+     "Oroberyl": 1600
+    },
+    "Trial of the Bow": {
+     "Oroberyl": 1200
+    },
+    "Runners' Steeplechase": {
+     "Oroberyl": 1200
+    },
+    "Echoing Bell of an Old City": {
+     "Oroberyl": 1200
+    },
+    "Snow Over Deep Woods": {
+     "Oroberyl": 1200
+    },
+    "Ridgeline Flows of Autumn": {
+     "Oroberyl": 1500
+    },
+    "Inkwashed World": {
+     "Oroberyl": 500,
+     "Basic HH Permit": 2
+    },
+    "Gloomwald's Rage Level 1": {
+     "Oroberyl": 30
+    },
+    "Gloomwald's Rage Level 2": {
+     "Oroberyl": 30
+    },
+    "Snowy Forest": {
+     "Oroberyl": 1415,
+     "Origeometry": 2
+    },
+    "Purrchena": {
+     "Oroberyl": 20
+    },
+    "Level 25": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 26": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 27": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Marker Stone Level 4": {
+     "Basic HH Permit": 1
+    },
+    "Risk Level 4": {
+     "Oroberyl": 80
+    },
+    "Phase 19": {
+     "Origeometry": 3
+    },
+    "Suiming": {
+     "Oroberyl": 1440
+    },
+    "A Dreamscape Shattered by Her Arrow": {
+     "Oroberyl": 600
+    },
+    "A Winter Dream Fogged Deep in the Woods": {
+     "Oroberyl": 600
+    },
+    "OD Project: Cloudseeder STN III": {
+     "Oroberyl": 50
+    },
+    "Cloudseeder STN III": {
+     "Oroberyl": 50
+    },
+    "Illumination of Fate": {
+     "Oroberyl": 75
+    },
+    "Endeavor of a Lifetime": {
+     "Oroberyl": 200
+    },
+    "Cliffbottom Archery Range": {
+     "Oroberyl": 75
+    },
+    "Bell of Recollection": {
+     "Oroberyl": 150
+    },
+    "Operational Model of the Snowy Forest": {
+     "Oroberyl": 200
+    },
+    "An R&D City": {
+     "Oroberyl": 200
+    },
+    "Slug Sprig": {
+     "Oroberyl": 75
+    },
+    "Tender Moss": {
+     "Oroberyl": 155
+    },
+    "Echoes of War: Season of Virtuality": {
+     "Oroberyl": 300
+    },
+    "Season of Virtuality": {
+     "Oroberyl": 300
+    },
+    "Echoes of War: Season of Illusion": {
+     "Oroberyl": 300
+    },
+    "Season of Illusion": {
+     "Oroberyl": 300
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 367
+    },
+    "Maintenance Compensation": {
+     "Oroberyl": 900
+    },
+    "Version Bug Fix Compensation": {
+     "Oroberyl": 900
+    },
+    "1.6 Preview Stream Gift": {
+     "Oroberyl": 1000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "OrbiPom! MERGE!": {
+     "Oroberyl": 300
+    },
+    "09/02 Compensation": {
+     "Oroberyl": 200
+    },
+    "Daily Activity": {
+     "Oroberyl": 9460
+    },
+    "Weekly Routine": {
+     "Oroberyl": 3071,
+     "Arsenal Ticket": 614
+    },
+    "Monumental Etching": {
+     "Oroberyl": 1200
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1200,
+     "Basic HH Permit": 6,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 20
+  },
+  "Homecoming": {
+   "permanent": {
+    "RE:Crisis": {
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "items": 3
+    },
+    "Crisis Fragment": {
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "items": 2
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "items": 2
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "items": 2
+    },
+    "Wuling AIC Simulation": {
+     "rewards": {
+      "Oroberyl": 275
+     },
+     "items": 8
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 1200,
+      "Basic HH Permit": 6
+     },
+     "items": 6
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 2
+     },
+     "items": 2
+    },
+    "Early Warning Terminal - Cloudseeder STN": {
+     "rewards": {
+      "Oroberyl": 240
+     },
+     "items": 3
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "items": 3
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 305
+     },
+     "items": 3
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "Protocol Invitation: The Return",
+     "rewards": {
+      "Oroberyl": 100
+     }
+    },
+    {
+     "name": "Happy Birthday, 2026",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "name": "WhatsApp/Messenger Subscription Reward",
+     "rewards": {
+      "Oroberyl": 100
+     }
+    },
+    {
+     "name": "08/15 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    }
+   ],
+   "named": {
+    "Arcane": {
+     "Oroberyl": 120
+    },
+    "Liino": {
+     "Oroberyl": 120
+    },
+    "Gaze North to the Rift": {
+     "Chartered HH Permit": 5
+    },
+    "Bedazzling Dawnstar": {
+     "Chartered HH Permit": 5
+    },
+    "Fortune Connect-and-Win!": {
+     "Oroberyl": 5000
+    },
+    "Tribute of Companionship": {
+     "Oroberyl": 3000,
+     "Basic HH Permit": 5
+    },
+    "HEAT RAGE! MEGA AREA!": {
+     "Oroberyl": 1200
+    },
+    "The Rooted Realm": {
+     "Oroberyl": 1600
+    },
+    "Gaze Toward the Northern Exclusion": {
+     "Oroberyl": 1200
+    },
+    "A Forest Mantled in Snow": {
+     "Oroberyl": 500,
+     "Basic HH Permit": 2
+    },
+    "Alleikhreos Level 1": {
+     "Oroberyl": 50
+    },
+    "Alleikhreos Level 2": {
+     "Oroberyl": 50
+    },
+    "Alleikhreos Level 3": {
+     "Oroberyl": 50
+    },
+    "Blitzcrash Blightshade Level 1": {
+     "Oroberyl": 30
+    },
+    "Blitzcrash Blightshade Level 2": {
+     "Oroberyl": 30
+    },
+    "Yinglung Pass": {
+     "Oroberyl": 1070,
+     "Origeometry": 1
+    },
+    "North Wuling Exclusion Zone": {
+     "Oroberyl": 3510,
+     "Origeometry": 2
+    },
+    "Gas Extractor": {
+     "Oroberyl": 25
+    },
+    "Moulding Unit: Gas Mode": {
+     "Oroberyl": 40
+    },
+    "Gas Mode": {
+     "Oroberyl": 40
+    },
+    "Fluid-Gas Transmuting Unit": {
+     "Oroberyl": 25
+    },
+    "Flow Rate Adjustment": {
+     "Oroberyl": 40
+    },
+    "Solid-Gas Transmuting Unit": {
+     "Oroberyl": 25
+    },
+    "Gas Dispersing Unit": {
+     "Oroberyl": 40
+    },
+    "Gas Reactor Globe": {
+     "Oroberyl": 40
+    },
+    "Streamlined Xiranite Production": {
+     "Oroberyl": 40
+    },
+    "Level 19": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 20": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 21": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 22": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 23": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 24": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Yinglung Pass Level 1": {
+     "Basic HH Permit": 1
+    },
+    "Yinglung Pass Level 2": {
+     "Basic HH Permit": 1
+    },
+    "Risk Level 1": {
+     "Oroberyl": 80
+    },
+    "Risk Level 2": {
+     "Oroberyl": 80
+    },
+    "Risk Level 3": {
+     "Oroberyl": 80
+    },
+    "Phase 16": {
+     "Origeometry": 3
+    },
+    "Phase 17": {
+     "Origeometry": 3
+    },
+    "Phase 18": {
+     "Origeometry": 3
+    },
+    "Bravely Breach the Hostile Winds": {
+     "Origeometry": 5
+    },
+    "Thus Begins the Homeward March": {
+     "Origeometry": 2
+    },
+    "A Past Shared by the Swordmancers": {
+     "Origeometry": 2
+    },
+    "Same Old Faces in a Place Transformed": {
+     "Origeometry": 2
+    },
+    "Finally Breaks the Hanging Clouds": {
+     "Origeometry": 2
+    },
+    "\"Homecoming\"": {
+     "Origeometry": 2
+    },
+    "Stubbornly Lingers the Setting Sun": {
+     "Origeometry": 2
+    },
+    "OD Project: Remediation Station  III": {
+     "Oroberyl": 50
+    },
+    "Remediation Station  III": {
+     "Oroberyl": 50
+    },
+    "Outpost: Cloudseeder STN": {
+     "Oroberyl": 50
+    },
+    "Cloudseeder STN": {
+     "Oroberyl": 50
+    },
+    "OD Project: Cloudseeder STN I": {
+     "Oroberyl": 50
+    },
+    "Cloudseeder STN I": {
+     "Oroberyl": 50
+    },
+    "OD Project: Cloudseeder STN II": {
+     "Oroberyl": 50
+    },
+    "Cloudseeder STN II": {
+     "Oroberyl": 50
+    },
+    "Long Night Into Breaking Day": {
+     "Oroberyl": 100
+    },
+    "Fissure Filling and Land Grouting": {
+     "Oroberyl": 225
+    },
+    "Sorrow Sings in Silence": {
+     "Oroberyl": 50
+    },
+    "Liino: Like a Star Streaking Through the Boundaries": {
+     "Oroberyl": 600
+    },
+    "Like a Star Streaking Through the Boundaries": {
+     "Oroberyl": 600
+    },
+    "Home Beyond Reach": {
+     "Oroberyl": 50
+    },
+    "Nameless Blades I": {
+     "Oroberyl": 50
+    },
+    "Nameless Blades II": {
+     "Oroberyl": 50
+    },
+    "Nameless Blades III": {
+     "Oroberyl": 50
+    },
+    "Treasures of the Past": {
+     "Oroberyl": 50
+    },
+    "Blightside Watch": {
+     "Oroberyl": 50
+    },
+    "Yinglung Combat Record": {
+     "Oroberyl": 200
+    },
+    "Disaster Victims' Attenpts of Survival": {
+     "Oroberyl": 200
+    },
+    "Shadow Dew": {
+     "Oroberyl": 75
+    },
+    "Blightshade Bezoar": {
+     "Oroberyl": 75
+    },
+    "Glaive Fragment": {
+     "Oroberyl": 155
+    },
+    "Delver of the Cryptic: Artful Realm of Six Cardinals": {
+     "Oroberyl": 1200
+    },
+    "Artful Realm of Six Cardinals": {
+     "Oroberyl": 1200
+    },
+    "Echoes of War: Season of Recalling": {
+     "Oroberyl": 600
+    },
+    "Season of Recalling": {
+     "Oroberyl": 600
+    },
+    "Echoes of War: Season of Delirating": {
+     "Oroberyl": 200
+    },
+    "Season of Delirating": {
+     "Oroberyl": 200
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 410
+    },
+    "Maintenance Compensation": {
+     "Oroberyl": 900
+    },
+    "Version Bug Fix Compensation": {
+     "Oroberyl": 900
+    },
+    "1.5 Preview Stream Gift": {
+     "Oroberyl": 1000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "Protocol Invitation: The Return": {
+     "Oroberyl": 100
+    },
+    "The Return": {
+     "Oroberyl": 100
+    },
+    "Happy Birthday, 2026": {
+     "Oroberyl": 300
+    },
+    "WhatsApp/Messenger Subscription Reward": {
+     "Oroberyl": 100
+    },
+    "08/15 Compensation": {
+     "Oroberyl": 200
+    },
+    "Daily Activity": {
+     "Oroberyl": 10560
+    },
+    "Weekly Routine": {
+     "Oroberyl": 3429,
+     "Arsenal Ticket": 686
+    },
+    "Monumental Etching": {
+     "Oroberyl": 1200
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1200,
+     "Basic HH Permit": 6,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 20
+  },
+  "Sketches of Lost Heirlooms": {
+   "permanent": {
+    "Crisis Fragment": {
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "items": 2
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "items": 1
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "items": 2
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 600,
+      "Basic HH Permit": 3
+     },
+     "items": 3
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 1
+     },
+     "items": 1
+    },
+    "Early Warning Terminal - Sky King Flats": {
+     "rewards": {
+      "Oroberyl": 80
+     },
+     "items": 1
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 200
+     },
+     "items": 1
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Companionship Celebration Stream Gift",
+     "rewards": {
+      "Oroberyl": 2000
+     }
+    },
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "Arcane's Special Duty",
+     "rewards": {
+      "Oroberyl": 100
+     }
+    },
+    {
+     "name": "06/06 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "06/26 Compensation",
+     "rewards": {
+      "Oroberyl": 800
+     }
+    }
+   ],
+   "named": {
+    "Mi Fu": {
+     "Oroberyl": 120
+    },
+    "Camille": {
+     "Oroberyl": 120
+    },
+    "One With Her Fists": {
+     "Chartered HH Permit": 5
+    },
+    "Peacekeeper's Nocturne": {
+     "Chartered HH Permit": 5
+    },
+    "Carly's Fairytale of Wuling": {
+     "Oroberyl": 1500
+    },
+    "Contingency Contract: Re-Ignition Experimental Operation": {
+     "Oroberyl": 2000
+    },
+    "Re-Ignition Experimental Operation": {
+     "Oroberyl": 2000
+    },
+    "Trial Algorithmics": {
+     "Oroberyl": 1200
+    },
+    "Search for Sword Vault Dale": {
+     "Oroberyl": 1200
+    },
+    "Northward to Peril": {
+     "Oroberyl": 500,
+     "Basic HH Permit": 2
+    },
+    "Craghowler Level 1": {
+     "Oroberyl": 30
+    },
+    "Craghowler Level 2": {
+     "Oroberyl": 30
+    },
+    "Sword Vault Dale": {
+     "Oroberyl": 1480,
+     "Origeometry": 2
+    },
+    "Level 16": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 17": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 18": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Marker Stone Level 3": {
+     "Basic HH Permit": 1
+    },
+    "Risk Level 4": {
+     "Oroberyl": 80
+    },
+    "Phase 14": {
+     "Origeometry": 3
+    },
+    "Phase 15": {
+     "Origeometry": 3
+    },
+    "Deep Vaulted Steel": {
+     "Oroberyl": 240
+    },
+    "OD Project: Sky King Flats III": {
+     "Oroberyl": 50
+    },
+    "Sky King Flats III": {
+     "Oroberyl": 50
+    },
+    "Trial of Swordmancy": {
+     "Oroberyl": 75
+    },
+    "The Warrior's Ambition": {
+     "Oroberyl": 600
+    },
+    "A Fistful of Reflections": {
+     "Oroberyl": 600
+    },
+    "Sanguine Inquiry": {
+     "Oroberyl": 600
+    },
+    "Danse Macabre": {
+     "Oroberyl": 600
+    },
+    "Cliffside Riddles of Steel": {
+     "Oroberyl": 75
+    },
+    "Yanese Ruins of Sword Vault Dale": {
+     "Oroberyl": 200
+    },
+    "Century Rind": {
+     "Oroberyl": 75
+    },
+    "Caudal Goldscale": {
+     "Oroberyl": 155
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 350
+    },
+    "Maintenance Compensation": {
+     "Oroberyl": 900
+    },
+    "Version Bug Fix Compensation": {
+     "Oroberyl": 900
+    },
+    "Companionship Celebration Stream Gift": {
+     "Oroberyl": 2000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "Arcane's Special Duty": {
+     "Oroberyl": 100
+    },
+    "06/06 Compensation": {
+     "Oroberyl": 200
+    },
+    "06/26 Compensation": {
+     "Oroberyl": 800
+    },
+    "Daily Activity": {
+     "Oroberyl": 9020
+    },
+    "Weekly Routine": {
+     "Oroberyl": 2929,
+     "Arsenal Ticket": 586
+    },
+    "Monumental Etching": {
+     "Oroberyl": 1200
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1200,
+     "Basic HH Permit": 6,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 20
+  },
+  "At the Wake of Spring": {
+   "permanent": {
+    "RE:Crisis": {
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "items": 3
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "items": 2
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 20
+     },
+     "items": 1
+    },
+    "Wuling AIC Simulation": {
+     "rewards": {
+      "Oroberyl": 105
+     },
+     "items": 3
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 1200,
+      "Basic HH Permit": 6
+     },
+     "items": 6
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 3
+     },
+     "items": 3
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 400
+     },
+     "items": 2
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    },
+    "Etchspace Salvage": {
+     "rewards": {
+      "Basic HH Permit": 6,
+      "Oroberyl": 2595
+     },
+     "items": 18
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "Discord Link Reward",
+     "rewards": {
+      "Oroberyl": 100
+     }
+    },
+    {
+     "name": "04/18 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "04/27 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "05/13 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "Talos-II Photographer Submission Milestone",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    }
+   ],
+   "named": {
+    "Zhuang Fangyi": {
+     "Oroberyl": 120
+    },
+    "Blitz of Verdance": {
+     "Chartered HH Permit": 5
+    },
+    "Shimmering Moment": {
+     "Chartered HH Permit": 5
+    },
+    "AIC Support: Palm-Top Savior": {
+     "Oroberyl": 1600
+    },
+    "Palm-Top Savior": {
+     "Oroberyl": 1600
+    },
+    "Pristine Monthly Pass Tribute": {
+     "Oroberyl": 6000
+    },
+    "Curious Use of Xiranite": {
+     "Oroberyl": 1200
+    },
+    "Subduer of the Blighted Sea": {
+     "Oroberyl": 1200
+    },
+    "Curios and Myths": {
+     "Oroberyl": 500,
+     "Basic HH Permit": 2
+    },
+    "Etchings of Our Cosmic Dreams": {
+     "Oroberyl": 1400
+    },
+    "Snapshot: Etchings of Our Cosmic Dreams": {
+     "Oroberyl": 900
+    },
+    "Supply: Wuling Super Chef": {
+     "Oroberyl": 1200
+    },
+    "Wuling Super Chef": {
+     "Oroberyl": 1200
+    },
+    "Nefarith Level 1": {
+     "Oroberyl": 50
+    },
+    "Nefarith Level 2": {
+     "Oroberyl": 50
+    },
+    "Nefarith Level 3": {
+     "Oroberyl": 50
+    },
+    "Marker Stone": {
+     "Oroberyl": 1875,
+     "Origeometry": 3
+    },
+    "Test Area": {
+     "Oroberyl": 1220,
+     "Origeometry": 2
+    },
+    "Expanded Crucible": {
+     "Oroberyl": 25
+    },
+    "Purification Unit": {
+     "Oroberyl": 40
+    },
+    "Heavy Xiranite": {
+     "Oroberyl": 40
+    },
+    "Level 10": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 11": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 12": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 13": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 14": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 15": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Jingyu Valley Level 4": {
+     "Basic HH Permit": 1
+    },
+    "Marker Stone Level 1": {
+     "Basic HH Permit": 1
+    },
+    "Marker Stone Level 2": {
+     "Basic HH Permit": 1
+    },
+    "Phase 10": {
+     "Origeometry": 3
+    },
+    "Phase 11": {
+     "Origeometry": 3
+    },
+    "Phase 12": {
+     "Origeometry": 3
+    },
+    "Phase 13": {
+     "Origeometry": 3
+    },
+    "Wuling City": {
+     "Oroberyl": 670
+    },
+    "Marker Stone Interiors": {
+     "Oroberyl": 210
+    },
+    "Like Fire and Ice": {
+     "Origeometry": 3
+    },
+    "A Lethal Invitation": {
+     "Origeometry": 2
+    },
+    "Free Will": {
+     "Origeometry": 4
+    },
+    "Thus Rise the Wave and Wind": {
+     "Origeometry": 1
+    },
+    "Tremors of the Crashing Tide": {
+     "Origeometry": 1
+    },
+    "Where Friendship Was Made": {
+     "Origeometry": 2
+    },
+    "A Breach Starts wIth a Crack": {
+     "Origeometry": 2
+    },
+    "Patience Makes Greatness": {
+     "Origeometry": 2
+    },
+    "Kindred Souls Who Share a Vision": {
+     "Origeometry": 3
+    },
+    "Spring's Return I": {
+     "Oroberyl": 90
+    },
+    "Spring's Return II": {
+     "Oroberyl": 25
+    },
+    "Spring's Return III": {
+     "Oroberyl": 25
+    },
+    "OD Project: Remediation Station I": {
+     "Oroberyl": 50
+    },
+    "Remediation Station I": {
+     "Oroberyl": 50
+    },
+    "OD Project: Remediation Station II": {
+     "Oroberyl": 50
+    },
+    "Remediation Station II": {
+     "Oroberyl": 50
+    },
+    "Store by the Corner I": {
+     "Oroberyl": 100
+    },
+    "Store by the Corner II": {
+     "Oroberyl": 75
+    },
+    "Store by the Corner III": {
+     "Oroberyl": 60
+    },
+    "Comrades: The Nameless": {
+     "Oroberyl": 100
+    },
+    "The Nameless": {
+     "Oroberyl": 100
+    },
+    "Comrades: Commemoration": {
+     "Oroberyl": 75
+    },
+    "Commemoration": {
+     "Oroberyl": 75
+    },
+    "Comrades: Remembrance": {
+     "Oroberyl": 25
+    },
+    "Remembrance": {
+     "Oroberyl": 25
+    },
+    "Comrades: For Tomorrow": {
+     "Oroberyl": 25
+    },
+    "For Tomorrow": {
+     "Oroberyl": 25
+    },
+    "Old Acquaintance I": {
+     "Oroberyl": 75
+    },
+    "Old Acquaintance II": {
+     "Oroberyl": 75
+    },
+    "The Old Man and the Tide I": {
+     "Oroberyl": 175
+    },
+    "The Old Man and the Tide II": {
+     "Oroberyl": 50
+    },
+    "Purification Node": {
+     "Oroberyl": 50
+    },
+    "To Posterity": {
+     "Oroberyl": 75
+    },
+    "Fan Meet": {
+     "Oroberyl": 50
+    },
+    "Divvy Up the Trouble": {
+     "Oroberyl": 50
+    },
+    "IR: \"Tide Flayer\" Project": {
+     "Oroberyl": 200
+    },
+    "\"Tide Flayer\" Project": {
+     "Oroberyl": 200
+    },
+    "Marker Stone Area": {
+     "Oroberyl": 200
+    },
+    "Echoing Dust": {
+     "Oroberyl": 75
+    },
+    "Howlerbeast Braid": {
+     "Oroberyl": 155
+    },
+    "120000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "140000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "160000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "180000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "200000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "Valley's Aberrants V": {
+     "Oroberyl": 495
+    },
+    "Valley's Aberrants VI": {
+     "Oroberyl": 240
+    },
+    "Abberant Exploration V": {
+     "Oroberyl": 150
+    },
+    "Abberant Exploration VI": {
+     "Oroberyl": 150
+    },
+    "Etchspace Salvage V-VI": {
+     "Oroberyl": 300
+    },
+    "Exploration R&D: Stable Protocols 9": {
+     "Oroberyl": 60
+    },
+    "Stable Protocols 9": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Stable Protocols 10": {
+     "Oroberyl": 30
+    },
+    "Stable Protocols 10": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Container Expansion 7": {
+     "Oroberyl": 30
+    },
+    "Container Expansion 7": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Container Expansion 8": {
+     "Oroberyl": 60
+    },
+    "Container Expansion 8": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Derangement Tolerance 2": {
+     "Oroberyl": 60
+    },
+    "Derangement Tolerance 2": {
+     "Oroberyl": 60
+    },
+    "Combat R&D: Energy Capture": {
+     "Oroberyl": 60
+    },
+    "Energy Capture": {
+     "Oroberyl": 60
+    },
+    "Combat R&D: Stress Feedback": {
+     "Oroberyl": 60
+    },
+    "Stress Feedback": {
+     "Oroberyl": 60
+    },
+    "Conversion R&D: Nodule Refining 2": {
+     "Oroberyl": 100
+    },
+    "Nodule Refining 2": {
+     "Oroberyl": 100
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 419
+    },
+    "Maintenance Compensation": {
+     "Oroberyl": 900
+    },
+    "Version Bug Fix Compensation": {
+     "Oroberyl": 900
+    },
+    "1.3 Preview Stream Gift": {
+     "Oroberyl": 1000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "Discord Link Reward": {
+     "Oroberyl": 100
+    },
+    "04/18 Compensation": {
+     "Oroberyl": 200
+    },
+    "04/27 Compensation": {
+     "Oroberyl": 200
+    },
+    "05/13 Compensation": {
+     "Oroberyl": 200
+    },
+    "Talos-II Photographer Submission Milestone": {
+     "Oroberyl": 200
+    },
+    "Daily Activity": {
+     "Oroberyl": 10780
+    },
+    "Weekly Routine": {
+     "Oroberyl": 3500,
+     "Arsenal Ticket": 700
+    },
+    "Monumental Etching": {
+     "Oroberyl": 1200
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1200,
+     "Basic HH Permit": 6,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 20
+  },
+  "Old Deep Water Dies, by Rising Tide It is Denied": {
+   "permanent": {
+    "RE:Crisis": {
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "items": 3
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "items": 1
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "items": 2
+    },
+    "Wuling AIC Simulation": {
+     "rewards": {
+      "Oroberyl": 105
+     },
+     "items": 3
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 600,
+      "Basic HH Permit": 3
+     },
+     "items": 3
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 1
+     },
+     "items": 1
+    },
+    "Early Warning Terminal - Sky King Flats": {
+     "rewards": {
+      "Oroberyl": 80
+     },
+     "items": 1
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 200
+     },
+     "items": 1
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    },
+    "Etchspace Salvage": {
+     "rewards": {
+      "Oroberyl": 2385,
+      "Basic HH Permit": 4
+     },
+     "items": 12
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "03/13 Compensation",
+     "rewards": {
+      "Oroberyl": 500
+     }
+    },
+    {
+     "name": "03/16 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "03/28 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "Journey of the Long-Ear",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    }
+   ],
+   "named": {
+    "Tangtang": {
+     "Oroberyl": 120
+    },
+    "Rossi": {
+     "Oroberyl": 120
+    },
+    "Gently Flows Qingbo": {
+     "Chartered HH Permit": 5
+    },
+    "Pearl of the Pack": {
+     "Chartered HH Permit": 5
+    },
+    "Survival Training": {
+     "Oroberyl": 1600
+    },
+    "Cleanse and Rinse": {
+     "Oroberyl": 1600
+    },
+    "Quietly Flows the Spring": {
+     "Oroberyl": 1200
+    },
+    "Rising Tide of Wuling": {
+     "Oroberyl": 500,
+     "Basic HH Permit": 2
+    },
+    "Supply: Exploration Day": {
+     "Oroberyl": 1200
+    },
+    "Exploration Day": {
+     "Oroberyl": 1200
+    },
+    "Ruan Yi Level 1": {
+     "Oroberyl": 50
+    },
+    "Ruan Yi Level 2": {
+     "Oroberyl": 50
+    },
+    "Ruan Yi Level 3": {
+     "Oroberyl": 50
+    },
+    "Qingbo Stockade": {
+     "Oroberyl": 1410,
+     "Origeometry": 2
+    },
+    "Hydro Mining Rig": {
+     "Oroberyl": 40
+    },
+    "Water Treatment Unit": {
+     "Oroberyl": 25
+    },
+    "Conduit": {
+     "Oroberyl": 40
+    },
+    "Level 7": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 8": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Level 9": {
+     "Oroberyl": 200,
+     "Basic HH Permit": 1
+    },
+    "Jingyu Valley Level 3": {
+     "Basic HH Permit": 1
+    },
+    "Risk Level 3": {
+     "Oroberyl": 80
+    },
+    "Phase 9": {
+     "Origeometry": 3
+    },
+    "Unexpected Attack": {
+     "Origeometry": 2
+    },
+    "Deep in the Mire": {
+     "Origeometry": 2
+    },
+    "The Flow Splits Course": {
+     "Origeometry": 3
+    },
+    "Surging From a Withered Spring": {
+     "Origeometry": 2
+    },
+    "A River Restless in Still Winds": {
+     "Origeometry": 2
+    },
+    "Another Wave Comes Crashing In": {
+     "Origeometry": 2
+    },
+    "Ripples Spread Throughout the Flow": {
+     "Origeometry": 2
+    },
+    "Purity Reveals the Stubborn Stone": {
+     "Origeometry": 2
+    },
+    "'Twas One River That Gave Us Drink": {
+     "Origeometry": 1
+    },
+    "OD Project: Sky King Flats II": {
+     "Oroberyl": 50
+    },
+    "Sky King Flats II": {
+     "Oroberyl": 50
+    },
+    "Seekers of the Lost Treasure I": {
+     "Oroberyl": 75
+    },
+    "Seekers of the Lost Treasure II": {
+     "Oroberyl": 50
+    },
+    "Seekers of the Lost Treasure III": {
+     "Oroberyl": 75
+    },
+    "Patron of the Spring I": {
+     "Oroberyl": 50
+    },
+    "Patron of the Spring II": {
+     "Oroberyl": 100
+    },
+    "Patron of the Spring III": {
+     "Oroberyl": 25
+    },
+    "Ducal Treasures": {
+     "Oroberyl": 600
+    },
+    "The Red Knight": {
+     "Oroberyl": 600
+    },
+    "Call from the Blight": {
+     "Oroberyl": 75
+    },
+    "Beginner's Chartered Tribute": {
+     "Chartered HH Permit": 10
+    },
+    "Grovenymph Pupa": {
+     "Oroberyl": 75
+    },
+    "Qingbo Bamboo Chimes": {
+     "Oroberyl": 155
+    },
+    "60000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "70000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "80000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "90000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "100000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "Valley's Aberrants IV": {
+     "Oroberyl": 555
+    },
+    "Aberrant Exploration IV": {
+     "Oroberyl": 150
+    },
+    "Etchspace Salvage IV": {
+     "Oroberyl": 300
+    },
+    "Exploration R&D: Stable Protocols 7": {
+     "Oroberyl": 30
+    },
+    "Stable Protocols 7": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Stable Protocols 8": {
+     "Oroberyl": 60
+    },
+    "Stable Protocols 8": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Container Expansion 6": {
+     "Oroberyl": 30
+    },
+    "Container Expansion 6": {
+     "Oroberyl": 30
+    },
+    "Combat R&D: Charge Burst": {
+     "Oroberyl": 60
+    },
+    "Charge Burst": {
+     "Oroberyl": 60
+    },
+    "Delver of the Cryptic: Grotto Survey": {
+     "Oroberyl": 1200
+    },
+    "Grotto Survey": {
+     "Oroberyl": 1200
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 308
+    },
+    "Maintenance Compensation": {
+     "Oroberyl": 900
+    },
+    "Version Bug Fix Compensation": {
+     "Oroberyl": 900
+    },
+    "1.2 Preview Stream Gift": {
+     "Oroberyl": 1000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "03/13 Compensation": {
+     "Oroberyl": 500
+    },
+    "03/16 Compensation": {
+     "Oroberyl": 200
+    },
+    "03/28 Compensation": {
+     "Oroberyl": 200
+    },
+    "Journey of the Long-Ear": {
+     "Oroberyl": 300
+    },
+    "Daily Activity": {
+     "Oroberyl": 7920
+    },
+    "Weekly Routine": {
+     "Oroberyl": 2571,
+     "Arsenal Ticket": 514
+    },
+    "Monumental Etching": {
+     "Oroberyl": 1200
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1127,
+     "Basic HH Permit": 6,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 20
+  },
+  "Launch": {
+   "permanent": {
+    "Node": {
+     "rewards": {
+      "Oroberyl": 9000
+     },
+     "items": 12
+    },
+    "RE:Crisis": {
+     "rewards": {
+      "Oroberyl": 500
+     },
+     "items": 10
+    },
+    "Crisis Drills": {
+     "rewards": {
+      "Oroberyl": 250
+     },
+     "items": 5
+    },
+    "Energy Alluvium": {
+     "rewards": {
+      "Oroberyl": 125
+     },
+     "items": 5
+    },
+    "Basic Training": {
+     "rewards": {
+      "Oroberyl": 240
+     },
+     "items": 12
+    },
+    "Operator Guide": {
+     "rewards": {
+      "Oroberyl": 360
+     },
+     "items": 18
+    },
+    "Valley IV AIC Simulation": {
+     "rewards": {
+      "Oroberyl": 965
+     },
+     "items": 26
+    },
+    "Wuling AIC Simulation": {
+     "rewards": {
+      "Oroberyl": 345
+     },
+     "items": 9
+    },
+    "Regional Development": {
+     "rewards": {
+      "Oroberyl": 3200,
+      "Basic HH Permit": 19
+     },
+     "items": 16
+    },
+    "Stock Redistribution": {
+     "rewards": {
+      "Basic HH Permit": 11
+     },
+     "items": 11
+    },
+    "Early Warning Terminal - Refugee Camp": {
+     "rewards": {
+      "Oroberyl": 240
+     },
+     "items": 3
+    },
+    "Early Warning Terminal - Infra-Station": {
+     "rewards": {
+      "Oroberyl": 320
+     },
+     "items": 4
+    },
+    "Athletic Race": {
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "items": 4
+    },
+    "Early Warning Terminal - Sky King Flats": {
+     "rewards": {
+      "Oroberyl": 160
+     },
+     "items": 2
+    },
+    "Authority Level (AL1-60)": {
+     "rewards": {
+      "Oroberyl": 4500
+     },
+     "items": 1
+    },
+    "Authority Level Rewards": {
+     "rewards": {
+      "Oroberyl": 4000,
+      "Basic HH Permit": 40
+     },
+     "items": 1
+    },
+    "Intel Gathering": {
+     "rewards": {
+      "Oroberyl": 1600
+     },
+     "items": 8
+    },
+    "Crafting Manual": {
+     "rewards": {
+      "Oroberyl": 3775
+     },
+     "items": 36
+    },
+    "Etchspace Salvage": {
+     "rewards": {
+      "Oroberyl": 5500,
+      "Basic HH Permit": 10
+     },
+     "items": 34
+    }
+   },
+   "mailbox": [
+    {
+     "name": "Release Stream Codes",
+     "rewards": {
+      "Oroberyl": 2000
+     }
+    },
+    {
+     "name": "Twitch Drop Rewards",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "Misc Codes",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "Player Survey",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "name": "First Impressions Survey",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "name": "Game Experience Survey",
+     "rewards": {
+      "Oroberyl": 150
+     }
+    },
+    {
+     "name": "Extended Version Experience Survey",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "name": "Release Appreciation Gift",
+     "rewards": {
+      "Chartered HH Permit": 10
+     }
+    },
+    {
+     "name": "Adjustment Compensation",
+     "rewards": {
+      "Oroberyl": 500
+     }
+    },
+    {
+     "name": "01/29 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "02/04 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "02/11 Compensation",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "Pre-registration",
+     "rewards": {
+      "Basic HH Permit": 15
+     }
+    },
+    {
+     "name": "Social Media Milestone",
+     "rewards": {
+      "Basic HH Permit": 5
+     }
+    },
+    {
+     "name": "Worldwide Release Now Live",
+     "rewards": {
+      "Oroberyl": 300
+     }
+    },
+    {
+     "name": "Official Social Media Accounts",
+     "rewards": {
+      "Oroberyl": 180
+     }
+    },
+    {
+     "name": "Endministrator Work Logbook",
+     "rewards": {
+      "Oroberyl": 200
+     }
+    },
+    {
+     "name": "Game Tools First Time Team Share Reward",
+     "rewards": {
+      "Oroberyl": 100
+     }
+    },
+    {
+     "name": "Fortune Connect-and-Win",
+     "rewards": {
+      "Oroberyl": 4920
+     }
+    },
+    {
+     "name": "A Spring Note, Warmly Crafted",
+     "rewards": {
+      "Oroberyl": 360
+     }
+    }
+   ],
+   "named": {
+    "Laevatain": {
+     "Oroberyl": 120
+    },
+    "Gilberta": {
+     "Oroberyl": 120
+    },
+    "Yvonne": {
+     "Oroberyl": 120
+    },
+    "Firewalker's Trail": {
+     "Chartered HH Permit": 5
+    },
+    "Messenger Express": {
+     "Chartered HH Permit": 5
+    },
+    "Spectral Splendor": {
+     "Chartered HH Permit": 5
+    },
+    "Carly's Fairytale of the Valley": {
+     "Oroberyl": 1500
+    },
+    "Glittering Life at Wuling": {
+     "Oroberyl": 1200
+    },
+    "Awakening": {
+     "Chartered HH Permit": 12
+    },
+    "Qingbo Rising": {
+     "Oroberyl": 500,
+     "Basic HH Permit": 2
+    },
+    "Level 1": {
+     "Oroberyl": 750
+    },
+    "Level 2": {
+     "Oroberyl": 1150,
+     "Basic HH Permit": 2
+    },
+    "Level 3": {
+     "Oroberyl": 1150,
+     "Basic HH Permit": 2
+    },
+    "Level 4": {
+     "Oroberyl": 1150,
+     "Basic HH Permit": 2
+    },
+    "Level 5": {
+     "Oroberyl": 1150,
+     "Basic HH Permit": 2
+    },
+    "Level 6": {
+     "Oroberyl": 1150,
+     "Basic HH Permit": 2
+    },
+    "Level 7": {
+     "Oroberyl": 950,
+     "Basic HH Permit": 1
+    },
+    "Level 8": {
+     "Oroberyl": 950,
+     "Basic HH Permit": 1
+    },
+    "Level 9": {
+     "Oroberyl": 950,
+     "Basic HH Permit": 1
+    },
+    "Level 10": {
+     "Oroberyl": 950,
+     "Basic HH Permit": 2
+    },
+    "Level 11": {
+     "Oroberyl": 950,
+     "Basic HH Permit": 2
+    },
+    "Level 12": {
+     "Oroberyl": 950,
+     "Basic HH Permit": 2
+    },
+    "Rhodagn Level 1": {
+     "Oroberyl": 50
+    },
+    "Rhodagn Level 2": {
+     "Oroberyl": 50
+    },
+    "Rhodagn Level 3": {
+     "Oroberyl": 50
+    },
+    "Rhodagn Level 4": {
+     "Oroberyl": 50
+    },
+    "Triaggelos Level 1": {
+     "Oroberyl": 50
+    },
+    "Triaggelos Level 2": {
+     "Oroberyl": 50
+    },
+    "Triaggelos Level 3": {
+     "Oroberyl": 50
+    },
+    "Marble Aggelomorai Level 1": {
+     "Oroberyl": 50
+    },
+    "Marble Aggelomorai Level 2": {
+     "Oroberyl": 50
+    },
+    "Marble Aggelomorai Level 3": {
+     "Oroberyl": 50
+    },
+    "Protocol Space: Advanced Progression I": {
+     "Oroberyl": 50
+    },
+    "Advanced Progression I": {
+     "Oroberyl": 50
+    },
+    "Protocol Space: Advanced Progression II": {
+     "Oroberyl": 50
+    },
+    "Advanced Progression II": {
+     "Oroberyl": 50
+    },
+    "Protocol Space: Advanced Progression III": {
+     "Oroberyl": 50
+    },
+    "Advanced Progression III": {
+     "Oroberyl": 50
+    },
+    "Protocol Space: Advanced Progression IV": {
+     "Oroberyl": 50
+    },
+    "Advanced Progression IV": {
+     "Oroberyl": 50
+    },
+    "Protocol Space: Advanced Progression V": {
+     "Oroberyl": 50
+    },
+    "Advanced Progression V": {
+     "Oroberyl": 50
+    },
+    "The Hub": {
+     "Oroberyl": 4155,
+     "Origeometry": 7
+    },
+    "Originium Science Park": {
+     "Oroberyl": 1715,
+     "Origeometry": 4
+    },
+    "Origin Lodespring": {
+     "Oroberyl": 2980,
+     "Origeometry": 4
+    },
+    "Power Plateau": {
+     "Oroberyl": 1360,
+     "Origeometry": 4
+    },
+    "Wuling City": {
+     "Oroberyl": 6915,
+     "Origeometry": 5
+    },
+    "Attack Interruption": {
+     "Oroberyl": 20
+    },
+    "Dodge & Perfect Dodge": {
+     "Oroberyl": 20
+    },
+    "Stagger & Stagger Nodes": {
+     "Oroberyl": 20
+    },
+    "Lift Practice": {
+     "Oroberyl": 20
+    },
+    "Crush Practice": {
+     "Oroberyl": 20
+    },
+    "Knock Down Practice": {
+     "Oroberyl": 20
+    },
+    "Breach Practice": {
+     "Oroberyl": 20
+    },
+    "Inflict and Burst": {
+     "Oroberyl": 20
+    },
+    "Combusting RXN": {
+     "Oroberyl": 20
+    },
+    "Solidifying RXN": {
+     "Oroberyl": 20
+    },
+    "Electrifying RXN": {
+     "Oroberyl": 20
+    },
+    "Corroding RXN": {
+     "Oroberyl": 20
+    },
+    "Endministrator": {
+     "Oroberyl": 20
+    },
+    "Ardelia": {
+     "Oroberyl": 20
+    },
+    "Ember": {
+     "Oroberyl": 20
+    },
+    "Last Rite": {
+     "Oroberyl": 20
+    },
+    "Lifeng": {
+     "Oroberyl": 20
+    },
+    "Pogranichnik": {
+     "Oroberyl": 20
+    },
+    "Perlica": {
+     "Oroberyl": 20
+    },
+    "Chen Qianyu": {
+     "Oroberyl": 20
+    },
+    "Wulfgard": {
+     "Oroberyl": 20
+    },
+    "Alesh": {
+     "Oroberyl": 20
+    },
+    "Arclight": {
+     "Oroberyl": 20
+    },
+    "Avywenna": {
+     "Oroberyl": 20
+    },
+    "Da Pan": {
+     "Oroberyl": 20
+    },
+    "Snowshine": {
+     "Oroberyl": 20
+    },
+    "Xaihi": {
+     "Oroberyl": 20
+    },
+    "Electric Mining Rig": {
+     "Oroberyl": 25
+    },
+    "Material Production": {
+     "Oroberyl": 25
+    },
+    "Logistics Connections": {
+     "Oroberyl": 25
+    },
+    "Shredding Unit": {
+     "Oroberyl": 40
+    },
+    "Belt-free Transfer": {
+     "Oroberyl": 40
+    },
+    "Meds Production": {
+     "Oroberyl": 40
+    },
+    "Moulding Unit": {
+     "Oroberyl": 40
+    },
+    "Fitting Unit": {
+     "Oroberyl": 40
+    },
+    "Gearing Unit": {
+     "Oroberyl": 25
+    },
+    "Filling Unit": {
+     "Oroberyl": 25
+    },
+    "Item Control Port": {
+     "Oroberyl": 40
+    },
+    "Packaging Unit": {
+     "Oroberyl": 40
+    },
+    "Industrial Explosive": {
+     "Oroberyl": 40
+    },
+    "Thermal Bank": {
+     "Oroberyl": 40
+    },
+    "Planting Unit and Seed-Picking Unit": {
+     "Oroberyl": 40
+    },
+    "Splitter": {
+     "Oroberyl": 40
+    },
+    "Depot Bus": {
+     "Oroberyl": 40
+    },
+    "Belt Bridge": {
+     "Oroberyl": 40
+    },
+    "Depot Bus Integration": {
+     "Oroberyl": 40
+    },
+    "Electric Mining Rig Mk II": {
+     "Oroberyl": 40
+    },
+    "Converger": {
+     "Oroberyl": 40
+    },
+    "Grinding Unit": {
+     "Oroberyl": 40
+    },
+    "Improved Cannery": {
+     "Oroberyl": 40
+    },
+    "SC Valley Battery": {
+     "Oroberyl": 40
+    },
+    "Buck Capsule [A]": {
+     "Oroberyl": 40
+    },
+    "Belt Integration": {
+     "Oroberyl": 40
+    },
+    "Pipes and Fluids": {
+     "Oroberyl": 40
+    },
+    "Reactor Crucible": {
+     "Oroberyl": 40
+    },
+    "Filling Unit (Fluid)": {
+     "Oroberyl": 40
+    },
+    "Planting Unit and Pipe Splitters": {
+     "Oroberyl": 40
+    },
+    "Sprinkler": {
+     "Oroberyl": 40
+    },
+    "Pipe Logistics": {
+     "Oroberyl": 40
+    },
+    "Reactor Expansion": {
+     "Oroberyl": 40
+    },
+    "Forge of the Sky": {
+     "Oroberyl": 25
+    },
+    "Separating Unit": {
+     "Oroberyl": 40
+    },
+    "The Hub Level 1": {
+     "Basic HH Permit": 1
+    },
+    "The Hub Level 2": {
+     "Basic HH Permit": 1
+    },
+    "The Hub Level 3": {
+     "Basic HH Permit": 1
+    },
+    "Originium Science Park Level 1": {
+     "Basic HH Permit": 1
+    },
+    "Originium Science Park Level 2": {
+     "Basic HH Permit": 1
+    },
+    "Originium Science Park Level 3": {
+     "Basic HH Permit": 1
+    },
+    "Origin Lodespring Level 1": {
+     "Basic HH Permit": 1
+    },
+    "Origin Lodespring Level 2": {
+     "Basic HH Permit": 1
+    },
+    "Origin Lodespring Level 3": {
+     "Basic HH Permit": 1
+    },
+    "Risk Level 1": {
+     "Oroberyl": 240
+    },
+    "Risk Level 2": {
+     "Oroberyl": 240
+    },
+    "Risk Level 3": {
+     "Oroberyl": 160
+    },
+    "Risk Level 4": {
+     "Oroberyl": 80
+    },
+    "Phase 1": {
+     "Origeometry": 2
+    },
+    "Phase 2": {
+     "Origeometry": 2
+    },
+    "Phase 3": {
+     "Origeometry": 3
+    },
+    "Phase 4": {
+     "Origeometry": 4
+    },
+    "Phase 5": {
+     "Origeometry": 4
+    },
+    "Phase 6": {
+     "Origeometry": 5
+    },
+    "Phase 7": {
+     "Origeometry": 5
+    },
+    "Phase 8": {
+     "Origeometry": 5
+    },
+    "Phase 9": {
+     "Origeometry": 3
+    },
+    "Phase 10": {
+     "Origeometry": 3
+    },
+    "Phase 11": {
+     "Origeometry": 3
+    },
+    "Phase 12": {
+     "Origeometry": 3
+    },
+    "Phase 13": {
+     "Origeometry": 3
+    },
+    "Phase 14": {
+     "Origeometry": 3
+    },
+    "Phase 15": {
+     "Origeometry": 3
+    },
+    "Phase 16": {
+     "Origeometry": 3
+    },
+    "Phase 17": {
+     "Origeometry": 3
+    },
+    "Phase 18": {
+     "Origeometry": 3
+    },
+    "Valley Pass": {
+     "Oroberyl": 500,
+     "Origeometry": 1
+    },
+    "Aburrey Quarry": {
+     "Oroberyl": 1305,
+     "Origeometry": 2
+    },
+    "Break the Siege": {
+     "Origeometry": 3
+    },
+    "Valley Reboot": {
+     "Origeometry": 2
+    },
+    "Ralley and Unite": {
+     "Origeometry": 4
+    },
+    "Westward Into the Vale": {
+     "Origeometry": 2
+    },
+    "Secure Sanctuary": {
+     "Origeometry": 2
+    },
+    "Building an Outpost": {
+     "Origeometry": 3
+    },
+    "Through the Haze": {
+     "Origeometry": 3
+    },
+    "Fort Shutdown": {
+     "Origeometry": 1
+    },
+    "Paving the Way": {
+     "Origeometry": 3
+    },
+    "Work Preparation": {
+     "Origeometry": 1
+    },
+    "Maintenance Progress": {
+     "Origeometry": 1
+    },
+    "The Mission Continues": {
+     "Origeometry": 1
+    },
+    "Cross the Science Park": {
+     "Origeometry": 2
+    },
+    "Park Way Party": {
+     "Origeometry": 2
+    },
+    "Walk in the Park": {
+     "Origeometry": 2
+    },
+    "Mystery in the Building": {
+     "Origeometry": 4
+    },
+    "Down the Hill": {
+     "Origeometry": 1
+    },
+    "Shattered Veins": {
+     "Origeometry": 2
+    },
+    "Lodespring Crossing": {
+     "Origeometry": 2
+    },
+    "Cradle of the Ages": {
+     "Origeometry": 2
+    },
+    "Eve of Battle": {
+     "Origeometry": 1
+    },
+    "Entering the Endgame": {
+     "Origeometry": 1
+    },
+    "Counterstrike Brewing": {
+     "Origeometry": 2
+    },
+    "Scaldings of Utjug": {
+     "Origeometry": 2
+    },
+    "Frontline Rush": {
+     "Origeometry": 1
+    },
+    "Undying Cinders": {
+     "Origeometry": 2
+    },
+    "Temporary Peace": {
+     "Origeometry": 1
+    },
+    "Mysterious Signal": {
+     "Origeometry": 3
+    },
+    "Conference of the Four": {
+     "Origeometry": 1
+    },
+    "OD Project: Refugee Camp I": {
+     "Oroberyl": 50
+    },
+    "Refugee Camp I": {
+     "Oroberyl": 50
+    },
+    "Restart Area Stock Redistribution I": {
+     "Oroberyl": 50
+    },
+    "Depot Node I": {
+     "Oroberyl": 25
+    },
+    "Quarry Rescue": {
+     "Oroberyl": 150
+    },
+    "Fix the Super Crane": {
+     "Oroberyl": 150
+    },
+    "Deep Management Post Rescue": {
+     "Oroberyl": 150
+    },
+    "Alluvial Cleaning": {
+     "Oroberyl": 25
+    },
+    "Outpost: Infra-Station": {
+     "Oroberyl": 50
+    },
+    "Infra-Station": {
+     "Oroberyl": 50
+    },
+    "Outpost: Reconstruction HQ": {
+     "Oroberyl": 50
+    },
+    "Reconstruction HQ": {
+     "Oroberyl": 50
+    },
+    "Beyond the World's Expanse I": {
+     "Basic HH Permit": 3
+    },
+    "Beyond the World's Expanse II": {
+     "Basic HH Permit": 3
+    },
+    "Beyond the World's Expanse III": {
+     "Basic HH Permit": 3
+    },
+    "Beyond the World's Expanse IV": {
+     "Basic HH Permit": 3
+    },
+    "OD Project: Refugee Camp II": {
+     "Oroberyl": 50
+    },
+    "Refugee Camp II": {
+     "Oroberyl": 50
+    },
+    "OD Project: Refugee Camp III": {
+     "Oroberyl": 50
+    },
+    "Refugee Camp III": {
+     "Oroberyl": 50
+    },
+    "OD Project: Infra-Station I": {
+     "Oroberyl": 50
+    },
+    "Infra-Station I": {
+     "Oroberyl": 50
+    },
+    "OD Project: Infra-Station II": {
+     "Oroberyl": 50
+    },
+    "Infra-Station II": {
+     "Oroberyl": 50
+    },
+    "OD Project: Infra-Station III": {
+     "Oroberyl": 50
+    },
+    "Infra-Station III": {
+     "Oroberyl": 50
+    },
+    "OD Project: Reconstruction HQ I": {
+     "Oroberyl": 50
+    },
+    "Reconstruction HQ I": {
+     "Oroberyl": 50
+    },
+    "Restart Area Stock Redistribution II": {
+     "Oroberyl": 50
+    },
+    "Restart Area Stock Redistribution III": {
+     "Oroberyl": 50
+    },
+    "Depot Node II": {
+     "Oroberyl": 25
+    },
+    "Produce Industrial Explosives": {
+     "Oroberyl": 25
+    },
+    "AIC Steward": {
+     "Oroberyl": 50
+    },
+    "Defense Construction": {
+     "Oroberyl": 75
+    },
+    "Cost of Hope I": {
+     "Oroberyl": 75
+    },
+    "Cost of Hope II": {
+     "Oroberyl": 75
+    },
+    "In For a Penny, In for a Pound": {
+     "Oroberyl": 100
+    },
+    "Farming Toils": {
+     "Oroberyl": 40
+    },
+    "Base Revisited": {
+     "Oroberyl": 75
+    },
+    "Base Revisited [Finale]": {
+     "Oroberyl": 75
+    },
+    "Emergency Rescue I": {
+     "Oroberyl": 75
+    },
+    "Emergency Rescue II": {
+     "Oroberyl": 75
+    },
+    "A Robot's Dream": {
+     "Oroberyl": 100
+    },
+    "Ode to the Oak I": {
+     "Oroberyl": 75
+    },
+    "Ode to the Oak II": {
+     "Oroberyl": 75
+    },
+    "Cog in the Wheel": {
+     "Oroberyl": 60
+    },
+    "Rumors about Tech": {
+     "Oroberyl": 60
+    },
+    "Morale Booster": {
+     "Oroberyl": 60
+    },
+    "Invisible Glyphs: Discovery": {
+     "Oroberyl": 75
+    },
+    "Discovery": {
+     "Oroberyl": 75
+    },
+    "Invisible Glyphs: Investigation": {
+     "Oroberyl": 75
+    },
+    "Investigation": {
+     "Oroberyl": 75
+    },
+    "Invisible Glyphs: Revelation": {
+     "Oroberyl": 75
+    },
+    "Revelation": {
+     "Oroberyl": 75
+    },
+    "The Road is Rough": {
+     "Oroberyl": 75
+    },
+    "Business is Tough": {
+     "Oroberyl": 75
+    },
+    "Kindness is Rare": {
+     "Oroberyl": 75
+    },
+    "Insider Threat": {
+     "Oroberyl": 100
+    },
+    "Visitor from the Band I": {
+     "Oroberyl": 75
+    },
+    "Visitor from the Band II": {
+     "Oroberyl": 75
+    },
+    "Wulfgard: Lone Wolf": {
+     "Oroberyl": 600
+    },
+    "Lone Wolf": {
+     "Oroberyl": 600
+    },
+    "The Ashen Past": {
+     "Oroberyl": 600
+    },
+    "Let Fire Consume the Ashen Past": {
+     "Oroberyl": 600
+    },
+    "Algorithm of Joy": {
+     "Oroberyl": 600
+    },
+    "Love, Scream & The Prototype": {
+     "Oroberyl": 600
+    },
+    "Where the Mist Parts": {
+     "Oroberyl": 600
+    },
+    "Letter From a Messenger": {
+     "Oroberyl": 600
+    },
+    "A Brewing Storm: The Hub": {
+     "Oroberyl": 25
+    },
+    "A Brewing Storm: Auburry Quarry": {
+     "Oroberyl": 25
+    },
+    "Auburry Quarry": {
+     "Oroberyl": 25
+    },
+    "A Brewing Storm: Origin Loadspring": {
+     "Oroberyl": 25
+    },
+    "Origin Loadspring": {
+     "Oroberyl": 25
+    },
+    "A Brewing Storm: Power Plateau": {
+     "Oroberyl": 25
+    },
+    "A Brewing Storm Finale": {
+     "Oroberyl": 25
+    },
+    "Savior of Bots": {
+     "Oroberyl": 25
+    },
+    "Tripod Central I": {
+     "Oroberyl": 30
+    },
+    "Tripod Central II": {
+     "Oroberyl": 30
+    },
+    "Tripod Central III": {
+     "Oroberyl": 30
+    },
+    "Where Art Thou My Love": {
+     "Oroberyl": 25
+    },
+    "Elevator Repairs": {
+     "Oroberyl": 50
+    },
+    "Antique Drone": {
+     "Oroberyl": 50
+    },
+    "Dusty Old Files": {
+     "Oroberyl": 75
+    },
+    "Elevated Rescue": {
+     "Oroberyl": 50
+    },
+    "Explosive Rescue": {
+     "Oroberyl": 50
+    },
+    "Had to Be Done": {
+     "Oroberyl": 65
+    },
+    "Illusion": {
+     "Oroberyl": 75
+    },
+    "Sluggish Escapade": {
+     "Oroberyl": 50
+    },
+    "Repair Story": {
+     "Oroberyl": 75
+    },
+    "Jingyu Valley Level 1": {
+     "Basic HH Permit": 1
+    },
+    "Jingyu Valley Level 2": {
+     "Basic HH Permit": 1
+    },
+    "Jingyu Valley": {
+     "Oroberyl": 1910,
+     "Origeometry": 2
+    },
+    "Arrival in Wuling": {
+     "Origeometry": 1
+    },
+    "Stumbling Into Qingbo Stockade": {
+     "Origeometry": 2
+    },
+    "Destination Wuling": {
+     "Origeometry": 2
+    },
+    "A Glance of Astonishment": {
+     "Origeometry": 1
+    },
+    "A Breeze Away": {
+     "Origeometry": 2
+    },
+    "Of Grace amd Gentle Might": {
+     "Origeometry": 2
+    },
+    "The Surging Tide": {
+     "Origeometry": 1
+    },
+    "Where Danger Sleeps": {
+     "Origeometry": 2
+    },
+    "OD Project: Sky King Flats I": {
+     "Oroberyl": 50
+    },
+    "Sky King Flats I": {
+     "Oroberyl": 50
+    },
+    "Gear Artificing": {
+     "Oroberyl": 25
+    },
+    "Innovate to Cultivate": {
+     "Oroberyl": 15
+    },
+    "Silent Grove: The Beginning": {
+     "Oroberyl": 60
+    },
+    "The Beginning": {
+     "Oroberyl": 60
+    },
+    "Silent Grove: Zhailing Islet": {
+     "Oroberyl": 60
+    },
+    "Zhailing Islet": {
+     "Oroberyl": 60
+    },
+    "Silent Grove: South Hill": {
+     "Oroberyl": 60
+    },
+    "South Hill": {
+     "Oroberyl": 60
+    },
+    "Silent Grove: The Epilogue": {
+     "Oroberyl": 75
+    },
+    "The Epilogue": {
+     "Oroberyl": 75
+    },
+    "Burdenbeast Tales": {
+     "Oroberyl": 150
+    },
+    "Always Running": {
+     "Oroberyl": 100
+    },
+    "Treasure Beneath the Pond": {
+     "Oroberyl": 50
+    },
+    "Three Swords of Mastery": {
+     "Oroberyl": 50
+    },
+    "No Margin for Error": {
+     "Oroberyl": 50
+    },
+    "Tainted Waters": {
+     "Oroberyl": 50
+    },
+    "The Bell Tolls": {
+     "Oroberyl": 50
+    },
+    "Pillars of Destiny": {
+     "Oroberyl": 40
+    },
+    "Template Recovery": {
+     "Oroberyl": 25
+    },
+    "Authority Level (AL1-60)": {
+     "Oroberyl": 4500
+    },
+    "Authority Level Rewards": {
+     "Oroberyl": 4000,
+     "Basic HH Permit": 40
+    },
+    "Origins of AEther Test Site": {
+     "Oroberyl": 200
+    },
+    "Aggelos": {
+     "Oroberyl": 200
+    },
+    "Infra-Station Search and Rescue Brief": {
+     "Oroberyl": 200
+    },
+    "Murder of a Landbreaker": {
+     "Oroberyl": 200
+    },
+    "The Bonekrusher Clan": {
+     "Oroberyl": 200
+    },
+    "Transport in Jingyu Valley": {
+     "Oroberyl": 200
+    },
+    "Fangxing Avenue": {
+     "Oroberyl": 200
+    },
+    "Nightmares from the Past": {
+     "Oroberyl": 200
+    },
+    "Buckflower": {
+     "Oroberyl": 155
+    },
+    "Firebuckle": {
+     "Oroberyl": 50
+    },
+    "Citrome": {
+     "Oroberyl": 75
+    },
+    "Umbraline": {
+     "Oroberyl": 50
+    },
+    "Aketine": {
+     "Oroberyl": 155
+    },
+    "Reed Rye": {
+     "Oroberyl": 25
+    },
+    "Tartpepper": {
+     "Oroberyl": 25
+    },
+    "Jincao": {
+     "Oroberyl": 255
+    },
+    "Fluffed Jincao": {
+     "Oroberyl": 75
+    },
+    "Yazhen": {
+     "Oroberyl": 255
+    },
+    "Thorny Yazhen": {
+     "Oroberyl": 75
+    },
+    "Amber Rice": {
+     "Oroberyl": 75
+    },
+    "Redjade Ginseng": {
+     "Oroberyl": 155
+    },
+    "Glowbug": {
+     "Oroberyl": 155
+    },
+    "Scorchbug": {
+     "Oroberyl": 155
+    },
+    "Hard Aggagrit": {
+     "Oroberyl": 75
+    },
+    "Energized Aggagrit": {
+     "Oroberyl": 75
+    },
+    "Powdered Grass Seed": {
+     "Oroberyl": 130
+    },
+    "Pungent Jerky": {
+     "Oroberyl": 75
+    },
+    "Young Bamboo Sprout": {
+     "Oroberyl": 80
+    },
+    "Fillet": {
+     "Oroberyl": 75
+    },
+    "Slug Meat": {
+     "Oroberyl": 80
+    },
+    "Bitter Flour": {
+     "Oroberyl": 75
+    },
+    "Hollow Aggagrit": {
+     "Oroberyl": 75
+    },
+    "Resilient Water": {
+     "Oroberyl": 75
+    },
+    "Natural Sparkling Water": {
+     "Oroberyl": 75
+    },
+    "Waterlamp Glowbulb": {
+     "Oroberyl": 75
+    },
+    "Nidwyrm Whiskers": {
+     "Oroberyl": 155
+    },
+    "Cartilage Bit": {
+     "Oroberyl": 75
+    },
+    "Chromatic Lipids": {
+     "Oroberyl": 75
+    },
+    "Black Treacle": {
+     "Oroberyl": 75
+    },
+    "Quillbeast Liver": {
+     "Oroberyl": 75
+    },
+    "Shattered Axe Blade": {
+     "Oroberyl": 155
+    },
+    "Haze-Soaked Ballista": {
+     "Oroberyl": 155
+    },
+    "Axehorn": {
+     "Oroberyl": 155
+    },
+    "Rakerbeast Longfur": {
+     "Oroberyl": 155
+    },
+    "Dijiang Upgrade and Maintenance I": {
+     "Oroberyl": 25
+    },
+    "Dijiang Upgrade and Maintenance II": {
+     "Oroberyl": 25
+    },
+    "50 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "300 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "1200 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "2500 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "5000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "10000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "20000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "30000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "40000 Operation Metrics": {
+     "Oroberyl": 400
+    },
+    "50000 Operation Metrics": {
+     "Basic HH Permit": 2
+    },
+    "Valley's Aberrants I": {
+     "Oroberyl": 1020
+    },
+    "Valley's Aberrants II": {
+     "Oroberyl": 255
+    },
+    "Valley's Aberrants III": {
+     "Oroberyl": 315
+    },
+    "Aberrant Exploration I": {
+     "Oroberyl": 150
+    },
+    "Aberrant Exploration II": {
+     "Oroberyl": 150
+    },
+    "Aberrant Exploration III": {
+     "Oroberyl": 150
+    },
+    "Etchspace Salvage I": {
+     "Oroberyl": 100
+    },
+    "Etchspace Salvage II": {
+     "Oroberyl": 300
+    },
+    "Etchspace Salvage III": {
+     "Oroberyl": 300
+    },
+    "Exploration R&D: Stable Protocols 2": {
+     "Oroberyl": 30
+    },
+    "Stable Protocols 2": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Stable Protocols 3": {
+     "Oroberyl": 60
+    },
+    "Stable Protocols 3": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Stable Protocols 4": {
+     "Oroberyl": 30
+    },
+    "Stable Protocols 4": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Stable Protocols 5": {
+     "Oroberyl": 60
+    },
+    "Stable Protocols 5": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Stable Protocols 6": {
+     "Oroberyl": 30
+    },
+    "Stable Protocols 6": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Derangement Tolerance 1": {
+     "Oroberyl": 60
+    },
+    "Derangement Tolerance 1": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Container Expansion 2": {
+     "Oroberyl": 30
+    },
+    "Container Expansion 2": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Container Expansion 3": {
+     "Oroberyl": 60
+    },
+    "Container Expansion 3": {
+     "Oroberyl": 60
+    },
+    "Exploration R&D: Container Expansion 4": {
+     "Oroberyl": 30
+    },
+    "Container Expansion 4": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Container Expansion 5": {
+     "Oroberyl": 30
+    },
+    "Container Expansion 5": {
+     "Oroberyl": 30
+    },
+    "Exploration R&D: Portable Explosives 2": {
+     "Oroberyl": 60
+    },
+    "Portable Explosives 2": {
+     "Oroberyl": 60
+    },
+    "Combat R&D: Fragmented Treatment": {
+     "Oroberyl": 60
+    },
+    "Fragmented Treatment": {
+     "Oroberyl": 60
+    },
+    "Combat R&D: Tactical Tempo": {
+     "Oroberyl": 60
+    },
+    "Tactical Tempo": {
+     "Oroberyl": 60
+    },
+    "Combat R&D: Armor Gilding": {
+     "Oroberyl": 60
+    },
+    "Armor Gilding": {
+     "Oroberyl": 60
+    },
+    "Conversion R&D: Nodule Refining 1": {
+     "Oroberyl": 100
+    },
+    "Nodule Refining 1": {
+     "Oroberyl": 100
+    },
+    "Delver of the Cryptic: Cryptic First Revealed": {
+     "Oroberyl": 1800
+    },
+    "Cryptic First Revealed": {
+     "Oroberyl": 1800
+    },
+    "Daily Sign-in": {
+     "Oroberyl": 419
+    },
+    "Sign-in Bonus": {
+     "Oroberyl": 300
+    },
+    "1.1 Preview Stream Gift": {
+     "Oroberyl": 1000
+    },
+    "Release Stream Codes": {
+     "Oroberyl": 2000
+    },
+    "Twitch Drop Rewards": {
+     "Oroberyl": 150
+    },
+    "Misc Codes": {
+     "Oroberyl": 150
+    },
+    "Player Survey": {
+     "Oroberyl": 300
+    },
+    "First Impressions Survey": {
+     "Oroberyl": 300
+    },
+    "Game Experience Survey": {
+     "Oroberyl": 150
+    },
+    "Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "Extended Version Experience Survey": {
+     "Oroberyl": 300
+    },
+    "Release Appreciation Gift": {
+     "Chartered HH Permit": 10
+    },
+    "Adjustment Compensation": {
+     "Oroberyl": 500
+    },
+    "01/29 Compensation": {
+     "Oroberyl": 200
+    },
+    "02/04 Compensation": {
+     "Oroberyl": 200
+    },
+    "02/11 Compensation": {
+     "Oroberyl": 200
+    },
+    "Pre-registration": {
+     "Basic HH Permit": 15
+    },
+    "Social Media Milestone": {
+     "Basic HH Permit": 5
+    },
+    "Worldwide Release Now Live": {
+     "Oroberyl": 300
+    },
+    "Official Social Media Accounts": {
+     "Oroberyl": 180
+    },
+    "Endministrator Work Logbook": {
+     "Oroberyl": 200
+    },
+    "Game Tools First Time Team Share Reward": {
+     "Oroberyl": 100
+    },
+    "Fortune Connect-and-Win": {
+     "Oroberyl": 4920
+    },
+    "A Spring Note, Warmly Crafted": {
+     "Oroberyl": 360
+    },
+    "Daily Activity": {
+     "Oroberyl": 10780
+    },
+    "Weekly Routine": {
+     "Oroberyl": 3500,
+     "Arsenal Ticket": 700
+    },
+    "Monumental Etching": {
+     "Oroberyl": 2400
+    },
+    "Originium Supply Pass": {
+     "Oroberyl": 1213,
+     "Origeometry": 3
+    }
+   },
+   "creditPerDay": 20
+  }
+ }
+}

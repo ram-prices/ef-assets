@@ -29,7 +29,8 @@ Operator, weapon and gear data snapshotted from the
   Routine, every week), `passes` (each Protocol Pass season, its UTC
   `start`/`end` and each tier's rewards over levels 1-60: `rewards` = Basic
   Supply (free), `originium` = Originium Supply, `customized` = Protocol
-  Customized), `passTiers` (what the paid tiers cost) and `monthly` (the
+  Customized; `freeCrates`: the free track's Exchange Crate-o-Surprise [M]
+  boxes and the Oroberyl they average), `passTiers` (what the paid tiers cost) and `monthly` (the
   Monthly Pass: price, per purchase, per day). Pull currencies only:
   Oroberyl, Origeometry, Arsenal Tickets, HH Permits. Also `compensation`:
   what each version's official Version Update Notes hand out in the mail,
@@ -53,6 +54,14 @@ Operator, weapon and gear data snapshotted from the
   hand-kept amounts no wiki page or official post lists (version preview
   livestream, version survey, SKPORT web check-in, Combat Drills per new
   Chartered banner), each with its sources.
+- `bookkeeping.json` (`scripts/bookkeeping.mjs`, run by hand): from the
+  community "Endfield Bookkeeping" spreadsheet, what no wiki page or official
+  post lists with amounts: per version, `permanent` groups (Operational Manual
+  nodes and stages, Authority Level, Regional Development, Stock
+  Redistribution, Early Warning Terminals, Intel Gathering, Crafting Manual,
+  Etchspace Salvage...), `mailbox` items (launch mail, codes, one-off
+  compensation, Twitch drops...), `named` rows (to fill in events and modes
+  without amounts) and `creditPerDay`. Credit the sheet wherever it's shown.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

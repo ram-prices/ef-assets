@@ -12,7 +12,8 @@
 //   table) with each tier's rewards, levels 1–60 (the levels past 60 repeat
 //   crates, not currency): `rewards` = Basic Supply (free, item1 of each
 //   level), `originium` = Originium Supply (item2), `customized` = Protocol
-//   Customized (item3).
+//   Customized (item3). `freeCrates`: the free track's Exchange Crate-o-
+//   Surprise [M] boxes and the Oroberyl they average (the crate page's odds).
 // - passTiers: what the paid tiers cost (Originium Supply: Origeometry;
 //   Protocol Customized: real money, plus Origeometry handed out on purchase),
 //   from the Protocol Pass page.
@@ -188,6 +189,10 @@ const monthly = {
   daily: perDay,
 };
 
+// Exchange Crate-o-Surprise [M]: its Oroberyl odds ("5% chance for {{I|Oroberyl|20}}"), averaged.
+const crateText = (await texts(['Exchange Crate-o-Surprise (M)'])).get('Exchange Crate-o-Surprise (M)') ?? '';
+const crateAverage = [...crateText.matchAll(/([\d.]+)% chance for \{\{I\|Oroberyl\|(\d+)/g)].reduce((a, m) => a + (Number(m[1]) / 100) * Number(m[2]), 0);
+
 // Passes: the ProtocolPasses Cargo table (times are UTC), then each tier's rewards.
 const cargo = await api({ action: 'cargoquery', tables: 'ProtocolPasses', fields: '_pageName=page,Version,AsiaStartTime,AsiaEndTime', order_by: 'AsiaStartTime', limit: '100' });
 const utc = (s) => (s ? `${s.replace(' ', 'T')}Z` : null);
@@ -195,12 +200,14 @@ const passes = [];
 for (const { title: row } of cargo.cargoquery) {
   const text = await page(row.page);
   const tiers = [{}, {}, {}]; // Basic Supply, Originium Supply, Protocol Customized
+  let crates = 0;
   for (const m of text.matchAll(/\{\{PP cell([\s\S]*?)\}\}/g)) {
     const lvl = Number(/\|lvl\s*=\s*(\d+)/.exec(m[1])?.[1]);
     if (!(lvl >= 1 && lvl <= 60)) continue;
     tiers.forEach((into, i) => {
       const item = new RegExp(`\\|item${i + 1}\\s*=\\s*([^,\\n]+),\\s*([\\d,]+)`).exec(m[1]);
       if (item) add(into, item[1], Number(item[2].replace(/,/g, '')));
+      if (i === 0 && item && /^Exchange Crate-o-Surprise \(M\)$/i.test(item[1].trim())) crates += Number(item[2].replace(/,/g, ''));
     });
   }
   const [rewards, originium, customized] = tiers;
@@ -213,6 +220,7 @@ for (const { title: row } of cargo.cargoquery) {
     rewards,
     originium,
     customized,
+    ...(crates && crateAverage ? { freeCrates: { item: 'Exchange Crate-o-Surprise [M]', count: crates, oroberyl: Math.round(crates * crateAverage * 10) / 10 } } : {}),
   });
 }
 
