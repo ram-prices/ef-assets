@@ -10,6 +10,13 @@ Operator, weapon and gear data snapshotted from the
 - `weapons.json`: type, rarity, base ATK at 6 levels, potential, tuning costs,
   skills with their values at ranks 1-9.
 - `gear.json`: gear pieces (defense, stats, set) and gear set effects.
+- `events.json`: each event's rewards, keyed by its id in `schedule.json`
+  (`scripts/event-rewards.mjs`, `npm run events`): the wiki page, `groups`
+  of reward rows (a mission, a sign-in day, a milestone: its `label` and
+  `[item, count]` rewards), and `totals` per item. Shops and exchanges are
+  left out. `partial: true` when the page names rewards without (all) their
+  amounts (story events: "Oroberyl and other rewards"): its totals are a
+  lower bound, and those items have a null count.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

@@ -1,6 +1,7 @@
 name: Update wiki data
 
-# Snapshots operator, weapon and gear data from endfield.wiki.gg into wiki/.
+# Snapshots operator, weapon, gear and event reward data from endfield.wiki.gg
+# into wiki/.
 # Changes arrive as a pull request to review; nothing is pushed to main
 # directly. Weekly is plenty: the wiki fills in a new operator within days.
 on:
@@ -27,6 +28,8 @@ jobs:
       # No npm ci: the script only uses Node's built-ins.
       - name: Update wiki/*.json
         run: node scripts/update-wiki.mjs 2>&1 | tee report.txt
+      - name: Event rewards (wiki/events.json)
+        run: node scripts/event-rewards.mjs 2>&1 | tee -a report.txt
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'

@@ -5,7 +5,8 @@
   "description": "Banner data and art for ItJustLogs. scripts/update-schedule.mjs keeps schedule.json and banners.json current; scripts/update-wiki.mjs snapshots wiki/ from endfield.wiki.gg.",
   "scripts": {
     "schedule": "node scripts/update-schedule.mjs --find-pools",
-    "wiki": "node scripts/update-wiki.mjs"
+    "wiki": "node scripts/update-wiki.mjs",
+    "events": "node scripts/event-rewards.mjs"
   },
   "dependencies": {
     "sharp": "0.34.4"
