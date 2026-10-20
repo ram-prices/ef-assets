@@ -24,6 +24,15 @@
 //   schedule.json, whose `posts` list each version's notes. This part comes
 //   from the official news feed, not the wiki. (The Pre-Download notices
 //   repeat the first line, so only the Version Update Notes are read.)
+// - quests: permanent missions' one-time rewards (Main, Side and Exploration
+//   Missions on the wiki; Event Missions are temporary and left out, and so is
+//   any mission that's also a schedule event, which events.json counts),
+//   keyed by the version that released them:
+//   - Main Missions follow the story (each page's prev/next) and go to the
+//     first version whose "Main Missions available up to [Chapter II Process
+//     III: ...]" reaches them (official notes; else the wiki version page).
+//   - Others: the version whose wiki page lists them under Missions; else the
+//     version whose page lists their region under Areas; else Launch.
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -179,6 +188,8 @@ const NEWS_Q = 'lang=en-us&code=arknights_endfield_official';
 const NEWS_UA = { 'User-Agent': 'Mozilla/5.0 (ef-assets income bot; github.com/ram-prices/ef-assets)' };
 const schedule = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8'));
 const compensation = {};
+/** How far each version's main story goes: "Chapter II Process III: 'Twas One River That Gave Us Drink". */
+const storyCap = {};
 for (const v of schedule.versions) {
   for (const cid of v.posts ?? []) {
     const res = await fetch(`${NEWS}/${cid}?${NEWS_Q}`, { headers: NEWS_UA });
@@ -191,6 +202,8 @@ for (const v of schedule.versions) {
       .replace(/<[^>]+>/g, '')
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&');
+    const cap = text.match(/available up to \[([^\]]+)\]/i)?.[1];
+    if (cap) storyCap[v.name] = cap;
     const rows = [];
     for (const line of text.split('\n')) {
       // "· Update & Maintenance Compensation: [Oroberyl]×900" (several items: "[A]×1, [B]×2").
@@ -203,6 +216,137 @@ for (const v of schedule.versions) {
     if (rows.length) compensation[v.name] = { url: `https://endfield.gryphline.com/en-us/news/${cid}`, rows };
   }
 }
+
+// Quests: permanent missions' rewards, by the version that released them.
+/** The schedule's first version is the wiki's "Zeroth Directive". */
+const WIKI_VERSION = { Launch: 'Zeroth Directive' };
+const norm = (n) => n.toLowerCase().replace(/\s*\((?:mission)\)\s*$/i, '').replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
+const ROMAN = { I: 1, V: 5, X: 10 };
+const UNICODE_ROMAN = { 'Ⅰ': 'I', 'Ⅱ': 'II', 'Ⅲ': 'III', 'Ⅳ': 'IV', 'Ⅴ': 'V', 'Ⅵ': 'VI', 'Ⅶ': 'VII', 'Ⅷ': 'VIII', 'Ⅸ': 'IX', 'Ⅹ': 'X' };
+function roman(s) {
+  const r = String(s ?? '').replace(/[Ⅰ-Ⅹ]/g, (c) => UNICODE_ROMAN[c]).trim().toUpperCase();
+  if (/^\d+$/.test(r)) return Number(r);
+  let n = 0;
+  for (let i = 0; i < r.length; i++) n += (ROMAN[r[i]] ?? 0) < (ROMAN[r[i + 1]] ?? 0) ? -ROMAN[r[i]] : ROMAN[r[i]] ?? 0;
+  return n;
+}
+/** "Chapter II Process III: Name" → { chapter, process, name }. */
+function parseCap(s) {
+  const m = String(s).match(/Chapter\s+([IVXⅠ-Ⅹ\d]+)\s+Process\s+([IVXⅠ-Ⅹ\d]+)\s*:\s*(?:\[\[)?([^\]\n|]+)/i);
+  return m ? { chapter: roman(m[1]), process: roman(m[2]), name: m[3].replace(/[\s.]+$/, '').trim() } : null;
+}
+
+async function members(cat) {
+  const out = [];
+  let cont = {};
+  for (;;) {
+    const d = await api({ action: 'query', list: 'categorymembers', cmtitle: cat, cmlimit: '500', ...cont });
+    out.push(...d.query.categorymembers.filter((m) => m.ns === 0).map((m) => m.title));
+    if (!d.continue) return out;
+    cont = d.continue;
+  }
+}
+/** Wikitext of many pages: Map asked title → text (redirects followed). */
+async function texts(titles) {
+  const out = new Map();
+  for (let i = 0; i < titles.length; i += 50) {
+    const d = await api({ action: 'query', prop: 'revisions', rvprop: 'content', rvslots: 'main', redirects: '1', titles: titles.slice(i, i + 50).join('|') });
+    const back = new Map((d.query.redirects ?? []).map((r) => [r.to, r.from]));
+    for (const p of d.query.pages) {
+      const text = p.revisions?.[0]?.slots?.main?.content;
+      if (text != null) out.set(back.get(p.title) ?? p.title, text);
+    }
+    await sleep(1200);
+  }
+  return out;
+}
+
+const field = (w, name) => w.match(new RegExp(`\\|\\s*${name}\\s*=\\s*([^\\n|]*)`))?.[1]?.replace(/\}\}$/, '').trim() ?? '';
+const eventNames = new Set((schedule.events ?? []).map((e) => norm(e.name)));
+const missionTexts = await texts(await members('Category:Missions'));
+const all = [];
+for (const [title, w] of missionTexts) {
+  const type = field(w, 'type');
+  if (!/^(Main|Side|Exploration) Mission$/.test(type) || eventNames.has(norm(title))) continue;
+  const rewards = {};
+  for (const m of w.matchAll(/\|\s*reward\d*\s*=\s*([^,\n|]+),\s*([\d,]+)/g)) add(rewards, m[1], Number(m[2].replace(/,/g, '')));
+  all.push({
+    name: title,
+    type,
+    url: urlOf(title),
+    rewards,
+    region: field(w, 'region').replace(/\[\[|\]\]/g, ''),
+    chapter: roman(field(w, 'chapter')),
+    process: roman(field(w, 'process')),
+    prev: norm(field(w, 'prev')),
+    next: ['next', 'next2', 'next3'].map((k) => norm(field(w, k))).filter(Boolean),
+  });
+}
+
+// The wiki's version pages: their Missions and Areas sections (comments dropped).
+const versionText = await texts(schedule.versions.map((v) => WIKI_VERSION[v.name] ?? v.name));
+const subsection = (w, name) => w.replace(/<!--[\s\S]*?-->/g, '').match(new RegExp(`===\\s*${name}\\s*===([\\s\\S]*?)(?=\\n==)`))?.[1] ?? '';
+const listedIn = new Map(); // mission → version
+const regionIn = new Map(); // region → version
+for (const v of schedule.versions) {
+  const w = versionText.get(WIKI_VERSION[v.name] ?? v.name) ?? '';
+  const missionsPart = subsection(w, 'Missions');
+  storyCap[v.name] ??= missionsPart.match(/up to[^\n]*?(Chapter[^\n]*)/i)?.[1];
+  const names = [
+    ...[...missionsPart.matchAll(/\[\[([^\]|#]+)(?:[^\]]*)\]\]/g)].map((m) => m[1]),
+    ...[...missionsPart.matchAll(/^\*\*\s*([^\n*[]+?)\s*$/gm)].map((m) => m[1]),
+  ];
+  for (const n of names) if (!listedIn.has(norm(n))) listedIn.set(norm(n), v.name);
+  for (const m of subsection(w, 'Areas').matchAll(/\[\[([^\]|#]+)/g)) if (!regionIn.has(norm(m[1]))) regionIn.set(norm(m[1]), v.name);
+}
+
+// Main Missions in story order: by chapter and process; within a process, along
+// the prev/next chain (walked from each mission no other mission leads to).
+const mains = all.filter((m) => m.type === 'Main Mission');
+const byName = new Map(mains.map((m) => [norm(m.name), m]));
+const chain = new Map();
+const walk = (m) => {
+  if (!m || chain.has(m)) return;
+  chain.set(m, chain.size);
+  for (const n of m.next) walk(byName.get(n));
+};
+const byStory = (a, b) => a.chapter - b.chapter || a.process - b.process;
+for (const m of [...mains].sort(byStory)) if (!byName.has(m.prev)) walk(m);
+for (const m of [...mains].sort(byStory)) walk(m);
+const order = [...mains].sort((a, b) => byStory(a, b) || chain.get(a) - chain.get(b));
+
+// Each version's cap as a place in that order; a mission goes to the first version reaching it.
+const caps = [];
+for (const v of schedule.versions) {
+  const cap = storyCap[v.name] && parseCap(storyCap[v.name]);
+  if (!cap) continue;
+  let at = order.findIndex((m) => norm(m.name) === norm(cap.name));
+  if (at < 0) at = order.reduce((last, m, i) => (m.chapter < cap.chapter || (m.chapter === cap.chapter && m.process <= cap.process) ? i : last), -1);
+  caps.push({ version: v.name, at, cap: `Chapter ${cap.chapter} Process ${cap.process}: ${cap.name}` });
+}
+const quests = Object.fromEntries(schedule.versions.map((v) => [v.name, []]));
+const unplaced = [];
+order.forEach((m, i) => {
+  const v = caps.find((c) => c.at >= i)?.version;
+  if (v) quests[v].push({ ...m, how: 'story' });
+  else unplaced.push(m.name);
+});
+for (const m of all.filter((m) => m.type !== 'Main Mission')) {
+  const listed = listedIn.get(norm(m.name));
+  const region = regionIn.get(norm(m.region));
+  quests[listed ?? region ?? schedule.versions[0].name].push({ ...m, how: listed ? 'listed' : region ? 'region' : 'launch' });
+}
+const questsOut = {
+  source: 'endfield.wiki.gg mission pages (rewards); version: official Version Update Notes (main story), wiki version pages (others)',
+  caps: Object.fromEntries(caps.map((c) => [c.version, c.cap])),
+  versions: Object.fromEntries(
+    Object.entries(quests).map(([v, list]) => [
+      v,
+      list.filter((m) => Object.keys(m.rewards).length).map(({ name, type, url, rewards, how }) => ({ name, type, url, rewards, how })),
+    ]),
+  ),
+  ...(unplaced.length ? { unplaced } : {}),
+};
 
 if (!Object.keys(compensation).length) throw new Error('income: no compensation found in the version notes; their wording may have changed');
 if (!daily.Oroberyl || !weekly.Oroberyl || !passes.length || !originiumCost.Origeometry || !customizedPrice || !monthly.price || !monthly.daily.Oroberyl)
@@ -217,6 +361,7 @@ const out = {
   monthly,
   passes,
   compensation: { source: 'Official Version Update Notes (endfield.gryphline.com news)', versions: compensation },
+  quests: questsOut,
 };
 
 const fmt = (r) => Object.entries(r).map(([k, v]) => `${k} ${v}`).join(', ') || 'nothing';
@@ -224,6 +369,12 @@ console.log(`income: daily ${fmt(daily)}; weekly ${fmt(weekly)}`);
 console.log(`  Originium Supply costs ${fmt(originiumCost)}; Protocol Customized ${customizedPrice}, gives ${fmt(customizedBonus)} on purchase`);
 console.log(`  Monthly Pass ${monthly.price}/${monthly.days} days: ${fmt(perPurchase)} per purchase, ${fmt(perDay)} a day`);
 for (const [v, c] of Object.entries(compensation)) console.log(`  compensation ${v}: ${c.rows.map((r) => `${r.label} ${fmt(r.rewards)}`).join('; ')}`);
+for (const [v, list] of Object.entries(questsOut.versions)) {
+  const t = list.reduce((a, m) => { for (const [k, n] of Object.entries(m.rewards)) a[k] = (a[k] ?? 0) + n; return a; }, {});
+  const how = list.reduce((a, m) => ((a[m.how] = (a[m.how] ?? 0) + 1), a), {});
+  console.log(`  quests ${v}: ${list.length} with rewards (${fmt(how)}), ${fmt(t)}${questsOut.caps[v] ? `; story up to ${questsOut.caps[v]}` : ''}`);
+}
+if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
 for (const p of passes) console.log(`  pass ${p.name} (${p.start?.slice(0, 10)}): free ${fmt(p.rewards)}; Originium ${fmt(p.originium)}; Customized ${fmt(p.customized)}`);
 
 if (!DRY) {

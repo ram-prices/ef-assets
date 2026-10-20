@@ -285,5 +285,1984 @@
     ]
    }
   }
+ },
+ "quests": {
+  "source": "endfield.wiki.gg mission pages (rewards); version: official Version Update Notes (main story), wiki version pages (others)",
+  "caps": {
+   "Launch": "Chapter 2 Process 2: Where Danger Sleeps",
+   "Old Deep Water Dies, by Rising Tide It is Denied": "Chapter 2 Process 3: 'Twas One River That Gave Us Drink",
+   "At the Wake of Spring": "Chapter 2 Process 6: Kindred Souls Who Share a Vision",
+   "Homecoming": "Chapter 2 Process 7: Stubbornly Lingers the Setting Sun",
+   "Sanctuary of Ink": "Chapter 2 Process 8: Paint with Fresh Ink"
+  },
+  "versions": {
+   "Launch": [
+    {
+     "name": "Maintenance Progress",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Maintenance_Progress",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Conference of the Four",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Conference_of_the_Four",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Enter the Painted World",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Enter_the_Painted_World",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Break the Siege",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Break_the_Siege",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Valley Reboot",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Valley_Reboot",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Rally and Unite",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Rally_and_Unite",
+     "rewards": {
+      "Origeometry": 4
+     },
+     "how": "story"
+    },
+    {
+     "name": "Westward into the Vale",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Westward_into_the_Vale",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Secure Sanctuary",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Secure_Sanctuary",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Building an Outpost",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Building_an_Outpost",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Through the Haze",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Through_the_Haze",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Fort Showdown",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Fort_Showdown",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Paving the Way",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Paving_the_Way",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Work Preparation",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Work_Preparation",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "The Mission Continues",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Mission_Continues",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Cross the Science Park",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cross_the_Science_Park",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Park Way Party",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Park_Way_Party",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Walk in the Park",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Walk_in_the_Park",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Mystery in the Building",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Mystery_in_the_Building",
+     "rewards": {
+      "Origeometry": 4
+     },
+     "how": "story"
+    },
+    {
+     "name": "Down the Hill",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Down_the_Hill",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Shattered Veins",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Shattered_Veins",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Lodespring Crossing",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Lodespring_Crossing",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Cradle of the Ages",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cradle_of_the_Ages",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Eve of Battle",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Eve_of_Battle",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Entering the Endgame",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Entering_the_Endgame",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Counterstrike Brewing",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Counterstrike_Brewing",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Scaldings of Utjug",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Scaldings_of_Utjug",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Frontline Rush",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Frontline_Rush",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Undying Cinders",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Undying_Cinders",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Mysterious Signal",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Mysterious_Signal",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Arrival at Wuling",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Arrival_at_Wuling",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Stumbling Into Qingbo Stockade",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Stumbling_Into_Qingbo_Stockade",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Destination Wuling",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Destination_Wuling",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "A Glance of Astonishment",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Glance_of_Astonishment",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Ready the Easterlies",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Ready_the_Easterlies",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Of Grace and Gentle Might",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Of_Grace_and_Gentle_Might",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "The Surging Tide",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Surging_Tide",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Where Danger Sleeps",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Where_Danger_Sleeps",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Beyond the Worlds' Expanse III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Beyond_the_Worlds'_Expanse_III",
+     "rewards": {
+      "Basic HH Permit": 3
+     },
+     "how": "region"
+    },
+    {
+     "name": "Beyond the Worlds' Expanse IV",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Beyond_the_Worlds'_Expanse_IV",
+     "rewards": {
+      "Basic HH Permit": 3
+     },
+     "how": "region"
+    },
+    {
+     "name": "Beyond the Worlds' Expanse I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Beyond_the_Worlds'_Expanse_I",
+     "rewards": {
+      "Basic HH Permit": 3
+     },
+     "how": "region"
+    },
+    {
+     "name": "Beyond the Worlds' Expanse II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Beyond_the_Worlds'_Expanse_II",
+     "rewards": {
+      "Basic HH Permit": 3
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Brewing Storm: The Hub",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Brewing_Storm%3A_The_Hub",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Brewing Storm: Origin Lodespring",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Brewing_Storm%3A_Origin_Lodespring",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Brewing Storm: Aburrey Quarry",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Brewing_Storm%3A_Aburrey_Quarry",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Brewing Storm: Power Plateau",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Brewing_Storm%3A_Power_Plateau",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Brewing Storm Finale",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Brewing_Storm_Finale",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Algorithm of Joy",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Algorithm_of_Joy",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Antique Drone",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Antique_Drone",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Alluvial Cleaning",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Alluvial_Cleaning",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Business is Tough",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Business_is_Tough",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Base Revisited",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Base_Revisited",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Base Revisited (Finale)",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Base_Revisited_(Finale)",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Robot's Dream",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Robot's_Dream",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Always Running",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Always_Running",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Burdenbeast Tales",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Burdenbeast_Tales",
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "how": "region"
+    },
+    {
+     "name": "Brightest Star Above",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Brightest_Star_Above",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "A Painting Open for Business",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Painting_Open_for_Business",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "launch"
+    },
+    {
+     "name": "A Day to Remember",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Day_to_Remember",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Cost of Hope I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cost_of_Hope_I",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Cost of Hope II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cost_of_Hope_II",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Dijiang Upgrade and Maintenance II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Dijiang_Upgrade_and_Maintenance_II",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Explosive Rescue",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Explosive_Rescue",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Etchspace Salvage/Mission",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage%2FMission",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "Dusty Old Files",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Dusty_Old_Files",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Ducal Treasures",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Ducal_Treasures",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Defense Construction",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Defense_Construction",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Dijiang Upgrade and Maintenance I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Dijiang_Upgrade_and_Maintenance_I",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Depot Node I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Depot_Node_I",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Depot Node II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Depot_Node_II",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Elevator Repairs",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Elevator_Repairs",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Elevated Rescue",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Elevated_Rescue",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Cog in the Wheel",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cog_in_the_Wheel",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "Deep Management Post Rescue",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Deep_Management_Post_Rescue",
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "how": "region"
+    },
+    {
+     "name": "Emergency Rescue (I)",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Emergency_Rescue_(I)",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Emergency Rescue (II)",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Emergency_Rescue_(II)",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Infra-Station I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Infra-Station_I",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Invisible Glyphs: Discovery",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Invisible_Glyphs%3A_Discovery",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Invisible Glyphs: Investigation",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Invisible_Glyphs%3A_Investigation",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Invisible Glyphs: Revelation",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Invisible_Glyphs%3A_Revelation",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Infra-Station II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Infra-Station_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Gear Artificing",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Gear_Artificing",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Illusion",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Illusion",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Lone Wolf (Mission)",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Lone_Wolf_(Mission)",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Farming Toils",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Farming_Toils",
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "how": "region"
+    },
+    {
+     "name": "Innovate to Cultivate",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Innovate_to_Cultivate",
+     "rewards": {
+      "Oroberyl": 15
+     },
+     "how": "region"
+    },
+    {
+     "name": "Had to Be Done",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Had_to_Be_Done",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "No Margin for Error",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/No_Margin_for_Error",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Kindness is Rare",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Kindness_is_Rare",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Morale Booster",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Morale_Booster",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "In for a Penny, In for a Pound",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/In_for_a_Penny%2C_In_for_a_Pound",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Fix the Super Crane",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Fix_the_Super_Crane",
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "how": "region"
+    },
+    {
+     "name": "Insider Threat",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Insider_Threat",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Nameless Blades I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Nameless_Blades_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Nameless Blades II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Nameless_Blades_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Nameless Blades III",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Nameless_Blades_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Miscellanies on Rampage",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Miscellanies_on_Rampage",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Farming Automation",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Farming_Automation",
+     "rewards": {
+      "Oroberyl": 20
+     },
+     "how": "launch"
+    },
+    {
+     "name": "OD Project: Reconstruction HQ I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Reconstruction_HQ_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Refugee Camp III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Refugee_Camp_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Sky King Flats I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Sky_King_Flats_I",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Outpost: Infra-Station",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Outpost%3A_Infra-Station",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Sky King Flats II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Sky_King_Flats_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Refugee Camp I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Refugee_Camp_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Refugee Camp II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Refugee_Camp_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Outpost: Reconstruction HQ",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Outpost%3A_Reconstruction_HQ",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Reconstruction HQ II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Reconstruction_HQ_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Reconstruction HQ III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Reconstruction_HQ_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "OD Project: Infra-Station III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Infra-Station_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Ode to the Oak I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Ode_to_the_Oak_I",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Ode to the Oak II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Ode_to_the_Oak_II",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Restart Area Stock Redistribution I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Restart_Area_Stock_Redistribution_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Restart Area Stock Redistribution II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Restart_Area_Stock_Redistribution_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Savior of Bots",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Savior_of_Bots",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Pillars of Destiny",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Pillars_of_Destiny",
+     "rewards": {
+      "Oroberyl": 40
+     },
+     "how": "region"
+    },
+    {
+     "name": "Produce Industrial Explosives",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Produce_Industrial_Explosives",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Rumors about Tech",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Rumors_about_Tech",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "Quarry Rescue",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Quarry_Rescue",
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "how": "region"
+    },
+    {
+     "name": "Repair Story (Mission)",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Repair_Story_(Mission)",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Sanguine Inquiry",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Sanguine_Inquiry",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Post Destination",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Post_Destination",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "launch"
+    },
+    {
+     "name": "The Ashen Past",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Ashen_Past",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Template Recovery",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Template_Recovery",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Sluggish Escapade",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Sluggish_Escapade",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Tainted Waters",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Tainted_Waters",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Three Swords of Mastery",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Three_Swords_of_Mastery",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "The Bell Tolls",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Bell_Tolls",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Treasure Beneath the Pond",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Treasure_Beneath_the_Pond",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "The Road is Rough",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Road_is_Rough",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Silent Grove: The Beginning",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Silent_Grove%3A_The_Beginning",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "Silent Grove: Zhailing Islet",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Silent_Grove%3A_Zhailing_Islet",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "Silent Grove: South Hill",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Silent_Grove%3A_South_Hill",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "region"
+    },
+    {
+     "name": "Silent Grove: The Epilogue",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Silent_Grove%3A_The_Epilogue",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "The Story Continues",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Story_Continues",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Where Art Thou My Love",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Where_Art_Thou_My_Love",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Where the Mist Parts",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Where_the_Mist_Parts",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Tripod Central",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Tripod_Central",
+     "rewards": {
+      "Oroberyl": 30
+     },
+     "how": "region"
+    },
+    {
+     "name": "Visitor from the Band I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Visitor_from_the_Band_I",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Visitor from the Band II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Visitor_from_the_Band_II",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Yuanyuan Innkeeper I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Yuanyuan_Innkeeper_I",
+     "rewards": {
+      "Oroberyl": 30
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Yuanyuan Innkeeper II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Yuanyuan_Innkeeper_II",
+     "rewards": {
+      "Oroberyl": 30
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Yuanyuan Innkeeper III",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Yuanyuan_Innkeeper_III",
+     "rewards": {
+      "Oroberyl": 30
+     },
+     "how": "launch"
+    },
+    {
+     "name": "Unrequited Love",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Unrequited_Love",
+     "rewards": {
+      "Oroberyl": 125
+     },
+     "how": "region"
+    }
+   ],
+   "Old Deep Water Dies, by Rising Tide It is Denied": [
+    {
+     "name": "A River Restless in Still Winds",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_River_Restless_in_Still_Winds",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Another Wave Comes Crashing In",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Another_Wave_Comes_Crashing_In",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Ripples Spread Throughout the Flow",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Ripples_Spread_Throughout_the_Flow",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "'Twas One River That Gave Us Drink",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/'Twas_One_River_That_Gave_Us_Drink",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Call from the Blight",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Call_from_the_Blight",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Patron of the Spring I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Patron_of_the_Spring_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Patron of the Spring II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Patron_of_the_Spring_II",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Patron of the Spring III",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Patron_of_the_Spring_III",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "region"
+    },
+    {
+     "name": "Seekers of the Lost Treasure I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Seekers_of_the_Lost_Treasure_I",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    },
+    {
+     "name": "Seekers of the Lost Treasure II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Seekers_of_the_Lost_Treasure_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "region"
+    },
+    {
+     "name": "Seekers of the Lost Treasure III",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Seekers_of_the_Lost_Treasure_III",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "region"
+    }
+   ],
+   "At the Wake of Spring": [
+    {
+     "name": "Deep in the Mire",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Deep_in_the_Mire",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "The Flow Splits Course",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Flow_Splits_Course",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Surging From a Withered Spring",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Surging_From_a_Withered_Spring",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Unexpected Attack",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Unexpected_Attack",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Free Will",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Free_Will",
+     "rewards": {
+      "Origeometry": 4
+     },
+     "how": "story"
+    },
+    {
+     "name": "Like Fire and Ice",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Like_Fire_and_Ice",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "A Lethal Invitation",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Lethal_Invitation",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Where Friendship Was Made",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Where_Friendship_Was_Made",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Thus Rise the Wave and Wind",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Thus_Rise_the_Wave_and_Wind",
+     "rewards": {
+      "Origeometry": 1
+     },
+     "how": "story"
+    },
+    {
+     "name": "Tremors of the Crashing Tide",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Tremors_of_the_Crashing_Tide",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "A Breach Starts with a Crack",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Breach_Starts_with_a_Crack",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Patience Makes Greatness",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Patience_Makes_Greatness",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Kindred Souls Who Share a Vision",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Kindred_Souls_Who_Share_a_Vision",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Fan Meet",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Fan_Meet",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Divvy Up the Trouble",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Divvy_Up_the_Trouble",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Comrades: The Nameless",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Comrades%3A_The_Nameless",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Comrades: Commemoration",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Comrades%3A_Commemoration",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Comrades: For Tomorrow",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Comrades%3A_For_Tomorrow",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Remediation Station I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Remediation_Station_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Remediation Station II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Remediation_Station_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Old Acquaintance I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Old_Acquaintance_I",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Old Acquaintance II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Old_Acquaintance_II",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Purification Node (mission)",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Purification_Node_(mission)",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "To Posterity",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/To_Posterity",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Store by the Corner I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Store_by_the_Corner_I",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "listed"
+    },
+    {
+     "name": "The Old Man and the Tide I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Old_Man_and_the_Tide_I",
+     "rewards": {
+      "Oroberyl": 175
+     },
+     "how": "listed"
+    },
+    {
+     "name": "The Old Man and the Tide II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/The_Old_Man_and_the_Tide_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Store by the Corner II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Store_by_the_Corner_II",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Store by the Corner III",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Store_by_the_Corner_III",
+     "rewards": {
+      "Oroberyl": 60
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Spring's Return I",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Spring's_Return_I",
+     "rewards": {
+      "Oroberyl": 90
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Spring's Return II",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Spring's_Return_II",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Spring's Return III",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Spring's_Return_III",
+     "rewards": {
+      "Oroberyl": 25
+     },
+     "how": "listed"
+    }
+   ],
+   "Sketches of Lost Heirlooms": [
+    {
+     "name": "Cliffside Riddles of Steel",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cliffside_Riddles_of_Steel",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Deep Vaulted Steel",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Deep_Vaulted_Steel",
+     "rewards": {
+      "Oroberyl": 240
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Sky King Flats III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Sky_King_Flats_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Trial of Swordmancy (Mission)",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Trial_of_Swordmancy_(Mission)",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    }
+   ],
+   "Homecoming": [
+    {
+     "name": "Bravely Breach the Hostile Winds",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Bravely_Breach_the_Hostile_Winds",
+     "rewards": {
+      "Origeometry": 5
+     },
+     "how": "story"
+    },
+    {
+     "name": "Thus Begins the Homeward March",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Thus_Begins_the_Homeward_March",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "A Past Shared by the Swordmancers",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Past_Shared_by_the_Swordmancers",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Same Old Faces in a Place Transformed",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Same_Old_Faces_in_a_Place_Transformed",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Warily Returns the Wandering Vigile",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Warily_Returns_the_Wandering_Vigile",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Finally Breaks the Hanging Clouds",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Finally_Breaks_the_Hanging_Clouds",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "\"Homecoming\"",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/%22Homecoming%22",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Stubbornly Lingers the Setting Sun",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Stubbornly_Lingers_the_Setting_Sun",
+     "rewards": {
+      "Origeometry": 2
+     },
+     "how": "story"
+    },
+    {
+     "name": "Blightshade Watch",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Blightshade_Watch",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Cloudseeder STN II",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Cloudseeder_STN_II",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Cloudseeder STN I",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Cloudseeder_STN_I",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Fissure Filling and Land Grouting",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Fissure_Filling_and_Land_Grouting",
+     "rewards": {
+      "Oroberyl": 225
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Long Night Breaking into Day",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Long_Night_Breaking_into_Day",
+     "rewards": {
+      "Oroberyl": 100
+     },
+     "how": "region"
+    },
+    {
+     "name": "Home Beyond Reach",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Home_Beyond_Reach",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Outpost: Cloudseeder STN",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Outpost%3A_Cloudseeder_STN",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Remediation Station III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Remediation_Station_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Sorrow Sings in Silence",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Sorrow_Sings_in_Silence",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Treasures of the Past",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Treasures_of_the_Past",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    }
+   ],
+   "Dreamscape of Wind and Snow": [
+    {
+     "name": "A Dreamscape Shattered by Her Arrow",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/A_Dreamscape_Shattered_by_Her_Arrow",
+     "rewards": {
+      "Oroberyl": 600
+     },
+     "how": "region"
+    },
+    {
+     "name": "Bell of Recollection",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Bell_of_Recollection",
+     "rewards": {
+      "Oroberyl": 150
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Cliffbottom Archery Range",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/Cliffbottom_Archery_Range",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Endeavor of a Lifetime",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Endeavor_of_a_Lifetime",
+     "rewards": {
+      "Oroberyl": 200
+     },
+     "how": "listed"
+    },
+    {
+     "name": "OD Project: Cloudseeder STN III",
+     "type": "Exploration Mission",
+     "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Cloudseeder_STN_III",
+     "rewards": {
+      "Oroberyl": 50
+     },
+     "how": "listed"
+    },
+    {
+     "name": "Illumination of Fate",
+     "type": "Side Mission",
+     "url": "https://endfield.wiki.gg/wiki/Illumination_of_Fate",
+     "rewards": {
+      "Oroberyl": 75
+     },
+     "how": "listed"
+    }
+   ],
+   "Sanctuary of Ink": [
+    {
+     "name": "Learn of Rise and Fall",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Learn_of_Rise_and_Fall",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "Witness the Game Unfold",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Witness_the_Game_Unfold",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    },
+    {
+     "name": "See Through the Self",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/See_Through_the_Self",
+     "rewards": {
+      "Origeometry": 4
+     },
+     "how": "story"
+    },
+    {
+     "name": "Paint with Fresh Ink",
+     "type": "Main Mission",
+     "url": "https://endfield.wiki.gg/wiki/Paint_with_Fresh_Ink",
+     "rewards": {
+      "Origeometry": 3
+     },
+     "how": "story"
+    }
+   ]
+  }
  }
 }
