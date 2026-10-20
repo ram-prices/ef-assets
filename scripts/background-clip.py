@@ -1,6 +1,7 @@
 """Makes a looping page background from a game recording.
 
-Cuts `--length` seconds starting at `--start`, makes the end flow back into
+Cuts `--length` seconds starting at `--start` (minus the bottom strip where
+the game prints the player's UID), makes the end flow back into
 the start (its last `--fade` seconds crossfade into the frames just before
 the cut, so the loop has no jump), scales it to 1280x720 at 24 fps, drops the
 sound, and writes:
@@ -9,8 +10,8 @@ sound, and writes:
 - backgrounds/<id>.jpg, its first frame, shown while it loads and when
   motion is off
 - an entry in backgrounds/index.json: the clip's name, and the operators
-  whose pages use it (`--operators`), or every operator page without one of
-  its own (`--default`)
+  whose pages use it (`--operators`), or add it to the clips that operator
+  pages without one of their own pick from at random (`--default`)
 
     python scripts/background-clip.py <recording.mp4> <id> --start 12.5 --length 8
         [--fade 1] [--name "Valley IV, dusk"] [--operators chr_0026_lastrite,...]
@@ -28,6 +29,8 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H, FPS = 1280, 720, 24
+# The game prints the player's ping and UID along the bottom edge: always cut off.
+BOTTOM = 0.05
 # Higher is smaller and softer; the site darkens and blurs the clip a little anyway.
 VP9_CRF, H264_CRF = 40, 28
 
@@ -69,7 +72,7 @@ def main():
     # before where the output starts: the end runs straight into the start.
     L, F = a.length, a.fade
     graph = (
-        f'[0:v]trim=duration={L + F},setpts=PTS-STARTPTS,'
+        f'[0:v]trim=duration={L + F},setpts=PTS-STARTPTS,crop=iw:ih*{1 - BOTTOM}:0:0,'
         f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},format=yuv420p,split[a][b];'
         f'[a]trim=start={F},setpts=PTS-STARTPTS,fps={FPS}[main];'
         f'[b]trim=duration={F},setpts=PTS-STARTPTS,fps={FPS}[head];'
@@ -81,12 +84,12 @@ def main():
     run(['-i', f'{base}.mp4', '-frames:v', '1', '-q:v', '4', f'{base}.jpg'])
 
     index_path = os.path.join(a.out, 'index.json')
-    index = json.load(open(index_path, encoding='utf8')) if os.path.exists(index_path) else {'clips': {}, 'operators': {}, 'default': None}
+    index = json.load(open(index_path, encoding='utf8')) if os.path.exists(index_path) else {'clips': {}, 'operators': {}, 'default': []}
     index['clips'][a.id] = {'name': a.name or a.id}
     for op in filter(None, a.operators.split(',')):
         index['operators'][op.strip()] = a.id
-    if a.default:
-        index['default'] = a.id
+    if a.default and a.id not in index['default']:
+        index['default'].append(a.id)
     with open(index_path, 'w', encoding='utf8', newline='\n') as f:
         json.dump(index, f, indent=2, ensure_ascii=False)
         f.write('\n')

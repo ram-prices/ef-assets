@@ -1,0 +1,15 @@
+{
+  "clips": {
+    "rain-tower": {
+      "name": "Rain over the tower"
+    },
+    "cherry-falls": {
+      "name": "Cherry tree by the falls"
+    }
+  },
+  "operators": {},
+  "default": [
+    "rain-tower",
+    "cherry-falls"
+  ]
+}
