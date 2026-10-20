@@ -355,7 +355,7 @@ const events = schedule.events ?? [];
 // The wiki's event table: name, type, and UTC start per server.
 const table = [];
 for (let offset = 0; ; offset += 500) {
-  const d = await api({ action: 'cargoquery', tables: 'Events', fields: '_pageName=page,Event,Type,AsiaStartTime,AmeuStartTime', order_by: 'AsiaStartTime', limit: '500', offset: String(offset) });
+  const d = await api({ action: 'cargoquery', tables: 'Events', fields: '_pageName=page,Event,Type,AsiaStartTime,AmeuStartTime,AsiaEndTime,AmeuEndTime', order_by: 'AsiaStartTime', limit: '500', offset: String(offset) });
   const rows = (d.cargoquery ?? []).map((r) => r.title);
   table.push(...rows);
   if (rows.length < 500) break;
@@ -416,6 +416,7 @@ for (const r of extraRows) {
     page: page.title,
     url: `https://endfield.wiki.gg/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
     start: { asia: utc(r.AsiaStartTime), americas: utc(r.AmeuStartTime) ?? utc(r.AsiaStartTime) },
+    ...(r.AsiaEndTime ? { end: { asia: utc(r.AsiaEndTime), americas: utc(r.AmeuEndTime) ?? utc(r.AsiaEndTime) } } : {}),
     ...(partial ? { partial: true } : {}),
     totals: totalsOf(groups),
     groups,

@@ -3019,15 +3019,26 @@
      "rewards": {
       "Oroberyl": 4920
      },
-     "estimate": true
+     "estimate": true,
+     "until": "2026-02-22T16:00:00Z"
     },
     {
-     "count": 3,
+     "count": 2,
      "name": "Launch codes",
      "section": "mailbox",
      "url": "https://www.keengamer.com/articles/guides/arknights-endfield-all-codes-how-to-redeem/",
      "rewards": {
-      "Oroberyl": 2150
+      "Oroberyl": 2000
+     },
+     "until": "2026-01-29T20:00:00Z"
+    },
+    {
+     "count": 1,
+     "name": "ENDFIELDGIFT code",
+     "section": "mailbox",
+     "url": "https://gamewith.net/akendfield/72499",
+     "rewards": {
+      "Oroberyl": 150
      }
     }
    ],

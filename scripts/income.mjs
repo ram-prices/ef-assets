@@ -647,7 +647,10 @@ for (const t of intelList) {
 // voucher holds, times the days it's sent ("on the first, second and seventh day").
 const eventsFile = JSON.parse(await readFile(join(ROOT, 'wiki', 'events.json'), 'utf8'));
 const counted = new Set(Object.values(eventsFile.extra ?? {}).map((e) => e.page));
-const mailRows = (await api({ action: 'cargoquery', tables: 'Events', fields: '_pageName=page,Type', where: 'Type="mail"', limit: '50' })).cargoquery.map((r) => r.title.page);
+const mailTable = (await api({ action: 'cargoquery', tables: 'Events', fields: '_pageName=page,Type,AsiaEndTime', where: 'Type="mail"', limit: '50' })).cargoquery.map((r) => r.title);
+const mailRows = mailTable.map((r) => r.page);
+/** When a limited reward stops being claimable (UTC): a player who starts later never gets it. */
+const mailEnd = Object.fromEntries(mailTable.filter((r) => r.AsiaEndTime).map((r) => [r.page, `${r.AsiaEndTime.replace(' ', 'T')}Z`]));
 const ORDINAL = /\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth)\b/gi;
 const wikiVersion = Object.fromEntries(schedule.versions.map((v) => [WIKI_VERSION[v.name] ?? v.name, v.name]));
 for (const [page, w] of await texts(mailRows.filter((p) => !counted.has(p)))) {
@@ -661,18 +664,20 @@ for (const [page, w] of await texts(mailRows.filter((p) => !counted.has(p)))) {
   }
   itemsIn(sectionOr(w, 'Mail'), rewards);
   const v = wikiVersion[field(w, 'version').replace(/\[\[|\]\]/g, '')] ?? launch;
-  if (Object.keys(rewards).length) addOneTime(v, { name: page, section: 'mailbox', url: urlOf(page), rewards, estimate: true });
+  if (Object.keys(rewards).length) addOneTime(v, { name: page, section: 'mailbox', url: urlOf(page), rewards, estimate: true, ...(mailEnd[page] ? { until: mailEnd[page] } : {}) });
 }
 
-// Launch codes (hand-kept; expired): ALLFIELD and RETURNOFALL (KeenGamer), ENDFIELDGIFT (GameWith).
+// Launch codes (hand-kept): ALLFIELD and RETURNOFALL, expired Jan 29, 2026 (KeenGamer); ENDFIELDGIFT, no end known (GameWith).
 const LAUNCH_CODES = { ALLFIELD: 1500, RETURNOFALL: 500, ENDFIELDGIFT: 150 };
 addOneTime(launch, {
   name: 'Launch codes',
   section: 'mailbox',
   url: 'https://www.keengamer.com/articles/guides/arknights-endfield-all-codes-how-to-redeem/',
-  rewards: { Oroberyl: Object.values(LAUNCH_CODES).reduce((a, b) => a + b, 0) },
-  count: Object.keys(LAUNCH_CODES).length,
+  rewards: { Oroberyl: LAUNCH_CODES.ALLFIELD + LAUNCH_CODES.RETURNOFALL },
+  count: 2,
+  until: '2026-01-29T20:00:00Z',
 });
+addOneTime(launch, { name: 'ENDFIELDGIFT code', section: 'mailbox', url: 'https://gamewith.net/akendfield/72499', rewards: { Oroberyl: LAUNCH_CODES.ENDFIELDGIFT } });
 const oneTimeOut = {
   source:
     'endfield.wiki.gg (stage pages, Regional Development, Yuanyuan Manor Inn, Intel Gathering list, mail events); hand-kept: Intel Gathering 200 Oroberyl each (GameWith), Wuling Regional Development caps, launch codes',

@@ -20,7 +20,8 @@ Operator, weapon and gear data snapshotted from the
   amounts (story events: "Oroberyl and other rewards"): its totals are a
   lower bound, and those items have a null count. `extra`: events the wiki's
   event table has but `schedule.json` doesn't (announced mid-version), keyed
-  by wiki page, with `start` (UTC, per server) and the same fields. A page's
+  by wiki page, with `start` and, when the wiki has it, `end` (UTC, per
+  server) and the same fields. A page's
   guaranteed minimum ("guaranteed to earn at least ...") is counted instead
   of random prizes, and a Contingency Contract season counts its Secret
   Sanctuary shop (on the Contingency Contract page).
@@ -64,7 +65,8 @@ Operator, weapon and gear data snapshotted from the
   and Arsenal Tickets on average (one or the other each day). `oneTime`:
   one-time rewards by version and site section (Operational Manual stages,
   Yuanyuan Manor Inn, Regional Development levels, Intel Gathering, mail
-  events, launch codes).
+  events, launch codes); `until` (UTC) on those that can no longer be
+  claimed after it (mail events, expired codes).
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,
