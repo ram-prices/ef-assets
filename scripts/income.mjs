@@ -23,6 +23,7 @@ const API = 'https://endfield.wiki.gg/api.php';
 const UA = { 'User-Agent': 'ef-assets wiki snapshot (github.com/ram-prices/ef-assets; ItJustLogs)' };
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const DRY = process.argv.includes('--dry-run');
+const TODAY = new Date().toISOString().slice(0, 10);
 
 const ATTRIBUTION = {
   source: 'endfield.wiki.gg',
@@ -123,8 +124,8 @@ for (const { title: row } of cargo.cargoquery) {
 if (!daily.Oroberyl || !weekly.Oroberyl || !passes.length) throw new Error('income: a source came back empty; the wiki layout may have changed');
 
 const out = {
-  attribution: ATTRIBUTION,
-  fetched: new Date().toISOString().slice(0, 10),
+  attribution: { ...ATTRIBUTION, fetched: TODAY },
+  fetched: TODAY,
   daily: { url: urlOf('Operational Manual') + '#Daily', rewards: daily },
   weekly: { url: urlOf('Weekly Routine'), rewards: weekly },
   passes,

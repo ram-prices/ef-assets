@@ -23,6 +23,7 @@ const API = 'https://endfield.wiki.gg/api.php';
 const UA = { 'User-Agent': 'ef-assets wiki snapshot (github.com/ram-prices/ef-assets; ItJustLogs)' };
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const DRY = process.argv.includes('--dry-run');
+const TODAY = new Date().toISOString().slice(0, 10);
 
 const ATTRIBUTION = {
   source: 'endfield.wiki.gg',
@@ -244,6 +245,6 @@ const oro = Object.values(out).reduce((s, e) => s + (e.totals.Oroberyl ?? 0), 0)
 console.log(`Oroberyl across all events: ${oro}`);
 
 if (!DRY) {
-  await writeFile(join(ROOT, 'wiki', 'events.json'), JSON.stringify({ attribution: ATTRIBUTION, fetched: new Date().toISOString().slice(0, 10), events: out }, null, 1) + '\n');
+  await writeFile(join(ROOT, 'wiki', 'events.json'), JSON.stringify({ attribution: { ...ATTRIBUTION, fetched: TODAY }, fetched: TODAY, events: out }, null, 1) + '\n');
   console.log('wrote wiki/events.json');
 }
