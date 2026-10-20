@@ -6,7 +6,8 @@
   "scripts": {
     "schedule": "node scripts/update-schedule.mjs --find-pools",
     "wiki": "node scripts/update-wiki.mjs",
-    "events": "node scripts/event-rewards.mjs"
+    "events": "node scripts/event-rewards.mjs",
+    "income": "node scripts/income.mjs"
   },
   "dependencies": {
     "sharp": "0.34.4"

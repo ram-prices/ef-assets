@@ -1,0 +1,101 @@
+{
+ "attribution": {
+  "source": "endfield.wiki.gg",
+  "url": "https://endfield.wiki.gg/",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license."
+ },
+ "fetched": "2026-10-20",
+ "daily": {
+  "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Daily",
+  "rewards": {
+   "Oroberyl": 200
+  }
+ },
+ "weekly": {
+  "url": "https://endfield.wiki.gg/wiki/Weekly_Routine",
+  "rewards": {
+   "Oroberyl": 500,
+   "Arsenal Ticket": 100
+  }
+ },
+ "passes": [
+  {
+   "name": "Awaken",
+   "version": "Zeroth Directive",
+   "start": "2026-01-22T03:00:00Z",
+   "end": "2026-03-11T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Awaken",
+   "rewards": {
+    "Oroberyl": 600
+   }
+  },
+  {
+   "name": "Dark Currents",
+   "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+   "start": "2026-03-12T04:00:00Z",
+   "end": "2026-04-16T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Dark_Currents",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   }
+  },
+  {
+   "name": "Wrothful Tide",
+   "version": "At the Wake of Spring",
+   "start": "2026-04-17T04:00:00Z",
+   "end": "2026-06-04T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Wrothful_Tide",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   }
+  },
+  {
+   "name": "Viridian Mont",
+   "version": "Sketches of Lost Heirlooms",
+   "start": "2026-06-05T04:00:00Z",
+   "end": "2026-07-15T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Viridian_Mont",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   }
+  },
+  {
+   "name": "Blighted Sea",
+   "version": "Homecoming",
+   "start": "2026-07-16T04:00:00Z",
+   "end": "2026-09-01T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Blighted_Sea",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   }
+  },
+  {
+   "name": "Gloomwald",
+   "version": "Dreamscape of Wind and Snow",
+   "start": "2026-09-02T04:00:00Z",
+   "end": "2026-10-14T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Gloomwald",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   }
+  },
+  {
+   "name": "Ink Scroll",
+   "version": "Sanctuary of Ink",
+   "start": "2026-10-15T04:00:00Z",
+   "end": "2026-12-14T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Ink_Scroll",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   }
+  }
+ ]
+}
