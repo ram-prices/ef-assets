@@ -48,6 +48,14 @@
 //   name; else `partial`. Etchspace Salvage's one-time Operation Metrics
 //   milestones are split evenly over the versions its wiki changelog says
 //   added to them (it doesn't say which milestones), marked `estimate`.
+// - Aurylene (exploration.aurylene): each region's TP Point hand-in table
+//   (the wiki's Overworld Content page: Origeometry at running totals) and
+//   each area's Aurylene count and region; a version gets what its new areas'
+//   Aurylene unlocks on top of the region's earlier areas. Past the end of a
+//   table the wiki has, its last step carries on (marked `estimate`).
+// - extras: rewards no wiki page or official post lists with amounts,
+//   hand-kept from community guides and posts (sources with each): the
+//   version preview livestream, the version survey, SKPORT's web check-in.
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -120,6 +128,15 @@ function section(text, name) {
   const rest = text.slice(m.index + m[0].length);
   const next = new RegExp(`^={1,${m[1].length}}[^=]`, 'm').exec(rest);
   return next ? rest.slice(0, next.index) : rest;
+}
+
+/** A `== name ==` section, or '' when the page has none. */
+function sectionOr(text, name) {
+  try {
+    return section(text, name);
+  } catch {
+    return '';
+  }
 }
 
 /** The first wikitable in `s` whose text matches `test`. */
@@ -378,7 +395,8 @@ for (const [area, v] of areaLinks) {
   if (!isArea(w)) continue;
   const crates = Number(field(w, 'chest')) || 0;
   const aurylene = Number(field(w, 'aether')) || 0;
-  if (crates || aurylene) areas[v].push({ area, url: urlOf(page), crates, aurylene }); // regions and outposts count nothing of their own
+  const region = field(w, 'part').replace(/\[\[|\]\]/g, '');
+  if (crates || aurylene) areas[v].push({ area, url: urlOf(page), region, crates, aurylene }); // regions and outposts count nothing of their own
 }
 // Outposts the versions added: their level rewards.
 const outposts = Object.fromEntries(schedule.versions.map((v) => [v.name, []]));
@@ -389,6 +407,43 @@ for (const [area, v] of areaLinks) {
   if (Object.keys(rewards).length) outposts[v].push({ outpost: area, url: urlOf(area), rewards });
 }
 
+// Aurylene: each region's TP Point table (phase, count, running total, rewards).
+const overworld = (await texts(['Overworld Content'])).get('Overworld Content') ?? '';
+const tpPoint = sectionOr(overworld, 'TP Point');
+const tables = {};
+for (const m of tpPoint.matchAll(/^===\s*([^=\n]+?)\s*===\s*$([\s\S]*?)(?=^===|$(?![\s\S]))/gm)) {
+  const rows = [];
+  for (const r of m[2].matchAll(/^\|\s*\d+\s*\|\|\s*\d+\s*\|\|\s*(\d+)\s*\|\|(.*)$/gm)) rows.push({ total: Number(r[1]), rewards: itemsIn(r[2]) });
+  if (rows.length) tables[m[1].trim()] = rows;
+}
+/** What handing in `n` Aurylene in a region pays in all; past the table's end, its last step repeats. */
+const paidAt = (region, n) => {
+  const rows = tables[region] ?? [];
+  const out = {};
+  for (const r of rows) if (r.total <= n) for (const [k, c] of Object.entries(r.rewards)) out[k] = (out[k] ?? 0) + c;
+  const last = rows.at(-1);
+  const step = rows.length > 1 ? last.total - rows.at(-2).total : 0;
+  if (last && step && n > last.total) {
+    const times = Math.floor((n - last.total) / step);
+    for (const [k, c] of Object.entries(last.rewards)) out[k] = (out[k] ?? 0) + c * times;
+  }
+  return out;
+};
+const aurylene = Object.fromEntries(schedule.versions.map((v) => [v.name, { rewards: {} }]));
+const sofar = {};
+for (const v of schedule.versions) {
+  for (const a of areas[v.name]) {
+    if (!a.aurylene || !tables[a.region]) continue;
+    const before = paidAt(a.region, sofar[a.region] ?? 0);
+    sofar[a.region] = (sofar[a.region] ?? 0) + a.aurylene;
+    if (sofar[a.region] > (tables[a.region].at(-1)?.total ?? 0)) aurylene[v.name].estimate = true;
+    for (const [k, c] of Object.entries(paidAt(a.region, sofar[a.region]))) {
+      const d = c - (before[k] ?? 0);
+      if (d) aurylene[v.name].rewards[k] = (aurylene[v.name].rewards[k] ?? 0) + d;
+    }
+  }
+}
+
 const exploration = {
   source: 'endfield.wiki.gg area pages (crate and Aurylene counts); crate Oroberyl: GameWith; crate mix: Gamer Guides (Wuling)',
   crateOroberyl: CRATE_OROBERYL,
@@ -397,19 +452,42 @@ const exploration = {
   sources: ['https://gamewith.net/akendfield/72617', 'https://www.gamerguides.com/arknights-endfield/maps/wuling'],
   versions: areas,
   outposts,
+  aurylene: { url: urlOf('Overworld Content') + '#TP_Point', tables, versions: aurylene },
+};
+
+// Hand-kept: rewards no wiki page or official post lists with amounts.
+const extras = {
+  livestream: {
+    label: 'Version preview livestream',
+    note: 'Sent by mail (or claimed on the New Version Guide page) after each version preview program; launch had codes instead, not counted.',
+    perVersion: { Oroberyl: 1000 },
+    fromVersion: 1,
+    confirmed: ['Old Deep Water Dies, by Rising Tide It is Denied', 'Dreamscape of Wind and Snow', 'Sanctuary of Ink'],
+    sources: [
+      'https://www.gamsgo.com/blog/arknights-endfield-codes',
+      'https://game8.co/games/Arknights-Endfield/archives/601880',
+      'https://www.topuplive.com/news/arknights-endfield-version-1-6-pull-count.html',
+    ],
+  },
+  survey: {
+    label: 'Version survey',
+    note: 'Completing each version survey.',
+    perVersion: { Oroberyl: 300 },
+    fromVersion: 0,
+    sources: ['https://x.com/IAMCha0tik/status/2022427377570320425', 'https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html'],
+  },
+  checkIn: {
+    label: 'SKPORT web check-in',
+    note: 'The monthly sign-in calendar: 80 Oroberyl on days 4 and 12, 100 on day 20; plus 300 for the first three sign-ins.',
+    perMonth: { Oroberyl: 260 },
+    firstTime: { Oroberyl: 300 },
+    sources: ['https://allthings.how/arknights-endfields-skport-daily-sign-in-rewards-explained/', 'https://x.com/AKEndfield/status/2014670700339237147'],
+  },
 };
 
 // Permanent modes: each version's notes, "■ Event & Gameplay Updates" (or "Gameplay Updates"), item by item.
 const eventNames2 = new Set((schedule.events ?? []).map((e) => norm(e.name)));
 const etchspace = (await texts(['Etchspace Salvage'])).get('Etchspace Salvage') ?? '';
-/** A `== name ==` section, or '' when the page has none. */
-const sectionOr = (text, name) => {
-  try {
-    return section(text, name);
-  } catch {
-    return '';
-  }
-};
 const notesItems = (text) => {
   const at = text.search(/■\s*(?:Events?\s*&\s*)?Gameplay Updates/);
   if (at < 0) return [];
@@ -504,6 +582,7 @@ const out = {
   compensation: { source: 'Official Version Update Notes (endfield.gryphline.com news)', versions: compensation },
   quests: questsOut,
   exploration,
+  extras,
   modes: { source: 'Official Version Update Notes, "Event & Gameplay Updates"; amounts the notes leave out from endfield.wiki.gg', versions: modes },
 };
 
@@ -519,6 +598,7 @@ for (const [v, list] of Object.entries(questsOut.versions)) {
 }
 if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
 console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
+for (const [v, r] of Object.entries(aurylene)) console.log(`  aurylene ${v}: ${fmt(r.rewards)}${r.estimate ? ' ESTIMATE' : ''}`);
 for (const [v, list] of Object.entries(outposts)) if (list.length) console.log(`  outposts ${v}: ${list.map((o) => `${o.outpost} ${fmt(o.rewards)}`).join('; ')}`);
 for (const [v, list] of Object.entries(modes)) console.log(`  modes ${v}: ${list.map((m) => `${m.name} [${m.from}] ${fmt(m.rewards)}${m.partial ? ' PARTIAL' : ''}${m.estimate ? ' ESTIMATE' : ''}`).join('; ') || 'none'}`);
 for (const [v, list] of Object.entries(areas)) console.log(`  areas ${v}: ${list.map((a) => `${a.area} ${a.crates} crates, ${a.aurylene} Aurylene`).join('; ') || 'none'}`);

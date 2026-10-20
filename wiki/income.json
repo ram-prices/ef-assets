@@ -2291,48 +2291,56 @@
     {
      "area": "The Hub",
      "url": "https://endfield.wiki.gg/wiki/The_Hub",
+     "region": "Valley IV",
      "crates": 107,
      "aurylene": 43
     },
     {
      "area": "Valley Pass",
      "url": "https://endfield.wiki.gg/wiki/Valley_Pass",
+     "region": "Valley IV",
      "crates": 12,
      "aurylene": 14
     },
     {
      "area": "Aburrey Quarry",
      "url": "https://endfield.wiki.gg/wiki/Aburrey_Quarry",
+     "region": "Valley IV",
      "crates": 32,
      "aurylene": 17
     },
     {
      "area": "Originium Science Park",
      "url": "https://endfield.wiki.gg/wiki/Originium_Science_Park",
+     "region": "Valley IV",
      "crates": 36,
      "aurylene": 30
     },
     {
      "area": "Origin Lodespring",
      "url": "https://endfield.wiki.gg/wiki/Origin_Lodespring",
+     "region": "Valley IV",
      "crates": 65,
      "aurylene": 39
     },
     {
      "area": "Power Plateau",
      "url": "https://endfield.wiki.gg/wiki/Power_Plateau",
+     "region": "Valley IV",
      "crates": 36,
      "aurylene": 23
     },
     {
      "area": "Jingyu Valley",
      "url": "https://endfield.wiki.gg/wiki/Jingyu_Valley",
+     "region": "Wuling",
      "crates": 44,
      "aurylene": 20
     },
     {
      "area": "Wuling City",
      "url": "https://endfield.wiki.gg/wiki/Wuling_City",
+     "region": "Wuling",
      "crates": 198,
      "aurylene": 61
     }
@@ -2341,6 +2349,7 @@
     {
      "area": "Qingbo Stockade",
      "url": "https://endfield.wiki.gg/wiki/Qingbo_Stockade_(location)",
+     "region": "Wuling",
      "crates": 36,
      "aurylene": 14
     }
@@ -2349,12 +2358,14 @@
     {
      "area": "Marker Stone",
      "url": "https://endfield.wiki.gg/wiki/Marker_Stone",
+     "region": "Wuling",
      "crates": 48,
      "aurylene": 26
     },
     {
      "area": "Test Area",
      "url": "https://endfield.wiki.gg/wiki/Test_Area",
+     "region": "Wuling",
      "crates": 32,
      "aurylene": 17
     }
@@ -2363,6 +2374,7 @@
     {
      "area": "Sword Vault Dale",
      "url": "https://endfield.wiki.gg/wiki/Sword_Vault_Dale",
+     "region": "Wuling",
      "crates": 40,
      "aurylene": 15
     }
@@ -2371,12 +2383,14 @@
     {
      "area": "Yinglung Pass",
      "url": "https://endfield.wiki.gg/wiki/Yinglung_Pass",
+     "region": "Wuling",
      "crates": 26,
      "aurylene": 16
     },
     {
      "area": "North Wuling Exclusion Zone",
      "url": "https://endfield.wiki.gg/wiki/North_Wuling_Exclusion_Zone",
+     "region": "Wuling",
      "crates": 85,
      "aurylene": 28
     }
@@ -2385,12 +2399,14 @@
     {
      "area": "Snowy Forest",
      "url": "https://endfield.wiki.gg/wiki/Snowy_Forest",
+     "region": "Wuling",
      "crates": 39,
      "aurylene": 13
     },
     {
      "area": "Suiming",
      "url": "https://endfield.wiki.gg/wiki/Suiming",
+     "region": "Wuling",
      "crates": 28,
      "aurylene": 0
     }
@@ -2399,6 +2415,7 @@
     {
      "area": "Si's Painting",
      "url": "https://endfield.wiki.gg/wiki/Si's_Painting",
+     "region": "Wuling",
      "crates": 101,
      "aurylene": 28
     }
@@ -2442,6 +2459,317 @@
    ],
    "Dreamscape of Wind and Snow": [],
    "Sanctuary of Ink": []
+  },
+  "aurylene": {
+   "url": "https://endfield.wiki.gg/wiki/Overworld_Content#TP_Point",
+   "tables": {
+    "Valley IV": [
+     {
+      "total": 1,
+      "rewards": {
+       "Origeometry": 1
+      }
+     },
+     {
+      "total": 4,
+      "rewards": {
+       "Origeometry": 1
+      }
+     },
+     {
+      "total": 8,
+      "rewards": {
+       "Origeometry": 1
+      }
+     },
+     {
+      "total": 13,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 19,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 27,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 36,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 46,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 58,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 70,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 82,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 94,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 106,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 118,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 130,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 142,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 154,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 166,
+      "rewards": {
+       "Origeometry": 3
+      }
+     }
+    ],
+    "Wuling": [
+     {
+      "total": 3,
+      "rewards": {
+       "Origeometry": 1
+      }
+     },
+     {
+      "total": 8,
+      "rewards": {
+       "Origeometry": 1
+      }
+     },
+     {
+      "total": 15,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 24,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 34,
+      "rewards": {
+       "Origeometry": 2
+      }
+     },
+     {
+      "total": 46,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 58,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 70,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 82,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 94,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 106,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 118,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 130,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 142,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 154,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 166,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 178,
+      "rewards": {
+       "Origeometry": 3
+      }
+     },
+     {
+      "total": 190,
+      "rewards": {
+       "Origeometry": 3
+      }
+     }
+    ]
+   },
+   "versions": {
+    "Launch": {
+     "rewards": {
+      "Origeometry": 60
+     }
+    },
+    "Old Deep Water Dies, by Rising Tide It is Denied": {
+     "rewards": {
+      "Origeometry": 6
+     }
+    },
+    "At the Wake of Spring": {
+     "rewards": {
+      "Origeometry": 9
+     }
+    },
+    "Sketches of Lost Heirlooms": {
+     "rewards": {
+      "Origeometry": 3
+     }
+    },
+    "Homecoming": {
+     "rewards": {
+      "Origeometry": 12
+     },
+     "estimate": true
+    },
+    "Dreamscape of Wind and Snow": {
+     "rewards": {
+      "Origeometry": 3
+     },
+     "estimate": true
+    },
+    "Sanctuary of Ink": {
+     "rewards": {
+      "Origeometry": 9
+     },
+     "estimate": true
+    }
+   }
+  }
+ },
+ "extras": {
+  "livestream": {
+   "label": "Version preview livestream",
+   "note": "Sent by mail (or claimed on the New Version Guide page) after each version preview program; launch had codes instead, not counted.",
+   "perVersion": {
+    "Oroberyl": 1000
+   },
+   "fromVersion": 1,
+   "confirmed": [
+    "Old Deep Water Dies, by Rising Tide It is Denied",
+    "Dreamscape of Wind and Snow",
+    "Sanctuary of Ink"
+   ],
+   "sources": [
+    "https://www.gamsgo.com/blog/arknights-endfield-codes",
+    "https://game8.co/games/Arknights-Endfield/archives/601880",
+    "https://www.topuplive.com/news/arknights-endfield-version-1-6-pull-count.html"
+   ]
+  },
+  "survey": {
+   "label": "Version survey",
+   "note": "Completing each version survey.",
+   "perVersion": {
+    "Oroberyl": 300
+   },
+   "fromVersion": 0,
+   "sources": [
+    "https://x.com/IAMCha0tik/status/2022427377570320425",
+    "https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html"
+   ]
+  },
+  "checkIn": {
+   "label": "SKPORT web check-in",
+   "note": "The monthly sign-in calendar: 80 Oroberyl on days 4 and 12, 100 on day 20; plus 300 for the first three sign-ins.",
+   "perMonth": {
+    "Oroberyl": 260
+   },
+   "firstTime": {
+    "Oroberyl": 300
+   },
+   "sources": [
+    "https://allthings.how/arknights-endfields-skport-daily-sign-in-rewards-explained/",
+    "https://x.com/AKEndfield/status/2014670700339237147"
+   ]
   }
  },
  "modes": {
