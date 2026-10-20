@@ -55,7 +55,7 @@ Operator, weapon and gear data snapshotted from the
   table and what each version's new areas' Aurylene unlocks (`partial`, with
   why, once a region's areas pass the end of its table on the wiki). And `extras`:
   hand-kept amounts no wiki page or official post lists (version preview
-  livestream, version survey, SKPORT web check-in, Combat Drills per new
+  livestream, version survey, Combat Drills per new
   Chartered banner), each with its sources; `creditStore` is our own rough
   estimate from the wiki's description of the Credit Store.
 

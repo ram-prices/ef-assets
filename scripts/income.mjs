@@ -63,8 +63,7 @@
 //   it; versions' wiki pages list their new areas and enemies); else Launch.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
-//   version preview livestream, the version survey, SKPORT's web check-in,
-//   Combat Drills (per new Chartered Headhunting banner); and the Credit
+//   version preview livestream, the version survey, Combat Drills (per new Chartered Headhunting banner); and the Credit
 //   Store, our own rough estimate (25 Oroberyl on about half the days: each
 //   refresh shows either Oroberyl or Arsenal Tickets, per the wiki).
 //
@@ -546,13 +545,6 @@ const extras = {
     note: 'Our rough estimate: the daily Credit Store shows either 25 Oroberyl or Arsenal Tickets, never both, so Oroberyl on about half the days.',
     perDay: { Oroberyl: 12.5 },
     sources: [urlOf('Acquisition Center') + '#Credit_Store'],
-  },
-  checkIn: {
-    label: 'SKPORT web check-in',
-    note: 'The monthly sign-in calendar: 80 Oroberyl on days 4 and 12, 100 on day 20; plus 300 for the first three sign-ins.',
-    perMonth: { Oroberyl: 260 },
-    firstTime: { Oroberyl: 300 },
-    sources: ['https://allthings.how/arknights-endfields-skport-daily-sign-in-rewards-explained/', 'https://x.com/AKEndfield/status/2014670700339237147'],
   },
 };
 

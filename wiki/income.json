@@ -2857,20 +2857,6 @@
    "sources": [
     "https://endfield.wiki.gg/wiki/Acquisition_Center#Credit_Store"
    ]
-  },
-  "checkIn": {
-   "label": "SKPORT web check-in",
-   "note": "The monthly sign-in calendar: 80 Oroberyl on days 4 and 12, 100 on day 20; plus 300 for the first three sign-ins.",
-   "perMonth": {
-    "Oroberyl": 260
-   },
-   "firstTime": {
-    "Oroberyl": 300
-   },
-   "sources": [
-    "https://allthings.how/arknights-endfields-skport-daily-sign-in-rewards-explained/",
-    "https://x.com/AKEndfield/status/2014670700339237147"
-   ]
   }
  },
  "progression": {
