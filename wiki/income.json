@@ -2849,6 +2849,53 @@
    ]
   }
  },
+ "shops": {
+  "aic": {
+   "url": "https://endfield.wiki.gg/wiki/Acquisition_Center#AIC_Quota_Exchange",
+   "price": 175,
+   "perBanner": 5,
+   "kinds": [
+    "chartered",
+    "special"
+   ],
+   "versions": {
+    "Homecoming": [
+     {
+      "permit": "Gaze North to the Rift HH Permit",
+      "count": 5
+     },
+     {
+      "permit": "Bedazzling Dawnstar HH Permit",
+      "count": 5
+     }
+    ],
+    "Dreamscape of Wind and Snow": [
+     {
+      "permit": "Fletched Irontip HH Permit",
+      "count": 5
+     }
+    ],
+    "Sanctuary of Ink": [
+     {
+      "permit": "Spirit's Restoration HH Permit",
+      "count": 5
+     },
+     {
+      "permit": "The Stars Are With Me HH Permit",
+      "count": 5
+     }
+    ]
+   }
+  },
+  "bond": {
+   "url": "https://endfield.wiki.gg/wiki/Acquisition_Center#Bond_Quota_Exchange",
+   "price": 25,
+   "duplicate": {
+    "5": 10,
+    "6": 50
+   }
+  }
+ },
  "progression": {
   "version": "Launch",
   "items": [

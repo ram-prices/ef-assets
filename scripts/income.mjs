@@ -61,6 +61,12 @@
 //   (Oroberyl per milestone, wiki), by the version that added the area the
 //   item is gathered in or the enemy that drops it (its "source" text names
 //   it; versions' wiki pages list their new areas and enemies); else Launch.
+// - shops.aic: the AIC Quota Exchange's banner HH Permits: per version, the
+//   ones its official notes name ("Up to [X HH Permit]×5 can be exchanged"),
+//   else (older notes don't say) `perBanner` for each Chartered or Special
+//   banner, which the wiki says restocks them; and their price in AIC Quota.
+// - shops.bond: the Bond Quota Exchange's Chartered HH Permit price and what
+//   duplicate 5★ / 6★ operators give (wiki); the site counts the player's own.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
 //   version preview livestream, the version survey, Combat Drills (per new
@@ -511,6 +517,38 @@ const exploration = {
   aurylene: { url: urlOf('Overworld Content') + '#TP_Point', tables, versions: aurylene },
 };
 
+// Shops: the AIC Quota Exchange's banner permits (official notes, else per banner) and the Bond Quota Exchange.
+const aicPermits = {};
+for (const v of schedule.versions) {
+  const notes = notesText[v.name]?.text.replace(/\n/g, ' ') ?? '';
+  const named = [...notes.matchAll(/exchange for \[([^\]]+HH Permit)\][^.]*?\[AIC Quota Exchange\]\.\s*Up to \[[^\]]+\]\s*[x×]\s*(\d+)/g)].map((m) => ({ permit: m[1], count: Number(m[2]) }));
+  if (named.length) aicPermits[v.name] = named;
+}
+const quotaPrice = (shop, item) => {
+  const part = sectionOr(center, shop);
+  const row = part.split('\n').find((l) => l.includes(item) && /Currency\|/.test(l)) ?? part.match(new RegExp(`${item}[\\s\\S]{0,120}?\\{\\{Currency\\|[^|}]+\\|(\\d+)`))?.[0] ?? '';
+  return Number(row.match(/\{\{Currency\|[^|}]+\|(\d+)/)?.[1]) || null;
+};
+const bondItem = (await texts(['Bond Quota'])).get('Bond Quota') ?? '';
+const shops = {
+  aic: {
+    url: urlOf('Acquisition Center') + '#AIC_Quota_Exchange',
+    price: quotaPrice('AIC Quota Exchange', 'HH Permit'),
+    perBanner: 5,
+    kinds: ['chartered', 'special'],
+    versions: aicPermits,
+  },
+  bond: {
+    url: urlOf('Acquisition Center') + '#Bond_Quota_Exchange',
+    price: quotaPrice('Bond Quota Exchange', 'Chartered HH Permit'),
+    duplicate: {
+      5: Number(bondItem.match(/(\d+) Bond Quota from pulling a 5★/)?.[1]) || null,
+      6: Number(bondItem.match(/(\d+) Bond Quota from pulling a 6★/)?.[1]) || null,
+    },
+  },
+};
+if (!shops.aic.price || !shops.bond.price || !shops.bond.duplicate[5] || !shops.bond.duplicate[6]) throw new Error('income: shop prices not found; the wiki layout may have changed');
+
 // Hand-kept: rewards no wiki page or official post lists with amounts.
 const extras = {
   livestream: {
@@ -639,6 +677,7 @@ const out = {
   quests: questsOut,
   exploration,
   extras,
+  shops,
   progression,
   modes: { source: 'Official Version Update Notes, "Event & Gameplay Updates"; amounts the notes leave out from endfield.wiki.gg', versions: modes },
 };
@@ -656,6 +695,7 @@ for (const [v, list] of Object.entries(questsOut.versions)) {
 if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
 console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
 for (const [v, r] of Object.entries(aurylene)) console.log(`  aurylene ${v}: ${fmt(r.rewards)}${r.partial ? ` PARTIAL (${r.partial})` : ''}`);
+console.log(`  shops: AIC Quota ${shops.aic.price} a banner permit (${Object.entries(aicPermits).map(([v, l]) => `${v}: ${l.map((x) => `${x.permit} ×${x.count}`).join(', ')}`).join('; ')}); Bond Quota ${shops.bond.price} a Chartered HH Permit, duplicates ${shops.bond.duplicate[5]}/${shops.bond.duplicate[6]}`);
 console.log(`  progression (${progression.version}): ${progression.items.map((x) => `${x.name} ${fmt(x.rewards)}`).join('; ')}`);
 for (const [v, c] of Object.entries(crafting)) if (c.items) console.log(`  crafting ${v}: ${c.items} items, ${fmt(c.rewards)}`);
 for (const [v, list] of Object.entries(outposts)) if (list.length) console.log(`  outposts ${v}: ${list.map((o) => `${o.outpost} ${fmt(o.rewards)}`).join('; ')}`);

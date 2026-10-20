@@ -56,7 +56,11 @@ Operator, weapon and gear data snapshotted from the
   why, once a region's areas pass the end of its table on the wiki). And `extras`:
   hand-kept amounts no wiki page or official post lists (version preview
   livestream, version survey, Combat Drills per new
-  Chartered banner), each with its sources.
+  Chartered banner), each with its sources. `shops`: the AIC Quota
+  Exchange's banner HH Permits (per version from the official notes, else
+  `perBanner` per Chartered or Special banner) and their price, and the Bond
+  Quota Exchange's Chartered HH Permit price and Bond Quota per duplicate 5★
+  / 6★ operator (wiki).
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,
