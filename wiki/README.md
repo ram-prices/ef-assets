@@ -29,6 +29,10 @@ Operator, weapon and gear data snapshotted from the
   Oroberyl, Origeometry, Arsenal Tickets, HH Permits. Also `compensation`:
   what each version's official Version Update Notes hand out in the mail,
   keyed by version name (from the official news feed, not the wiki).
+  And `quests`: permanent missions' one-time rewards (Main, Side and
+  Exploration Missions) by the version that released them, `caps` (how far
+  each version's main story goes) and `how` each mission was placed
+  (`story`, `listed` on the version's wiki page, its `region`, or `launch`).
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,
