@@ -2919,6 +2919,14 @@
     "rewards": {
      "Oroberyl": 4500
     }
+   },
+   {
+    "name": "Authority Level Rewards event",
+    "url": "https://endfield.wiki.gg/wiki/Authority_Level_Rewards",
+    "rewards": {
+     "Basic HH Permit": 40,
+     "Oroberyl": 4000
+    }
    }
   ]
  },

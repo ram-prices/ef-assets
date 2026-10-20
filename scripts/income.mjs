@@ -56,7 +56,8 @@
 //   the wiki lists; Aurylene past the table's end counts nothing (`partial`)
 //   until the wiki lists more.
 // - progression: one-time rewards there from launch: the Operational
-//   Manual's Node milestones and the Authority Level rewards (wiki).
+//   Manual's Node milestones, the Authority Level rewards and the permanent
+//   Authority Level Rewards event's milestones (wiki).
 // - exploration.crafting: the Crafting Manual's gathering milestones
 //   (Oroberyl per milestone, wiki), by the version that added the area the
 //   item is gathered in or the enemy that drops it (its "source" text names
@@ -507,13 +508,16 @@ for (const part of craftText.split(/^(===[^=\n]+===)\s*$/m)) {
   }
 }
 
-// Progression: the Operational Manual's Node milestones and the Authority Level rewards, one time, from launch.
-const authority = (await texts(['Authority Level'])).get('Authority Level') ?? '';
+// Progression: the Operational Manual's Node milestones, the Authority Level rewards and the permanent
+// "Authority Level Rewards" event (Event Center milestones), one time, from launch.
+const authorityPages = await texts(['Authority Level', 'Authority Level Rewards']);
+const authority = authorityPages.get('Authority Level') ?? '';
 const progression = {
   version: schedule.versions[0].name,
   items: [
     { name: 'Operational Manual: Node milestones', url: urlOf('Operational Manual') + '#Node', rewards: itemsIn(sectionOr(manual, 'Node')) },
     { name: 'Authority Level rewards', url: urlOf('Authority Level'), rewards: itemsIn(sectionOr(authority, 'Reward')) },
+    { name: 'Authority Level Rewards event', url: urlOf('Authority Level Rewards'), rewards: itemsIn(sectionOr(authorityPages.get('Authority Level Rewards') ?? '', 'Missions')) },
   ].filter((x) => Object.keys(x.rewards).length),
 };
 
