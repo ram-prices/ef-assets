@@ -14,7 +14,9 @@ Operator, weapon and gear data snapshotted from the
   (`scripts/event-rewards.mjs`, `npm run events`): the wiki page, `groups`
   of reward rows (a mission, a sign-in day, a milestone: its `label` and
   `[item, count]` rewards), and `totals` per item. Shops and exchanges are
-  left out. `partial: true` when the page names rewards without (all) their
+  left out, except one paid in the event's own currency (AIC Support's Goods
+  Exchange): its whole stock counts, in groups with `exchange` naming the
+  currency. `partial: true` when the page names rewards without (all) their
   amounts (story events: "Oroberyl and other rewards"): its totals are a
   lower bound, and those items have a null count.
 - `income.json`: regular free income (`scripts/income.mjs`, `npm run

@@ -10,8 +10,11 @@
 // day), milestones. Every table row holding {{I|Item|count}} rewards becomes
 // a row here: its label (the first cell's name, or the column's header) and
 // its rewards. Shop and exchange sections are skipped (those items cost
-// something). `totals` adds up every row, so it's what the event hands out
-// in all, as listed on the wiki.
+// something), except an exchange paid in a currency only the event hands out
+// (AIC Support's Goods Exchange, paid in Fruits of Altruism Certs): its whole
+// stock counts, as a group with `exchange` naming that currency. `totals`
+// adds up every row, so it's what the event hands out in all, as listed on
+// the wiki.
 //
 // Wiki content is CC BY-SA 4.0, so the file carries an `attribution` block and
 // the derived data is under the same license.
@@ -151,6 +154,47 @@ function tableRows(table) {
 }
 
 const SKIP_SECTION = /shop|store|exchange|purchase|cost|navigation|gallery|history|trivia|notes/i;
+const SHOP_SECTION = /shop|store|exchange|purchase/i;
+/** Currencies a player has anyway: a shop paid in these is spending, not a reward. */
+const GENERAL_CURRENCY = /^(Oroberyl|Origeometry|T-Creds|Arsenal Ticket|.*Stock Bills?)$/i;
+
+/**
+ * An exchange paid in the event's own currency: one row per item (item cell,
+ * stock, cost), the item times its stock, tab by tab ("Phase 1=", "Phase 2=").
+ * Null when the section has no such table.
+ */
+function eventExchange(part, heading) {
+  const tabs = part.split(/^\|-\|\s*$/m);
+  const groups = [];
+  let currency = null;
+  for (const tab of tabs) {
+    const name = tab.match(/^(?:<tabber>)?\s*([^=\n|{}<]+?)=\s*$/m)?.[1]?.trim();
+    const rows = [];
+    for (const m of tab.matchAll(/^\{\|[\s\S]*?^\|\}/gm)) {
+      const table = tableRows(m[0]);
+      const head = table.find((r) => r.some((c) => c.header));
+      // The cost column names the currency: "{{Currency|Fruits of Altruism Certs}} Cost" or plain "Fruits of Altruism Certs Cost".
+      const cur = head
+        ?.map((c) => c.text.match(/\{\{\s*Currency\s*\|([^|}]+)/i)?.[1]?.trim() ?? plain(c.text).match(/^(.+?)\s+Cost\b/i)?.[1]?.trim())
+        .find(Boolean);
+      if (!cur || GENERAL_CURRENCY.test(cur)) continue;
+      currency = cur.replace(/\s*\(.*\)$/, ''); // "Fruits of Altruism Certs (Chubby Lung Attacks)"
+      for (const r of table) {
+        if (r.some((c) => c.header) || r.length < 3) continue;
+        const item = rewardsIn(r[0].text)[0];
+        const stock = Number(plain(r[1].text).replace(/,/g, ''));
+        if (!item || !Number.isFinite(stock) || stock <= 0) continue;
+        // The price ("5000", or "{{Currency|Fruits of Altruism Certs|6000}}") and the discount if any ("(-80%)", "(80% OFF)").
+        const price = (rewardsIn(r[2].text)[0]?.[1] ?? Number(plain(r[2].text).match(/^[\d,]+/)?.[0].replace(/,/g, ''))) || null;
+        const off = r[2].text.match(/\(\s*-?(\d+)%/)?.[1];
+        const cost = price ? `${price.toLocaleString('en-US')} ${currency} each${off ? ` (−${off}%)` : ''}` : plain(r[2].text);
+        rows.push({ label: `${stock} in stock · ${cost}`, rewards: [[item[0], item[1] * stock]] });
+      }
+    }
+    if (rows.length) groups.push({ title: name ? `${heading}: ${name}` : heading, exchange: currency, rows });
+  }
+  return groups;
+}
 
 /** An event page's reward rows, by section. */
 function eventRewards(text) {
@@ -164,7 +208,10 @@ function eventRewards(text) {
       heading = plain(part.replace(/=/g, ''));
       continue;
     }
-    if (SKIP_SECTION.test(heading)) continue;
+    if (SKIP_SECTION.test(heading)) {
+      if (SHOP_SECTION.test(heading)) groups.push(...eventExchange(part, heading));
+      continue;
+    }
     const rows = [];
     for (const m of part.matchAll(/^\{\|[\s\S]*?^\|\}/gm)) {
       const table = tableRows(m[0]);

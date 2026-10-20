@@ -1402,9 +1402,319 @@
    "name": "AIC Support: Palm-Top Savior",
    "page": "AIC Support: Palm-Top Savior",
    "url": "https://endfield.wiki.gg/wiki/AIC_Support%3A_Palm-Top_Savior",
-   "partial": true,
-   "totals": {},
-   "groups": []
+   "totals": {
+    "T-Creds": 350000,
+    "Oroberyl": 1600,
+    "Protohedron": 80,
+    "Advanced Cognitive Carrier": 50,
+    "Arms INSP Set": 30,
+    "Protoset": 30,
+    "Advanced Progression Selection Crate I": 24,
+    "Mark of Perseverance": 8,
+    "Palm-Top Curio (Portrait)": 1
+   },
+   "groups": [
+    {
+     "title": "Goods Exchange: Phase 1",
+     "exchange": "Fruits of Altruism Certs",
+     "rows": [
+      {
+       "label": "3 in stock · 6,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         300
+        ]
+       ]
+      },
+      {
+       "label": "3 in stock · 18,000 Fruits of Altruism Certs each (−40%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         300
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 600 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 600 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Protohedron",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 700 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Protoset",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "20 in stock · 800 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "T-Creds",
+         60000
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 1,500 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "4 in stock · 3,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         4
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 3,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 3,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protohedron",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 3,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protoset",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "20 in stock · 4,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "T-Creds",
+         60000
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 7,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "4 in stock · 15,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         4
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Goods Exchange: Phase 2",
+     "exchange": "Fruits of Altruism Certs",
+     "rows": [
+      {
+       "label": "1 in stock · 10,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Palm-Top Curio (Portrait)",
+         1
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 6,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         500
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 18,000 Fruits of Altruism Certs each (−40%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         500
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 600 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "25 in stock · 600 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Protohedron",
+         25
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 700 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Protoset",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "30 in stock · 800 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "T-Creds",
+         90000
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 1,500 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "8 in stock · 3,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         8
+        ]
+       ]
+      },
+      {
+       "label": "4 in stock · 4,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Mark of Perseverance",
+         4
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 3,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "25 in stock · 3,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protohedron",
+         25
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 3,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protoset",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "30 in stock · 4,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "T-Creds",
+         90000
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 7,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "8 in stock · 15,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         8
+        ]
+       ]
+      },
+      {
+       "label": "4 in stock · 20,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Mark of Perseverance",
+         4
+        ]
+       ]
+      },
+      {
+       "label": "100 in stock · 10,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "T-Creds",
+         50000
+        ]
+       ]
+      }
+     ]
+    }
+   ]
   },
   "14": {
    "name": "Shimmering Moment",
@@ -4764,9 +5074,319 @@
    "name": "AIC Support: Chubby Lung Attacks",
    "page": "AIC Support: Chubby Lung Attacks",
    "url": "https://endfield.wiki.gg/wiki/AIC_Support%3A_Chubby_Lung_Attacks",
-   "partial": true,
-   "totals": {},
-   "groups": []
+   "totals": {
+    "T-Creds": 260000,
+    "Oroberyl": 1600,
+    "Protohedron": 140,
+    "Advanced Cognitive Carrier": 50,
+    "Arms INSP Set": 30,
+    "Protoset": 30,
+    "Advanced Progression Selection Crate I": 22,
+    "Mark of Perseverance": 8,
+    "Chubby Lung Attacks (Portrait)": 1
+   },
+   "groups": [
+    {
+     "title": "Goods Exchange: Phase 1",
+     "exchange": "Fruits of Altruism Certs",
+     "rows": [
+      {
+       "label": "3 in stock · 5,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         300
+        ]
+       ]
+      },
+      {
+       "label": "3 in stock · 15,000 Fruits of Altruism Certs each (−40%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         300
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 2,400 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "3 in stock · 4,800 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         3
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 1,000 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "30 in stock · 1,000 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Protohedron",
+         30
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 1,200 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Protoset",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 1,400 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "T-Creds",
+         45000
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 6,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "3 in stock · 12,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         3
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 2,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "30 in stock · 2,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protohedron",
+         30
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 3,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protoset",
+         5
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 3,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "T-Creds",
+         45000
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Goods Exchange: Phase 2",
+     "exchange": "Fruits of Altruism Certs",
+     "rows": [
+      {
+       "label": "1 in stock · 10,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Chubby Lung Attacks (Portrait)",
+         1
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 5,000 Fruits of Altruism Certs each (−80%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         500
+        ]
+       ]
+      },
+      {
+       "label": "5 in stock · 15,000 Fruits of Altruism Certs each (−40%)",
+       "rewards": [
+        [
+         "Oroberyl",
+         500
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 2,400 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "8 in stock · 4,800 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         8
+        ]
+       ]
+      },
+      {
+       "label": "4 in stock · 6,000 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Mark of Perseverance",
+         4
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 1,000 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "40 in stock · 1,000 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Protohedron",
+         40
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 1,200 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "Protoset",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "20 in stock · 1,400 Fruits of Altruism Certs each (−60%)",
+       "rewards": [
+        [
+         "T-Creds",
+         60000
+        ]
+       ]
+      },
+      {
+       "label": "15 in stock · 6,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Cognitive Carrier",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "8 in stock · 12,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Advanced Progression Selection Crate I",
+         8
+        ]
+       ]
+      },
+      {
+       "label": "4 in stock · 15,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Mark of Perseverance",
+         4
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 2,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Arms INSP Set",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "40 in stock · 2,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protohedron",
+         40
+        ]
+       ]
+      },
+      {
+       "label": "10 in stock · 3,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "Protoset",
+         10
+        ]
+       ]
+      },
+      {
+       "label": "20 in stock · 3,500 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "T-Creds",
+         60000
+        ]
+       ]
+      },
+      {
+       "label": "100 in stock · 10,000 Fruits of Altruism Certs each",
+       "rewards": [
+        [
+         "T-Creds",
+         50000
+        ]
+       ]
+      }
+     ]
+    }
+   ]
   },
   "39": {
    "name": "Sanity Supply",
@@ -5118,7 +5738,7 @@
     "Arms INSP Set": 15,
     "Protohedron": 10,
     "Spirit's Restoration HH Permit": 5,
-    "Advanced Progression Selection Crate I": 5,
+    "Advanced Progression Selection Crate II": 5,
     "Advanced Cognitive Carrier": 5
    },
    "groups": [
@@ -5207,7 +5827,7 @@
        "label": "Day 7",
        "rewards": [
         [
-         "Advanced Progression Selection Crate I",
+         "Advanced Progression Selection Crate II",
          5
         ],
         [
