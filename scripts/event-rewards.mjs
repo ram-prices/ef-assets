@@ -38,6 +38,15 @@
 // its Availability and Content. Phase times are server time (UTC+8 on Asia,
 // UTC-5 on Americas/Europe); the first phase starts with the event, and each
 // ends when the next starts (the last, with the event).
+//
+// And what the page says about keeping it: `permanent` when it stays playable
+// after it ends ("you can still play this side mission", "will become a
+// permanent activity"), with `limitedRewards` when some of its rewards still
+// end with it ("no longer be able to ... claim", "rewards of limited-time ...
+// will no longer be available"); `days`, how many daily rewards it hands out
+// (its "Day N" rows, or "N times"); and `unique`, the rewards that aren't
+// general materials or currencies (portraits, frames, stickers, models,
+// operators and their tokens, outfits...).
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -146,6 +155,32 @@ function phasesOf(text) {
   if (out.length < 2) return [];
   return out.map((ph, i) => (i === 0 ? { ...ph, start: null } : ph));
 }
+
+/** Whether the event stays playable after it ends, and whether some of its rewards don't. */
+function keeping(text) {
+  // Markup stripped but templates' words kept: the narrative events say it inside a {{Color|...}}.
+  const t = text.replace(/\{\{\w+\||\|\d+\}\}|\[\[|\]\]|[[\]]|'''?/g, ' ').replace(/\s+/g, ' ');
+  const permanent = /you can still play|become a permanent|permanently available|remains? (?:open|available) permanently/i.test(t);
+  const limitedRewards = permanent && /no longer be able to (?:complete|claim)|rewards of limited-time[^.]*no longer|limited-time rewards/i.test(t);
+  return { permanent, limitedRewards };
+}
+
+/** How many daily rewards: the highest "Day N" row, else an "Every day, N times" row; null when neither. */
+function dailyDays(groups) {
+  const labels = groups.flatMap((g) => g.rows.map((r) => r.label));
+  const days = labels.map((l) => l.match(/^Day (\d+)\b/i)?.[1]).filter(Boolean).map(Number);
+  if (days.length) return Math.max(...days);
+  const times = labels.map((l) => l.match(/^every day\b[^,]*,\s*(\d+) times\b/i)?.[1]).filter(Boolean).map(Number);
+  return times.length ? Math.max(...times) : null;
+}
+
+/** Operator names (for rewards that are an operator), from wiki/operators.json. */
+const OPERATORS = new Set(
+  Object.values(JSON.parse(await readFile(new URL('../wiki/operators.json', import.meta.url), 'utf8')).operators).map((o) => o.name.toLowerCase()),
+);
+/** Rewards that aren't general materials or currencies: cosmetics, keepsakes, operators and their tokens. */
+const UNIQUE = /\((?:portrait|frame|outfit|attire|skin|title|emote|bgm|theme)\)$|^sticker:|'s token$|\b(?:model|outfit|attire|skin|furniture|decoration|name ?card|medal)\b/i;
+const uniqueOf = (totals) => Object.keys(totals).filter((k) => UNIQUE.test(k) || OPERATORS.has(k.toLowerCase()));
 
 /**
  * The rewards in a bit of wikitext: {{I|Item|count}} and its cousins
@@ -435,14 +470,22 @@ for (const e of events) {
   const partial = !groups.length || groups.some((g) => g.partial);
   const end = endOf(rowsOf.get(e));
   const phases = phasesOf(page.text);
+  const { permanent, limitedRewards } = keeping(page.text);
+  const days = dailyDays(groups);
+  const totals = totalsOf(groups);
+  const unique = uniqueOf(totals);
   out[e.id] = {
     name: e.name,
     page: page.title,
     url: `https://endfield.wiki.gg/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
     ...(end ? { end } : {}),
     ...(phases.length ? { phases } : {}),
+    ...(permanent ? { permanent } : {}),
+    ...(limitedRewards ? { limitedRewards } : {}),
+    ...(days ? { days } : {}),
+    ...(unique.length ? { unique } : {}),
     ...(partial ? { partial: true } : {}),
-    totals: totalsOf(groups),
+    totals,
     groups,
   };
 }
@@ -483,6 +526,9 @@ console.log(`events: ${events.length} in schedule.json, ${Object.keys(out).lengt
 const ends = events.filter((e) => !e.end && out[e.id]?.end);
 console.log(`end dates from the wiki for events the notes leave open: ${ends.map((e) => e.name).join('; ') || 'none'}`);
 console.log(`events with phases: ${Object.values(out).filter((e) => e.phases).map((e) => `${e.name} (${e.phases.length})`).join('; ') || 'none'}`);
+console.log(`permanent: ${Object.values(out).filter((e) => e.permanent).map((e) => e.name + (e.limitedRewards ? ' (limited-time rewards)' : '')).join('; ') || 'none'}`);
+console.log(`daily rewards: ${Object.values(out).filter((e) => e.days).map((e) => `${e.name} ${e.days}`).join('; ') || 'none'}`);
+console.log(`unique rewards: ${Object.values(out).filter((e) => e.unique).map((e) => `${e.name}: ${e.unique.join(', ')}`).join('; ') || 'none'}`);
 if (missing.length) console.log(`not on the wiki: ${missing.join('; ')}`);
 if (empty.length) console.log(`no reward tables found: ${empty.join('; ')}`);
 const oro = Object.values(out).reduce((s, e) => s + (e.totals.Oroberyl ?? 0), 0);
