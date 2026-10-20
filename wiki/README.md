@@ -19,11 +19,14 @@ Operator, weapon and gear data snapshotted from the
   currency. `partial: true` when the page names rewards without (all) their
   amounts (story events: "Oroberyl and other rewards"): its totals are a
   lower bound, and those items have a null count.
-- `income.json`: regular free income (`scripts/income.mjs`, `npm run
+- `income.json`: regular income (`scripts/income.mjs`, `npm run
   income`): `daily` (Operational Manual → Daily, every day), `weekly` (Weekly
-  Routine, every week) and `passes` (each Protocol Pass season, its UTC
-  `start`/`end` and Basic Supply rewards, levels 1-60). Pull currencies
-  only: Oroberyl, Origeometry, Arsenal Tickets, HH Permits.
+  Routine, every week), `passes` (each Protocol Pass season, its UTC
+  `start`/`end` and each tier's rewards over levels 1-60: `rewards` = Basic
+  Supply (free), `originium` = Originium Supply, `customized` = Protocol
+  Customized), `passTiers` (what the paid tiers cost) and `monthly` (the
+  Monthly Pass: price, per purchase, per day). Pull currencies only:
+  Oroberyl, Origeometry, Arsenal Tickets, HH Permits.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

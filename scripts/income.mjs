@@ -1,6 +1,6 @@
-// Snapshots the game's regular free income from the community wiki
+// Snapshots the game's regular income from the community wiki
 // (endfield.wiki.gg) into wiki/income.json: what a player earns without
-// events, for ItJustLogs' free pulls per patch.
+// events, for ItJustLogs' pulls per patch.
 //
 //   node scripts/income.mjs              write wiki/income.json
 //   node scripts/income.mjs --dry-run    print a summary, write nothing
@@ -9,8 +9,15 @@
 //   day).
 // - weekly: the Weekly Routine's points milestones (every week, from Monday).
 // - passes: every Protocol Pass season (the wiki's ProtocolPasses Cargo
-//   table) with its Basic Supply (free track) rewards, i.e. item1 of each
-//   level, levels 1–60 (the levels past 60 repeat crates, not currency).
+//   table) with each tier's rewards, levels 1–60 (the levels past 60 repeat
+//   crates, not currency): `rewards` = Basic Supply (free, item1 of each
+//   level), `originium` = Originium Supply (item2), `customized` = Protocol
+//   Customized (item3).
+// - passTiers: what the paid tiers cost (Originium Supply: Origeometry;
+//   Protocol Customized: real money, plus Origeometry handed out on purchase),
+//   from the Protocol Pass page.
+// - monthly: the Monthly Pass (Acquisition Center): its price, Origeometry
+//   per purchase, and what it gives every day for 30 days.
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -72,7 +79,7 @@ function add(into, item, count) {
   into[item] = (into[item] ?? 0) + count;
 }
 function itemsIn(s, into = {}) {
-  for (const m of s.matchAll(/\{\{I\|([^|}]+)\|([\d,]+)/g)) add(into, m[1], Number(m[2].replace(/,/g, '')));
+  for (const m of s.matchAll(/\{\{\s*(?:I|Item|Currency)\s*\|([^|}]+)\|([\d,]+)/g)) add(into, m[1], Number(m[2].replace(/,/g, '')));
   return into;
 }
 
@@ -99,18 +106,55 @@ const daily = itemsIn(table(section(manual, 'Daily'), /Rewards/));
 const routine = await page('Weekly Routine');
 const weekly = itemsIn(table(routine, /Points Milestone/));
 
-// Passes: the ProtocolPasses Cargo table (times are UTC), then each season's free track.
+// Paid pass tiers: their cost, from the Protocol Pass page's overview
+// ("Originium Supply are unlocked with {{Currency|Origeometry|29}}",
+// "Protocol Customized are unlocked with in-game purchase for $9.99. It
+// provides an extra 12,500 {{Item|Pass Experience|g=0}} and 20
+// {{Item|Origeometry|g=0}} upon purchase").
+const passPage = await page('Protocol Pass');
+const tierLine = (name) => passPage.split('\n').find((l) => l.includes(name) && /unlock/i.test(l)) ?? '';
+const originiumCost = itemsIn(tierLine('Originium Supply'));
+const customizedLine = tierLine('Protocol Customized');
+const customizedPrice = customizedLine.match(/\$\s?\d+(?:\.\d+)?/)?.[0] ?? null;
+const customizedBonus = {};
+for (const m of customizedLine.matchAll(/([\d,]+)\s*\{\{\s*(?:I|Item)\|([^|}]+)/g)) add(customizedBonus, m[2], Number(m[1].replace(/,/g, '')));
+const passTiers = {
+  url: urlOf('Protocol Pass'),
+  originium: { cost: originiumCost },
+  customized: { price: customizedPrice, onPurchase: customizedBonus },
+};
+
+// Monthly Pass: the Acquisition Center's Store cell ("{{I|Origeometry|12|g=0}} per purchase",
+// "{{I|Oroberyl|200|g=0}}, ... every day", "|price = 4.99/30 days").
+const center = await page('Acquisition Center');
+const cell = section(center, 'Monthly Pass');
+const perPurchase = itemsIn(cell.split('\n').find((l) => /per purchase/i.test(l)) ?? '');
+const perDay = itemsIn(cell.split('\n').find((l) => /every day/i.test(l)) ?? '');
+const priceM = cell.match(/\|\s*price\s*=\s*([\d.]+)\s*\/\s*(\d+)\s*days/i);
+const monthly = {
+  url: urlOf('Acquisition Center') + '#Monthly_Pass',
+  price: priceM ? `$${priceM[1]}` : null,
+  days: priceM ? Number(priceM[2]) : 30,
+  onPurchase: perPurchase,
+  daily: perDay,
+};
+
+// Passes: the ProtocolPasses Cargo table (times are UTC), then each tier's rewards.
 const cargo = await api({ action: 'cargoquery', tables: 'ProtocolPasses', fields: '_pageName=page,Version,AsiaStartTime,AsiaEndTime', order_by: 'AsiaStartTime', limit: '100' });
 const utc = (s) => (s ? `${s.replace(' ', 'T')}Z` : null);
 const passes = [];
 for (const { title: row } of cargo.cargoquery) {
   const text = await page(row.page);
-  const rewards = {};
+  const tiers = [{}, {}, {}]; // Basic Supply, Originium Supply, Protocol Customized
   for (const m of text.matchAll(/\{\{PP cell([\s\S]*?)\}\}/g)) {
     const lvl = Number(/\|lvl\s*=\s*(\d+)/.exec(m[1])?.[1]);
-    const item = /\|item1\s*=\s*([^,\n]+),\s*([\d,]+)/.exec(m[1]);
-    if (lvl >= 1 && lvl <= 60 && item) add(rewards, item[1], Number(item[2].replace(/,/g, '')));
+    if (!(lvl >= 1 && lvl <= 60)) continue;
+    tiers.forEach((into, i) => {
+      const item = new RegExp(`\\|item${i + 1}\\s*=\\s*([^,\\n]+),\\s*([\\d,]+)`).exec(m[1]);
+      if (item) add(into, item[1], Number(item[2].replace(/,/g, '')));
+    });
   }
+  const [rewards, originium, customized] = tiers;
   passes.push({
     name: row.page.replace(/^Protocol Pass:\s*/, ''),
     version: (row.Version ?? '').replace(/\[\[|\]\]/g, '') || null,
@@ -118,22 +162,29 @@ for (const { title: row } of cargo.cargoquery) {
     end: utc(row.AsiaEndTime),
     url: urlOf(row.page),
     rewards,
+    originium,
+    customized,
   });
 }
 
-if (!daily.Oroberyl || !weekly.Oroberyl || !passes.length) throw new Error('income: a source came back empty; the wiki layout may have changed');
+if (!daily.Oroberyl || !weekly.Oroberyl || !passes.length || !originiumCost.Origeometry || !customizedPrice || !monthly.price || !monthly.daily.Oroberyl)
+  throw new Error('income: a source came back empty; the wiki layout may have changed');
 
 const out = {
   attribution: { ...ATTRIBUTION, fetched: TODAY },
   fetched: TODAY,
   daily: { url: urlOf('Operational Manual') + '#Daily', rewards: daily },
   weekly: { url: urlOf('Weekly Routine'), rewards: weekly },
+  passTiers,
+  monthly,
   passes,
 };
 
 const fmt = (r) => Object.entries(r).map(([k, v]) => `${k} ${v}`).join(', ') || 'nothing';
 console.log(`income: daily ${fmt(daily)}; weekly ${fmt(weekly)}`);
-for (const p of passes) console.log(`  pass ${p.name} (${p.start?.slice(0, 10)}): ${fmt(p.rewards)}`);
+console.log(`  Originium Supply costs ${fmt(originiumCost)}; Protocol Customized ${customizedPrice}, gives ${fmt(customizedBonus)} on purchase`);
+console.log(`  Monthly Pass ${monthly.price}/${monthly.days} days: ${fmt(perPurchase)} per purchase, ${fmt(perDay)} a day`);
+for (const p of passes) console.log(`  pass ${p.name} (${p.start?.slice(0, 10)}): free ${fmt(p.rewards)}; Originium ${fmt(p.originium)}; Customized ${fmt(p.customized)}`);
 
 if (!DRY) {
   await writeFile(join(ROOT, 'wiki', 'income.json'), JSON.stringify(out, null, 1) + '\n');

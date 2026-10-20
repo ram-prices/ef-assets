@@ -21,6 +21,31 @@
    "Arsenal Ticket": 100
   }
  },
+ "passTiers": {
+  "url": "https://endfield.wiki.gg/wiki/Protocol_Pass",
+  "originium": {
+   "cost": {
+    "Origeometry": 29
+   }
+  },
+  "customized": {
+   "price": "$9.99",
+   "onPurchase": {
+    "Origeometry": 20
+   }
+  }
+ },
+ "monthly": {
+  "url": "https://endfield.wiki.gg/wiki/Acquisition_Center#Monthly_Pass",
+  "price": "$4.99",
+  "days": 30,
+  "onPurchase": {
+   "Origeometry": 12
+  },
+  "daily": {
+   "Oroberyl": 200
+  }
+ },
  "passes": [
   {
    "name": "Awaken",
@@ -30,6 +55,13 @@
    "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Awaken",
    "rewards": {
     "Oroberyl": 600
+   },
+   "originium": {
+    "Origeometry": 32
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   },
   {
@@ -41,6 +73,14 @@
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   },
   {
@@ -52,6 +92,14 @@
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   },
   {
@@ -63,6 +111,14 @@
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   },
   {
@@ -74,6 +130,14 @@
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   },
   {
@@ -85,6 +149,14 @@
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   },
   {
@@ -96,6 +168,14 @@
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
    }
   }
  ]
