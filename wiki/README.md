@@ -43,7 +43,10 @@ Operator, weapon and gear data snapshotted from the
   Aurylene counts (area infoboxes), plus a rough Oroberyl per crate
   (`perCrate`): per-type Oroberyl (GameWith) averaged over Wuling's crate
   mix (Gamer Guides), since no open source counts crates by type per area.
-  `outposts`: each new outpost's level rewards. And `modes`: what each
+  `outposts`: each new outpost's level rewards. `crafting`: the Crafting
+  Manual's gathering milestones by the version that added each item's area.
+  `progression`: one-time rewards from launch (Operational Manual Node
+  milestones, Authority Level rewards). And `modes`: what each
   version's permanent modes hand out anew (Echoes of War seasons, Monumental
   Etching, Delver of the Cryptic, Trial Algorithmics; amounts from the
   official notes, else the challenge event's wiki page, else `partial`), with
@@ -53,15 +56,8 @@ Operator, weapon and gear data snapshotted from the
   why, once a region's areas pass the end of its table on the wiki). And `extras`:
   hand-kept amounts no wiki page or official post lists (version preview
   livestream, version survey, SKPORT web check-in, Combat Drills per new
-  Chartered banner), each with its sources.
-- `bookkeeping.json` (`scripts/bookkeeping.mjs`, run by hand): from the
-  community "Endfield Bookkeeping" spreadsheet, what no wiki page or official
-  post lists with amounts: per version, `permanent` groups (Operational Manual
-  nodes and stages, Authority Level, Regional Development, Stock
-  Redistribution, Early Warning Terminals, Intel Gathering, Crafting Manual,
-  Etchspace Salvage...), `mailbox` items (launch mail, codes, one-off
-  compensation, Twitch drops...), `named` rows (to fill in events and modes
-  without amounts) and `creditPerDay`. Credit the sheet wherever it's shown.
+  Chartered banner), each with its sources; `creditStore` is our own rough
+  estimate from the wiki's description of the Credit Store.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

@@ -2495,6 +2495,53 @@
    "Dreamscape of Wind and Snow": [],
    "Sanctuary of Ink": []
   },
+  "crafting": {
+   "url": "https://endfield.wiki.gg/wiki/Crafting%2FCrafting_Manual",
+   "versions": {
+    "Launch": {
+     "rewards": {
+      "Oroberyl": 3230
+     },
+     "items": 37
+    },
+    "Old Deep Water Dies, by Rising Tide It is Denied": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    },
+    "At the Wake of Spring": {
+     "rewards": {
+      "Oroberyl": 155
+     },
+     "items": 1
+    },
+    "Sketches of Lost Heirlooms": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    },
+    "Homecoming": {
+     "rewards": {
+      "Oroberyl": 305
+     },
+     "items": 3
+    },
+    "Dreamscape of Wind and Snow": {
+     "rewards": {
+      "Oroberyl": 230
+     },
+     "items": 2
+    },
+    "Sanctuary of Ink": {
+     "rewards": {
+      "Oroberyl": 305
+     },
+     "items": 3
+    }
+   }
+  },
   "aurylene": {
    "url": "https://endfield.wiki.gg/wiki/Overworld_Content#TP_Point",
    "tables": {
@@ -2798,7 +2845,17 @@
     "chartered"
    ],
    "sources": [
-    "https://docs.google.com/spreadsheets/d/1zGNuQ53R7c190RG40dHxcHv8tJuT3cBaclm8CjI-luY/"
+    "https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html"
+   ]
+  },
+  "creditStore": {
+   "label": "Credit Store",
+   "note": "Our rough estimate: the daily Credit Store shows either 25 Oroberyl or Arsenal Tickets, never both, so Oroberyl on about half the days.",
+   "perDay": {
+    "Oroberyl": 12.5
+   },
+   "sources": [
+    "https://endfield.wiki.gg/wiki/Acquisition_Center#Credit_Store"
    ]
   },
   "checkIn": {
@@ -2815,6 +2872,25 @@
     "https://x.com/AKEndfield/status/2014670700339237147"
    ]
   }
+ },
+ "progression": {
+  "version": "Launch",
+  "items": [
+   {
+    "name": "Operational Manual: Node milestones",
+    "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Node",
+    "rewards": {
+     "Oroberyl": 9000
+    }
+   },
+   {
+    "name": "Authority Level rewards",
+    "url": "https://endfield.wiki.gg/wiki/Authority_Level",
+    "rewards": {
+     "Oroberyl": 4500
+    }
+   }
+  ]
  },
  "modes": {
   "source": "Official Version Update Notes, \"Event & Gameplay Updates\"; amounts the notes leave out from endfield.wiki.gg",

@@ -55,10 +55,18 @@
 //   Aurylene unlocks on top of the region's earlier areas: only the phases
 //   the wiki lists; Aurylene past the table's end counts nothing (`partial`)
 //   until the wiki lists more.
+// - progression: one-time rewards there from launch: the Operational
+//   Manual's Node milestones and the Authority Level rewards (wiki).
+// - exploration.crafting: the Crafting Manual's gathering milestones
+//   (Oroberyl per milestone, wiki), by the version that added the area the
+//   item is gathered in or the enemy that drops it (its "source" text names
+//   it; versions' wiki pages list their new areas and enemies); else Launch.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
 //   version preview livestream, the version survey, SKPORT's web check-in,
-//   Combat Drills (per new Chartered Headhunting banner).
+//   Combat Drills (per new Chartered Headhunting banner); and the Credit
+//   Store, our own rough estimate (25 Oroberyl on about half the days: each
+//   refresh shows either Oroberyl or Arsenal Tickets, per the wiki).
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -448,6 +456,51 @@ for (const v of schedule.versions) {
   }
 }
 
+// Crafting Manual: each gathered item's milestones; the area its source names gives the version.
+const crafting = Object.fromEntries(schedule.versions.map((v) => [v.name, { rewards: {}, items: 0 }]));
+const craftText = (await texts(['Crafting/Crafting Manual'])).get('Crafting/Crafting Manual') ?? '';
+const areaNames = [...areaLinks.keys()].sort((a, b) => b.length - a.length);
+// Each version's new enemies (its wiki page's Enemies section: links and "|elite = A; B" lists).
+const enemyIn = new Map();
+for (const v of schedule.versions) {
+  const part = subsection(versionText.get(WIKI_VERSION[v.name] ?? v.name) ?? '', 'Enemies');
+  const names = [
+    ...[...part.matchAll(/\[\[([^\]|#]+)/g)].map((m) => m[1]),
+    ...[...part.matchAll(/^\|\s*\w+\s*=\s*([^\n]+)$/gm)].flatMap((m) => m[1].split(/;\s*/)),
+  ];
+  for (const n of names) if (n.trim() && !enemyIn.has(norm(n))) enemyIn.set(norm(n), v.name);
+}
+let craftRegion = null;
+for (const part of craftText.split(/^(===[^=\n]+===)\s*$/m)) {
+  const head = part.match(/^===\s*([^=]+?)\s*===$/);
+  if (head) {
+    craftRegion = head[1];
+    continue;
+  }
+  for (const m of part.matchAll(/\{\{Crafting milestone([\s\S]*?)\n\}\}/g)) {
+    const rewards = {};
+    for (const it of m[1].matchAll(/\|item\d+\s*=\s*([^,\n]+),\s*([\d,]+)/g)) add(rewards, it[1], Number(it[2].replace(/,/g, '')));
+    if (!Object.keys(rewards).length) continue;
+    const source = m[1].match(/\|source\s*=\s*([^\n]*)/)?.[1] ?? '';
+    const area = areaNames.find((a) => source.includes(a)) ?? (craftRegion && areaLinks.has(craftRegion) ? craftRegion : null);
+    // "Chance drop: [[Rockhowler]]": the version that added the enemy.
+    const enemy = [...source.matchAll(/\[\[([^\]|#]+)/g)].map((x) => enemyIn.get(norm(x[1]))).find(Boolean);
+    const v = enemy ?? (area && areaLinks.get(area)) ?? schedule.versions[0].name;
+    for (const [k, n] of Object.entries(rewards)) crafting[v].rewards[k] = (crafting[v].rewards[k] ?? 0) + n;
+    crafting[v].items++;
+  }
+}
+
+// Progression: the Operational Manual's Node milestones and the Authority Level rewards, one time, from launch.
+const authority = (await texts(['Authority Level'])).get('Authority Level') ?? '';
+const progression = {
+  version: schedule.versions[0].name,
+  items: [
+    { name: 'Operational Manual: Node milestones', url: urlOf('Operational Manual') + '#Node', rewards: itemsIn(sectionOr(manual, 'Node')) },
+    { name: 'Authority Level rewards', url: urlOf('Authority Level'), rewards: itemsIn(sectionOr(authority, 'Reward')) },
+  ].filter((x) => Object.keys(x.rewards).length),
+};
+
 const exploration = {
   source: 'endfield.wiki.gg area pages (crate and Aurylene counts); crate Oroberyl: GameWith; crate mix: Gamer Guides (Wuling)',
   crateOroberyl: CRATE_OROBERYL,
@@ -456,6 +509,7 @@ const exploration = {
   sources: ['https://gamewith.net/akendfield/72617', 'https://www.gamerguides.com/arknights-endfield/maps/wuling'],
   versions: areas,
   outposts,
+  crafting: { url: urlOf('Crafting/Crafting Manual'), versions: crafting },
   aurylene: { url: urlOf('Overworld Content') + '#TP_Point', tables, versions: aurylene },
 };
 
@@ -485,7 +539,13 @@ const extras = {
     note: "Each new Chartered Headhunting banner's trial stages for its rate-up operator.",
     perBanner: { Oroberyl: 100 },
     kinds: ['chartered'],
-    sources: ['https://docs.google.com/spreadsheets/d/1zGNuQ53R7c190RG40dHxcHv8tJuT3cBaclm8CjI-luY/'],
+    sources: ['https://www.topuplive.com/news/arknights-endfield-version-1-4-pull-count.html'],
+  },
+  creditStore: {
+    label: 'Credit Store',
+    note: 'Our rough estimate: the daily Credit Store shows either 25 Oroberyl or Arsenal Tickets, never both, so Oroberyl on about half the days.',
+    perDay: { Oroberyl: 12.5 },
+    sources: [urlOf('Acquisition Center') + '#Credit_Store'],
   },
   checkIn: {
     label: 'SKPORT web check-in',
@@ -594,6 +654,7 @@ const out = {
   quests: questsOut,
   exploration,
   extras,
+  progression,
   modes: { source: 'Official Version Update Notes, "Event & Gameplay Updates"; amounts the notes leave out from endfield.wiki.gg', versions: modes },
 };
 
@@ -610,6 +671,8 @@ for (const [v, list] of Object.entries(questsOut.versions)) {
 if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
 console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
 for (const [v, r] of Object.entries(aurylene)) console.log(`  aurylene ${v}: ${fmt(r.rewards)}${r.partial ? ` PARTIAL (${r.partial})` : ''}`);
+console.log(`  progression (${progression.version}): ${progression.items.map((x) => `${x.name} ${fmt(x.rewards)}`).join('; ')}`);
+for (const [v, c] of Object.entries(crafting)) if (c.items) console.log(`  crafting ${v}: ${c.items} items, ${fmt(c.rewards)}`);
 for (const [v, list] of Object.entries(outposts)) if (list.length) console.log(`  outposts ${v}: ${list.map((o) => `${o.outpost} ${fmt(o.rewards)}`).join('; ')}`);
 for (const [v, list] of Object.entries(modes)) console.log(`  modes ${v}: ${list.map((m) => `${m.name} [${m.from}] ${fmt(m.rewards)}${m.partial ? ' PARTIAL' : ''}${m.estimate ? ' ESTIMATE' : ''}`).join('; ') || 'none'}`);
 for (const [v, list] of Object.entries(areas)) console.log(`  areas ${v}: ${list.map((a) => `${a.area} ${a.crates} crates, ${a.aurylene} Aurylene`).join('; ') || 'none'}`);
