@@ -43,7 +43,8 @@ Operator, weapon and gear data snapshotted from the
   official notes, else the challenge event's wiki page, else `partial`), with
   Etchspace Salvage's milestones split evenly over the versions that added to
   them (`estimate`). `exploration.aurylene`: each region's TP Point hand-in
-  table and what each version's new areas' Aurylene unlocks. And `extras`:
+  table and what each version's new areas' Aurylene unlocks (`partial`, with
+  why, once a region's areas pass the end of its table on the wiki). And `extras`:
   hand-kept amounts no wiki page or official post lists (version preview
   livestream, version survey, SKPORT web check-in), each with its sources.
 

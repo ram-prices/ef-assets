@@ -2709,19 +2709,15 @@
      "rewards": {
       "Origeometry": 12
      },
-     "estimate": true
+     "partial": "Wuling's table on the wiki ends at 190 Aurylene; its areas so far have 197"
     },
     "Dreamscape of Wind and Snow": {
-     "rewards": {
-      "Origeometry": 3
-     },
-     "estimate": true
+     "rewards": {},
+     "partial": "Wuling's table on the wiki ends at 190 Aurylene; its areas so far have 210"
     },
     "Sanctuary of Ink": {
-     "rewards": {
-      "Origeometry": 9
-     },
-     "estimate": true
+     "rewards": {},
+     "partial": "Wuling's table on the wiki ends at 190 Aurylene; its areas so far have 238"
     }
    }
   }

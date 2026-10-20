@@ -51,8 +51,9 @@
 // - Aurylene (exploration.aurylene): each region's TP Point hand-in table
 //   (the wiki's Overworld Content page: Origeometry at running totals) and
 //   each area's Aurylene count and region; a version gets what its new areas'
-//   Aurylene unlocks on top of the region's earlier areas. Past the end of a
-//   table the wiki has, its last step carries on (marked `estimate`).
+//   Aurylene unlocks on top of the region's earlier areas: only the phases
+//   the wiki lists; Aurylene past the table's end counts nothing (`partial`)
+//   until the wiki lists more.
 // - extras: rewards no wiki page or official post lists with amounts,
 //   hand-kept from community guides and posts (sources with each): the
 //   version preview livestream, the version survey, SKPORT's web check-in.
@@ -416,17 +417,10 @@ for (const m of tpPoint.matchAll(/^===\s*([^=\n]+?)\s*===\s*$([\s\S]*?)(?=^===|$
   for (const r of m[2].matchAll(/^\|\s*\d+\s*\|\|\s*\d+\s*\|\|\s*(\d+)\s*\|\|(.*)$/gm)) rows.push({ total: Number(r[1]), rewards: itemsIn(r[2]) });
   if (rows.length) tables[m[1].trim()] = rows;
 }
-/** What handing in `n` Aurylene in a region pays in all; past the table's end, its last step repeats. */
+/** What handing in `n` Aurylene in a region pays in all: every phase the wiki lists up to `n`. */
 const paidAt = (region, n) => {
-  const rows = tables[region] ?? [];
   const out = {};
-  for (const r of rows) if (r.total <= n) for (const [k, c] of Object.entries(r.rewards)) out[k] = (out[k] ?? 0) + c;
-  const last = rows.at(-1);
-  const step = rows.length > 1 ? last.total - rows.at(-2).total : 0;
-  if (last && step && n > last.total) {
-    const times = Math.floor((n - last.total) / step);
-    for (const [k, c] of Object.entries(last.rewards)) out[k] = (out[k] ?? 0) + c * times;
-  }
+  for (const r of tables[region] ?? []) if (r.total <= n) for (const [k, c] of Object.entries(r.rewards)) out[k] = (out[k] ?? 0) + c;
   return out;
 };
 const aurylene = Object.fromEntries(schedule.versions.map((v) => [v.name, { rewards: {} }]));
@@ -436,7 +430,8 @@ for (const v of schedule.versions) {
     if (!a.aurylene || !tables[a.region]) continue;
     const before = paidAt(a.region, sofar[a.region] ?? 0);
     sofar[a.region] = (sofar[a.region] ?? 0) + a.aurylene;
-    if (sofar[a.region] > (tables[a.region].at(-1)?.total ?? 0)) aurylene[v.name].estimate = true;
+    const end = tables[a.region].at(-1)?.total ?? 0;
+    if (sofar[a.region] > end) aurylene[v.name].partial = `${a.region}'s table on the wiki ends at ${end} Aurylene; its areas so far have ${sofar[a.region]}`;
     for (const [k, c] of Object.entries(paidAt(a.region, sofar[a.region]))) {
       const d = c - (before[k] ?? 0);
       if (d) aurylene[v.name].rewards[k] = (aurylene[v.name].rewards[k] ?? 0) + d;
@@ -598,7 +593,7 @@ for (const [v, list] of Object.entries(questsOut.versions)) {
 }
 if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
 console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
-for (const [v, r] of Object.entries(aurylene)) console.log(`  aurylene ${v}: ${fmt(r.rewards)}${r.estimate ? ' ESTIMATE' : ''}`);
+for (const [v, r] of Object.entries(aurylene)) console.log(`  aurylene ${v}: ${fmt(r.rewards)}${r.partial ? ` PARTIAL (${r.partial})` : ''}`);
 for (const [v, list] of Object.entries(outposts)) if (list.length) console.log(`  outposts ${v}: ${list.map((o) => `${o.outpost} ${fmt(o.rewards)}`).join('; ')}`);
 for (const [v, list] of Object.entries(modes)) console.log(`  modes ${v}: ${list.map((m) => `${m.name} [${m.from}] ${fmt(m.rewards)}${m.partial ? ' PARTIAL' : ''}${m.estimate ? ' ESTIMATE' : ''}`).join('; ') || 'none'}`);
 for (const [v, list] of Object.entries(areas)) console.log(`  areas ${v}: ${list.map((a) => `${a.area} ${a.crates} crates, ${a.aurylene} Aurylene`).join('; ') || 'none'}`);
