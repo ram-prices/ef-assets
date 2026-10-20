@@ -37,6 +37,12 @@ Operator, weapon and gear data snapshotted from the
   Aurylene counts (area infoboxes), plus a rough Oroberyl per crate
   (`perCrate`): per-type Oroberyl (GameWith) averaged over Wuling's crate
   mix (Gamer Guides), since no open source counts crates by type per area.
+  `outposts`: each new outpost's level rewards. And `modes`: what each
+  version's permanent modes hand out anew (Echoes of War seasons, Monumental
+  Etching, Delver of the Cryptic, Trial Algorithmics; amounts from the
+  official notes, else the challenge event's wiki page, else `partial`), with
+  Etchspace Salvage's milestones split evenly over the versions that added to
+  them (`estimate`).
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,

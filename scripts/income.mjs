@@ -39,6 +39,15 @@
 //   by type per area, so `perCrate` averages the per-type Oroberyl
 //   (`crateOroberyl`) over one region's known mix (`mix`). Hand-kept values,
 //   with their sources; replace them with exact per-area counts when known.
+//   Each new outpost's level rewards too (`outposts`, its wiki page).
+// - modes: what each version's permanent modes hand out anew, from its
+//   official notes' "Event & Gameplay Updates" (Echoes of War seasons,
+//   Umbral Monument's Monumental Etching, Delver of the Cryptic, Etchspace
+//   Salvage zones, Trial of Swordmancy): the amounts the notes give; where
+//   they only say "[Oroberyls]", the wiki page of the challenge event they
+//   name; else `partial`. Etchspace Salvage's one-time Operation Metrics
+//   milestones are split evenly over the versions its wiki changelog says
+//   added to them (it doesn't say which milestones), marked `estimate`.
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -196,6 +205,8 @@ const schedule = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8'))
 const compensation = {};
 /** How far each version's main story goes: "Chapter II Process III: 'Twas One River That Gave Us Drink". */
 const storyCap = {};
+/** Each version's Version Update Notes as text. */
+const notesText = {};
 for (const v of schedule.versions) {
   for (const cid of v.posts ?? []) {
     const res = await fetch(`${NEWS}/${cid}?${NEWS_Q}`, { headers: NEWS_UA });
@@ -208,6 +219,7 @@ for (const v of schedule.versions) {
       .replace(/<[^>]+>/g, '')
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&');
+    notesText[v.name] = { cid, text };
     const cap = text.match(/available up to \[([^\]]+)\]/i)?.[1];
     if (cap) storyCap[v.name] = cap;
     const rows = [];
@@ -368,6 +380,15 @@ for (const [area, v] of areaLinks) {
   const aurylene = Number(field(w, 'aether')) || 0;
   if (crates || aurylene) areas[v].push({ area, url: urlOf(page), crates, aurylene }); // regions and outposts count nothing of their own
 }
+// Outposts the versions added: their level rewards.
+const outposts = Object.fromEntries(schedule.versions.map((v) => [v.name, []]));
+for (const [area, v] of areaLinks) {
+  const w = areaText.get(area) ?? '';
+  if (!/Outpost Prosperity Level/i.test(w)) continue;
+  const rewards = itemsIn(w);
+  if (Object.keys(rewards).length) outposts[v].push({ outpost: area, url: urlOf(area), rewards });
+}
+
 const exploration = {
   source: 'endfield.wiki.gg area pages (crate and Aurylene counts); crate Oroberyl: GameWith; crate mix: Gamer Guides (Wuling)',
   crateOroberyl: CRATE_OROBERYL,
@@ -375,7 +396,86 @@ const exploration = {
   perCrate: Math.round(perCrate * 10) / 10,
   sources: ['https://gamewith.net/akendfield/72617', 'https://www.gamerguides.com/arknights-endfield/maps/wuling'],
   versions: areas,
+  outposts,
 };
+
+// Permanent modes: each version's notes, "■ Event & Gameplay Updates" (or "Gameplay Updates"), item by item.
+const eventNames2 = new Set((schedule.events ?? []).map((e) => norm(e.name)));
+const etchspace = (await texts(['Etchspace Salvage'])).get('Etchspace Salvage') ?? '';
+/** A `== name ==` section, or '' when the page has none. */
+const sectionOr = (text, name) => {
+  try {
+    return section(text, name);
+  } catch {
+    return '';
+  }
+};
+const notesItems = (text) => {
+  const at = text.search(/■\s*(?:Events?\s*&\s*)?Gameplay Updates/);
+  if (at < 0) return [];
+  const rest = text.slice(at).split('\n').slice(1);
+  const end = rest.findIndex((l) => /^\s*[■▼※]/.test(l));
+  const body = (end < 0 ? rest : rest.slice(0, end)).join('\n');
+  return body.split(/\n(?=\s*\d+\.\s)/).map((t) => t.trim()).filter((t) => /^\d+\.\s/.test(t));
+};
+/** "[Oroberyl]×1200" amounts in a bit of notes text. */
+const notesAmounts = (t) => {
+  const out = {};
+  for (const m of t.matchAll(/\[([^\]]+)\]\s*[x×]\s*([\d,]+)/g)) add(out, m[1], Number(m[2].replace(/,/g, '')));
+  return out;
+};
+const modes = Object.fromEntries(schedule.versions.map((v) => [v.name, []]));
+const wikiChecks = [];
+for (const v of schedule.versions) {
+  const notes = notesText[v.name];
+  if (!notes) continue;
+  for (const item of notesItems(notes.text)) {
+    const name = item.match(/^\d+\.\s*\[([^\]]+)\]/)?.[1] ?? item.split('\n')[0].replace(/^\d+\.\s*/, '').slice(0, 60);
+    const brackets = [...new Set([...item.matchAll(/\[([^\]]+)\]/g)].map((m) => m[1]))];
+    if (brackets.some((b) => eventNames2.has(norm(b)))) continue; // a schedule event: events.json counts it
+    if (name === 'Etchspace Salvage') continue; // its milestones: below
+    const named = notesAmounts(item);
+    if (Object.keys(named).length) modes[v.name].push({ name, from: 'notes', url: `https://endfield.gryphline.com/en-us/news/${notes.cid}`, rewards: named });
+    else wikiChecks.push({ version: v.name, name, brackets, cid: notes.cid, mentions: /\[Oroberyls?\]/i.test(item) });
+  }
+}
+// Items naming rewards without amounts: the wiki page of the challenge event they name (an Event infobox page).
+const candidates = [...new Set(wikiChecks.flatMap((c) => c.brackets))];
+const candText = candidates.length ? await texts(candidates) : new Map();
+for (const c of wikiChecks) {
+  // The challenge event is named last ("[Umbral Monument] ... [Turbidity Manifest] ... [Monumental Etching: Corrupting Surge]").
+  const page = c.brackets.findLast((b) => /\{\{\s*Event infobox/i.test(candText.get(b) ?? ''));
+  const w = page ? candText.get(page) : '';
+  // Reward tables only: drop shop sections.
+  const rewards = page ? itemsIn(w.split(/^==+[^=\n]*(?:shop|store|exchange)[^=\n]*==+\s*$/im)[0]) : {};
+  if (!Object.keys(rewards).length && !c.mentions) continue; // nothing to count, and the notes name no pull currency
+  modes[c.version].push({
+    name: page ?? c.name,
+    from: page ? 'wiki' : 'notes',
+    url: page ? urlOf(page) : `https://endfield.gryphline.com/en-us/news/${c.cid}`,
+    rewards,
+    ...(Object.keys(rewards).length ? {} : { partial: true }),
+  });
+}
+// Etchspace Salvage: its Operation Metrics milestones, split over the versions that added to them.
+const metrics = itemsIn(sectionOr(etchspace, 'Operation Metrics'));
+const changelog = sectionOr(etchspace, 'Changelog');
+const etchVersions = schedule.versions.filter((v) => {
+  const wikiName = WIKI_VERSION[v.name] ?? v.name;
+  const at = changelog.indexOf(`[[${wikiName}]]`);
+  if (at < 0) return false;
+  const entry = changelog.slice(at, changelog.indexOf("*'''", at + 5) >>> 0);
+  return /Operation Metrics reward|Game released/i.test(entry);
+});
+if (Object.keys(metrics).length && etchVersions.length)
+  for (const v of etchVersions)
+    modes[v.name].push({
+      name: 'Etchspace Salvage: Operation Metrics milestones',
+      from: 'wiki',
+      url: urlOf('Etchspace Salvage'),
+      rewards: Object.fromEntries(Object.entries(metrics).map(([k, n]) => [k, Math.round((n / etchVersions.length) * 10) / 10])),
+      estimate: true,
+    });
 
 const questsOut = {
   source: 'endfield.wiki.gg mission pages (rewards); version: official Version Update Notes (main story), wiki version pages (others)',
@@ -404,6 +504,7 @@ const out = {
   compensation: { source: 'Official Version Update Notes (endfield.gryphline.com news)', versions: compensation },
   quests: questsOut,
   exploration,
+  modes: { source: 'Official Version Update Notes, "Event & Gameplay Updates"; amounts the notes leave out from endfield.wiki.gg', versions: modes },
 };
 
 const fmt = (r) => Object.entries(r).map(([k, v]) => `${k} ${v}`).join(', ') || 'nothing';
@@ -418,6 +519,8 @@ for (const [v, list] of Object.entries(questsOut.versions)) {
 }
 if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
 console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
+for (const [v, list] of Object.entries(outposts)) if (list.length) console.log(`  outposts ${v}: ${list.map((o) => `${o.outpost} ${fmt(o.rewards)}`).join('; ')}`);
+for (const [v, list] of Object.entries(modes)) console.log(`  modes ${v}: ${list.map((m) => `${m.name} [${m.from}] ${fmt(m.rewards)}${m.partial ? ' PARTIAL' : ''}${m.estimate ? ' ESTIMATE' : ''}`).join('; ') || 'none'}`);
 for (const [v, list] of Object.entries(areas)) console.log(`  areas ${v}: ${list.map((a) => `${a.area} ${a.crates} crates, ${a.aurylene} Aurylene`).join('; ') || 'none'}`);
 for (const p of passes) console.log(`  pass ${p.name} (${p.start?.slice(0, 10)}): free ${fmt(p.rewards)}; Originium ${fmt(p.originium)}; Customized ${fmt(p.customized)}`);
 

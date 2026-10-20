@@ -2403,6 +2403,197 @@
      "aurylene": 28
     }
    ]
+  },
+  "outposts": {
+   "Launch": [
+    {
+     "outpost": "Refugee Camp",
+     "url": "https://endfield.wiki.gg/wiki/Refugee_Camp",
+     "rewards": {
+      "Oroberyl": 240
+     }
+    },
+    {
+     "outpost": "Infra-Station",
+     "url": "https://endfield.wiki.gg/wiki/Infra-Station",
+     "rewards": {
+      "Oroberyl": 320
+     }
+    },
+    {
+     "outpost": "Sky King Flats Construction Site",
+     "url": "https://endfield.wiki.gg/wiki/Sky_King_Flats_Construction_Site",
+     "rewards": {
+      "Oroberyl": 320
+     }
+    }
+   ],
+   "Old Deep Water Dies, by Rising Tide It is Denied": [],
+   "At the Wake of Spring": [],
+   "Sketches of Lost Heirlooms": [],
+   "Homecoming": [
+    {
+     "outpost": "Xiranflow Cloudseeder Station",
+     "url": "https://endfield.wiki.gg/wiki/Xiranflow_Cloudseeder_Station",
+     "rewards": {
+      "Oroberyl": 320
+     }
+    }
+   ],
+   "Dreamscape of Wind and Snow": [],
+   "Sanctuary of Ink": []
+  }
+ },
+ "modes": {
+  "source": "Official Version Update Notes, \"Event & Gameplay Updates\"; amounts the notes leave out from endfield.wiki.gg",
+  "versions": {
+   "Launch": [
+    {
+     "name": "Etchspace Salvage: Operation Metrics milestones",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
+     "rewards": {
+      "Oroberyl": 1333.3,
+      "Basic HH Permit": 6.7
+     },
+     "estimate": true
+    }
+   ],
+   "Old Deep Water Dies, by Rising Tide It is Denied": [
+    {
+     "name": "Monumental Etching: Scorch Mark",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Monumental_Etching%3A_Scorch_Mark",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    },
+    {
+     "name": "Delver of the Cryptic",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/8907",
+     "rewards": {},
+     "partial": true
+    },
+    {
+     "name": "Etchspace Salvage: Operation Metrics milestones",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
+     "rewards": {
+      "Oroberyl": 1333.3,
+      "Basic HH Permit": 6.7
+     },
+     "estimate": true
+    }
+   ],
+   "At the Wake of Spring": [
+    {
+     "name": "Monumental Etching: Corrupting Surge",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Monumental_Etching%3A_Corrupting_Surge",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    },
+    {
+     "name": "Etchspace Salvage: Operation Metrics milestones",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
+     "rewards": {
+      "Oroberyl": 1333.3,
+      "Basic HH Permit": 6.7
+     },
+     "estimate": true
+    }
+   ],
+   "Sketches of Lost Heirlooms": [
+    {
+     "name": "Trial Algorithmics",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Trial_Algorithmics",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    },
+    {
+     "name": "Monumental Etching: Dirge of Grief",
+     "from": "wiki",
+     "url": "https://endfield.wiki.gg/wiki/Monumental_Etching%3A_Dirge_of_Grief",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    }
+   ],
+   "Homecoming": [
+    {
+     "name": "Echoes of War",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/5200",
+     "rewards": {
+      "Oroberyl": 800
+     }
+    },
+    {
+     "name": "Umbral Monument",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/5200",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    },
+    {
+     "name": "Delver of the Cryptic",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/5200",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    }
+   ],
+   "Dreamscape of Wind and Snow": [
+    {
+     "name": "Echoes of War",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/5208",
+     "rewards": {
+      "Oroberyl": 600
+     }
+    },
+    {
+     "name": "Umbral Monument",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/5208",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    }
+   ],
+   "Sanctuary of Ink": [
+    {
+     "name": "Echoes of War",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/9560",
+     "rewards": {
+      "Oroberyl": 600
+     }
+    },
+    {
+     "name": "Umbral Monument",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/9560",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    },
+    {
+     "name": "Delver of the Cryptic",
+     "from": "notes",
+     "url": "https://endfield.gryphline.com/en-us/news/9560",
+     "rewards": {
+      "Oroberyl": 1200
+     }
+    }
+   ]
   }
  }
 }
