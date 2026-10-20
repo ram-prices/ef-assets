@@ -30,6 +30,14 @@
 // minimum instead of its random prizes. An event whose rewards are spent in a
 // shop on another page ("[[Contingency Contract#Secret Sanctuary]]") counts
 // that shop's tab for it, item times stock.
+//
+// Each event also gets its `end` per server from the wiki's event table when
+// the table has one (the update notes often say only "until the next version
+// update"), and its `phases` when the page lists them: an "Event calendar"
+// ("[Phase 2] 22/10/2026 04:00 - ...: what to do") or "Event Phase 2:" with
+// its Availability and Content. Phase times are server time (UTC+8 on Asia,
+// UTC-5 on Americas/Europe); the first phase starts with the event, and each
+// ends when the next starts (the last, with the event).
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -102,6 +110,41 @@ function plain(s = '') {
   t = t.replace(/'''''|'''|''/g, '');
   t = t.replace(/&nbsp;|&#32;/g, ' ').replace(/&amp;/g, '&');
   return t.replace(/\s+/g, ' ').trim();
+}
+
+const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+/** A server-time moment on each server: the same clock time, UTC+8 on Asia and UTC-5 on Americas/Europe. */
+function serverTime(y, mo, d, h, mi) {
+  const p = (n) => String(n).padStart(2, '0');
+  const local = `${y}-${p(mo)}-${p(d)}T${p(h)}:${p(mi)}:00`;
+  return { asia: `${local}+08:00`, americas: `${local}-05:00` };
+}
+
+/** An event's phases from its page, the first starting with the event (start null); none unless there are two or more. */
+function phasesOf(text) {
+  const out = [];
+  // Event calendar: "** [Phase 2] 22/10/2026 04:00 - 26/11/2026 06:00: what to do"
+  for (const m of text.matchAll(/^\*+\s*\[Phase (\d+)\]\s*(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{1,2}):(\d{2})\s*[-–]\s*\d{1,2}\/\d{1,2}\/\d{4} \d{1,2}:\d{2}:?\s*(.*)$/gm))
+    out.push({ name: `Phase ${m[1]}`, start: serverTime(m[4], m[3], m[2], m[5], m[6]), about: plain(m[7]) });
+  // "* Event Phase 2: ..." then "** '''Availability''': August 15, 2026 at 04:00 (server time)" and "** '''Content''': ..."
+  if (!out.length)
+    for (const b of text.matchAll(/^\*\s*Event Phase (\d+):?[ \t]*(.*)\n((?:\*\*.*(?:\n|$))*)/gm)) {
+      const at = b[3].match(/Availability'*:\s*([A-Za-z]+) (\d{1,2}), (\d{4}) at (\d{1,2}):(\d{2})/);
+      const month = at ? MONTHS.indexOf(at[1].toLowerCase()) + 1 : 0;
+      const content = b[3].match(/Content'*:\s*(.+)/);
+      out.push({
+        name: `Phase ${b[1]}`,
+        start: at && month ? serverTime(at[3], month, at[2], at[4], at[5]) : null,
+        // What it opens, then the line's own note, each a sentence.
+        about: [content?.[1], b[2]]
+          .map((t) => plain(t))
+          .filter(Boolean)
+          .map((t) => (/[.!?]$/.test(t) ? t : `${t}.`))
+          .join(' '),
+      });
+    }
+  if (out.length < 2) return [];
+  return out.map((ph, i) => (i === 0 ? { ...ph, start: null } : ph));
 }
 
 /**
@@ -362,15 +405,19 @@ for (let offset = 0; ; offset += 500) {
 }
 const utc = (t) => (t ? `${t.replace(' ', 'T')}Z` : null);
 const baseName = (r) => (r.Event || r.page).replace(/\s*\([^)]*\)\s*$/, '');
-/** A schedule event's wiki page: the table's row of that name starting closest to it, else the page of that name. */
-const pageFor = (e) => {
+/** A schedule event's row in the wiki's event table: the one of that name starting closest to it. */
+const rowFor = (e) => {
   const at = Date.parse(e.start?.asia ?? '');
   const rows = table.filter((r) => flat(baseName(r)) === flat(e.name));
-  if (!rows.length) return e.name;
-  rows.sort((a, b) => Math.abs(Date.parse(utc(a.AsiaStartTime)) - at) - Math.abs(Date.parse(utc(b.AsiaStartTime)) - at));
-  return Number.isNaN(at) ? rows[0].page : rows[0].page;
+  if (!rows.length) return null;
+  if (!Number.isNaN(at)) rows.sort((a, b) => Math.abs(Date.parse(utc(a.AsiaStartTime)) - at) - Math.abs(Date.parse(utc(b.AsiaStartTime)) - at));
+  return rows[0];
 };
-const pageNames = new Map(events.map((e) => [e, pageFor(e)]));
+/** Its end per server from that row, when the wiki has one. */
+const endOf = (r) => (r?.AsiaEndTime ? { asia: utc(r.AsiaEndTime), americas: utc(r.AmeuEndTime) ?? utc(r.AsiaEndTime) } : null);
+const rowsOf = new Map(events.map((e) => [e, rowFor(e)]));
+/** A schedule event's wiki page: its table row's, else the page of that name. */
+const pageNames = new Map(events.map((e) => [e, rowsOf.get(e)?.page ?? e.name]));
 const found = await pages([...new Set(pageNames.values())]);
 
 const out = {};
@@ -386,10 +433,14 @@ for (const e of events) {
   if (!groups.length) empty.push(e.name);
   // Partial: the page names rewards without (all) amounts, so totals are a lower bound.
   const partial = !groups.length || groups.some((g) => g.partial);
+  const end = endOf(rowsOf.get(e));
+  const phases = phasesOf(page.text);
   out[e.id] = {
     name: e.name,
     page: page.title,
     url: `https://endfield.wiki.gg/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
+    ...(end ? { end } : {}),
+    ...(phases.length ? { phases } : {}),
     ...(partial ? { partial: true } : {}),
     totals: totalsOf(groups),
     groups,
@@ -416,7 +467,8 @@ for (const r of extraRows) {
     page: page.title,
     url: `https://endfield.wiki.gg/wiki/${encodeURIComponent(page.title.replace(/ /g, '_'))}`,
     start: { asia: utc(r.AsiaStartTime), americas: utc(r.AmeuStartTime) ?? utc(r.AsiaStartTime) },
-    ...(r.AsiaEndTime ? { end: { asia: utc(r.AsiaEndTime), americas: utc(r.AmeuEndTime) ?? utc(r.AsiaEndTime) } } : {}),
+    ...(endOf(r) ? { end: endOf(r) } : {}),
+    ...(phasesOf(page.text).length ? { phases: phasesOf(page.text) } : {}),
     ...(partial ? { partial: true } : {}),
     totals: totalsOf(groups),
     groups,
@@ -428,6 +480,9 @@ for (const [k, x] of Object.entries(extra)) console.log(`  ${x.start.asia?.slice
 const withRewards = Object.values(out).filter((e) => e.groups.length).length;
 const complete = Object.values(out).filter((e) => !e.partial).length;
 console.log(`events: ${events.length} in schedule.json, ${Object.keys(out).length} found on the wiki, ${withRewards} with rewards (${complete} complete, the rest partial)`);
+const ends = events.filter((e) => !e.end && out[e.id]?.end);
+console.log(`end dates from the wiki for events the notes leave open: ${ends.map((e) => e.name).join('; ') || 'none'}`);
+console.log(`events with phases: ${Object.values(out).filter((e) => e.phases).map((e) => `${e.name} (${e.phases.length})`).join('; ') || 'none'}`);
 if (missing.length) console.log(`not on the wiki: ${missing.join('; ')}`);
 if (empty.length) console.log(`no reward tables found: ${empty.join('; ')}`);
 const oro = Object.values(out).reduce((s, e) => s + (e.totals.Oroberyl ?? 0), 0);
