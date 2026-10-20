@@ -2264,5 +2264,145 @@
     }
    ]
   }
+ },
+ "exploration": {
+  "source": "endfield.wiki.gg area pages (crate and Aurylene counts); crate Oroberyl: GameWith; crate mix: Gamer Guides (Wuling)",
+  "crateOroberyl": {
+   "white": 15,
+   "blue": 30,
+   "yellow": 60,
+   "locked": 100,
+   "gold": 150
+  },
+  "mix": {
+   "white": 61,
+   "blue": 45,
+   "yellow": 27,
+   "gold": 1,
+   "locked": 21
+  },
+  "perCrate": 39.6,
+  "sources": [
+   "https://gamewith.net/akendfield/72617",
+   "https://www.gamerguides.com/arknights-endfield/maps/wuling"
+  ],
+  "versions": {
+   "Launch": [
+    {
+     "area": "The Hub",
+     "url": "https://endfield.wiki.gg/wiki/The_Hub",
+     "crates": 107,
+     "aurylene": 43
+    },
+    {
+     "area": "Valley Pass",
+     "url": "https://endfield.wiki.gg/wiki/Valley_Pass",
+     "crates": 12,
+     "aurylene": 14
+    },
+    {
+     "area": "Aburrey Quarry",
+     "url": "https://endfield.wiki.gg/wiki/Aburrey_Quarry",
+     "crates": 32,
+     "aurylene": 17
+    },
+    {
+     "area": "Originium Science Park",
+     "url": "https://endfield.wiki.gg/wiki/Originium_Science_Park",
+     "crates": 36,
+     "aurylene": 30
+    },
+    {
+     "area": "Origin Lodespring",
+     "url": "https://endfield.wiki.gg/wiki/Origin_Lodespring",
+     "crates": 65,
+     "aurylene": 39
+    },
+    {
+     "area": "Power Plateau",
+     "url": "https://endfield.wiki.gg/wiki/Power_Plateau",
+     "crates": 36,
+     "aurylene": 23
+    },
+    {
+     "area": "Jingyu Valley",
+     "url": "https://endfield.wiki.gg/wiki/Jingyu_Valley",
+     "crates": 44,
+     "aurylene": 20
+    },
+    {
+     "area": "Wuling City",
+     "url": "https://endfield.wiki.gg/wiki/Wuling_City",
+     "crates": 198,
+     "aurylene": 61
+    }
+   ],
+   "Old Deep Water Dies, by Rising Tide It is Denied": [
+    {
+     "area": "Qingbo Stockade",
+     "url": "https://endfield.wiki.gg/wiki/Qingbo_Stockade_(location)",
+     "crates": 36,
+     "aurylene": 14
+    }
+   ],
+   "At the Wake of Spring": [
+    {
+     "area": "Marker Stone",
+     "url": "https://endfield.wiki.gg/wiki/Marker_Stone",
+     "crates": 48,
+     "aurylene": 26
+    },
+    {
+     "area": "Test Area",
+     "url": "https://endfield.wiki.gg/wiki/Test_Area",
+     "crates": 32,
+     "aurylene": 17
+    }
+   ],
+   "Sketches of Lost Heirlooms": [
+    {
+     "area": "Sword Vault Dale",
+     "url": "https://endfield.wiki.gg/wiki/Sword_Vault_Dale",
+     "crates": 40,
+     "aurylene": 15
+    }
+   ],
+   "Homecoming": [
+    {
+     "area": "Yinglung Pass",
+     "url": "https://endfield.wiki.gg/wiki/Yinglung_Pass",
+     "crates": 26,
+     "aurylene": 16
+    },
+    {
+     "area": "North Wuling Exclusion Zone",
+     "url": "https://endfield.wiki.gg/wiki/North_Wuling_Exclusion_Zone",
+     "crates": 85,
+     "aurylene": 28
+    }
+   ],
+   "Dreamscape of Wind and Snow": [
+    {
+     "area": "Snowy Forest",
+     "url": "https://endfield.wiki.gg/wiki/Snowy_Forest",
+     "crates": 39,
+     "aurylene": 13
+    },
+    {
+     "area": "Suiming",
+     "url": "https://endfield.wiki.gg/wiki/Suiming",
+     "crates": 28,
+     "aurylene": 0
+    }
+   ],
+   "Sanctuary of Ink": [
+    {
+     "area": "Si's Painting",
+     "url": "https://endfield.wiki.gg/wiki/Si's_Painting",
+     "crates": 101,
+     "aurylene": 28
+    }
+   ]
+  }
  }
 }

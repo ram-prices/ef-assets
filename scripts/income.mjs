@@ -33,6 +33,12 @@
 //     III: ...]" reaches them (official notes; else the wiki version page).
 //   - Others: the version whose wiki page lists them under Missions; else the
 //     version whose page lists their region under Areas; else Launch.
+// - exploration: the areas each version added (its wiki page's Areas) with
+//   their storage crate and Aurylene counts (each area's infobox `chest`,
+//   `aether`), and a rough Oroberyl per crate: no open source counts crates
+//   by type per area, so `perCrate` averages the per-type Oroberyl
+//   (`crateOroberyl`) over one region's known mix (`mix`). Hand-kept values,
+//   with their sources; replace them with exact per-area counts when known.
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
@@ -336,6 +342,41 @@ for (const m of all.filter((m) => m.type !== 'Main Mission')) {
   const region = regionIn.get(norm(m.region));
   quests[listed ?? region ?? schedule.versions[0].name].push({ ...m, how: listed ? 'listed' : region ? 'region' : 'launch' });
 }
+// Exploration: each version's new areas and their crate counts.
+/** Oroberyl per storage crate type (GameWith, "Oroberyl Yield per Crate Rarity", Mar 30, 2026). */
+const CRATE_OROBERYL = { white: 15, blue: 30, yellow: 60, locked: 100, gold: 150 };
+/** Wuling's crates by type (Gamer Guides' Wuling map, Oct 2026; Gear Template crates left out: the wiki counts them apart). */
+const CRATE_MIX = { white: 61, blue: 45, yellow: 27, gold: 1, locked: 21 };
+const mixCount = Object.values(CRATE_MIX).reduce((a, b) => a + b, 0);
+const perCrate = Object.entries(CRATE_MIX).reduce((a, [k, n]) => a + n * CRATE_OROBERYL[k], 0) / mixCount;
+const areaLinks = new Map(); // area → version
+for (const v of schedule.versions) {
+  const w = versionText.get(WIKI_VERSION[v.name] ?? v.name) ?? '';
+  for (const m of subsection(w, 'Areas').matchAll(/\[\[([^\]|#]+)/g)) if (!areaLinks.has(m[1].trim())) areaLinks.set(m[1].trim(), v.name);
+}
+const isArea = (w) => /\{\{\s*Location infobox/i.test(w ?? '');
+const areaText = await texts([...areaLinks.keys()]);
+// A link may land on a namesake (Qingbo Stockade the faction): try "<name> (location)".
+const others = [...areaLinks.keys()].filter((a) => !isArea(areaText.get(a)));
+for (const [t, w] of await texts(others.map((a) => `${a} (location)`))) areaText.set(t, w);
+const areas = Object.fromEntries(schedule.versions.map((v) => [v.name, []]));
+for (const [area, v] of areaLinks) {
+  const page = isArea(areaText.get(area)) ? area : `${area} (location)`;
+  const w = areaText.get(page);
+  if (!isArea(w)) continue;
+  const crates = Number(field(w, 'chest')) || 0;
+  const aurylene = Number(field(w, 'aether')) || 0;
+  if (crates || aurylene) areas[v].push({ area, url: urlOf(page), crates, aurylene }); // regions and outposts count nothing of their own
+}
+const exploration = {
+  source: 'endfield.wiki.gg area pages (crate and Aurylene counts); crate Oroberyl: GameWith; crate mix: Gamer Guides (Wuling)',
+  crateOroberyl: CRATE_OROBERYL,
+  mix: CRATE_MIX,
+  perCrate: Math.round(perCrate * 10) / 10,
+  sources: ['https://gamewith.net/akendfield/72617', 'https://www.gamerguides.com/arknights-endfield/maps/wuling'],
+  versions: areas,
+};
+
 const questsOut = {
   source: 'endfield.wiki.gg mission pages (rewards); version: official Version Update Notes (main story), wiki version pages (others)',
   caps: Object.fromEntries(caps.map((c) => [c.version, c.cap])),
@@ -362,6 +403,7 @@ const out = {
   passes,
   compensation: { source: 'Official Version Update Notes (endfield.gryphline.com news)', versions: compensation },
   quests: questsOut,
+  exploration,
 };
 
 const fmt = (r) => Object.entries(r).map(([k, v]) => `${k} ${v}`).join(', ') || 'nothing';
@@ -375,6 +417,8 @@ for (const [v, list] of Object.entries(questsOut.versions)) {
   console.log(`  quests ${v}: ${list.length} with rewards (${fmt(how)}), ${fmt(t)}${questsOut.caps[v] ? `; story up to ${questsOut.caps[v]}` : ''}`);
 }
 if (unplaced.length) console.log(`  main missions past every version's cap (left out): ${unplaced.join('; ')}`);
+console.log(`  crates: ~${exploration.perCrate} Oroberyl each (estimate)`);
+for (const [v, list] of Object.entries(areas)) console.log(`  areas ${v}: ${list.map((a) => `${a.area} ${a.crates} crates, ${a.aurylene} Aurylene`).join('; ') || 'none'}`);
 for (const p of passes) console.log(`  pass ${p.name} (${p.start?.slice(0, 10)}): free ${fmt(p.rewards)}; Originium ${fmt(p.originium)}; Customized ${fmt(p.customized)}`);
 
 if (!DRY) {

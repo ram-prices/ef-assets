@@ -33,6 +33,10 @@ Operator, weapon and gear data snapshotted from the
   Exploration Missions) by the version that released them, `caps` (how far
   each version's main story goes) and `how` each mission was placed
   (`story`, `listed` on the version's wiki page, its `region`, or `launch`).
+  And `exploration`: the areas each version added with their crate and
+  Aurylene counts (area infoboxes), plus a rough Oroberyl per crate
+  (`perCrate`): per-type Oroberyl (GameWith) averaged over Wuling's crate
+  mix (Gamer Guides), since no open source counts crates by type per area.
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,
