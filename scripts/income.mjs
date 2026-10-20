@@ -18,12 +18,18 @@
 //   from the Protocol Pass page.
 // - monthly: the Monthly Pass (Acquisition Center): its price, Origeometry
 //   per purchase, and what it gives every day for 30 days.
+// - compensation: what each version's official Version Update Notes hand out
+//   in the mail ("· Update & Maintenance Compensation: [Oroberyl]×900",
+//   "· Bug Fix Compensation: [Oroberyl]×900"), keyed by the version's name in
+//   schedule.json, whose `posts` list each version's notes. This part comes
+//   from the official news feed, not the wiki. (The Pre-Download notices
+//   repeat the first line, so only the Version Update Notes are read.)
 //
 // Only pull currencies are kept: Oroberyl, Origeometry, Arsenal Tickets and
 // HH Permits. Wiki content is CC BY-SA 4.0, so the file carries an
 // `attribution` block and the derived data is under the same license.
 
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const API = 'https://endfield.wiki.gg/api.php';
@@ -167,6 +173,38 @@ for (const { title: row } of cargo.cargoquery) {
   });
 }
 
+// Compensation: each version's Version Update Notes, from the official news feed.
+const NEWS = 'https://web-news.gryphline.com/api/bulletin';
+const NEWS_Q = 'lang=en-us&code=arknights_endfield_official';
+const NEWS_UA = { 'User-Agent': 'Mozilla/5.0 (ef-assets income bot; github.com/ram-prices/ef-assets)' };
+const schedule = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8'));
+const compensation = {};
+for (const v of schedule.versions) {
+  for (const cid of v.posts ?? []) {
+    const res = await fetch(`${NEWS}/${cid}?${NEWS_Q}`, { headers: NEWS_UA });
+    if (!res.ok) throw new Error(`news ${cid}: HTTP ${res.status}`);
+    const post = (await res.json()).data;
+    await sleep(200);
+    if (!/Version Update Notes/i.test(post.title ?? '')) continue;
+    const text = String(post.data ?? '')
+      .replace(/<(br|\/p|\/div|\/li|\/h\d)[^>]*>/gi, '\n')
+      .replace(/<[^>]+>/g, '')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&');
+    const rows = [];
+    for (const line of text.split('\n')) {
+      // "· Update & Maintenance Compensation: [Oroberyl]×900" (several items: "[A]×1, [B]×2").
+      const m = line.match(/^\s*[·•]\s*([^:：]*Compensation)\s*[:：]\s*(.+)$/i);
+      if (!m) continue;
+      const rewards = {};
+      for (const it of m[2].matchAll(/\[([^\]]+)\]\s*[x×]\s*([\d,]+)/g)) rewards[it[1].trim()] = (rewards[it[1].trim()] ?? 0) + Number(it[2].replace(/,/g, ''));
+      if (Object.keys(rewards).length) rows.push({ label: m[1].trim(), rewards });
+    }
+    if (rows.length) compensation[v.name] = { url: `https://endfield.gryphline.com/en-us/news/${cid}`, rows };
+  }
+}
+
+if (!Object.keys(compensation).length) throw new Error('income: no compensation found in the version notes; their wording may have changed');
 if (!daily.Oroberyl || !weekly.Oroberyl || !passes.length || !originiumCost.Origeometry || !customizedPrice || !monthly.price || !monthly.daily.Oroberyl)
   throw new Error('income: a source came back empty; the wiki layout may have changed');
 
@@ -178,12 +216,14 @@ const out = {
   passTiers,
   monthly,
   passes,
+  compensation: { source: 'Official Version Update Notes (endfield.gryphline.com news)', versions: compensation },
 };
 
 const fmt = (r) => Object.entries(r).map(([k, v]) => `${k} ${v}`).join(', ') || 'nothing';
 console.log(`income: daily ${fmt(daily)}; weekly ${fmt(weekly)}`);
 console.log(`  Originium Supply costs ${fmt(originiumCost)}; Protocol Customized ${customizedPrice}, gives ${fmt(customizedBonus)} on purchase`);
 console.log(`  Monthly Pass ${monthly.price}/${monthly.days} days: ${fmt(perPurchase)} per purchase, ${fmt(perDay)} a day`);
+for (const [v, c] of Object.entries(compensation)) console.log(`  compensation ${v}: ${c.rows.map((r) => `${r.label} ${fmt(r.rewards)}`).join('; ')}`);
 for (const p of passes) console.log(`  pass ${p.name} (${p.start?.slice(0, 10)}): free ${fmt(p.rewards)}; Originium ${fmt(p.originium)}; Customized ${fmt(p.customized)}`);
 
 if (!DRY) {

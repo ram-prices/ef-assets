@@ -178,5 +178,112 @@
     "Arsenal Ticket": 2400
    }
   }
- ]
+ ],
+ "compensation": {
+  "source": "Official Version Update Notes (endfield.gryphline.com news)",
+  "versions": {
+   "Old Deep Water Dies, by Rising Tide It is Denied": {
+    "url": "https://endfield.gryphline.com/en-us/news/8907",
+    "rows": [
+     {
+      "label": "Update & Maintenance Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     },
+     {
+      "label": "Bug Fix Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     }
+    ]
+   },
+   "At the Wake of Spring": {
+    "url": "https://endfield.gryphline.com/en-us/news/0751",
+    "rows": [
+     {
+      "label": "Update & Maintenance Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     },
+     {
+      "label": "Bug Fix Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     }
+    ]
+   },
+   "Sketches of Lost Heirlooms": {
+    "url": "https://endfield.gryphline.com/en-us/news/0758",
+    "rows": [
+     {
+      "label": "Update & Maintenance Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     },
+     {
+      "label": "Bug Fix Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     }
+    ]
+   },
+   "Homecoming": {
+    "url": "https://endfield.gryphline.com/en-us/news/5200",
+    "rows": [
+     {
+      "label": "Update & Maintenance Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     },
+     {
+      "label": "Bug Fix Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     }
+    ]
+   },
+   "Dreamscape of Wind and Snow": {
+    "url": "https://endfield.gryphline.com/en-us/news/5208",
+    "rows": [
+     {
+      "label": "Update & Maintenance Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     },
+     {
+      "label": "Bug Fix Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     }
+    ]
+   },
+   "Sanctuary of Ink": {
+    "url": "https://endfield.gryphline.com/en-us/news/9560",
+    "rows": [
+     {
+      "label": "Update & Maintenance Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     },
+     {
+      "label": "Bug Fix Compensation",
+      "rewards": {
+       "Oroberyl": 900
+      }
+     }
+    ]
+   }
+  }
+ }
 }

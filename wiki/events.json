@@ -1032,9 +1032,35 @@
    "name": "Pristine Monthly Pass Tribute",
    "page": "Pristine Monthly Pass Tribute",
    "url": "https://endfield.wiki.gg/wiki/Pristine_Monthly_Pass_Tribute",
-   "partial": true,
-   "totals": {},
-   "groups": []
+   "totals": {
+    "Oroberyl": 6000,
+    "Sanity Usage Permit": 120,
+    "Emergency Sanity Booster": 30
+   },
+   "groups": [
+    {
+     "title": "Event Details",
+     "rows": [
+      {
+       "label": "Every day, 30 times",
+       "rewards": [
+        [
+         "Oroberyl",
+         6000
+        ],
+        [
+         "Emergency Sanity Booster",
+         30
+        ],
+        [
+         "Sanity Usage Permit",
+         120
+        ]
+       ]
+      }
+     ]
+    }
+   ]
   },
   "9": {
    "name": "Blitz of Verdance",

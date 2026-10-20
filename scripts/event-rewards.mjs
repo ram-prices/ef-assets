@@ -108,7 +108,20 @@ function rewardsIn(s, prose = false) {
     const count = parts.slice(1).find((p) => !p.includes('=') && /^[\d,.]+$/.test(p)) ?? m[2];
     out.push([name, count ? Number(count.replace(/,/g, '')) : prose ? null : 1]);
   }
+  // In running text an item may be a plain link with its count after it: "[[Oroberyl]]×200".
+  if (prose)
+    for (const m of s.matchAll(/\[\[(?:[^|\]]*\|)?([^\]|]+)\]\]\s*[x×]\s*([\d,]+)/g)) out.push([m[1].trim(), Number(m[2].replace(/,/g, ''))]);
   return out;
+}
+
+/**
+ * How many times a reward handed out "every day" can be claimed, from the
+ * page's own words ("can be claimed up to 30 times in total"); null when it
+ * doesn't say.
+ */
+function dailyClaims(text) {
+  const m = plain(text).match(/up to (\d+) times/i);
+  return m ? Number(m[1]) : null;
 }
 
 /** The label a row's first cell gives: its bold name if it has one ("'''Critters' Tail'''<br/>A naughty..."), else its text. */
@@ -236,9 +249,17 @@ function eventRewards(text) {
     let partial = false;
     if (!rows.length) {
       for (const l of part.split('\n')) {
-        const rw = rewardsIn(l, true);
+        let rw = rewardsIn(l, true);
         if (!rw.length) continue;
-        rows.push({ label: heading || 'Rewards', rewards: rw });
+        let label = heading || 'Rewards';
+        // "Log in every day during the event to receive [[Oroberyl]]×200 ..." with
+        // "claimed up to 30 times in total": the day's rewards, that many times.
+        const claims = /every day|each day|daily/i.test(l) ? dailyClaims(part) : null;
+        if (claims) {
+          rw = rw.map(([name, n]) => [name, n === null ? null : n * claims]);
+          label = `Every day, ${claims} times`;
+        }
+        rows.push({ label, rewards: rw });
         if (rw.some(([, n]) => n === null) || /other rewards|such as|includ/i.test(l)) partial = true;
       }
     }

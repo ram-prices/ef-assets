@@ -26,7 +26,9 @@ Operator, weapon and gear data snapshotted from the
   Supply (free), `originium` = Originium Supply, `customized` = Protocol
   Customized), `passTiers` (what the paid tiers cost) and `monthly` (the
   Monthly Pass: price, per purchase, per day). Pull currencies only:
-  Oroberyl, Origeometry, Arsenal Tickets, HH Permits.
+  Oroberyl, Origeometry, Arsenal Tickets, HH Permits. Also `compensation`:
+  what each version's official Version Update Notes hand out in the mail,
+  keyed by version name (from the official news feed, not the wiki).
 
 Text uses a small markup so it can be escaped safely: `**bold**`,
 `⟦class|text⟧` highlights, `\n` line breaks; weapon skill text keeps `{0}`,
