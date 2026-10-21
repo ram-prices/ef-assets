@@ -1,6 +1,7 @@
 """Item icons (icons/items/<slug>.webp, 64px) for every reward the site names
 (wiki/events.json), the pull currencies its Stats page counts and every 6★
-operator's Token (its 6★ history lists them), plus the element, class and weapon type icons
+operator's Token (its 6★ history lists them), the six Potential stages
+(icons/potential/, "Potential 0" to "Potential 5", kept at the game's size), plus the element, class and weapon type icons
 (icons/elements/, icons/classes/, icons/weapon-types/), and icons/index.json
 mapping each name to its file, with each banner HH Permit's main colour
 under "colors" (the site writes its amounts in it). The pictures are the wiki's uploads of the
@@ -162,6 +163,11 @@ def white_on_clear(im):
 
 def save(url, path, kind):
     im = Image.open(io.BytesIO(get(url))).convert('RGBA')
+    if kind == 'potential':
+        # Small already, and drawn to its own box: kept as it is.
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        im.save(path, 'WEBP', lossless=True)
+        return
     if kind != 'items' and is_light_square(im):
         im = white_on_clear(im)
     box = im.getbbox()
@@ -197,6 +203,7 @@ def wanted():
         'elements': sorted({o['element'] for o in ops if o.get('element')}),
         'classes': sorted({o['class'] for o in ops if o.get('class')}),
         'weapon-types': sorted({w['type'] for w in weps if w.get('type')}),
+        'potential': [f'Potential {n}' for n in range(6)],
     }
 
 
@@ -205,6 +212,7 @@ PREFIXES = {
     'elements': ['Element ', 'Icon Element ', '', 'Attribute '],
     'classes': ['Class ', 'Icon Class ', 'Profession ', ''],
     'weapon-types': ['Weapon Type ', 'Icon Weapon ', 'Weapon ', ''],
+    'potential': [''],
 }
 # Classes whose icon file is named otherwise.
 CLASS_FILES = {'Supporter': 'Support'}

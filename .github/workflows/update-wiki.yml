@@ -46,6 +46,8 @@ jobs:
         run: python scripts/item-icons.py 2>&1 | tee -a report.txt
       - name: Pictures for new medals and findings (collections/)
         run: python scripts/collection-pictures.py 2>&1 | tee -a report.txt
+      - name: Portraits for new operators and weapons (operators/, arsenals/)
+        run: python scripts/portraits.py 2>&1 | tee -a report.txt
       - name: Write the pull request text
         run: |
           {
@@ -66,4 +68,6 @@ jobs:
             gear/*.webp
             icons/**
             collections/**
+            operators/*.webp
+            arsenals/*.webp
           delete-branch: true

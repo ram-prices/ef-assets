@@ -152,6 +152,14 @@
   "Yvonne's Token": "items/yvonne-s-token.webp",
   "Zhuang Fangyi's Token": "items/zhuang-fangyi-s-token.webp"
  },
+ "potential": {
+  "Potential 0": "potential/potential-0.webp",
+  "Potential 1": "potential/potential-1.webp",
+  "Potential 2": "potential/potential-2.webp",
+  "Potential 3": "potential/potential-3.webp",
+  "Potential 4": "potential/potential-4.webp",
+  "Potential 5": "potential/potential-5.webp"
+ },
  "weapon-types": {
   "Arts Unit": "weapon-types/arts-unit.webp",
   "Great Sword": "weapon-types/great-sword.webp",
