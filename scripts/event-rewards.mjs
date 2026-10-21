@@ -46,7 +46,9 @@
 // will no longer be available"); `days`, how many daily rewards it hands out
 // (its "Day N" rows, or "N times"); and `unique`, the rewards that aren't
 // general materials or currencies (portraits, frames, stickers, models,
-// operators and their tokens, outfits...).
+// operators and their tokens, outfits...), and its event medals
+// ("Medal: Expert Survivor", from wiki/medals.json: a medal whose condition
+// names the event, or that the event's page names).
 
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -183,6 +185,28 @@ const UNIQUE = /\((?:portrait|frame|outfit|attire|skin|title|emote|bgm|theme)\)$
 /** Every reward the page names, counted or not ("rewards that include [... (Frame)]" gives no amount, so it isn't in `totals`). */
 const uniqueOf = (groups) =>
   [...new Set(groups.flatMap((g) => g.rows.flatMap((r) => r.rewards.map(([name]) => name))))].filter((k) => UNIQUE.test(k) || OPERATORS.has(k.toLowerCase()));
+
+/** The Medal Album's event medals (wiki/medals.json, from wiki-collections.mjs; none if it isn't there yet). */
+const EVENT_MEDALS = await readFile(new URL('../wiki/medals.json', import.meta.url), 'utf8').then(
+  (t) =>
+    JSON.parse(t)
+      .medals.filter((m) => m.category === 'Event')
+      .map((m) => ({
+        name: m.name.replace(/^"|"$/g, ''),
+        cond: m.cond.replace(/&#91;/g, '[').replace(/&#93;/g, ']').replace(/&quot;/g, '"').replace(/&amp;/g, '&'),
+      })),
+  () => [],
+);
+/** Whether the page names the medal as one (its name with "medal" close by, not just the same words). */
+const namesMedal = (text, medal) => {
+  for (let i = text.indexOf(medal); i >= 0; i = text.indexOf(medal, i + 1)) if (/medal/i.test(text.slice(Math.max(0, i - 150), i + medal.length + 150))) return true;
+  return false;
+};
+/** The event medals that go with an event: its name in the medal's condition, or the medal on its page. */
+const medalsOf = (name, text) => {
+  const flatName = flat(name);
+  return EVENT_MEDALS.filter((m) => flat(m.cond).includes(flatName) || namesMedal(text, m.name)).map((m) => `Medal: ${m.name}`);
+};
 
 /**
  * The rewards in a bit of wikitext: {{I|Item|count}} and its cousins
@@ -475,7 +499,7 @@ for (const e of events) {
   const { permanent, limitedRewards } = keeping(page.text);
   const days = dailyDays(groups);
   const totals = totalsOf(groups);
-  const unique = uniqueOf(groups);
+  const unique = [...uniqueOf(groups), ...medalsOf(e.name, page.text)];
   out[e.id] = {
     name: e.name,
     page: page.title,

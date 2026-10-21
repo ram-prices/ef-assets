@@ -29,10 +29,11 @@ jobs:
       # No npm ci: the script only uses Node's built-ins.
       - name: Update wiki/*.json
         run: node scripts/update-wiki.mjs 2>&1 | tee report.txt
-      - name: Event rewards (wiki/events.json)
-        run: node scripts/event-rewards.mjs 2>&1 | tee -a report.txt
+      # Medals first: event rewards counts the event medals among an event's unique rewards.
       - name: Medals and Intel Archives (wiki/medals.json, wiki/findings.json)
         run: node scripts/wiki-collections.mjs 2>&1 | tee -a report.txt
+      - name: Event rewards (wiki/events.json)
+        run: node scripts/event-rewards.mjs 2>&1 | tee -a report.txt
       - name: Regular income (wiki/income.json)
         run: node scripts/income.mjs 2>&1 | tee -a report.txt
       - uses: actions/setup-python@v6
