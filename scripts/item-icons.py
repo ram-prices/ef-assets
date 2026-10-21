@@ -25,7 +25,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'icons')
@@ -88,30 +88,79 @@ def wiki_files():
         cont = r['continue']
 
 
+ROMAN = {'Ⅰ': 'i', 'Ⅱ': 'ii', 'Ⅲ': 'iii', 'Ⅳ': 'iv', 'Ⅴ': 'v'}
+
+
 def key(s):
+    """A name to match files by: lower case, letters and digits only ("Crate Ⅰ" as "Crate I")."""
+    for k, v in ROMAN.items():
+        s = s.replace(k, v)
     return re.sub(r'[^a-z0-9]', '', s.lower())
+
+
+def names_for(kind, name):
+    """The names a thing's file may go by: a portrait reward is its picture's "<name>_profile" file."""
+    if kind == 'classes':
+        return [name, CLASS_FILES.get(name, name)]
+    portrait = re.match(r'^(.*) \(Portrait\)$', name)
+    if portrait:
+        return [f'{portrait[1]} profile', name, portrait[1]]
+    return [name]
 
 
 def slug(s):
     return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 
 
-def find(files, name, prefixes):
-    """The wiki file for a thing: its name with one of the prefixes, any case and spacing, .png/.webp."""
+def find(files, names, prefixes):
+    """The wiki file for a thing: one of its names with one of the prefixes, any case and spacing, .png/.webp."""
     by_key = {}
     for f in files:
         stem, ext = os.path.splitext(f)
         if ext.lower() in ('.png', '.webp'):
             by_key.setdefault(key(stem), f)
-    for p in prefixes:
-        hit = by_key.get(key(p + name))
-        if hit:
-            return hit
+    for name in names:
+        for p in prefixes:
+            hit = by_key.get(key(p + name))
+            if hit:
+                return hit
     return None
 
 
-def save(url, path):
+def is_light_square(im):
+    """A white tile with the glyph cut out of it or drawn dark on it (some class and
+    weapon type icons), rather than a light glyph on nothing."""
+    alpha = im.getchannel('A')
+    n = im.width * im.height
+    opaque = sum(1 for a in alpha.getdata() if a > 200) / n
+    lit = [v for v, a in zip(im.convert('L').getdata(), alpha.getdata()) if a > 200]
+    return opaque > 0.5 and bool(lit) and sum(lit) / len(lit) > 200
+
+
+def white_on_clear(im):
+    """Such a tile as a white glyph on nothing, like the element icons: what was
+    dark or cut out turns white, the white tile turns clear, and whatever lay
+    outside the tile (its rounded corners) stays clear."""
+    alpha = im.getchannel('A')
+    lum = im.convert('L')
+    # Ink: dark or see-through pixels inside the tile.
+    ink = Image.new('L', im.size)
+    ink.putdata([255 - min(a, v) for a, v in zip(alpha.getdata(), lum.getdata())])
+    # Outside the tile: the see-through area reachable from the corners.
+    outside = alpha.point(lambda a: 255 if a < 40 else 0)
+    for corner in ((0, 0), (im.width - 1, 0), (0, im.height - 1), (im.width - 1, im.height - 1)):
+        if outside.getpixel(corner) == 255:
+            ImageDraw.floodfill(outside, corner, 128)
+    ink.putdata([0 if o == 128 else v for v, o in zip(ink.getdata(), outside.getdata())])
+    out = Image.new('RGBA', im.size, (255, 255, 255, 0))
+    out.putalpha(ink)
+    return out
+
+
+def save(url, path, kind):
     im = Image.open(io.BytesIO(get(url))).convert('RGBA')
+    if kind != 'items' and is_light_square(im):
+        im = white_on_clear(im)
     box = im.getbbox()
     if box:
         im = im.crop(box)
@@ -146,6 +195,8 @@ PREFIXES = {
     'classes': ['Class ', 'Icon Class ', 'Profession ', ''],
     'weapon-types': ['Weapon Type ', 'Icon Weapon ', 'Weapon ', ''],
 }
+# Classes whose icon file is named otherwise.
+CLASS_FILES = {'Supporter': 'Support'}
 
 
 def main():
@@ -166,12 +217,12 @@ def main():
             if os.path.exists(path):
                 index[kind][name] = f'{kind}/{slug(name)}.webp'
                 continue
-            f = find(files, name, PREFIXES[kind])
+            f = find(files, names_for(kind, name), PREFIXES[kind])
             if not f:
                 missing.append(f'{kind}: {name}')
                 continue
             try:
-                save(files[f], path)
+                save(files[f], path, kind)
             except Refused as e:
                 print(f'stopped: {e}')
                 break
