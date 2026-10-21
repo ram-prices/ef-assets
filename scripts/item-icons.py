@@ -1,5 +1,6 @@
 """Item icons (icons/items/<slug>.webp, 64px) for every reward the site names
-(wiki/events.json) and the pull currencies its Stats page counts, plus the element, class and weapon type icons
+(wiki/events.json), the pull currencies its Stats page counts and every 6★
+operator's Token (its 6★ history lists them), plus the element, class and weapon type icons
 (icons/elements/, icons/classes/, icons/weapon-types/), and icons/index.json
 mapping each name to its file, with each banner HH Permit's main colour
 under "colors" (the site writes its amounts in it). The pictures are the wiki's uploads of the
@@ -166,9 +167,11 @@ def save(url, path, kind):
     box = im.getbbox()
     if box:
         im = im.crop(box)
-    im.thumbnail((SIZE, SIZE), Image.LANCZOS)
-    canvas = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0))
-    canvas.alpha_composite(im, ((SIZE - im.width) // 2, (SIZE - im.height) // 2))
+    # Tokens stand in for portraits (64px on the page), so they're kept sharp at twice that.
+    size = SIZE * 2 if path.endswith('-s-token.webp') else SIZE
+    im.thumbnail((size, size), Image.LANCZOS)
+    canvas = Image.new('RGBA', (size, size), (0, 0, 0, 0))
+    canvas.alpha_composite(im, ((size - im.width) // 2, (size - im.height) // 2))
     os.makedirs(os.path.dirname(path), exist_ok=True)
     canvas.save(path, 'WEBP', quality=90, method=6)
 
@@ -187,6 +190,8 @@ def wanted():
                 items.update(name for name, _ in r['rewards'])
     ops = json.load(open(os.path.join(ROOT, 'wiki', 'operators.json'), encoding='utf8'))['operators'].values()
     weps = json.load(open(os.path.join(ROOT, 'wiki', 'weapons.json'), encoding='utf8'))['weapons'].values()
+    # Headhunting rewards 6★ rate-ups' Tokens.
+    items.update(f"{o['name']}'s Token" for o in ops if o.get('rarity') == 6 and o.get('name'))
     return {
         'items': sorted(items),
         'elements': sorted({o['element'] for o in ops if o.get('element')}),
