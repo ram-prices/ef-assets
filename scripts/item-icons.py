@@ -156,7 +156,7 @@ def main():
     try:
         files = wiki_files()
     except Refused as e:
-        sys.exit(f'stopped: {e}')
+        sys.exit(f'stopped while listing files: {e}')
     print(f'{len(files)} files', flush=True)
     missing, made = [], 0
     for kind, names in want.items():
@@ -193,5 +193,21 @@ def main():
         print(f'no icon on the wiki for: {"; ".join(missing)}')
 
 
+def report(message):
+    """On GitHub Actions, also as an annotation: the run's page shows it without signing in."""
+    print(message, flush=True)
+    if os.environ.get('GITHUB_ACTIONS'):
+        print(f'::error::{message}', flush=True)
+
+
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except SystemExit as e:
+        if isinstance(e.code, str):
+            report(e.code)
+            sys.exit(1)
+        raise
+    except Exception as e:  # noqa: BLE001
+        report(f'{type(e).__name__}: {e}')
+        raise
