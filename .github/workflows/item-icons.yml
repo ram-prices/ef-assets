@@ -1,0 +1,38 @@
+name: Item icons
+
+# Saves the game's icons for items, elements, classes and weapon types from
+# endfield.wiki.gg into icons/ (scripts/item-icons.py), committed straight to
+# main. Runs when the script or this workflow changes, or by hand; the weekly
+# wiki update (update-wiki.yml) picks up icons for new items after that.
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/item-icons.py
+      - .github/workflows/item-icons.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: item-icons
+  cancel-in-progress: false
+
+jobs:
+  icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install pillow
+      - name: Icons (icons/)
+        run: python scripts/item-icons.py
+      - name: Commit new icons
+        run: |
+          git add icons
+          if git diff --cached --quiet; then echo 'No new icons.'; exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Item, element, class and weapon type icons from endfield.wiki.gg'
+          git push

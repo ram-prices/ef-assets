@@ -39,6 +39,8 @@ jobs:
       - run: pip install pillow
       - name: Icons for new gear
         run: python scripts/gear-icons.py 2>&1 | tee -a report.txt
+      - name: Icons for new items, elements, classes and weapon types
+        run: python scripts/item-icons.py 2>&1 | tee -a report.txt
       - name: Write the pull request text
         run: |
           {
@@ -57,4 +59,5 @@ jobs:
           add-paths: |
             wiki/*.json
             gear/*.webp
+            icons/**
           delete-branch: true
