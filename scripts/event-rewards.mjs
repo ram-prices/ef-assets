@@ -180,7 +180,9 @@ const OPERATORS = new Set(
 );
 /** Rewards that aren't general materials or currencies: cosmetics, keepsakes, operators and their tokens. */
 const UNIQUE = /\((?:portrait|frame|outfit|attire|skin|title|emote|bgm|theme)\)$|^sticker:|'s token$|\b(?:model|outfit|attire|skin|furniture|decoration|name ?card|medal)\b/i;
-const uniqueOf = (totals) => Object.keys(totals).filter((k) => UNIQUE.test(k) || OPERATORS.has(k.toLowerCase()));
+/** Every reward the page names, counted or not ("rewards that include [... (Frame)]" gives no amount, so it isn't in `totals`). */
+const uniqueOf = (groups) =>
+  [...new Set(groups.flatMap((g) => g.rows.flatMap((r) => r.rewards.map(([name]) => name))))].filter((k) => UNIQUE.test(k) || OPERATORS.has(k.toLowerCase()));
 
 /**
  * The rewards in a bit of wikitext: {{I|Item|count}} and its cousins
@@ -473,7 +475,7 @@ for (const e of events) {
   const { permanent, limitedRewards } = keeping(page.text);
   const days = dailyDays(groups);
   const totals = totalsOf(groups);
-  const unique = uniqueOf(totals);
+  const unique = uniqueOf(groups);
   out[e.id] = {
     name: e.name,
     page: page.title,

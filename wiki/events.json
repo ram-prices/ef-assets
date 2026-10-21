@@ -5,9 +5,9 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-20"
+  "fetched": "2026-10-21"
  },
- "fetched": "2026-10-20",
+ "fetched": "2026-10-21",
  "events": {
   "1": {
    "name": "Gently Flows Qingbo",
@@ -5953,6 +5953,9 @@
     "asia": "2026-11-04T20:00:00Z",
     "americas": "2026-11-05T09:00:00Z"
    },
+   "unique": [
+    "Carly's Verdant Anthology (Frame)"
+   ],
    "partial": true,
    "totals": {
     "Oroberyl": 1500
