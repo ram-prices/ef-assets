@@ -7,6 +7,21 @@
   "Supporter": "classes/supporter.webp",
   "Vanguard": "classes/vanguard.webp"
  },
+ "colors": {
+  "Bedazzling Dawnstar HH Permit": "#b370d9",
+  "Blitz of Verdance HH Permit": "#a3cf59",
+  "Firewalker's Trail HH Permit": "#cf6259",
+  "Fletched Irontip HH Permit": "#6f96d5",
+  "Gaze North to the Rift HH Permit": "#59c3cf",
+  "Gently Flows Qingbo HH Permit": "#52a7d5",
+  "Messenger Express HH Permit": "#eab55c",
+  "One with Her Fists HH Permit": "#d55383",
+  "Peacekeeper's Nocturne HH Permit": "#d05868",
+  "Pearl of the Pack HH Permit": "#e35544",
+  "Shimmering Moment HH Permit": "#cf6c59",
+  "Spectral Splendor HH Permit": "#d264a3",
+  "Spirit's Restoration HH Permit": "#84cf59"
+ },
  "elements": {
   "Cryo": "elements/cryo.webp",
   "Electric": "elements/electric.webp",
@@ -22,6 +37,7 @@
   "Advanced Progression Selection Crate II": "items/advanced-progression-selection-crate-ii.webp",
   "Amber Rice": "items/amber-rice.webp",
   "Arms INSP Set": "items/arms-insp-set.webp",
+  "Arsenal Ticket": "items/arsenal-ticket.webp",
   "Bamboo Sprouts and Meat": "items/bamboo-sprouts-and-meat.webp",
   "Basic HH Permit": "items/basic-hh-permit.webp",
   "Bedazzling Dawnstar HH Permit": "items/bedazzling-dawnstar-hh-permit.webp",
@@ -70,6 +86,7 @@
   "Messenger Express HH Permit": "items/messenger-express-hh-permit.webp",
   "Metadiastima Photoemission Tube": "items/metadiastima-photoemission-tube.webp",
   "One with Her Fists HH Permit": "items/one-with-her-fists-hh-permit.webp",
+  "Origeometry": "items/origeometry.webp",
   "Oroberyl": "items/oroberyl.webp",
   "Palm-Top Curio (Portrait)": "items/palm-top-curio-portrait.webp",
   "Peacekeeper's Nocturne HH Permit": "items/peacekeeper-s-nocturne-hh-permit.webp",

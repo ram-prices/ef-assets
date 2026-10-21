@@ -1,7 +1,8 @@
 """Item icons (icons/items/<slug>.webp, 64px) for every reward the site names
-(wiki/events.json), plus the element, class and weapon type icons
+(wiki/events.json) and the pull currencies its Stats page counts, plus the element, class and weapon type icons
 (icons/elements/, icons/classes/, icons/weapon-types/), and icons/index.json
-mapping each name to its file. The pictures are the wiki's uploads of the
+mapping each name to its file, with each banner HH Permit's main colour
+under "colors" (the site writes its amounts in it). The pictures are the wiki's uploads of the
 game's icons: the script lists the wiki's files once, then picks the file
 named after each thing ("Oroberyl.png", "Item Oroberyl.png", "Heat.png",
 "Element Heat.png", "Class Guard.png"...).
@@ -15,6 +16,7 @@ Only missing icons are downloaded, so a run after the first is quick.
 
 Needs Pillow.
 """
+import colorsys
 import io
 import json
 import os
@@ -171,10 +173,14 @@ def save(url, path, kind):
     canvas.save(path, 'WEBP', quality=90, method=6)
 
 
+# Pull currencies ItJustLogs' Stats page shows with their icon, whether or not an event gives them.
+CURRENCIES = ['Oroberyl', 'Origeometry', 'Chartered HH Permit', 'Basic HH Permit', 'Arsenal Ticket']
+
+
 def wanted():
     """What needs an icon: kind → names."""
     events = json.load(open(os.path.join(ROOT, 'wiki', 'events.json'), encoding='utf8'))
-    items = set()
+    items = set(CURRENCIES)
     for ev in [*events['events'].values(), *events.get('extra', {}).values()]:
         for g in ev['groups']:
             for r in g['rows']:
@@ -197,6 +203,37 @@ PREFIXES = {
 }
 # Classes whose icon file is named otherwise.
 CLASS_FILES = {'Supporter': 'Support'}
+
+
+def main_colour(path, name):
+    """The icon's main colour, readable on a dark page: the most common
+    saturated hue, its pixels averaged, lightness and saturation evened out.
+    A banner HH Permit's shared corner badge and its "1" pane don't count."""
+    im = Image.open(path).convert('RGBA')
+    w, h = im.size
+    permit = name.endswith('HH Permit')
+    bins = [[0.0, 0, 0, 0, 0] for _ in range(24)]  # weight, r, g, b, count
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = im.getpixel((x, y))
+            if a < 200 or (permit and ((x < w * 0.45 and y > h * 0.6) or x > w * 0.7)):
+                continue
+            hh, ss, vv = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+            if ss < 0.3 or vv < 0.3:
+                continue
+            bn = bins[int(hh * 24) % 24]
+            bn[0] += ss * vv
+            bn[1] += r
+            bn[2] += g
+            bn[3] += b
+            bn[4] += 1
+    best = max(bins, key=lambda bn: bn[0])
+    if not best[4]:
+        return None
+    r, g, b = (best[i] / best[4] / 255 for i in (1, 2, 3))
+    hh, ll, ss = colorsys.rgb_to_hls(r, g, b)
+    r, g, b = colorsys.hls_to_rgb(hh, min(max(ll, 0.58), 0.7), max(ss, 0.55))
+    return '#%02x%02x%02x' % tuple(round(c * 255) for c in (r, g, b))
 
 
 def main():
@@ -235,11 +272,17 @@ def main():
         else:
             continue
         break
+    index['colors'] = {}
+    for name, file in index.get('items', {}).items():
+        if name.endswith('HH Permit') and name not in ('Chartered HH Permit', 'Basic HH Permit'):
+            colour = main_colour(os.path.join(OUT, file), name)
+            if colour:
+                index['colors'][name] = colour
     os.makedirs(OUT, exist_ok=True)
     with open(index_path, 'w', encoding='utf8', newline='\n') as fh:
         json.dump(index, fh, indent=1, ensure_ascii=False, sort_keys=True)
         fh.write('\n')
-    print(f'icons: {made} new, {sum(len(v) for v in index.values())} in all')
+    print(f'icons: {made} new, {sum(len(v) for k, v in index.items() if k != "colors")} in all; {len(index["colors"])} permit colours')
     if missing:
         print(f'no icon on the wiki for: {"; ".join(missing)}')
 
