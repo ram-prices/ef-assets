@@ -48,6 +48,8 @@ jobs:
         run: python scripts/collection-pictures.py 2>&1 | tee -a report.txt
       - name: Portraits for new operators and weapons (operators/, arsenals/)
         run: python scripts/portraits.py 2>&1 | tee -a report.txt
+      - name: Story text (story/, from the EndfieldData dump)
+        run: node scripts/story.mjs 2>&1 | tee -a report.txt
       - name: Write the pull request text
         run: |
           {
@@ -70,4 +72,5 @@ jobs:
             collections/**
             operators/*.webp
             arsenals/*.webp
+            story/**
           delete-branch: true
