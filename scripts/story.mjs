@@ -13,7 +13,9 @@
  * - story/<mission id>.json: its scenes in order, each with the game's
  *   summary, its lines ({ who, actor, text }: the speaker's name, the
  *   operator's id when it's one; neither for narration) and the replies
- *   offered in the scene (where in the scene isn't in the dump).
+ *   offered in the scene (where in the scene isn't in the dump). A line
+ *   worded differently for the male Endministrator ("{F}…{M}…" in the
+ *   dump) carries that wording as `textM`.
  *
  * Text markup becomes the site's (⟦key|…⟧, ⟦num|…⟧; domain/wiki.ts). Lines
  * without English text (not released in English yet) are left out, and a
@@ -56,8 +58,21 @@ const markup = (s) =>
     .replace(/<@[^>]*>(.*?)<\/>/gs, '$1')
     .replace(/<entry=[^>]*>/g, '')
     .replace(/<\/?[a-z@][^>]*>/g, '')
+    .replace(/<\/>/g, '')
+    .replace(/\{player\}/g, 'Endmin')
     .replace(/\r/g, '')
     .trim();
+/** The female Endministrator's wording, and the male one's where it differs ("{F}…{M}…"). */
+function versions(s) {
+  const f = s.indexOf('{F}');
+  const m = s.indexOf('{M}');
+  if (f < 0 || m < 0) return [markup(s.replace(/\{[FM]\}/g, ''))];
+  const female = markup(s.slice(f + 3, m > f ? m : undefined));
+  const male = markup(s.slice(m + 3, f > m ? f : undefined));
+  return male === female ? [female] : [female, male];
+}
+/** A speaker's name without the dump's own tag ("UWST Crew Mate {e1m2_Hammer Crew}"). */
+const speaker = (s) => s.replace(/\s*\{[^}]*\}/g, '').trim();
 
 // Mission names: TextTable "<mission id>_name".
 const names = {};
@@ -99,9 +114,10 @@ for (const [k, v] of Object.entries(dialog)) {
     continue;
   }
   const who = v.actorNameId ? T(v.actorName) : null;
-  const line = { n: Number(m[4]), text: markup(text) };
+  const [female, male] = versions(text);
+  const line = { n: Number(m[4]), text: female, ...(male ? { textM: male } : {}) };
   if (who) {
-    line.who = who.trim();
+    line.who = speaker(who);
     const actor = actorOf(v.actorNameId, line.who);
     if (actor) line.actor = actor;
   }
@@ -114,7 +130,7 @@ for (const [k, v] of Object.entries(options)) {
   const s = scene(m[1], m[2], m[3]);
   const group = Number(m[4]);
   if (!s.options.has(group)) s.options.set(group, []);
-  s.options.get(group).push({ n: Number(m[5]), text: markup(text) });
+  s.options.get(group).push({ n: Number(m[5]), text: versions(text)[0] });
 }
 
 // The wiki's order: Mission/Main (chapter, region, process) and Mission/Side (its headings).
@@ -205,7 +221,7 @@ for (const id of known) {
     .filter((s) => s.lines.length)
     .map((s) => ({
       id: `dlg_${id}_${s.key}`,
-      ...(T(summaries[summaryMap[`dlg_${id}_${s.key}`]]) ? { summary: markup(T(summaries[summaryMap[`dlg_${id}_${s.key}`]])) } : {}),
+      ...(T(summaries[summaryMap[`dlg_${id}_${s.key}`]]) ? { summary: versions(T(summaries[summaryMap[`dlg_${id}_${s.key}`]]))[0] } : {}),
       lines: s.lines.sort((a, b) => a.n - b.n).map(({ n, ...l }) => l),
       ...(s.options.size ? { options: [...s.options].sort((a, b) => a[0] - b[0]).map(([, o]) => o.sort((a, b) => a.n - b.n).map((x) => x.text)) } : {}),
     }));
