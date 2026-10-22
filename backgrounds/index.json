@@ -5,11 +5,15 @@
     },
     "cherry-falls": {
       "name": "Cherry tree by the falls"
+    },
+    "blossom-grotto": {
+      "name": "Blossom grotto"
     }
   },
   "operators": {},
   "default": [
     "rain-tower",
-    "cherry-falls"
+    "cherry-falls",
+    "blossom-grotto"
   ]
 }

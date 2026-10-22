@@ -76,9 +76,12 @@ def main():
         f'scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},format=yuv420p,split[a][b];'
         f'[a]trim=start={F},setpts=PTS-STARTPTS,fps={FPS}[main];'
         f'[b]trim=duration={F},setpts=PTS-STARTPTS,fps={FPS}[head];'
-        f'[main][head]xfade=transition=fade:duration={F}:offset={L - F}[out]'
+        f'[main][head]xfade=transition=fade:duration={F}:offset={L - F},'
+        # xfade hands back 4:4:4, which Safari's H.264 and most VP9 decoders won't
+        # play, and game recordings are full range: plain 4:2:0, TV range, square pixels.
+        f'scale=out_range=tv,format=yuv420p,setsar=1[out]'
     )
-    cut = ['-ss', str(a.start), '-t', str(L + F + 0.5), '-i', a.recording, '-filter_complex', graph, '-map', '[out]', '-an']
+    cut = ['-ss', str(a.start), '-t', str(L + F + 0.5), '-i', a.recording, '-filter_complex', graph, '-map', '[out]', '-an', '-pix_fmt', 'yuv420p', '-color_range', 'tv']
     run([*cut, '-c:v', 'libvpx-vp9', '-crf', str(VP9_CRF), '-b:v', '0', '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', f'{base}.webm'])
     run([*cut, '-c:v', 'libx264', '-crf', str(H264_CRF), '-preset', 'slow', '-movflags', '+faststart', f'{base}.mp4'])
     run(['-i', f'{base}.mp4', '-frames:v', '1', '-q:v', '4', f'{base}.jpg'])
