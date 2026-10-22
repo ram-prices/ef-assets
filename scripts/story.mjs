@@ -187,7 +187,21 @@ const place = (wikiSections) =>
   wikiSections
     .map((s) => ({ title: s.title, missions: s.missions.map(pick).filter((id) => id && !placed.has(id) && placed.add(id)) }))
     .filter((s) => s.missions.length);
-const main = place(sectionsOf(mainText));
+// Main story processes the wiki doesn't list yet, kept by hand (same title
+// style as the wiki's: chapter · region · process · name), placed after
+// their chapter's last process; the wiki's own list takes over once it has them.
+const MAIN_EXTRA = [
+  { after: 'Chapter 2', title: 'Chapter 2 · Wuling · VIII · Paint with Fresh Ink', missions: ['Freedom of Expansion', 'Enter the Painted World', 'Learn of Rise and Fall', 'Witness the Game Unfold', 'See Through the Self', 'Paint with Fresh Ink'] },
+];
+const mainWiki = sectionsOf(mainText);
+const wikiListed = new Set(mainWiki.flatMap((s) => s.missions));
+for (const x of MAIN_EXTRA) {
+  const missions = x.missions.filter((name) => !wikiListed.has(name));
+  if (!missions.length) continue;
+  const last = mainWiki.map((s) => s.title.startsWith(x.after)).lastIndexOf(true);
+  mainWiki.splice(last < 0 ? mainWiki.length : last + 1, 0, { title: x.title, missions });
+}
+const main = place(mainWiki);
 const side = place(sectionsOf(sideText));
 
 // The rest by the id's family; ids in their natural order.
