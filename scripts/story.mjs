@@ -16,6 +16,9 @@
  *   offered in the scene (where in the scene isn't in the dump). A line
  *   worded differently for the male Endministrator ("{F}…{M}…" in the
  *   dump) carries that wording as `textM`.
+ * - story/search.json: every line as plain text ("Who: text"), by mission
+ *   and scene, in the same order as the mission files, for searching the
+ *   whole story at once (the site loads it only when someone searches).
  *
  * Text markup becomes the site's (⟦key|…⟧, ⟦num|…⟧; domain/wiki.ts). Lines
  * without English text (not released in English yet) are left out, and a
@@ -208,7 +211,10 @@ if (left.length) groups.push({ title: 'Other', sections: [{ title: '', missions:
 
 // Write.
 mkdirSync(OUT, { recursive: true });
-const written = new Set(['index.json']);
+const written = new Set(['index.json', 'search.json']);
+/** Plain text for searching: the site's markup dropped. */
+const plain = (s) => s.replace(/⟦\w+\|([^⟧]*)⟧/g, '$1');
+const search = {};
 const index = {
   attribution: { source: 'EndfieldData', url: DUMP_PAGE, dumper: DUMPER, fetched: new Date().toISOString().slice(0, 10), note: 'Game text © Gryphline / Hypergryph' },
   groups,
@@ -230,10 +236,12 @@ for (const id of known) {
   const isPartial = lines < all;
   if (isPartial) partial++;
   index.missions[id] = { name: names[id], lines, scenes: out.length, ...(isPartial ? { partial: true } : {}) };
+  search[id] = out.map((s) => s.lines.map((l) => plain(l.who ? `${l.who}: ${l.text}` : l.text)));
   writeFileSync(`${OUT}${id}.json`, JSON.stringify({ id, name: names[id], ...(isPartial ? { partial: true } : {}), scenes: out }) + '\n');
   written.add(`${id}.json`);
 }
 writeFileSync(`${OUT}index.json`, JSON.stringify(index, null, 1) + '\n');
+writeFileSync(`${OUT}search.json`, JSON.stringify(search) + '\n');
 for (const f of readdirSync(OUT)) if (!written.has(f) && existsSync(`${OUT}${f}`)) unlinkSync(`${OUT}${f}`);
 
 const count = (g) => g.sections.reduce((n, s) => n + s.missions.length, 0);
