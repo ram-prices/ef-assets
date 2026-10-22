@@ -1,0 +1,1811 @@
+{
+ "attribution": {
+  "source": "EndfieldData",
+  "url": "https://git.escartem.moe/Endfield/EndfieldData",
+  "dumper": "https://git.escartem.moe/Escartem/EndfieldDataDumper",
+  "fetched": "2026-10-22",
+  "note": "Game text © Gryphline / Hypergryph"
+ },
+ "groups": [
+  {
+   "title": "Main story",
+   "sections": [
+    {
+     "title": "Chapter 1 · Valley IV",
+     "missions": [
+      "e0m0",
+      "e0m2"
+     ]
+    },
+    {
+     "title": "Chapter 1 · Valley IV · I · The Broken Lands",
+     "missions": [
+      "e1m1",
+      "e1m2",
+      "e1m3",
+      "e1m4",
+      "e1m5",
+      "e1m6",
+      "e1m7",
+      "e1m8"
+     ]
+    },
+    {
+     "title": "Chapter 1 · Valley IV · II · The Turbid Heavens",
+     "missions": [
+      "e1m9",
+      "e5m0d5",
+      "e1m10"
+     ]
+    },
+    {
+     "title": "Chapter 1 · Valley IV · III · Path of Ascension",
+     "missions": [
+      "e2m1",
+      "e2m2",
+      "e2m3",
+      "e2m4",
+      "e2m5",
+      "e2m5d5",
+      "e2m6",
+      "e2m7",
+      "e2m8",
+      "e2m8d5"
+     ]
+    },
+    {
+     "title": "Chapter 1 · Valley IV · IV · Smoking Embers",
+     "missions": [
+      "e3m1",
+      "e3m2",
+      "e3m3",
+      "e3m4",
+      "e3m6",
+      "e4m1",
+      "e4m1d5"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · I · Lost in the Marsh",
+     "missions": [
+      "e5m1",
+      "e5m2",
+      "e5m3"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · II · The Way of Water",
+     "missions": [
+      "e6m1",
+      "e6m2",
+      "e6m3",
+      "e6m4",
+      "e6m5"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · III · The Long Feud",
+     "missions": [
+      "e7m1",
+      "e7m2",
+      "e7m3",
+      "e7m4",
+      "c27m1",
+      "c27m2",
+      "c27m3",
+      "c27m4",
+      "c27m5"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · IV · Tales of Old",
+     "missions": [
+      "e8m1",
+      "e8m2",
+      "e8m3",
+      "e8m4",
+      "e8m5"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · V · Wrothful Tide",
+     "missions": [
+      "e9m2",
+      "e9m4"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · VI · Ponderous Load",
+     "missions": [
+      "e10m1",
+      "e10m2",
+      "e10m3",
+      "e10m4"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · VII · Ruins in the Miasma",
+     "missions": [
+      "e11m1",
+      "e11m2",
+      "e11m3",
+      "e11m4",
+      "e11m5",
+      "e11m6",
+      "e11m7",
+      "e11m8"
+     ]
+    },
+    {
+     "title": "Not in the wiki's index yet",
+     "unlisted": true,
+     "missions": [
+      "e11m8d5",
+      "e12m1",
+      "e12m2",
+      "e12m3",
+      "e12m4",
+      "e12m5"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Side missions",
+   "sections": [
+    {
+     "title": "Narrative Events",
+     "missions": [
+      "c16m1",
+      "c16m2",
+      "c16m3",
+      "c16m4",
+      "c17m1",
+      "c17m2",
+      "c17m3",
+      "c13m1",
+      "c13m2",
+      "c13m3",
+      "c28m1",
+      "c28m2",
+      "c28m3",
+      "c31m1",
+      "c31m2",
+      "c31m3",
+      "c33m1",
+      "c33m2",
+      "c35m1",
+      "c35m2",
+      "c35m3",
+      "c35m4",
+      "c34m1",
+      "c34m2",
+      "c34m3"
+     ]
+    },
+    {
+     "title": "Others · Base Revisited",
+     "missions": [
+      "sm1l1m7"
+     ]
+    },
+    {
+     "title": "Others · Special Business",
+     "missions": [
+      "sm1l1m4",
+      "sm1l1m5",
+      "sm1l1m6"
+     ]
+    },
+    {
+     "title": "Others · Cost of Hope",
+     "missions": [
+      "sm1l2m1",
+      "sm1l2m2"
+     ]
+    },
+    {
+     "title": "Others · Visitor from the Band",
+     "missions": [
+      "sm1l5m1",
+      "sm1l5m2"
+     ]
+    },
+    {
+     "title": "Others · Invisible Glyphs",
+     "missions": [
+      "sm1l1m1",
+      "sm1l1m2",
+      "sm1l2m4"
+     ]
+    },
+    {
+     "title": "Others · Quarry Rescue",
+     "missions": [
+      "sm1l3m1",
+      "sm1l3m2",
+      "sm1l3m3"
+     ]
+    },
+    {
+     "title": "Others · Ode to the Oak",
+     "missions": [
+      "sm1l6m3",
+      "sm1l6m4"
+     ]
+    },
+    {
+     "title": "Others · Silent Grove",
+     "missions": [
+      "sm2l1m1",
+      "sm2l1m2",
+      "sm2l1m3",
+      "sm2l1m4"
+     ]
+    },
+    {
+     "title": "Others · Seekers of the Lost Treasure",
+     "missions": [
+      "sm2l3m4",
+      "sm2l3m5",
+      "sm2l3m6"
+     ]
+    },
+    {
+     "title": "Others · Patron of the Spring",
+     "missions": [
+      "sm2l3m1",
+      "sm2l3m2",
+      "sm2l3m3"
+     ]
+    },
+    {
+     "title": "Others · ''Standalone''",
+     "missions": [
+      "m1m6",
+      "sm1l1m8",
+      "sm1l1m9",
+      "sm1l1m10",
+      "m1m24",
+      "sm1l2m3",
+      "sm1l7m1",
+      "sm1l7m2",
+      "sm2l1m5",
+      "sm2l2m1"
+     ]
+    },
+    {
+     "title": "Not in the wiki's index yet",
+     "unlisted": true,
+     "missions": [
+      "sm1l1m11",
+      "sm1l6m1",
+      "sm1l6m2",
+      "sm2l2m2",
+      "sm2l2m3",
+      "sm2l2m4",
+      "sm2l2m6",
+      "sm2l2m7",
+      "sm2l4m1",
+      "sm2l4m2",
+      "sm2l4m3",
+      "sm2l4m4",
+      "sm2l4m5",
+      "sm2l4m6",
+      "sm2l5m1",
+      "sm2l5m2",
+      "sm2l5m3",
+      "sm2l6m1",
+      "sm2l7m1",
+      "sm2l8m1",
+      "sm2l9m1",
+      "sm2l10m1",
+      "sm2l10m2",
+      "sm2l10m3"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Events",
+   "sections": [
+    {
+     "title": "",
+     "missions": [
+      "a1m2",
+      "a1m3",
+      "a1m4",
+      "a1m5",
+      "a1m6d1",
+      "a1m6d2",
+      "a1m6d3",
+      "a1m6d4",
+      "a1m6d5",
+      "a1m6d6",
+      "a1m6d7",
+      "a1m7",
+      "a1m8d1",
+      "a1m8d2",
+      "a1m8d3",
+      "a1m9",
+      "a1m10",
+      "a1m11",
+      "a1m13",
+      "a1m14",
+      "a1m15",
+      "a1m16d1",
+      "a1m16d2",
+      "a1m16d3",
+      "a1m18",
+      "a1m19"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Outposts and development",
+   "sections": [
+    {
+     "title": "",
+     "missions": [
+      "f1m3",
+      "f1m3d1",
+      "f1m4d1",
+      "f1m4d2",
+      "f1m4d3",
+      "f1m5",
+      "f1m6",
+      "f1m7d1",
+      "f1m7d2",
+      "f1m7d3",
+      "f1m7d4",
+      "f1m9d1",
+      "f1m9d2",
+      "f1m9d3",
+      "f1m9d4",
+      "f1m10",
+      "f1m10d1",
+      "f1m18d1",
+      "f1m18d2",
+      "f1m18d3",
+      "f1m19d1",
+      "f1m19d2",
+      "f1m19d3",
+      "f1m20",
+      "f1m22",
+      "f1m24",
+      "f1m24d1",
+      "f1m25",
+      "f1m27",
+      "f1m28",
+      "f1m29d1",
+      "f1m29d2",
+      "f1m29d3",
+      "f1m29d4",
+      "f1m32",
+      "f1m36",
+      "f1m36d1",
+      "f1m36d2",
+      "f1m36d3"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Other missions",
+   "sections": [
+    {
+     "title": "",
+     "missions": [
+      "c6m1",
+      "db01m1",
+      "db01m2",
+      "db01m3",
+      "db01m10",
+      "gm01m1",
+      "gm01m3",
+      "gm01m4",
+      "gm01m6",
+      "gm01m7",
+      "gm01m8",
+      "gm01m9",
+      "gm01m10",
+      "gm01m11",
+      "gm01m12",
+      "gm01m13",
+      "gm01m14",
+      "gm01m15",
+      "gm01m16",
+      "gm01m17",
+      "gm01m20",
+      "gm01m22",
+      "gm02m4",
+      "gm02m5",
+      "gm02m6",
+      "gm02m7",
+      "gm02m8",
+      "gm02m10",
+      "gm02m11",
+      "gm02m12",
+      "gm02m13",
+      "gm02m14",
+      "gm02m15",
+      "gm02m16",
+      "gm02m17",
+      "gm02m18",
+      "gm02m19",
+      "gm02m20",
+      "gm02m21",
+      "gm02m22",
+      "gm02m23",
+      "gm02m24",
+      "gm02m26",
+      "gm02m27",
+      "gm02m27d3",
+      "gm02m27d6",
+      "gm02m29",
+      "m1m8",
+      "m1m73"
+     ]
+    }
+   ]
+  }
+ ],
+ "missions": {
+  "e0m0": {
+   "name": "Process: Cold Start",
+   "lines": 12,
+   "scenes": 4
+  },
+  "e0m2": {
+   "name": "Process: Awakening",
+   "lines": 41,
+   "scenes": 4
+  },
+  "e1m1": {
+   "name": "Break the Siege",
+   "lines": 117,
+   "scenes": 12
+  },
+  "e1m2": {
+   "name": "Valley Reboot",
+   "lines": 74,
+   "scenes": 11
+  },
+  "e1m3": {
+   "name": "Rally and Unite",
+   "lines": 122,
+   "scenes": 19
+  },
+  "e1m4": {
+   "name": "Westward into the Vale",
+   "lines": 28,
+   "scenes": 5
+  },
+  "e1m5": {
+   "name": "Secure Sanctuary",
+   "lines": 110,
+   "scenes": 8
+  },
+  "e1m6": {
+   "name": "Building an Outpost",
+   "lines": 56,
+   "scenes": 8
+  },
+  "e1m7": {
+   "name": "Through the Haze",
+   "lines": 58,
+   "scenes": 6
+  },
+  "e1m8": {
+   "name": "Fort Showdown",
+   "lines": 2,
+   "scenes": 1
+  },
+  "e1m9": {
+   "name": "Paving the Way",
+   "lines": 69,
+   "scenes": 8
+  },
+  "e5m0d5": {
+   "name": "Work Preparation",
+   "lines": 14,
+   "scenes": 1
+  },
+  "e1m10": {
+   "name": "Maintenance Progress",
+   "lines": 59,
+   "scenes": 10
+  },
+  "e2m1": {
+   "name": "The Mission Continues",
+   "lines": 45,
+   "scenes": 4
+  },
+  "e2m2": {
+   "name": "Cross the Science Park",
+   "lines": 114,
+   "scenes": 10
+  },
+  "e2m3": {
+   "name": "Park Way Party",
+   "lines": 22,
+   "scenes": 2
+  },
+  "e2m4": {
+   "name": "Walk in the Park",
+   "lines": 75,
+   "scenes": 10
+  },
+  "e2m5": {
+   "name": "Mystery in the Building",
+   "lines": 95,
+   "scenes": 11
+  },
+  "e2m5d5": {
+   "name": "Down the Hill",
+   "lines": 18,
+   "scenes": 4
+  },
+  "e2m6": {
+   "name": "Shattered Veins",
+   "lines": 233,
+   "scenes": 20
+  },
+  "e2m7": {
+   "name": "Lodespring Crossing",
+   "lines": 37,
+   "scenes": 6
+  },
+  "e2m8": {
+   "name": "Cradle of the Ages",
+   "lines": 19,
+   "scenes": 3
+  },
+  "e2m8d5": {
+   "name": "Eve of Battle",
+   "lines": 15,
+   "scenes": 4
+  },
+  "e3m1": {
+   "name": "Entering the Endgame",
+   "lines": 25,
+   "scenes": 4
+  },
+  "e3m2": {
+   "name": "Counterstrike Brewing",
+   "lines": 52,
+   "scenes": 3
+  },
+  "e3m3": {
+   "name": "Scaldings of Utjug",
+   "lines": 122,
+   "scenes": 12
+  },
+  "e3m4": {
+   "name": "Frontline Rush",
+   "lines": 19,
+   "scenes": 5
+  },
+  "e3m6": {
+   "name": "Temporary Peace",
+   "lines": 86,
+   "scenes": 9
+  },
+  "e4m1": {
+   "name": "Mysterious Signal",
+   "lines": 92,
+   "scenes": 8
+  },
+  "e4m1d5": {
+   "name": "Conference of the Four",
+   "lines": 66,
+   "scenes": 2
+  },
+  "e5m1": {
+   "name": "Arrival at Wuling",
+   "lines": 130,
+   "scenes": 11
+  },
+  "e5m2": {
+   "name": "Stumbling Into Qingbo Stockade",
+   "lines": 176,
+   "scenes": 15
+  },
+  "e5m3": {
+   "name": "Destination Wuling",
+   "lines": 74,
+   "scenes": 8
+  },
+  "e6m1": {
+   "name": "A Glance of Astonishment",
+   "lines": 152,
+   "scenes": 16
+  },
+  "e6m2": {
+   "name": "Ready the Easterlies",
+   "lines": 169,
+   "scenes": 13
+  },
+  "e6m3": {
+   "name": "Of Grace and Gentle Might",
+   "lines": 187,
+   "scenes": 16
+  },
+  "e6m4": {
+   "name": "The Surging Tide",
+   "lines": 188,
+   "scenes": 16
+  },
+  "e6m5": {
+   "name": "Where Danger Sleeps",
+   "lines": 29,
+   "scenes": 3
+  },
+  "e7m1": {
+   "name": "Unexpected Attack",
+   "lines": 68,
+   "scenes": 6
+  },
+  "e7m2": {
+   "name": "Deep in the Mire",
+   "lines": 111,
+   "scenes": 12
+  },
+  "e7m3": {
+   "name": "The Flow Splits Course",
+   "lines": 224,
+   "scenes": 18
+  },
+  "e7m4": {
+   "name": "Surging From a Withered Spring",
+   "lines": 107,
+   "scenes": 8
+  },
+  "c27m1": {
+   "name": "A River Restless in Still Winds",
+   "lines": 60,
+   "scenes": 8
+  },
+  "c27m2": {
+   "name": "Another Wave Comes Crashing In",
+   "lines": 103,
+   "scenes": 12
+  },
+  "c27m3": {
+   "name": "Ripples Spread Throughout the Flow",
+   "lines": 29,
+   "scenes": 6
+  },
+  "c27m4": {
+   "name": "Purity Reveals the Stubborn Stone",
+   "lines": 124,
+   "scenes": 17
+  },
+  "c27m5": {
+   "name": "'Twas One River That Gave Us Drink",
+   "lines": 91,
+   "scenes": 6
+  },
+  "e8m1": {
+   "name": "Like Fire and Ice",
+   "lines": 148,
+   "scenes": 10
+  },
+  "e8m2": {
+   "name": "A Lethal Invitation",
+   "lines": 75,
+   "scenes": 5
+  },
+  "e8m3": {
+   "name": "Phantom Wisps",
+   "lines": 96,
+   "scenes": 8
+  },
+  "e8m4": {
+   "name": "Awaiting Thine Coming",
+   "lines": 46,
+   "scenes": 3
+  },
+  "e8m5": {
+   "name": "Free Will",
+   "lines": 81,
+   "scenes": 6
+  },
+  "e9m2": {
+   "name": "Tremors of the Crashing Tide",
+   "lines": 90,
+   "scenes": 9
+  },
+  "e9m4": {
+   "name": "Where Friendship Was Made",
+   "lines": 171,
+   "scenes": 10
+  },
+  "e10m1": {
+   "name": "A Breach Starts with a Crack",
+   "lines": 72,
+   "scenes": 13
+  },
+  "e10m2": {
+   "name": "Patience Makes Greatness",
+   "lines": 92,
+   "scenes": 8
+  },
+  "e10m3": {
+   "name": "Forged at the Very Beginning",
+   "lines": 83,
+   "scenes": 10
+  },
+  "e10m4": {
+   "name": "Kindred Souls Who Share a Vision",
+   "lines": 124,
+   "scenes": 18
+  },
+  "e11m1": {
+   "name": "Bravely Breach the Hostile Winds",
+   "lines": 254,
+   "scenes": 29
+  },
+  "e11m2": {
+   "name": "Thus Begins the Homeward March",
+   "lines": 199,
+   "scenes": 17
+  },
+  "e11m3": {
+   "name": "A Past Shared by the Swordmancers",
+   "lines": 154,
+   "scenes": 12
+  },
+  "e11m4": {
+   "name": "Same Old Faces in a Place Transformed",
+   "lines": 143,
+   "scenes": 15
+  },
+  "e11m5": {
+   "name": "Warily Returns the Wandering Vigile",
+   "lines": 181,
+   "scenes": 16
+  },
+  "e11m6": {
+   "name": "Finally Breaks the Hanging Clouds",
+   "lines": 75,
+   "scenes": 9
+  },
+  "e11m7": {
+   "name": "\"Homecoming\"",
+   "lines": 13,
+   "scenes": 3
+  },
+  "e11m8": {
+   "name": "Stubbornly Lingers the Setting Sun",
+   "lines": 187,
+   "scenes": 13
+  },
+  "e11m8d5": {
+   "name": "Freedom of Expansion",
+   "lines": 12,
+   "scenes": 2
+  },
+  "e12m1": {
+   "name": "Enter the Painted World",
+   "lines": 233,
+   "scenes": 21
+  },
+  "e12m2": {
+   "name": "Learn of Rise and Fall",
+   "lines": 149,
+   "scenes": 18
+  },
+  "e12m3": {
+   "name": "Witness the Game Unfold",
+   "lines": 173,
+   "scenes": 17
+  },
+  "e12m4": {
+   "name": "See Through the Self",
+   "lines": 126,
+   "scenes": 9
+  },
+  "e12m5": {
+   "name": "Paint with Fresh Ink",
+   "lines": 231,
+   "scenes": 16
+  },
+  "c16m1": {
+   "name": "Echoes Of Then",
+   "lines": 78,
+   "scenes": 11
+  },
+  "c16m2": {
+   "name": "A Stray Silhouette",
+   "lines": 25,
+   "scenes": 6
+  },
+  "c16m3": {
+   "name": "The Haunting of Yesteryear",
+   "lines": 139,
+   "scenes": 12
+  },
+  "c16m4": {
+   "name": "The Ashen Past",
+   "lines": 210,
+   "scenes": 19
+  },
+  "c17m1": {
+   "name": "Finally, in Full Color",
+   "lines": 54,
+   "scenes": 5
+  },
+  "c17m2": {
+   "name": "Together, as We Are",
+   "lines": 175,
+   "scenes": 23
+  },
+  "c17m3": {
+   "name": "Algorithm of Joy",
+   "lines": 185,
+   "scenes": 29
+  },
+  "c13m1": {
+   "name": "Melody of the Valley",
+   "lines": 36,
+   "scenes": 10
+  },
+  "c13m2": {
+   "name": "Three Small Things",
+   "lines": 69,
+   "scenes": 12
+  },
+  "c13m3": {
+   "name": "Where the Mist Parts",
+   "lines": 134,
+   "scenes": 12
+  },
+  "c28m1": {
+   "name": "Follow the Red Shadow",
+   "lines": 109,
+   "scenes": 6
+  },
+  "c28m2": {
+   "name": "Ducal Treasures",
+   "lines": 82,
+   "scenes": 6
+  },
+  "c28m3": {
+   "name": "The King and the Knight",
+   "lines": 208,
+   "scenes": 20
+  },
+  "c31m1": {
+   "name": "The Captain's Mystery",
+   "lines": 94,
+   "scenes": 8
+  },
+  "c31m2": {
+   "name": "The Pugilist's Challenge",
+   "lines": 206,
+   "scenes": 25
+  },
+  "c31m3": {
+   "name": "The Warrior's Ambition",
+   "lines": 127,
+   "scenes": 15
+  },
+  "c33m1": {
+   "name": "Sanguine Inquiry",
+   "lines": 210,
+   "scenes": 31
+  },
+  "c33m2": {
+   "name": "Promise of Repayment",
+   "lines": 221,
+   "scenes": 26
+  },
+  "c35m1": {
+   "name": "Spotlight of the Morning Star",
+   "lines": 143,
+   "scenes": 16
+  },
+  "c35m2": {
+   "name": "Prelude to the Plan",
+   "lines": 87,
+   "scenes": 7
+  },
+  "c35m3": {
+   "name": "A Bold Invitation",
+   "lines": 108,
+   "scenes": 15
+  },
+  "c35m4": {
+   "name": "Brightest Star Above",
+   "lines": 72,
+   "scenes": 4
+  },
+  "c34m1": {
+   "name": "A Forest Shrouded in Mist",
+   "lines": 169,
+   "scenes": 19
+  },
+  "c34m2": {
+   "name": "A Snowy Realm Touched by Nightmares",
+   "lines": 79,
+   "scenes": 13
+  },
+  "c34m3": {
+   "name": "A Dreamscape Shattered by Her Arrow",
+   "lines": 133,
+   "scenes": 15
+  },
+  "sm1l1m7": {
+   "name": "Base Revisited",
+   "lines": 17,
+   "scenes": 1
+  },
+  "sm1l1m4": {
+   "name": "The Road is Rough",
+   "lines": 57,
+   "scenes": 8
+  },
+  "sm1l1m5": {
+   "name": "Business is Tough",
+   "lines": 76,
+   "scenes": 9
+  },
+  "sm1l1m6": {
+   "name": "Kindness is Rare",
+   "lines": 84,
+   "scenes": 9
+  },
+  "sm1l2m1": {
+   "name": "Cost of Hope I",
+   "lines": 45,
+   "scenes": 6
+  },
+  "sm1l2m2": {
+   "name": "Cost of Hope II",
+   "lines": 76,
+   "scenes": 11
+  },
+  "sm1l5m1": {
+   "name": "Visitor from the Band I",
+   "lines": 126,
+   "scenes": 13
+  },
+  "sm1l5m2": {
+   "name": "Visitor from the Band II",
+   "lines": 52,
+   "scenes": 6
+  },
+  "sm1l1m1": {
+   "name": "Invisible Glyphs: Discovery",
+   "lines": 71,
+   "scenes": 15
+  },
+  "sm1l1m2": {
+   "name": "Invisible Glyphs: Investigation",
+   "lines": 34,
+   "scenes": 7
+  },
+  "sm1l2m4": {
+   "name": "Invisible Glyphs: Revelation",
+   "lines": 10,
+   "scenes": 5
+  },
+  "sm1l3m1": {
+   "name": "Quarry Rescue",
+   "lines": 39,
+   "scenes": 4
+  },
+  "sm1l3m2": {
+   "name": "Fix the Super Crane",
+   "lines": 109,
+   "scenes": 14
+  },
+  "sm1l3m3": {
+   "name": "Deep Management Post Rescue",
+   "lines": 132,
+   "scenes": 13
+  },
+  "sm1l6m3": {
+   "name": "Ode to the Oak I",
+   "lines": 129,
+   "scenes": 21
+  },
+  "sm1l6m4": {
+   "name": "Ode to the Oak II",
+   "lines": 40,
+   "scenes": 5
+  },
+  "sm2l1m1": {
+   "name": "Silent Grove: The Beginning",
+   "lines": 74,
+   "scenes": 7
+  },
+  "sm2l1m2": {
+   "name": "Silent Grove: Zhailing Islet",
+   "lines": 19,
+   "scenes": 2
+  },
+  "sm2l1m3": {
+   "name": "Silent Grove: South Hill",
+   "lines": 29,
+   "scenes": 2
+  },
+  "sm2l1m4": {
+   "name": "Silent Grove: The Epilogue",
+   "lines": 41,
+   "scenes": 4
+  },
+  "sm2l3m4": {
+   "name": "Seekers of the Lost Treasure I",
+   "lines": 98,
+   "scenes": 6
+  },
+  "sm2l3m5": {
+   "name": "Seekers of the Lost Treasure II",
+   "lines": 67,
+   "scenes": 5
+  },
+  "sm2l3m6": {
+   "name": "Seekers of the Lost Treasure III",
+   "lines": 74,
+   "scenes": 4
+  },
+  "sm2l3m1": {
+   "name": "Patron of the Spring I",
+   "lines": 55,
+   "scenes": 5
+  },
+  "sm2l3m2": {
+   "name": "Patron of the Spring II",
+   "lines": 104,
+   "scenes": 7
+  },
+  "sm2l3m3": {
+   "name": "Patron of the Spring III",
+   "lines": 27,
+   "scenes": 4
+  },
+  "m1m6": {
+   "name": "Alluvial Cleaning",
+   "lines": 11,
+   "scenes": 3
+  },
+  "sm1l1m8": {
+   "name": "Cog in the Wheel",
+   "lines": 52,
+   "scenes": 4
+  },
+  "sm1l1m9": {
+   "name": "Morale Booster",
+   "lines": 70,
+   "scenes": 18
+  },
+  "sm1l1m10": {
+   "name": "Rumors about Tech",
+   "lines": 46,
+   "scenes": 7
+  },
+  "m1m24": {
+   "name": "Produce Industrial Explosives",
+   "lines": 3,
+   "scenes": 1
+  },
+  "sm1l2m3": {
+   "name": "In for a Penny, In for a Pound",
+   "lines": 61,
+   "scenes": 8
+  },
+  "sm1l7m1": {
+   "name": "Insider Threat",
+   "lines": 287,
+   "scenes": 20
+  },
+  "sm1l7m2": {
+   "name": "A Robot's Dream",
+   "lines": 106,
+   "scenes": 16
+  },
+  "sm2l1m5": {
+   "name": "Always Running",
+   "lines": 110,
+   "scenes": 10
+  },
+  "sm2l2m1": {
+   "name": "Burdenbeast Tales",
+   "lines": 176,
+   "scenes": 21
+  },
+  "sm1l1m11": {
+   "name": "Base Revisited [Finale]",
+   "lines": 13,
+   "scenes": 1
+  },
+  "sm1l6m1": {
+   "name": "Emergency Rescue",
+   "lines": 61,
+   "scenes": 9
+  },
+  "sm1l6m2": {
+   "name": "Find Molly",
+   "lines": 50,
+   "scenes": 9
+  },
+  "sm2l2m2": {
+   "name": "Store by the Corner I",
+   "lines": 117,
+   "scenes": 15
+  },
+  "sm2l2m3": {
+   "name": "The Old Man and the Tide I",
+   "lines": 180,
+   "scenes": 13
+  },
+  "sm2l2m4": {
+   "name": "The Old Man and the Tide II",
+   "lines": 79,
+   "scenes": 4
+  },
+  "sm2l2m6": {
+   "name": "Store by the Corner II",
+   "lines": 90,
+   "scenes": 7
+  },
+  "sm2l2m7": {
+   "name": "Store by the Corner III",
+   "lines": 83,
+   "scenes": 10
+  },
+  "sm2l4m1": {
+   "name": "Comrades: The Nameless",
+   "lines": 166,
+   "scenes": 13
+  },
+  "sm2l4m2": {
+   "name": "Comrades: Commemoration",
+   "lines": 107,
+   "scenes": 6
+  },
+  "sm2l4m3": {
+   "name": "Comrades: Remembrance",
+   "lines": 25,
+   "scenes": 2
+  },
+  "sm2l4m4": {
+   "name": "Comrades: For Tomorrow",
+   "lines": 17,
+   "scenes": 2
+  },
+  "sm2l4m5": {
+   "name": "Old Acquaintance I",
+   "lines": 67,
+   "scenes": 10
+  },
+  "sm2l4m6": {
+   "name": "Old Acquaintance II",
+   "lines": 82,
+   "scenes": 7
+  },
+  "sm2l5m1": {
+   "name": "Spring's Return I",
+   "lines": 100,
+   "scenes": 10
+  },
+  "sm2l5m2": {
+   "name": "Spring's Return II",
+   "lines": 34,
+   "scenes": 3
+  },
+  "sm2l5m3": {
+   "name": "Spring's Return III",
+   "lines": 33,
+   "scenes": 3
+  },
+  "sm2l6m1": {
+   "name": "Deep Vaulted Steel",
+   "lines": 158,
+   "scenes": 19
+  },
+  "sm2l7m1": {
+   "name": "Sorrow Sings in Silence",
+   "lines": 181,
+   "scenes": 14
+  },
+  "sm2l8m1": {
+   "name": "Long Night Breaking into Day",
+   "lines": 267,
+   "scenes": 26
+  },
+  "sm2l9m1": {
+   "name": "Endeavor of a Lifetime",
+   "lines": 141,
+   "scenes": 40
+  },
+  "sm2l10m1": {
+   "name": "Unrequited Love",
+   "lines": 292,
+   "scenes": 24
+  },
+  "sm2l10m2": {
+   "name": "The Story Continues",
+   "lines": 204,
+   "scenes": 16
+  },
+  "sm2l10m3": {
+   "name": "A Day to Remember",
+   "lines": 175,
+   "scenes": 15
+  },
+  "a1m2": {
+   "name": "Catch-Up Training",
+   "lines": 21,
+   "scenes": 4
+  },
+  "a1m3": {
+   "name": "Sketches of Innocence",
+   "lines": 43,
+   "scenes": 12
+  },
+  "a1m4": {
+   "name": "Umbral Monument",
+   "lines": 20,
+   "scenes": 2
+  },
+  "a1m5": {
+   "name": "Exploration Day and Its Specialties",
+   "lines": 32,
+   "scenes": 4
+  },
+  "a1m6d1": {
+   "name": "Sanitation Elite I",
+   "lines": 30,
+   "scenes": 6
+  },
+  "a1m6d2": {
+   "name": "Sanitation Elite II",
+   "lines": 30,
+   "scenes": 3
+  },
+  "a1m6d3": {
+   "name": "Sanitation Elite III",
+   "lines": 17,
+   "scenes": 3
+  },
+  "a1m6d4": {
+   "name": "Sanitation Elite IV",
+   "lines": 19,
+   "scenes": 3
+  },
+  "a1m6d5": {
+   "name": "Sanitation Elite V",
+   "lines": 56,
+   "scenes": 6
+  },
+  "a1m6d6": {
+   "name": "Sanitation Elite VI",
+   "lines": 11,
+   "scenes": 4
+  },
+  "a1m6d7": {
+   "name": "Sanitation Elite VII",
+   "lines": 17,
+   "scenes": 5
+  },
+  "a1m7": {
+   "name": "Sketches of Innocence: Discovery",
+   "lines": 65,
+   "scenes": 13
+  },
+  "a1m8d1": {
+   "name": "Palm-Top Savior I",
+   "lines": 33,
+   "scenes": 3
+  },
+  "a1m8d2": {
+   "name": "Palm-Top Savior II",
+   "lines": 30,
+   "scenes": 2
+  },
+  "a1m8d3": {
+   "name": "Palm-Top Savior III",
+   "lines": 36,
+   "scenes": 3
+  },
+  "a1m9": {
+   "name": "Wuling Super Chef",
+   "lines": 71,
+   "scenes": 8
+  },
+  "a1m10": {
+   "name": "Snapshot: Etchings of Our Cosmic Dreams",
+   "lines": 30,
+   "scenes": 6
+  },
+  "a1m11": {
+   "name": "HEAT RAGE! MEGA ARENA!",
+   "lines": 24,
+   "scenes": 4
+  },
+  "a1m13": {
+   "name": "Guardian of the Realm",
+   "lines": 22,
+   "scenes": 6
+  },
+  "a1m14": {
+   "name": "Forgotten Space",
+   "lines": 25,
+   "scenes": 3
+  },
+  "a1m15": {
+   "name": "The Great Steeplechase",
+   "lines": 87,
+   "scenes": 17
+  },
+  "a1m16d1": {
+   "name": "Chubby Lung Journey I",
+   "lines": 54,
+   "scenes": 3
+  },
+  "a1m16d2": {
+   "name": "Chubby Lung Journey II",
+   "lines": 27,
+   "scenes": 1
+  },
+  "a1m16d3": {
+   "name": "Chubby Lung Journey III",
+   "lines": 65,
+   "scenes": 3
+  },
+  "a1m18": {
+   "name": "Sketches of Innocence: Travelogue",
+   "lines": 86,
+   "scenes": 13
+  },
+  "a1m19": {
+   "name": "Arena of Games",
+   "lines": 10,
+   "scenes": 2
+  },
+  "f1m3": {
+   "name": "Restart Area Stock Redistribution I",
+   "lines": 33,
+   "scenes": 9
+  },
+  "f1m3d1": {
+   "name": "Restart Area Stock Redistribution II",
+   "lines": 13,
+   "scenes": 1
+  },
+  "f1m4d1": {
+   "name": "OD Project: Refugee Camp I",
+   "lines": 75,
+   "scenes": 10
+  },
+  "f1m4d2": {
+   "name": "OD Project: Refugee Camp II",
+   "lines": 73,
+   "scenes": 7
+  },
+  "f1m4d3": {
+   "name": "OD Project: Refugee Camp III",
+   "lines": 84,
+   "scenes": 8
+  },
+  "f1m5": {
+   "name": "Defense Construction",
+   "lines": 37,
+   "scenes": 4
+  },
+  "f1m6": {
+   "name": "Dijiang Upgrade and Maintenance I",
+   "lines": 16,
+   "scenes": 3
+  },
+  "f1m7d1": {
+   "name": "Outpost: Reconstruction HQ",
+   "lines": 80,
+   "scenes": 7
+  },
+  "f1m7d2": {
+   "name": "OD Project: Reconstruction HQ I",
+   "lines": 94,
+   "scenes": 8
+  },
+  "f1m7d3": {
+   "name": "OD Project: Reconstruction HQ II",
+   "lines": 70,
+   "scenes": 5
+  },
+  "f1m7d4": {
+   "name": "OD Project: Reconstruction HQ III",
+   "lines": 96,
+   "scenes": 8
+  },
+  "f1m9d1": {
+   "name": "Outpost: Infra-Station",
+   "lines": 69,
+   "scenes": 6
+  },
+  "f1m9d2": {
+   "name": "OD Project: Infra-Station I",
+   "lines": 43,
+   "scenes": 5
+  },
+  "f1m9d3": {
+   "name": "OD Project: Infra-Station II",
+   "lines": 74,
+   "scenes": 7
+  },
+  "f1m9d4": {
+   "name": "OD Project: Infra-Station III",
+   "lines": 83,
+   "scenes": 6
+  },
+  "f1m10": {
+   "name": "Farming Toils",
+   "lines": 45,
+   "scenes": 7
+  },
+  "f1m10d1": {
+   "name": "Innovate to Cultivate",
+   "lines": 38,
+   "scenes": 7
+  },
+  "f1m18d1": {
+   "name": "OD Project: Sky King Flats I",
+   "lines": 100,
+   "scenes": 10
+  },
+  "f1m18d2": {
+   "name": "OD Project: Sky King Flats II",
+   "lines": 105,
+   "scenes": 11
+  },
+  "f1m18d3": {
+   "name": "OD Project: Sky King Flats III",
+   "lines": 115,
+   "scenes": 9
+  },
+  "f1m19d1": {
+   "name": "OD Project: Remediation Station I",
+   "lines": 92,
+   "scenes": 12
+  },
+  "f1m19d2": {
+   "name": "OD Project: Remediation Station II",
+   "lines": 49,
+   "scenes": 7
+  },
+  "f1m19d3": {
+   "name": "OD Project: Remediation Station III",
+   "lines": 64,
+   "scenes": 8
+  },
+  "f1m20": {
+   "name": "Gear Artificing",
+   "lines": 48,
+   "scenes": 4
+  },
+  "f1m22": {
+   "name": "Dijiang Upgrade and Maintenance II",
+   "lines": 21,
+   "scenes": 4
+  },
+  "f1m24": {
+   "name": "Depot Node I",
+   "lines": 19,
+   "scenes": 2
+  },
+  "f1m24d1": {
+   "name": "Depot Node II",
+   "lines": 6,
+   "scenes": 1
+  },
+  "f1m25": {
+   "name": "Delivery Job",
+   "lines": 37,
+   "scenes": 24
+  },
+  "f1m27": {
+   "name": "Pressure Load",
+   "lines": 8,
+   "scenes": 1
+  },
+  "f1m28": {
+   "name": "Purification Node",
+   "lines": 16,
+   "scenes": 5
+  },
+  "f1m29d1": {
+   "name": "Outpost: Cloudseeder STN",
+   "lines": 32,
+   "scenes": 5
+  },
+  "f1m29d2": {
+   "name": "OD Project: Cloudseeder STN I",
+   "lines": 67,
+   "scenes": 6
+  },
+  "f1m29d3": {
+   "name": "OD Project: Cloudseeder STN II",
+   "lines": 34,
+   "scenes": 6
+  },
+  "f1m29d4": {
+   "name": "OD Project: Cloudseeder STN III",
+   "lines": 38,
+   "scenes": 6
+  },
+  "f1m32": {
+   "name": "Fissure Filling and Land Grouting",
+   "lines": 93,
+   "scenes": 17
+  },
+  "f1m36": {
+   "name": "A Painting Open for Business",
+   "lines": 71,
+   "scenes": 9
+  },
+  "f1m36d1": {
+   "name": "Yuanyuan Innkeeper I",
+   "lines": 1,
+   "scenes": 1
+  },
+  "f1m36d2": {
+   "name": "Yuanyuan Innkeeper II",
+   "lines": 2,
+   "scenes": 1
+  },
+  "f1m36d3": {
+   "name": "Yuanyuan Innkeeper III",
+   "lines": 3,
+   "scenes": 1
+  },
+  "c6m1": {
+   "name": "Lone Wolf",
+   "lines": 245,
+   "scenes": 31
+  },
+  "db01m1": {
+   "name": "Etchspace Salvage",
+   "lines": 109,
+   "scenes": 16
+  },
+  "db01m2": {
+   "name": "Etchspace Salvage",
+   "lines": 49,
+   "scenes": 11
+  },
+  "db01m3": {
+   "name": "Etchspace Salvage",
+   "lines": 18,
+   "scenes": 3
+  },
+  "db01m10": {
+   "name": "Echoes of War",
+   "lines": 15,
+   "scenes": 1
+  },
+  "gm01m1": {
+   "name": "Had to Be Done",
+   "lines": 30,
+   "scenes": 5
+  },
+  "gm01m3": {
+   "name": "Elevator Repairs",
+   "lines": 17,
+   "scenes": 3
+  },
+  "gm01m4": {
+   "name": "Antique Drone",
+   "lines": 21,
+   "scenes": 4
+  },
+  "gm01m6": {
+   "name": "Elevated Rescue",
+   "lines": 50,
+   "scenes": 11
+  },
+  "gm01m7": {
+   "name": "A Brewing Storm Finale",
+   "lines": 39,
+   "scenes": 6
+  },
+  "gm01m8": {
+   "name": "Savior of Bots",
+   "lines": 38,
+   "scenes": 3
+  },
+  "gm01m9": {
+   "name": "Explosive Rescue",
+   "lines": 37,
+   "scenes": 4
+  },
+  "gm01m10": {
+   "name": "Where Art Thou My Love",
+   "lines": 21,
+   "scenes": 3
+  },
+  "gm01m11": {
+   "name": "Sluggish Escapade",
+   "lines": 36,
+   "scenes": 3
+  },
+  "gm01m12": {
+   "name": "A Brewing Storm: The Hub",
+   "lines": 35,
+   "scenes": 8
+  },
+  "gm01m13": {
+   "name": "A Brewing Storm: Aburrey Quarry",
+   "lines": 47,
+   "scenes": 5
+  },
+  "gm01m14": {
+   "name": "A Brewing Storm: Origin Lodespring",
+   "lines": 57,
+   "scenes": 7
+  },
+  "gm01m15": {
+   "name": "A Brewing Storm: Power Plateau",
+   "lines": 51,
+   "scenes": 7
+  },
+  "gm01m16": {
+   "name": "Illusion",
+   "lines": 85,
+   "scenes": 7
+  },
+  "gm01m17": {
+   "name": "Repair Story",
+   "lines": 73,
+   "scenes": 6
+  },
+  "gm01m20": {
+   "name": "Tripod Central",
+   "lines": 25,
+   "scenes": 7
+  },
+  "gm01m22": {
+   "name": "Dusty Old Files",
+   "lines": 67,
+   "scenes": 9
+  },
+  "gm02m4": {
+   "name": "Pillars of Destiny",
+   "lines": 18,
+   "scenes": 3
+  },
+  "gm02m5": {
+   "name": "No Margin for Error",
+   "lines": 51,
+   "scenes": 7
+  },
+  "gm02m6": {
+   "name": "Tainted Waters",
+   "lines": 47,
+   "scenes": 6
+  },
+  "gm02m7": {
+   "name": "Three Swords of Mastery",
+   "lines": 32,
+   "scenes": 3
+  },
+  "gm02m8": {
+   "name": "The Bell Tolls",
+   "lines": 32,
+   "scenes": 5
+  },
+  "gm02m10": {
+   "name": "Treasure Beneath the Pond",
+   "lines": 41,
+   "scenes": 6
+  },
+  "gm02m11": {
+   "name": "Fan Meet",
+   "lines": 26,
+   "scenes": 4
+  },
+  "gm02m12": {
+   "name": "To Posterity",
+   "lines": 51,
+   "scenes": 9
+  },
+  "gm02m13": {
+   "name": "Call from the Blight",
+   "lines": 22,
+   "scenes": 4
+  },
+  "gm02m14": {
+   "name": "Divvy Up the Trouble",
+   "lines": 22,
+   "scenes": 3
+  },
+  "gm02m15": {
+   "name": "Cliffside Riddles of Steel",
+   "lines": 39,
+   "scenes": 6
+  },
+  "gm02m16": {
+   "name": "Trial of Swordmancy",
+   "lines": 45,
+   "scenes": 4
+  },
+  "gm02m17": {
+   "name": "Nameless Blades I",
+   "lines": 55,
+   "scenes": 4
+  },
+  "gm02m18": {
+   "name": "Nameless Blades II",
+   "lines": 36,
+   "scenes": 4
+  },
+  "gm02m19": {
+   "name": "Nameless Blades III",
+   "lines": 36,
+   "scenes": 4
+  },
+  "gm02m20": {
+   "name": "Blightshade Watch",
+   "lines": 40,
+   "scenes": 5
+  },
+  "gm02m21": {
+   "name": "Home Beyond Reach",
+   "lines": 83,
+   "scenes": 8
+  },
+  "gm02m22": {
+   "name": "Illumination of Fate",
+   "lines": 16,
+   "scenes": 2
+  },
+  "gm02m23": {
+   "name": "Treasures of the Past",
+   "lines": 57,
+   "scenes": 8
+  },
+  "gm02m24": {
+   "name": "Miscellanies on Rampage",
+   "lines": 146,
+   "scenes": 14
+  },
+  "gm02m26": {
+   "name": "Post Destination",
+   "lines": 68,
+   "scenes": 12
+  },
+  "gm02m27": {
+   "name": "Bell of Recollection",
+   "lines": 59,
+   "scenes": 8
+  },
+  "gm02m27d3": {
+   "name": "Bell of Recollection: Zhen of Thunder",
+   "lines": 4,
+   "scenes": 1
+  },
+  "gm02m27d6": {
+   "name": "Like the Morning Dew",
+   "lines": 25,
+   "scenes": 4
+  },
+  "gm02m29": {
+   "name": "Cliffbottom Archery Range",
+   "lines": 34,
+   "scenes": 5
+  },
+  "m1m8": {
+   "name": "Daily: Authentic Meds",
+   "lines": 5,
+   "scenes": 1
+  },
+  "m1m73": {
+   "name": "Daily: Spray and Clean",
+   "lines": 1,
+   "scenes": 1
+  }
+ }
+}
