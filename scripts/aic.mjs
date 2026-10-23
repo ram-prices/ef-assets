@@ -5,7 +5,9 @@
  * for ItJustLogs' AIC planner:
  *
  * - recipes: every production facility recipe (seconds per craft, what goes
- *   in and out; `carrier` when it empties a filled bottle or canister), plus mining rigs, pumps and the gas extractor as recipes
+ *   in and out; `mode`, the facility mode it needs, which a region must
+ *   allow: Valley IV only "normal"; `carrier` when it empties a filled
+ *   bottle or canister), plus mining rigs, pumps and the gas extractor as recipes
  *   with nothing in (`source`: they need an ore node or water). Event-only
  *   items (`item_activity_*`) are left out.
  * - machines: power use, Protocol Capacity ("bandwidth") and footprint;
@@ -43,13 +45,14 @@ async function get(url) {
 }
 const table = (name) => (LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', `${name}.json`), 'utf8')) : get(`${RAW}/TableCfg/${name}.json`));
 
-const [en, itemTable, facItems, buildings, crafts, miners, gasMiners, pumps, fuels, hubs, domains, transfer, levels] = await Promise.all(
+const [en, itemTable, facItems, buildings, crafts, crafters, miners, gasMiners, pumps, fuels, hubs, domains, transfer, levels] = await Promise.all(
   [
     'I18nTextTable_EN',
     'ItemTable',
     'FactoryItemTable',
     'FactoryBuildingTable',
     'FactoryMachineCraftTable',
+    'FactoryMachineCrafterTable',
     'FactoryMinerTable',
     'FactoryGasMinerTable',
     'FactoryFluidPumpInTable',
@@ -72,7 +75,8 @@ for (const r of Object.values(crafts)) {
   const ins = r.ingredients.flatMap((g) => g.group);
   const outs = r.outcomes.flatMap((g) => g.group);
   if ([...ins, ...outs].some((x) => skip(x.id)) || !buildings[r.machineId] || /_nop/.test(r.machineId)) continue;
-  recipes.push({ id: r.id, machine: r.machineId, seconds: r.progressRound, in: pair(ins), out: pair(outs) });
+  const mode = crafters[r.machineId]?.modeMap?.find((m) => m.groupName === r.formulaGroupId)?.modeName ?? 'normal';
+  recipes.push({ id: r.id, machine: r.machineId, seconds: r.progressRound, mode, in: pair(ins), out: pair(outs) });
   for (const x of [...ins, ...outs]) used.add(x.id);
   machinesUsed.add(r.machineId);
 }
@@ -80,14 +84,15 @@ for (const r of Object.values(crafts)) {
 for (const [id, m] of [...Object.entries(miners), ...Object.entries(gasMiners)])
   for (const x of m.mineable) {
     const ins = x.consumeItem?.id ? [[x.consumeItem.id, x.consumeItem.count]] : [];
-    recipes.push({ id: `${id}:${x.miningItemId}`, machine: id, seconds: m.msPerRound / 1000, in: ins, out: [[x.miningItemId, x.produceRate]], source: 'node' });
+    const mode = PHASE[facItems[x.miningItemId]?.phaseType] === 'gas' ? 'gas' : ins.length ? 'liquid' : 'normal';
+    recipes.push({ id: `${id}:${x.miningItemId}`, machine: id, seconds: m.msPerRound / 1000, mode, in: ins, out: [[x.miningItemId, x.produceRate]], source: 'node' });
     used.add(x.miningItemId);
     for (const [i] of ins) used.add(i);
     machinesUsed.add(id);
   }
 for (const [id, p] of Object.entries(pumps)) {
   if (!buildings[id]) continue;
-  recipes.push({ id: `${id}:item_liquid_water`, machine: id, seconds: p.msPerRound / 1000, in: [], out: [['item_liquid_water', 1]], source: 'water' });
+  recipes.push({ id: `${id}:item_liquid_water`, machine: id, seconds: p.msPerRound / 1000, mode: 'liquid', in: [], out: [['item_liquid_water', 1]], source: 'water' });
   used.add('item_liquid_water');
   machinesUsed.add(id);
 }
@@ -141,6 +146,7 @@ const regions = Object.values(domains).map((d) => {
     id: d.domainId,
     name: T(d.domainName) ?? d.domainId,
     power: hubs.sp_hub_1.powerGenerate,
+    modes: d.machineModeTypeGroup,
     levels: lv.length,
     areas,
     ...(t && t.unlockLevel <= lv.length
