@@ -36,6 +36,9 @@ const DUMPER = 'https://git.escartem.moe/Escartem/EndfieldDataDumper';
 const WIKI = 'https://endfield.wiki.gg/api.php';
 const UA = { 'User-Agent': 'ef-assets story snapshot (github.com/ram-prices/ef-assets; ItJustLogs)' };
 const OUT = fileURLToPath(new URL('../story/', import.meta.url));
+/** The order of lines and replies from the game's dialogue trees (scripts/dialog-order.mjs, run on an export of the bundles). */
+const ORDER_FILE = fileURLToPath(new URL('../dialog/order.json', import.meta.url));
+const ORDER = existsSync(ORDER_FILE) ? JSON.parse(readFileSync(ORDER_FILE, 'utf8')).trees : {};
 
 /** The tables' text ids are 64-bit: kept as their digits, which JSON.parse would round. */
 const parse = (text) => JSON.parse(text, (k, v, ctx) => (typeof v === 'number' && !Number.isSafeInteger(v) && ctx?.source ? ctx.source : v));
@@ -234,17 +237,52 @@ const index = {
   groups,
   missions: {},
 };
+/**
+ * A scene's flow from its dialogue tree, by index: a number is a line (in
+ * `lines`), { r: [[reply, Flow], ...] } a choice with what each reply leads
+ * to, "back" a return to the last choice, { v: [Flow, ...] } one of several
+ * ways. Lines without English text and other scenes' lines are left out.
+ */
+function flowOf(tree, s, lines) {
+  const at = new Map(lines.map((l, i) => [l.n, i]));
+  const reply = (code) => {
+    const [g, n] = code.split('_').map(Number);
+    return s.options.get(g)?.find((o) => o.n === n)?.text;
+  };
+  const walk = (steps) =>
+    steps.flatMap((x) => {
+      if (typeof x === 'number') return at.has(x) ? [at.get(x)] : [];
+      if (x === 'back') return ['back'];
+      if (typeof x === 'string') return [];
+      if (x.r) {
+        const r = x.r.map(([code, then]) => [reply(code), walk(then)]).filter(([text]) => text);
+        return r.length ? [{ r }] : [];
+      }
+      return [{ v: x.v.map(walk) }];
+    });
+  return walk(tree);
+}
+
 let partial = 0;
+let ordered = 0;
 for (const id of known) {
   const scenes = [...missions.get(id).values()].sort((a, b) => a.n - b.n || a.branch.localeCompare(b.branch));
   const out = scenes
     .filter((s) => s.lines.length)
-    .map((s) => ({
-      id: `dlg_${id}_${s.key}`,
-      ...(T(summaries[summaryMap[`dlg_${id}_${s.key}`]]) ? { summary: versions(T(summaries[summaryMap[`dlg_${id}_${s.key}`]]))[0] } : {}),
-      lines: s.lines.sort((a, b) => a.n - b.n).map(({ n, ...l }) => l),
-      ...(s.options.size ? { options: [...s.options].sort((a, b) => a[0] - b[0]).map(([, o]) => o.sort((a, b) => a.n - b.n).map((x) => x.text)) } : {}),
-    }));
+    .map((s) => {
+      const sid = `dlg_${id}_${s.key}`;
+      const sorted = s.lines.sort((a, b) => a.n - b.n);
+      // Where the tree is known, the flow places the replies (options stays for pages that don't read it).
+      const flow = ORDER[sid] ? flowOf(ORDER[sid], s, sorted) : null;
+      if (flow) ordered++;
+      return {
+        id: sid,
+        ...(T(summaries[summaryMap[sid]]) ? { summary: versions(T(summaries[summaryMap[sid]]))[0] } : {}),
+        lines: sorted.map(({ n, ...l }) => l),
+        ...(s.options.size ? { options: [...s.options].sort((a, b) => a[0] - b[0]).map(([, o]) => o.sort((a, b) => a.n - b.n).map((x) => x.text)) } : {}),
+        ...(flow ? { flow } : {}),
+      };
+    });
   const all = Object.keys(dialog).filter((k) => k.startsWith(`dlg_${id}_`) && LINE.test(k)).length;
   const lines = out.reduce((n, s) => n + s.lines.length, 0);
   const isPartial = lines < all;
@@ -260,4 +298,5 @@ for (const f of readdirSync(OUT)) if (!written.has(f) && existsSync(`${OUT}${f}`
 
 const count = (g) => g.sections.reduce((n, s) => n + s.missions.length, 0);
 console.log(`story: ${known.size} missions (${groups.map((g) => `${g.title} ${count(g)}`).join(', ')}), ${Object.values(index.missions).reduce((n, m) => n + m.lines, 0)} lines; ${partial} partly in English; ${dropped} lines without English text left out`);
+console.log(`dialogue order: ${ordered} scenes from the game's dialogue trees${Object.keys(ORDER).length ? '' : ' (no dialog/order.json)'}`);
 console.log(`unlisted: ${groups.flatMap((g) => g.sections.filter((s) => s.unlisted).flatMap((s) => s.missions.map((id) => names[id]))).join('; ') || 'none'}`);
