@@ -127,15 +127,22 @@ const [PATCH, TALENTS, CONDITIONS, ATTR_META, CHARACTERS, WEAPONS, WEAPON_LEVELS
  * (EquipTable packAttrType: 87 → PhysicalAndSpellInflictionEnhance, Arts
  * Intensity), else their icon's (icon_attribute_wisd → Wisd).
  */
-const ATTRIBUTES = Object.fromEntries(
-  Object.values(ATTR_META)
-    .filter((a) => a.iconName)
-    .map((a) => [a.attributeType, a.iconName.replace(/^icon_(attribute_)?/, '').replace(/(^|_)(\w)/g, (_, __, c) => c.toUpperCase())]),
-);
-for (const e of Object.values(EQUIP)) for (const d of e.displayAttrModifiers ?? []) if (d.attrType && d.packAttrType && !d.compositeAttr) ATTRIBUTES[d.attrType] = d.packAttrType;
-ATTRIBUTES[0] = 'Level';
-// Two numbers share the Ether icon: 55 sits with the DMG bonuses (50-54).
-ATTRIBUTES[55] = 'EtherDamageIncrease';
+// Newer dumps name attributes outright (attrType "Atk"): those names are kept, for the attributes the game shows
+// (an icon) and Level. Older ones number them.
+const BY_NAME = Object.values(ATTR_META).some((a) => typeof a.attributeType === 'string' && Number.isNaN(Number(a.attributeType)));
+const ATTRIBUTES = BY_NAME
+  ? Object.fromEntries(Object.values(ATTR_META).filter((a) => a.iconName || a.attributeType === 'Level').map((a) => [a.attributeType, a.attributeType]))
+  : Object.fromEntries(
+      Object.values(ATTR_META)
+        .filter((a) => a.iconName)
+        .map((a) => [a.attributeType, a.iconName.replace(/^icon_(attribute_)?/, '').replace(/(^|_)(\w)/g, (_, __, c) => c.toUpperCase())]),
+    );
+if (!BY_NAME) {
+  for (const e of Object.values(EQUIP)) for (const d of e.displayAttrModifiers ?? []) if (d.attrType && d.packAttrType && !d.compositeAttr) ATTRIBUTES[d.attrType] = d.packAttrType;
+  ATTRIBUTES[0] = 'Level';
+  // Two numbers share the Ether icon: 55 sits with the DMG bonuses (50-54).
+  ATTRIBUTES[55] = 'EtherDamageIncrease';
+}
 /** Names that stand for several attributes (AllSkillDamageIncrease → the battle skill's, combo's and ultimate's). */
 const COMPOSITE = Object.fromEntries(Object.entries(COMPOSITES).map(([k, v]) => [k, v.list]));
 const operators = JSON.parse(readFileSync(join(ROOT, 'wiki', 'operators.json'), 'utf8')).operators;
@@ -221,8 +228,13 @@ async function weapon(id) {
   };
 }
 
-/** Gear stats: BaseAddition (5) or BaseMultiplier (6), of an attribute or of the wearer's main (1) or secondary (2) one, at artifice 0–3. */
-const HOW = { 5: 'BaseAddition', 6: 'BaseMultiplier', 7: 'Addition', 8: 'FinalMultiplier' };
+/**
+ * Gear stats: BaseAddition (5) or BaseMultiplier (6), of an attribute or of the wearer's main (1) or secondary (2) one, at
+ * artifice 0–3. Newer dumps name them (BaseFinalAddition for 7, BaseFinalMultiplier for 8: kept as the names used before).
+ */
+const HOW = { 5: 'BaseAddition', 6: 'BaseMultiplier', 7: 'Addition', 8: 'FinalMultiplier', BaseFinalAddition: 'Addition', BaseFinalMultiplier: 'FinalMultiplier' };
+const MAIN = new Set([1, 'Main']);
+const SUB = new Set([2, 'Sub']);
 async function gear() {
   const items = {};
   for (const [id, e] of Object.entries(EQUIP))
@@ -231,7 +243,7 @@ async function gear() {
       part: e.partType,
       level: e.minWearLv,
       stats: (e.equipAttrModifiers ?? []).map((m) => ({
-        attr: m.modifyAttributeType === 1 ? 'Main' : m.modifyAttributeType === 2 ? 'Sub' : ATTRIBUTES[m.attrType] ?? String(m.attrType),
+        attr: MAIN.has(m.modifyAttributeType) ? 'Main' : SUB.has(m.modifyAttributeType) ? 'Sub' : ATTRIBUTES[m.attrType] ?? String(m.attrType),
         how: HOW[m.modifierType] ?? String(m.modifierType),
         values: m.attrValues.map(Number),
       })),
