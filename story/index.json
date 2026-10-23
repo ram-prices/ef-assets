@@ -1806,5 +1806,95 @@
    "lines": 1,
    "scenes": 1
   }
+ },
+ "activities": {
+  "Survival Training": [
+   "a1m2"
+  ],
+  "Trial of the Bow": [
+   "gm02m29"
+  ],
+  "Yuanyuan's Blazing Stoves": [
+   "f1m36"
+  ],
+  "Runners' Steeplechase": [
+   "a1m15"
+  ],
+  "Supply: Wuling Super Chef": [
+   "a1m9"
+  ],
+  "Monumental Etching: Old Wounds": [
+   "a1m4"
+  ],
+  "HEAT RAGE! MEGA ARENA!": [
+   "a1m11"
+  ],
+  "Trial Algorithmics": [
+   "gm02m16"
+  ],
+  "Monumental Etching: Forest of Maras": [
+   "a1m4"
+  ],
+  "Monumental Etching: Shadow Marked": [
+   "a1m4"
+  ],
+  "Arena of Games": [
+   "a1m19"
+  ],
+  "Monumental Etching: Beastly Howl": [
+   "a1m4"
+  ],
+  "Monumental Etching: Dirge of Grief": [
+   "a1m4"
+  ],
+  "Monumental Etching: Corrupting Surge": [
+   "a1m4"
+  ],
+  "Monumental Etching: Scorch Mark": [
+   "a1m4"
+  ],
+  "AIC Support: Chubby Lung Attacks": [
+   "a1m16d1",
+   "a1m16d2",
+   "a1m16d3"
+  ],
+  "Snapshot: Etchings of Our Cosmic Dreams": [
+   "a1m10"
+  ],
+  "Carly's Fairytale of Wuling": [
+   "a1m7"
+  ],
+  "The Rooted Realm": [
+   "a1m13"
+  ],
+  "Echoes of War": [
+   "db01m10"
+  ],
+  "Cleanse and Rinse": [
+   "a1m6d1",
+   "a1m6d2",
+   "a1m6d3",
+   "a1m6d4",
+   "a1m6d5",
+   "a1m6d6",
+   "a1m6d7"
+  ],
+  "AIC Support: Palm-Top Savior": [
+   "a1m8d1",
+   "a1m8d2",
+   "a1m8d3"
+  ],
+  "Carly's Verdant Anthology": [
+   "a1m18"
+  ],
+  "Supply: Exploration Day": [
+   "a1m5"
+  ],
+  "Carly's Fairytale of the Valley": [
+   "a1m3"
+  ],
+  "Contingency Contract: Re-Ignition Experimental Operation": [
+   "a1m14"
+  ]
  }
 }

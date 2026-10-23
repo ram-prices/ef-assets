@@ -232,10 +232,37 @@ const written = new Set(['index.json', 'search.json']);
 /** Plain text for searching: the site's markup dropped. */
 const plain = (s) => s.replace(/⟦\w+\|([^⟧]*)⟧/g, '$1');
 const search = {};
+/**
+ * Each event's own missions, by the event's English name (for its event page):
+ * the missions its activity starts or ends with (ActivityTable
+ * introMissionQuestId / endMissionQuestId) and its stages'
+ * (ActivityConditionalMultiStageTable), in reading order. Its unlock
+ * requirements (a main mission to finish first) are conditions, left out.
+ */
+const [activityTable, stageTable] = await Promise.all(['ActivityTable', 'ActivityConditionalMultiStageTable'].map(table));
+const reading = new Map(groups.flatMap((g) => g.sections.flatMap((s) => s.missions)).map((id, i) => [id, i]));
+const activities = {};
+for (const [aid, a] of Object.entries(activityTable)) {
+  const name = T(a.name);
+  if (!name) continue;
+  const ids = new Set();
+  for (const q of [a.introMissionQuestId, a.endMissionQuestId]) if (q) ids.add(q.replace(/_q#.*$/, ''));
+  for (const st of Object.values(stageTable[aid]?.stageList ?? {})) if (st.missionId) ids.add(st.missionId);
+  // A multi-part mission (a1m8d1) brings all its parts (a1m8d2, a1m8d3): not every stage lists one.
+  for (const id of [...ids]) {
+    const stem = /^(.+d)\d+$/.exec(id)?.[1];
+    if (stem) for (const k of known) if (k.startsWith(stem) && /^\d+$/.test(k.slice(stem.length))) ids.add(k);
+  }
+  const own = [...ids].filter((id) => known.has(id));
+  if (!own.length) continue;
+  activities[name] = [...new Set([...(activities[name] ?? []), ...own])].sort((x, y) => reading.get(x) - reading.get(y));
+}
+
 const index = {
   attribution: { source: 'EndfieldData', url: DUMP_PAGE, dumper: DUMPER, fetched: new Date().toISOString().slice(0, 10), note: 'Game text © Gryphline / Hypergryph' },
   groups,
   missions: {},
+  activities,
 };
 /**
  * A scene's flow from the dialogue trees, by index: a number is a line (in
