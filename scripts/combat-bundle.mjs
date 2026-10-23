@@ -14,7 +14,9 @@
  *   levels and Potentials), `conditions` they depend on (SkillConditionTable),
  *   and `attributes`: attribute numbers as the names the data uses.
  * - base: the operator's attributes at each level (CharacterTable, at the
- *   level's highest promotion), and which attributes are its main and secondary.
+ *   level's highest promotion), which attributes are its main and secondary,
+ *   and `nodes`: the attribute talents (CharGrowthTable attribute nodes, such
+ *   as "Forged": Strength +10/+15/+15/+20), each with the promotion it needs.
  *
  * And for builds, combat/weapons/<id>.json (each weapon's skills the same way,
  * its base ATK by level, its skills' level caps) and combat/gear.json (every
@@ -114,10 +116,10 @@ const [skillNames, buffNames] = await Promise.all([listing('Json/SkillData'), li
 const SKILLS = new Set(skillNames);
 const BUFFS = new Set(buffNames);
 const table = (name) => (LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', `${name}.json`), 'utf8')) : get(`TableCfg/${name}.json`));
-const [PATCH, TALENTS, CONDITIONS, ATTR_META, CHARACTERS, WEAPONS, WEAPON_LEVELS, WEAPON_BREAKS, WEAPON_TALENTS, EQUIP, SUITS, COMPOSITES] = await Promise.all(
+const [PATCH, TALENTS, CONDITIONS, ATTR_META, CHARACTERS, WEAPONS, WEAPON_LEVELS, WEAPON_BREAKS, WEAPON_TALENTS, EQUIP, SUITS, COMPOSITES, GROWTH] = await Promise.all(
   [
     'SkillPatchTable', 'PotentialTalentEffectTable', 'SkillConditionTable', 'AttributeMetaTable', 'CharacterTable', 'WeaponBasicTable', 'WeaponUpgradeTemplateTable',
-    'WeaponBreakThroughTemplateTable', 'WeaponTalentTemplateTable', 'EquipTable', 'EquipSuitTable', 'CompositeAttributeTable',
+    'WeaponBreakThroughTemplateTable', 'WeaponTalentTemplateTable', 'EquipTable', 'EquipSuitTable', 'CompositeAttributeTable', 'CharGrowthTable',
   ].map(table),
 );
 /**
@@ -187,7 +189,13 @@ async function bundle(opId) {
     const attrs = named(row.Attribute.attrs);
     levels[attrs.Level] = attrs;
   }
-  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels } : undefined;
+  // Attribute talents: each node's additions and the promotion (break stage) it needs.
+  const nodes = Object.values(GROWTH?.[opId]?.talentNodeMap ?? {})
+    .map((n) => n.attributeNodeInfo)
+    .filter((n) => n?.attributeModifiers?.length)
+    .map((n) => ({ stage: n.breakStage, attrs: n.attributeModifiers.filter((m) => ATTRIBUTES[m.attrType]).map((m) => ({ attr: ATTRIBUTES[m.attrType], value: Number(m.attrValue), how: m.modifierType })) }))
+    .sort((a, b) => a.stage - b.stage);
+  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels, nodes } : undefined;
   // dontInterruptCombo: casting a skill keeps the basic attack chain where it was.
   return { element: c?.charTypeId, dontInterruptCombo: !!c?.dontInterruptCombo, ...(await follow(roots)), talents, conditions, attributes: ATTRIBUTES, composites: COMPOSITE, base };
 }
