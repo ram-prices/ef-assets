@@ -201,7 +201,8 @@ async function bundle(opId) {
     .sort((a, b) => a.stage - b.stage);
   const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels, nodes } : undefined;
   // dontInterruptCombo: casting a skill keeps the basic attack chain where it was.
-  return { element: c?.charTypeId, dontInterruptCombo: !!c?.dontInterruptCombo, ...(await follow(roots)), talents, conditions, attributes: ATTRIBUTES, composites: COMPOSITE, base };
+  // profession: the operator's class, as the wiki names it (Gilberta's talent checks it).
+  return { element: c?.charTypeId, profession: operators[opId]?.class, dontInterruptCombo: !!c?.dontInterruptCombo, ...(await follow(roots)), talents, conditions, attributes: ATTRIBUTES, composites: COMPOSITE, base };
 }
 
 async function weapon(id) {
