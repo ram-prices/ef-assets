@@ -240,7 +240,8 @@ const index = {
 /**
  * A scene's flow from the dialogue trees, by index: a number is a line (in
  * `lines`), { r: [[reply, Flow], ...] } a choice with what each reply leads
- * to, "back" a return to the last choice, { v: [Flow, ...], w: [label, ...] }
+ * to, "back" a return to the last choice, "end" the end of the conversation
+ * (in a branch), { v: [Flow, ...], w: [label, ...] }
  * ways the scene goes by a condition (w names them; an empty way: nothing
  * extra). A tree can hold several scenes (a condition picking which plays):
  * each scene takes its part of the tree that has most of its lines, and a
@@ -281,7 +282,7 @@ async function labels(c, s) {
     // mission state 3 is done, 2 under way (Innovate to Cultivate: "We can finally catch a breath" / "Let's hope everything goes smoothly").
     case 'CheckQuestState': {
       const o = await objective(c.questId);
-      return c.targetQuestState === 3 ? [o ? `While the objective is “${o}”` : 'During an objective', 'Otherwise'] : ['At one point', 'Otherwise'];
+      return c.targetQuestState === 3 ? [o ? `While the objective is “${o}”` : 'At this point in the mission', 'Otherwise'] : ['At one point', 'Otherwise'];
     }
     case 'CheckMissionState': {
       const name = names[c.missionId] ? `“${names[c.missionId]}”` : 'the mission';
@@ -316,7 +317,7 @@ async function flowOf(s, lines) {
   const walk = async (steps) => {
     const out = [];
     for (const x of steps) {
-      if (x === 'back') out.push('back');
+      if (x === 'back' || x === 'end') out.push(x);
       else if (typeof x === 'string') {
         const m = own.exec(x);
         if (m && at.has(Number(m[1]))) out.push(at.get(Number(m[1])));

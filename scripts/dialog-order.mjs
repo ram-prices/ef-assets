@@ -105,12 +105,15 @@ function flowOf(tree, name) {
   const lineOf = (i) => nodes.get(i)._actorNodeData?.mfTrunkActionData?._trunkId ?? null;
   const optionOf = (id) => id;
   const memo = new Map();
-  const seq = (i, stop, active) => {
-    const key = `${i}|${stop}|${[...active].sort().join(',')}`;
+  // `stops`: where every enclosing branch joins again (a branch ends there, its lines go on below);
+  // a branch that reaches the end instead ends with "end".
+  const seq = (i, stops, active) => {
+    const key = `${i}|${[...stops].sort().join(',')}|${[...active].sort().join(',')}`;
     if (memo.has(key)) return memo.get(key);
     const items = [];
     const seen = new Set();
-    while (i != null && i !== stop) {
+    const branch = stops.size > 0;
+    while (i != null && !stops.has(i)) {
       if (active.has(i)) {
         items.push('back');
         break;
@@ -118,23 +121,25 @@ function flowOf(tree, name) {
       if (seen.has(i)) break;
       seen.add(i);
       const k = kind(nodes.get(i));
-      if (k === 'OptionNode') {
-        const opts = (nodes.get(i)._normalOptions ?? []).map((o) => optionOf(o._optionId));
+      if (k === 'OptionNode' || k === 'IfNode') {
         const targets = edges(i).map(first);
         const inner = new Set([...active, i]);
         const m = meet(targets, inner);
-        items.push({ r: opts.map((o, j) => [o, targets[j] != null && targets[j] !== m ? seq(targets[j], m, inner) : []]) });
+        const within = m == null ? stops : new Set([...stops, m]);
+        const way = (t) => (t == null ? (within.size ? ['end'] : []) : t === m ? [] : seq(t, within, inner));
+        if (k === 'OptionNode') {
+          const opts = (nodes.get(i)._normalOptions ?? []).map((o) => optionOf(o._optionId));
+          items.push({ r: opts.map((o, j) => [o, way(targets[j])]) });
+        } else {
+          // A condition: its first way when it holds, the second when not.
+          items.push({ v: targets.map(way), c: conditionOf(nodes.get(i)._dialogIfData?.condition) });
+        }
         i = m;
         continue;
       }
-      // A condition: its first way when it holds, the second when not.
-      if (k === 'IfNode') {
-        const targets = edges(i).map(first);
-        const inner = new Set([...active, i]);
-        const m = meet(targets, inner);
-        items.push({ v: targets.map((t) => (t != null && t !== m ? seq(t, m, inner) : [])), c: conditionOf(nodes.get(i)._dialogIfData?.condition) });
-        i = m;
-        continue;
+      if (k === 'FinishNode') {
+        if (branch) items.push('end');
+        break;
       }
       if (k === 'TrunkNode') {
         const l = lineOf(i);
@@ -143,18 +148,20 @@ function flowOf(tree, name) {
       const nx = nexts(i);
       if (nx.length > 1) {
         const m = meet(nx, active);
-        items.push({ v: nx.map((t) => (t !== m ? seq(t, m, active) : [])) });
+        const within = m == null ? stops : new Set([...stops, m]);
+        items.push({ v: nx.map((t) => (t === m ? [] : seq(t, within, active))) });
         i = m;
         continue;
       }
       i = nx[0] ?? null;
+      if (i == null && branch) items.push('end');
     }
     memo.set(key, items);
     return items;
   };
   const incoming = new Set([...out.values()].flat());
   const start = [...nodes.keys()].find((i) => !incoming.has(i));
-  return start == null ? [] : seq(start, null, new Set());
+  return start == null ? [] : seq(start, new Set(), new Set());
 }
 
 const order = {};
