@@ -4,22 +4,22 @@
  * trees (Beyond.Gameplay.DialogTree, the dlg_<mission>_<scene>.txt assets
  * in the game's bundles), written to dialog/order.json for scripts/story.mjs.
  *
- * Each tree is lines (trunk nodes) and reply nodes joined by connections.
- * Walked from its start: a line is its number, a reply node is where the
- * player picks, with the lines each reply leads to until the replies meet
- * again; a reply that leads back to a choice already on the way ends "back";
- * a line that goes on two ways (by conditions the trees don't name) is a split.
+ * Each tree is lines (trunk nodes), reply nodes and conditions joined by
+ * connections. Walked from its start: a reply node is where the player picks,
+ * with the lines each reply leads to until the replies meet again; a reply
+ * that leads back to a choice already on the way ends "back"; a condition
+ * (DialogTreeIfNode) goes its first way when it holds, else its second. A
+ * tree can hold several scenes' lines (a condition choosing which scene
+ * plays): story.mjs takes each scene's part.
  *
  *   node scripts/dialog-order.mjs <folder with the exported bundles>
  *
  * The trees aren't in the online dump: run it on an export of the bundles.
  *
  * Output: { "<tree>": Flow } where Flow = Step[], Step =
- *   number            a line of the tree's own scene (dlg_<tree>_<number>)
- *   string            a line of another scene (its full id)
- *   { r: [[id, Flow], ...] }   replies (option id without "option_dlg_<tree>_"), each with its own lines
- *   "back"            back to the last choice on the way
- *   { v: [Flow, ...] }  the dialogue goes one of these ways
+ *   string            a line (its id) or "back": back to the last choice on the way
+ *   { r: [[option id, Flow], ...] }   a choice, each reply with its own lines
+ *   { v: [Flow, ...], c? }  ways the dialogue goes: by condition c (its type t and values), else unnamed
  */
 import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -30,7 +30,20 @@ if (!root) throw new Error('usage: node scripts/dialog-order.mjs <export folder>
 const OUT = fileURLToPath(new URL('../dialog/', import.meta.url));
 
 const kind = (x) => x.$type.split('.').pop().replace('DialogTree', '').replace('Dialog', '');
-const CONTENT = new Set(['TrunkNode', 'OptionNode', 'FinishNode']);
+const CONTENT = new Set(['TrunkNode', 'OptionNode', 'FinishNode', 'IfNode']);
+
+/** A condition, compact: its type (t) and its values ({ constValue } unwrapped), sub-conditions (s) for combined ones. */
+function conditionOf(c) {
+  if (!c) return null;
+  const out = { t: (c.$type ?? '').split('.').pop() };
+  for (const [k, v] of Object.entries(c)) {
+    if (k === '$type') continue;
+    if (k === 'subConditions') out.s = v.map(conditionOf);
+    else if (v && typeof v === 'object' && 'constValue' in v) out[k.replace(/^_/, '')] = v.constValue;
+    else if (v != null && typeof v !== 'object') out[k.replace(/^_/, '')] = v;
+  }
+  return out;
+}
 
 function files(dir, out = []) {
   for (const f of readdirSync(dir)) {
@@ -89,13 +102,8 @@ function flowOf(tree, name) {
     }
     return best;
   };
-  const lineOf = (i) => {
-    const id = nodes.get(i)._actorNodeData?.mfTrunkActionData?._trunkId;
-    if (!id) return null;
-    const own = id.startsWith(`${name}_`) && /^\d+$/.test(id.slice(name.length + 1));
-    return own ? Number(id.slice(name.length + 1)) : id;
-  };
-  const optionOf = (id) => id.replace(`option_${name}_`, '');
+  const lineOf = (i) => nodes.get(i)._actorNodeData?.mfTrunkActionData?._trunkId ?? null;
+  const optionOf = (id) => id;
   const memo = new Map();
   const seq = (i, stop, active) => {
     const key = `${i}|${stop}|${[...active].sort().join(',')}`;
@@ -116,6 +124,15 @@ function flowOf(tree, name) {
         const inner = new Set([...active, i]);
         const m = meet(targets, inner);
         items.push({ r: opts.map((o, j) => [o, targets[j] != null && targets[j] !== m ? seq(targets[j], m, inner) : []]) });
+        i = m;
+        continue;
+      }
+      // A condition: its first way when it holds, the second when not.
+      if (k === 'IfNode') {
+        const targets = edges(i).map(first);
+        const inner = new Set([...active, i]);
+        const m = meet(targets, inner);
+        items.push({ v: targets.map((t) => (t != null && t !== m ? seq(t, m, inner) : [])), c: conditionOf(nodes.get(i)._dialogIfData?.condition) });
         i = m;
         continue;
       }
@@ -150,10 +167,9 @@ for (const p of files(root).sort((a, b) => newest(a) - newest(b) || a.localeComp
   const tree = JSON.parse(readFileSync(p, 'utf8').replace(/:\s*-?(?:Infinity|NaN)(?=\s*[,}\]])/g, ': null'));
   if (tree.type !== 'Beyond.Gameplay.DialogTree') continue;
   const flow = flowOf(tree, name);
-  if (!flow.length) continue;
-  order[name] = flow;
-  replies += JSON.stringify(flow).split('"r":').length - 1;
+  if (flow.length) order[name] = flow;
 }
+for (const flow of Object.values(order)) replies += JSON.stringify(flow).split('"r":').length - 1;
 mkdirSync(OUT, { recursive: true });
 writeFileSync(join(OUT, 'order.json'), `${JSON.stringify({ note: "Dialogue order from the game's dialogue trees. Game data © Gryphline / Hypergryph.", trees: order })}\n`);
 console.log(`dialog order: ${Object.keys(order).length} trees, ${replies} reply groups`);

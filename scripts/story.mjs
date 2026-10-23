@@ -238,30 +238,128 @@ const index = {
   missions: {},
 };
 /**
- * A scene's flow from its dialogue tree, by index: a number is a line (in
+ * A scene's flow from the dialogue trees, by index: a number is a line (in
  * `lines`), { r: [[reply, Flow], ...] } a choice with what each reply leads
- * to, "back" a return to the last choice, { v: [Flow, ...] } one of several
- * ways. Lines without English text and other scenes' lines are left out.
+ * to, "back" a return to the last choice, { v: [Flow, ...], w: [label, ...] }
+ * ways the scene goes by a condition (w names them; an empty way: nothing
+ * extra). A tree can hold several scenes (a condition picking which plays):
+ * each scene takes its part of the tree that has most of its lines, and a
+ * condition that only chose between scenes drops out.
  */
-function flowOf(tree, s, lines) {
-  const at = new Map(lines.map((l, i) => [l.n, i]));
-  const reply = (code) => {
-    const [g, n] = code.split('_').map(Number);
-    return s.options.get(g)?.find((o) => o.n === n)?.text;
-  };
-  const walk = (steps) =>
-    steps.flatMap((x) => {
-      if (typeof x === 'number') return at.has(x) ? [at.get(x)] : [];
-      if (x === 'back') return ['back'];
-      if (typeof x === 'string') return [];
-      if (x.r) {
-        const r = x.r.map(([code, then]) => [reply(code), walk(then)]).filter(([text]) => text);
-        return r.length ? [{ r }] : [];
-      }
-      return [{ v: x.v.map(walk) }];
-    });
-  return walk(tree);
+const treesOf = new Map(); // scene id → trees with its lines
+for (const [tree, flow] of Object.entries(ORDER)) {
+  for (const id of JSON.stringify(flow).match(/"dlg_[^"]+_\d+"/g) ?? []) {
+    const sid = id.slice(1, -1).replace(/_\d+$/, '');
+    if (!treesOf.has(sid)) treesOf.set(sid, new Set());
+    treesOf.get(sid).add(tree);
+  }
 }
+
+/** Objective text by quest id (e1m3_q#52 → "Meet the Endfield operator"), from each mission's runtime data. */
+const objectives = new Map();
+async function objective(questId) {
+  if (objectives.has(questId)) return objectives.get(questId);
+  const mission = questId.replace(/_q#.*$/, '');
+  let text = null;
+  try {
+    const m = await get(`${DUMP}/Json/MissionRuntimeAsset/${mission}.json`);
+    const key = m?.questDic?.[questId]?.objectiveList?.[0]?.description?.key;
+    text = key ? T(texts[key]) : null;
+  } catch {
+    text = null;
+  }
+  const plainText = text ? versions(text)[0].replace(/<[^>]*>/g, '').replace(/⟦\w+\|([^⟧]*)⟧/g, '$1') : null;
+  objectives.set(questId, plainText);
+  return plainText;
+}
+
+/** What a condition's two ways are called. */
+async function labels(c, s) {
+  const done = (what) => [`Once ${what} is done`, 'Before that'];
+  switch (c?.t) {
+    case 'CheckQuestState': {
+      const o = await objective(c.questId);
+      return c.targetQuestState === 3 ? done(o ? `“${o}”` : 'an objective') : ['At one point', 'Otherwise'];
+    }
+    case 'CheckMissionState': {
+      const name = names[c.missionId] ? `“${names[c.missionId]}”` : 'the mission';
+      return c.targetMissionState === 3 ? done(name) : [`While ${name} is under way`, 'Otherwise'];
+    }
+    case 'CheckTalkOptionFinish':
+      return ["If you've talked before", 'The first time'];
+    case 'CheckOptionSelectedInCurDialog': {
+      const m = new RegExp(`^option_${s.sid}_(\\d+)_(\\d+)$`).exec(c.optionId ?? '');
+      const text = m ? s.options.get(Number(m[1]))?.find((o) => o.n === Number(m[2]))?.text : null;
+      return text ? [`If you picked “${text}”`, 'Otherwise'] : ['Depending on your reply', 'Otherwise'];
+    }
+    case 'CheckPlayerGender':
+    case 'CheckNarrativeGender':
+      return ['For one Endministrator', 'For the other'];
+    case 'PlayerHasItemInItemBag':
+    case 'CheckItemBagCanPutInServer':
+      return ['If you have the items', 'Otherwise'];
+    default:
+      return ['Sometimes', 'Otherwise'];
+  }
+}
+
+async function flowOf(s, lines) {
+  const at = new Map(lines.map((l, i) => [l.n, i]));
+  const own = new RegExp(`^${s.sid}_(\\d+)$`);
+  const reply = (id) => {
+    const m = new RegExp(`^option_${s.sid}_(\\d+)_(\\d+)$`).exec(id);
+    return m ? s.options.get(Number(m[1]))?.find((o) => o.n === Number(m[2]))?.text : undefined;
+  };
+  const has = (steps) => steps.some((x) => typeof x === 'number' || (typeof x === 'object' && x !== null));
+  const walk = async (steps) => {
+    const out = [];
+    for (const x of steps) {
+      if (x === 'back') out.push('back');
+      else if (typeof x === 'string') {
+        const m = own.exec(x);
+        if (m && at.has(Number(m[1]))) out.push(at.get(Number(m[1])));
+      } else if (x.r) {
+        const r = [];
+        for (const [id, then] of x.r) {
+          const text = reply(id);
+          if (text) r.push([text, await walk(then)]);
+          // Another scene's choice: whatever of this scene follows it stays in place.
+          else out.push(...(await walk(then)));
+        }
+        if (r.length) out.push({ r });
+      } else {
+        const ways = [];
+        for (const v of x.v) ways.push(await walk(v));
+        const kept = ways.filter(has).length;
+        // Ways that were empty to begin with mean "nothing extra" (an "only when" split); ways with
+        // only other scenes' lines mean the condition chose the scene: then this scene's way is the scene.
+        const trulyEmpty = x.v.some((v) => !v.length);
+        if (!kept) continue;
+        if (kept === 1 && !trulyEmpty) out.push(...ways.find(has));
+        else out.push({ v: ways, w: x.c ? await labels(x.c, s) : ways.map(() => 'Or') });
+      }
+    }
+    return out;
+  };
+  let best = null;
+  let bestCount = -1;
+  for (const tree of treesOf.get(s.sid) ?? []) {
+    const flow = await walk(ORDER[tree]);
+    const count = (JSON.stringify(flow).match(/\d+/g) ?? []).length;
+    if (count > bestCount) (best = flow), (bestCount = count);
+  }
+  return best && best.length ? best : null;
+}
+
+// Every scene's flow first (labels may need a mission's runtime data).
+const flowByScene = new Map();
+for (const id of known)
+  for (const s of missions.get(id).values()) {
+    if (!s.lines.length) continue;
+    const sid = `dlg_${id}_${s.key}`;
+    const flow = await flowOf({ ...s, sid }, [...s.lines].sort((a, b) => a.n - b.n));
+    if (flow) flowByScene.set(sid, flow);
+  }
 
 let partial = 0;
 let ordered = 0;
@@ -273,7 +371,7 @@ for (const id of known) {
       const sid = `dlg_${id}_${s.key}`;
       const sorted = s.lines.sort((a, b) => a.n - b.n);
       // Where the tree is known, the flow places the replies (options stays for pages that don't read it).
-      const flow = ORDER[sid] ? flowOf(ORDER[sid], s, sorted) : null;
+      const flow = flowByScene.get(sid) ?? null;
       if (flow) ordered++;
       return {
         id: sid,
