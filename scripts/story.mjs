@@ -261,17 +261,29 @@ const objectives = new Map();
 async function objective(questId) {
   if (objectives.has(questId)) return objectives.get(questId);
   const mission = questId.replace(/_q#.*$/, '');
-  let text = null;
+  let found = null;
   try {
     const m = await get(`${DUMP}/Json/MissionRuntimeAsset/${mission}.json`);
-    const key = m?.questDic?.[questId]?.objectiveList?.[0]?.description?.key;
-    text = key ? T(texts[key]) : null;
+    const textOf = (q) => {
+      const key = m?.questDic?.[q]?.objectiveList?.[0]?.description?.key;
+      const t = key ? T(texts[key]) : null;
+      return t ? versions(t)[0].replace(/<[^>]*>/g, '').replace(/⟦\w+\|([^⟧]*)⟧/g, '$1') : null;
+    };
+    // A hidden step (no objective text) goes by the step before it that has one.
+    let q = questId;
+    for (let back = 0; q && back < 4; back++) {
+      const t = textOf(q);
+      if (t) {
+        found = { text: t, before: back > 0 };
+        break;
+      }
+      q = m?.questDic?.[q]?.prevQuestIdList?.[0];
+    }
   } catch {
-    text = null;
+    found = null;
   }
-  const plainText = text ? versions(text)[0].replace(/<[^>]*>/g, '').replace(/⟦\w+\|([^⟧]*)⟧/g, '$1') : null;
-  objectives.set(questId, plainText);
-  return plainText;
+  objectives.set(questId, found);
+  return found;
 }
 
 /** What a condition's two ways are called. */
@@ -282,7 +294,10 @@ async function labels(c, s) {
     // mission state 3 is done, 2 under way (Innovate to Cultivate: "We can finally catch a breath" / "Let's hope everything goes smoothly").
     case 'CheckQuestState': {
       const o = await objective(c.questId);
-      return c.targetQuestState === 3 ? [o ? `While the objective is “${o}”` : 'At this point in the mission', 'Otherwise'] : ['At one point', 'Otherwise'];
+      if (c.targetQuestState !== 3) return ['At one point', 'Otherwise'];
+      if (!o) return ['At this point in the mission', 'Otherwise'];
+      // A hidden step is current right after the step before it.
+      return [o.before ? `After “${o.text}”` : `While the objective is “${o.text}”`, 'Otherwise'];
     }
     case 'CheckMissionState': {
       const name = names[c.missionId] ? `“${names[c.missionId]}”` : 'the mission';
