@@ -10,11 +10,22 @@
  *   animation, voice...): the simulator runs the rest.
  * - buffs: every buff those skills or buffs create, check or end, the same way.
  * - patch: the skill table's numbers per rank (blackboard values, cooldown, cost).
+ * - talents: PotentialTalentEffectTable's entries for the operator (talent
+ *   levels and Potentials), `conditions` they depend on (SkillConditionTable),
+ *   and `attributes`: attribute numbers as the names the data uses.
+ * - base: the operator's attributes at each level (CharacterTable, at the
+ *   level's highest promotion), and which attributes are its main and secondary.
+ *
+ * And for builds, combat/weapons/<id>.json (each weapon's skills the same way,
+ * its base ATK by level, its skills' level caps) and combat/gear.json (every
+ * gear piece's stats at each artifice level, the sets' skills).
  *
  * Anything a file names that looks like a skill or buff id is followed, so a
  * new kind of action doesn't hide what it uses.
  *
- *   node scripts/combat-bundle.mjs [operator id ...] [--local <dump output folder>]
+ *   node scripts/combat-bundle.mjs [operator id ...] [--builds] [--local <dump output folder>]
+ *
+ * With operator ids, only those are written (and weapons and gear with --builds).
  *
  * Skill and buff files are fetched a few at a time and cached in the system
  * temp folder between runs (`--local` reads only SkillPatchTable locally:
@@ -78,7 +89,7 @@ const PRESENTATION = new Set(
     'SetAnimatorParamAction+', 'DebugPrintAction+', 'NotifyCharPassiveUIAction+', 'DisableMoveColliderAction+', 'DisableRootMotionAction+',
     'SetIgnoreGlobalTimeScaleAction+', 'AddCameraControlStateAction+AddCameraControlStateAction', 'InheritCCSAction+', 'IgnoreModelIntervalCheck+',
     'RaiseTrainLevelEvent+', 'TeleportAction+', 'TeleportPosSelectAction+', 'SelfRotateAction+', 'MoveToAction+', 'SnapToTargetWithRangeAction+',
-    'JumpToAction+', 'BlowOffAction+', 'PushBackAction+', 'PullAction+',
+    'BlowOffAction+', 'PushBackAction+', 'PullAction+',
   ].map((t) => t.replace(/\+$/, '')),
 );
 /** Fields that only describe presentation. */
@@ -102,13 +113,36 @@ function trim(node, ids) {
 const [skillNames, buffNames] = await Promise.all([listing('Json/SkillData'), listing('Json/BuffData')]);
 const SKILLS = new Set(skillNames);
 const BUFFS = new Set(buffNames);
-const PATCH = LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', 'SkillPatchTable.json'), 'utf8')) : await get('TableCfg/SkillPatchTable.json');
+const table = (name) => (LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', `${name}.json`), 'utf8')) : get(`TableCfg/${name}.json`));
+const [PATCH, TALENTS, CONDITIONS, ATTR_META, CHARACTERS, WEAPONS, WEAPON_LEVELS, WEAPON_BREAKS, WEAPON_TALENTS, EQUIP, SUITS, COMPOSITES] = await Promise.all(
+  [
+    'SkillPatchTable', 'PotentialTalentEffectTable', 'SkillConditionTable', 'AttributeMetaTable', 'CharacterTable', 'WeaponBasicTable', 'WeaponUpgradeTemplateTable',
+    'WeaponBreakThroughTemplateTable', 'WeaponTalentTemplateTable', 'EquipTable', 'EquipSuitTable', 'CompositeAttributeTable',
+  ].map(table),
+);
+/**
+ * Attribute numbers as the data's names: the names gear stats give them
+ * (EquipTable packAttrType: 87 → PhysicalAndSpellInflictionEnhance, Arts
+ * Intensity), else their icon's (icon_attribute_wisd → Wisd).
+ */
+const ATTRIBUTES = Object.fromEntries(
+  Object.values(ATTR_META)
+    .filter((a) => a.iconName)
+    .map((a) => [a.attributeType, a.iconName.replace(/^icon_(attribute_)?/, '').replace(/(^|_)(\w)/g, (_, __, c) => c.toUpperCase())]),
+);
+for (const e of Object.values(EQUIP)) for (const d of e.displayAttrModifiers ?? []) if (d.attrType && d.packAttrType && !d.compositeAttr) ATTRIBUTES[d.attrType] = d.packAttrType;
+ATTRIBUTES[0] = 'Level';
+// Two numbers share the Ether icon: 55 sits with the DMG bonuses (50-54).
+ATTRIBUTES[55] = 'EtherDamageIncrease';
+/** Names that stand for several attributes (AllSkillDamageIncrease → the battle skill's, combo's and ultimate's). */
+const COMPOSITE = Object.fromEntries(Object.entries(COMPOSITES).map(([k, v]) => [k, v.list]));
 const operators = JSON.parse(readFileSync(join(ROOT, 'wiki', 'operators.json'), 'utf8')).operators;
 
-async function bundle(opId) {
+/** Skills and buffs from `roots`, and every one they reach, without presentation; and their skill table rows. */
+async function follow(roots) {
   const skills = {};
   const buffs = {};
-  const queue = skillNames.filter((n) => n.startsWith(`${opId}_`));
+  const queue = roots.filter((id, i) => roots.indexOf(id) === i && (SKILLS.has(id) || BUFFS.has(id)));
   const seen = new Set(queue);
   while (queue.length) {
     const batch = queue.splice(0, 6);
@@ -136,11 +170,78 @@ async function bundle(opId) {
   return { skills, buffs, patch };
 }
 
+/** An attribute list ([{attrType, attrValue}]) by name. */
+const named = (attrs) => Object.fromEntries(attrs.filter((a) => ATTRIBUTES[a.attrType]).map((a) => [ATTRIBUTES[a.attrType], Number(a.attrValue)]));
+
+async function bundle(opId) {
+  // Talents and Potentials: what each level does (attach a skill or buff, set skill values, change attributes).
+  const talents = Object.fromEntries(Object.entries(TALENTS).filter(([k]) => k.startsWith(`${opId}_`)).map(([k, v]) => [k, v.dataList]));
+  const conditions = {};
+  for (const list of Object.values(talents)) for (const d of list) for (const c of d.activeCondition ?? []) if (CONDITIONS[c]) conditions[c] = CONDITIONS[c];
+  const roots = skillNames.filter((n) => n.startsWith(`${opId}_`));
+  for (const list of Object.values(talents)) for (const d of list) roots.push(...[d.attachBuff?.buffId, d.attachSkill?.skillId].filter(Boolean));
+  const c = CHARACTERS[opId];
+  // Each level at its highest promotion.
+  const levels = {};
+  for (const row of c?.attributes ?? []) {
+    const attrs = named(row.Attribute.attrs);
+    levels[attrs.Level] = attrs;
+  }
+  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels } : undefined;
+  // dontInterruptCombo: casting a skill keeps the basic attack chain where it was.
+  return { element: c?.charTypeId, dontInterruptCombo: !!c?.dontInterruptCombo, ...(await follow(roots)), talents, conditions, attributes: ATTRIBUTES, composites: COMPOSITE, base };
+}
+
+async function weapon(id) {
+  const w = WEAPONS[id];
+  const breaks = WEAPON_BREAKS[w.breakthroughTemplateId]?.list ?? [];
+  return {
+    weapon: id,
+    rarity: w.rarity,
+    type: w.weaponType,
+    // Its three skills: two attribute skills and its own; their level caps at full promotion, and what each Potential adds.
+    skillList: w.weaponSkillList,
+    maxSkillLevels: (breaks.at(-1)?.skillLevelBounds ?? []).map((b) => b.upperBound),
+    potentialLevels: (WEAPON_TALENTS[w.talentTemplateId]?.list ?? []).map((t) => t.skillLevelExtraBounds.map((b) => b.upperBound)),
+    baseAtk: Object.fromEntries((WEAPON_LEVELS[w.levelTemplateId]?.list ?? []).map((l) => [l.weaponLv, l.baseAtk])),
+    ...(await follow(w.weaponSkillList)),
+  };
+}
+
+/** Gear stats: BaseAddition (5) or BaseMultiplier (6), of an attribute or of the wearer's main (1) or secondary (2) one, at artifice 0–3. */
+const HOW = { 5: 'BaseAddition', 6: 'BaseMultiplier', 7: 'Addition', 8: 'FinalMultiplier' };
+async function gear() {
+  const items = {};
+  for (const [id, e] of Object.entries(EQUIP))
+    items[id] = {
+      suit: e.suitID || null,
+      part: e.partType,
+      level: e.minWearLv,
+      stats: (e.equipAttrModifiers ?? []).map((m) => ({
+        attr: m.modifyAttributeType === 1 ? 'Main' : m.modifyAttributeType === 2 ? 'Sub' : ATTRIBUTES[m.attrType] ?? String(m.attrType),
+        how: HOW[m.modifierType] ?? String(m.modifierType),
+        values: m.attrValues.map(Number),
+      })),
+    };
+  // Each set's effects by pieces worn.
+  const sets = Object.fromEntries(Object.entries(SUITS).map(([k, v]) => [k, (v.list ?? []).map((x) => ({ pieces: x.equipCnt, skill: x.skillID, level: x.skillLv }))]));
+  return { items, sets, ...(await follow(Object.values(sets).flatMap((l) => l.map((s) => s.skill)))) };
+}
+
+const stamp = () => ({ source: DUMP, note: 'Game data © Gryphline / Hypergryph.', fetched: new Date().toISOString().slice(0, 10) });
 const ids = only.length ? only : Object.keys(operators);
 mkdirSync(join(ROOT, 'combat', 'ops'), { recursive: true });
 for (const id of ids) {
   const b = await bundle(id);
-  const text = `${JSON.stringify({ source: DUMP, note: 'Game data © Gryphline / Hypergryph.', fetched: new Date().toISOString().slice(0, 10), operator: id, ...b })}\n`;
+  const text = `${JSON.stringify({ ...stamp(), operator: id, ...b })}\n`;
   writeFileSync(join(ROOT, 'combat', 'ops', `${id}.json`), text);
   console.log(`${operators[id]?.name ?? id}: ${Object.keys(b.skills).length} skills, ${Object.keys(b.buffs).length} buffs, ${(text.length / 1024).toFixed(0)} KB`);
+}
+if (!only.length || args.includes('--builds')) {
+  mkdirSync(join(ROOT, 'combat', 'weapons'), { recursive: true });
+  for (const id of Object.keys(WEAPONS)) writeFileSync(join(ROOT, 'combat', 'weapons', `${id}.json`), `${JSON.stringify({ ...stamp(), ...(await weapon(id)) })}\n`);
+  console.log(`${Object.keys(WEAPONS).length} weapons`);
+  const g = await gear();
+  writeFileSync(join(ROOT, 'combat', 'gear.json'), `${JSON.stringify({ ...stamp(), ...g })}\n`);
+  console.log(`gear: ${Object.keys(g.items).length} pieces, ${Object.keys(g.sets).length} sets`);
 }
