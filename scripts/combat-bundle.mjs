@@ -175,6 +175,9 @@ async function follow(roots) {
 /** An attribute list ([{attrType, attrValue}]) by name. */
 const named = (attrs) => Object.fromEntries(attrs.filter((a) => ATTRIBUTES[a.attrType]).map((a) => [ATTRIBUTES[a.attrType], Number(a.attrValue)]));
 
+/** Buffs the game's code applies, which no skill or buff file names: Vulnerability (Physical Statuses). */
+const CODE_BUFFS = ['buff_physical_no_guard'];
+
 async function bundle(opId) {
   // Talents and Potentials: what each level does (attach a skill or buff, set skill values, change attributes).
   const talents = Object.fromEntries(Object.entries(TALENTS).filter(([k]) => k.startsWith(`${opId}_`)).map(([k, v]) => [k, v.dataList]));
@@ -182,6 +185,7 @@ async function bundle(opId) {
   for (const list of Object.values(talents)) for (const d of list) for (const c of d.activeCondition ?? []) if (CONDITIONS[c]) conditions[c] = CONDITIONS[c];
   const roots = skillNames.filter((n) => n.startsWith(`${opId}_`));
   for (const list of Object.values(talents)) for (const d of list) roots.push(...[d.attachBuff?.buffId, d.attachSkill?.skillId].filter(Boolean));
+  roots.push(...CODE_BUFFS);
   const c = CHARACTERS[opId];
   // Each level at its highest promotion.
   const levels = {};
