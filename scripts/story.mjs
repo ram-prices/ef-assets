@@ -277,9 +277,11 @@ async function objective(questId) {
 async function labels(c, s) {
   const done = (what) => [`Once ${what} is done`, 'Before that'];
   switch (c?.t) {
+    // Quest state 3 is the current objective (Wellmorin's shop talk plays only while it's "Buy Tartpepper Seeds from Wellmorin");
+    // mission state 3 is done, 2 under way (Innovate to Cultivate: "We can finally catch a breath" / "Let's hope everything goes smoothly").
     case 'CheckQuestState': {
       const o = await objective(c.questId);
-      return c.targetQuestState === 3 ? done(o ? `“${o}”` : 'an objective') : ['At one point', 'Otherwise'];
+      return c.targetQuestState === 3 ? [o ? `While the objective is “${o}”` : 'During an objective', 'Otherwise'] : ['At one point', 'Otherwise'];
     }
     case 'CheckMissionState': {
       const name = names[c.missionId] ? `“${names[c.missionId]}”` : 'the mission';
