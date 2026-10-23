@@ -15,9 +15,11 @@
  * - items: English name, phase (solid, liquid, gas) and which regions'
  *   depots hold it (`depot`); a filled bottle is named after its bottle and
  *   what's in it.
+ * - depot: a belt's items a minute, the Depot Loader and Unloader, and a
+ *   core's free ports into and out of the depot.
  * - fuels: what a Thermal Bank makes from each fuel and how long it burns.
  * - regions: each region's PAC power, its areas' Protocol Capacity at every
- *   Regional Development level, and Regional Transfer (items an hour by
+ *   Regional Development level and ore and gas nodes (item, x, z), and Regional Transfer (items an hour by
  *   level, which items can go, the level where it stops losing items).
  *
  *   node scripts/aic.mjs [--dry-run] [--local <dump output folder>]
@@ -43,9 +45,10 @@ async function get(url) {
     await new Promise((ok) => setTimeout(ok, 2000 * (tries + 1)));
   }
 }
+const json = (path) => (LOCAL ? parse(readFileSync(join(LOCAL, 'raw', 'StreamingAssets', 'JsonData', 'Data', 'Json', path), 'utf8')) : get(`${RAW}/Json/${path}`));
 const table = (name) => (LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', `${name}.json`), 'utf8')) : get(`${RAW}/TableCfg/${name}.json`));
 
-const [en, itemTable, facItems, buildings, crafts, crafters, miners, gasMiners, pumps, fuels, hubs, domains, transfer, levels] = await Promise.all(
+const [en, itemTable, facItems, buildings, crafts, crafters, miners, gasMiners, pumps, fuels, hubs, domains, transfer, levels, belts] = await Promise.all(
   [
     'I18nTextTable_EN',
     'ItemTable',
@@ -61,8 +64,16 @@ const [en, itemTable, facItems, buildings, crafts, crafters, miners, gasMiners, 
     'DomainDataTable',
     'FactoryDomainItemTransmissionTable',
     'LevelDescTable',
+    'FactoryGridBeltTable',
   ].map(table),
 );
+// Every ore and gas node in each area, where it is (world x, z: one unit is one AIC grid cell).
+const factoryRegions = (await json('LevelGenForRuntime/TotalFactoryRegions.json')).regions;
+const nodesOf = (level) =>
+  factoryRegions
+    .filter((r) => r.sceneId === level)
+    .flatMap((r) => r.mines.map((m) => [m.itemId, m.trans.voxelPosition.x, m.trans.voxelPosition.z]));
+
 const T = (ref) => (ref && ref.id && ref.id !== '0' && ref.id !== 0 ? (en[String(ref.id)]?.trim() ?? null) : null);
 const PHASE = { 1: 'solid', 2: 'liquid', 4: 'gas' };
 const skip = (id) => /activity/.test(id);
@@ -96,8 +107,10 @@ for (const [id, p] of Object.entries(pumps)) {
   used.add('item_liquid_water');
   machinesUsed.add(id);
 }
-// Thermal Bank: listed with the fuels.
+// Thermal Bank: listed with the fuels. Depot Loader and Unloader: moving items between a site and its region's depot.
 machinesUsed.add('power_station_1');
+machinesUsed.add('loader_1');
+machinesUsed.add('unloader_1');
 for (const f of Object.keys(fuels)) used.add(f);
 
 // Item names; a filled bottle is "<bottle> (<what's in it>)", from the recipes that fill it.
@@ -140,6 +153,7 @@ const regions = Object.values(domains).map((d) => {
     id: lid,
     name: T(levels[lid]?.showName) ?? lid,
     capacity: lv.map((l) => l.domainDevelopmentLevelEffect[lid]?.bandwidth ?? 0),
+    nodes: nodesOf(lid),
   }));
   const t = transfer[d.domainId];
   return {
@@ -160,6 +174,14 @@ const out = {
   note: 'From the game’s own tables (EndfieldData dump). Game data © Gryphline / Hypergryph.',
   fetched: new Date().toISOString().slice(0, 10),
   thermalBank: 'power_station_1',
+  // A belt's items a minute; a core's (PAC or Sub-PAC) free ports into and out of the depot.
+  depot: {
+    loader: 'loader_1',
+    unloader: 'unloader_1',
+    beltPerMin: 60000 / belts.grid_belt_01.beltData.msPerRound,
+    coreIn: buildings.sp_sub_hub_1.inputPorts.length,
+    coreOut: buildings.sp_sub_hub_1.outputPorts.length,
+  },
   items,
   machines,
   recipes,
