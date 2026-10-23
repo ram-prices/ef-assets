@@ -33,7 +33,7 @@
  * temp folder between runs (`--local` reads only SkillPatchTable locally:
  * the local dump has the others in binary form).
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -253,3 +253,7 @@ if (!only.length || args.includes('--builds')) {
   writeFileSync(join(ROOT, 'combat', 'gear.json'), `${JSON.stringify({ ...stamp(), ...g })}\n`);
   console.log(`gear: ${Object.keys(g.items).length} pieces, ${Object.keys(g.sets).length} sets`);
 }
+// What's here, so a page can list it without a directory listing.
+const list = (dir) => readdirSync(join(ROOT, 'combat', dir)).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)).sort();
+writeFileSync(join(ROOT, 'combat', 'index.json'), `${JSON.stringify({ ...stamp(), ops: list('ops'), weapons: list('weapons') })}
+`);
