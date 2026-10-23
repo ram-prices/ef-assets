@@ -36,6 +36,8 @@ jobs:
         run: node scripts/event-rewards.mjs 2>&1 | tee -a report.txt
       - name: Regular income (wiki/income.json)
         run: node scripts/income.mjs 2>&1 | tee -a report.txt
+      - name: Exact income amounts from the game's tables (wiki/income.json, from the EndfieldData dump)
+        run: node scripts/game-income.mjs 2>&1 | tee -a report.txt
       - uses: actions/setup-python@v6
         with:
           python-version: '3.13'
