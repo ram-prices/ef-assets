@@ -100,8 +100,10 @@ for (const { id, body } of entries(bundle, 'weapons', 'wpn_')) {
 for (const id of Object.keys(operators)) if (wikiOps[id]) delete operators[id];
 for (const id of Object.keys(weapons)) if (wikiWeps[id]) delete weapons[id];
 
+// The date moves only with the content, so a run that found nothing new changes nothing (and opens no pull request).
+const unchanged = JSON.stringify({ operators: previous.operators, weapons: previous.weapons }) === JSON.stringify({ operators, weapons });
 const out = {
-  attribution: { source: 'Arknights: Endfield New Version Guide', url: GUIDE, fetched: new Date().toISOString().slice(0, 10) },
+  attribution: { source: 'Arknights: Endfield New Version Guide', url: GUIDE, fetched: (unchanged && previous.attribution?.fetched) || new Date().toISOString().slice(0, 10) },
   operators,
   weapons,
 };
