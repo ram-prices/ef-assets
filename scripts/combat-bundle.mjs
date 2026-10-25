@@ -16,7 +16,9 @@
  * - base: the operator's attributes at each level (CharacterTable, at the
  *   level's highest promotion), which attributes are its main and secondary,
  *   and `nodes`: the attribute talents (CharGrowthTable attribute nodes, such
- *   as "Forged": Strength +10/+15/+15/+20), each with the promotion it needs.
+ *   as "Forged": Strength +10/+15/+15/+20), each with the promotion it needs;
+ *   `talentStages`: each talent level's promotion (its passive skill node; a
+ *   level with none, such as Xaihi's talent_2_2, isn't obtainable).
  *
  * And for builds, combat/weapons/<id>.json (each weapon's skills the same way,
  * its base ATK by level, its skills' level caps) and combat/gear.json (every
@@ -206,7 +208,15 @@ async function bundle(opId) {
     .filter((n) => n?.attributeModifiers?.length)
     .map((n) => ({ stage: n.breakStage, attrs: n.attributeModifiers.filter((m) => ATTRIBUTES[m.attrType]).map((m) => ({ attr: ATTRIBUTES[m.attrType], value: Number(m.attrValue), how: m.modifierType })) }))
     .sort((a, b) => a.stage - b.stage);
-  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels, nodes } : undefined;
+  // Talent levels: the promotion each needs (its passive skill node). The Endministrators share one growth entry.
+  const growth = GROWTH?.[opId] ?? GROWTH?.[opId.replace('chr_0003_endminf', 'chr_0002_endminm')];
+  const talentStages = Object.fromEntries(
+    Object.values(growth?.talentNodeMap ?? {})
+      .map((n) => n.passiveSkillNodeInfo)
+      .filter((n) => n?.talentEffectId)
+      .map((n) => [opId + /_talent_\d+_\d+$/.exec(n.talentEffectId)[0], n.breakStage]),
+  );
+  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels, nodes, talentStages } : undefined;
   // dontInterruptCombo: casting a skill keeps the basic attack chain where it was.
   // profession: the operator's class, as the wiki names it (Gilberta's talent checks it).
   return { element: c?.charTypeId, profession: operators[opId]?.class, dontInterruptCombo: !!c?.dontInterruptCombo, ...(await follow(roots)), talents, conditions, attributes: ATTRIBUTES, composites: COMPOSITE, base };
