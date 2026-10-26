@@ -6,6 +6,9 @@ data.iconConfig._spritePath names a buff's icon (only buffs with data.hasIcon). 
 
     python scripts/buff-icons.py C:/Users/Albert/Development/EndfieldDataDump/output
 
+It also writes icons/buffs/main-only.json: the buffs whose icon the game draws only on the controlled operator's row
+(iconConfig.onlyShowForMainCharacter). `--main-only` after the path writes just that list.
+
 Needs UnityPy (decodes the icons' BC7 textures) and Pillow.
 """
 import glob
@@ -31,7 +34,41 @@ def bundle_of(dump):
     raise SystemExit(f'No {FOLDER} in asset_index.tsv: rebuild it (dumper/build_asset_index.py).')
 
 
+def buff_uses(dump):
+    """Each buff's icon, patched copies (Persistent) over the base ones, and the buffs only the controlled operator shows."""
+    uses = {}
+    main_only = set()
+    for root in ('StreamingAssets', 'Persistent'):
+        for path in glob.glob(os.path.join(dump, 'jsondata', root, 'BuffData', '*.json')):
+            data = json.load(open(path, encoding='utf8')).get('data', {})
+            config = data.get('iconConfig') or {}
+            sprite = config.get('_spritePath')
+            buff = os.path.splitext(os.path.basename(path))[0]
+            if str(data.get('hasIcon')) == 'True' and sprite:
+                uses[buff] = sprite
+            else:
+                uses.pop(buff, None)
+            if str(config.get('onlyShowForMainCharacter')) == 'True':
+                main_only.add(buff)
+            else:
+                main_only.discard(buff)
+    return uses, main_only
+
+
+def write_main_only(buffs):
+    with open(os.path.join(OUT, 'main-only.json'), 'w', encoding='utf8', newline='\n') as f:
+        json.dump(buffs, f, indent=1, ensure_ascii=False)
+        f.write('\n')
+
+
 def main():
+    # Only the main-only list, without the bundle (no UnityPy needed): --main-only.
+    if len(sys.argv) > 2 and sys.argv[2] == '--main-only':
+        uses, main_only = buff_uses(sys.argv[1])
+        index = json.load(open(os.path.join(OUT, 'index.json'), encoding='utf8'))
+        write_main_only(sorted(b for b in main_only if b in index))
+        print(f'{len(main_only & set(index))} buffs shown only on the controlled operator')
+        return
     if len(sys.argv) < 2:
         raise SystemExit(__doc__)
     dump = sys.argv[1]
@@ -48,22 +85,15 @@ def main():
             tex = obj.read()
             tex.image.save(os.path.join(OUT, tex.m_Name + '.webp'), 'WEBP', lossless=True)
             names.append(tex.m_Name)
-    # Each buff's icon, patched copies (Persistent) over the base ones.
-    uses = {}
-    for root in ('StreamingAssets', 'Persistent'):
-        for path in glob.glob(os.path.join(dump, 'jsondata', root, 'BuffData', '*.json')):
-            data = json.load(open(path, encoding='utf8')).get('data', {})
-            sprite = (data.get('iconConfig') or {}).get('_spritePath')
-            buff = os.path.splitext(os.path.basename(path))[0]
-            if str(data.get('hasIcon')) == 'True' and sprite:
-                uses[buff] = sprite
-            else:
-                uses.pop(buff, None)
+    uses, main_only = buff_uses(dump)
     have = set(names)
     index = {b: s for b, s in sorted(uses.items()) if s in have}
     with open(os.path.join(OUT, 'index.json'), 'w', encoding='utf8', newline='\n') as f:
         json.dump(index, f, indent=1, ensure_ascii=False)
         f.write('\n')
+    # Buffs the game draws only on the controlled operator's row (iconConfig.onlyShowForMainCharacter: Last Rite's
+    # Perfusion is on the whole team, its icon only on whoever is controlled).
+    write_main_only(sorted(b for b in main_only if b in index))
     missing = sorted(set(uses.values()) - have)
     print(f'{len(names)} icons, {len(index)} buffs mapped' + (f'; sprites with no icon: {missing}' if missing else ''))
 
