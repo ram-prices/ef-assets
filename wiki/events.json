@@ -5,9 +5,9 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-21"
+  "fetched": "2026-10-26"
  },
- "fetched": "2026-10-21",
+ "fetched": "2026-10-26",
  "events": {
   "1": {
    "name": "Gently Flows Qingbo",
@@ -5506,13 +5506,14 @@
    "limitedRewards": true,
    "partial": true,
    "totals": {
-    "T-Creds": 110000,
-    "Oroberyl": 1550,
+    "T-Creds": 170000,
+    "Oroberyl": 1600,
+    "Protohedron": 40,
     "Arms INSP Set": 20,
-    "Protohedron": 20,
     "Advanced Cognitive Carrier": 16,
     "Protoset": 16,
-    "Mark of Perseverance": 6
+    "Advanced Progression Selection Crate II": 10,
+    "Mark of Perseverance": 8
    },
    "groups": [
     {
@@ -5721,6 +5722,40 @@
         [
          "T-Creds",
          10000
+        ]
+       ]
+      },
+      {
+       "label": "Gourmand Grade: In \"Gourmand Feast\", successfully serve 10 Gourmands (excludes Trial Runs)",
+       "rewards": [
+        [
+         "Oroberyl",
+         50
+        ],
+        [
+         "Protohedron",
+         20
+        ],
+        [
+         "T-Creds",
+         10000
+        ]
+       ]
+      },
+      {
+       "label": "Perfection's Choice: In \"Gourmand Feast\", perfectly serve 20 Gourmands (excludes Trial Runs)",
+       "rewards": [
+        [
+         "Mark of Perseverance",
+         2
+        ],
+        [
+         "Advanced Progression Selection Crate II",
+         10
+        ],
+        [
+         "T-Creds",
+         50000
         ]
        ]
       }
@@ -5960,32 +5995,124 @@
     "asia": "2026-11-04T20:00:00Z",
     "americas": "2026-11-05T09:00:00Z"
    },
-   "unique": [
-    "Carly's Verdant Anthology (Frame)"
-   ],
-   "partial": true,
    "totals": {
-    "Oroberyl": 1500
+    "T-Creds": 150000,
+    "Oroberyl": 1000,
+    "Protoprism": 40,
+    "Advanced Combat Record": 30,
+    "Arms INSP Set": 30,
+    "Protohedron": 25,
+    "Protoset": 20,
+    "Protodisk": 15,
+    "Advanced Cognitive Carrier": 12,
+    "Mark of Perseverance": 6
    },
    "groups": [
     {
-     "title": "Event Details",
-     "partial": true,
+     "title": "Missions & Rewards",
      "rows": [
       {
-       "label": "Event Details",
+       "label": "New Adventure!",
        "rewards": [
         [
          "Oroberyl",
-         1500
-        ],
-        [
-         "Carly's Verdant Anthology (Frame)",
-         null
+         200
         ],
         [
          "Mark of Perseverance",
-         null
+         2
+        ],
+        [
+         "T-Creds",
+         30000
+        ],
+        [
+         "Advanced Combat Record",
+         30
+        ]
+       ]
+      },
+      {
+       "label": "Fowlbeast Explorer!",
+       "rewards": [
+        [
+         "Oroberyl",
+         200
+        ],
+        [
+         "T-Creds",
+         30000
+        ],
+        [
+         "Protohedron",
+         25
+        ],
+        [
+         "Protoprism",
+         40
+        ]
+       ]
+      },
+      {
+       "label": "Stone Guardians!",
+       "rewards": [
+        [
+         "Oroberyl",
+         200
+        ],
+        [
+         "Advanced Cognitive Carrier",
+         12
+        ],
+        [
+         "Mark of Perseverance",
+         2
+        ],
+        [
+         "T-Creds",
+         30000
+        ]
+       ]
+      },
+      {
+       "label": "It's A Stone King!",
+       "rewards": [
+        [
+         "Oroberyl",
+         200
+        ],
+        [
+         "T-Creds",
+         30000
+        ],
+        [
+         "Protoset",
+         20
+        ],
+        [
+         "Protodisk",
+         15
+        ]
+       ]
+      },
+      {
+       "label": "KYA! MONSTER!",
+       "rewards": [
+        [
+         "Oroberyl",
+         200
+        ],
+        [
+         "Mark of Perseverance",
+         2
+        ],
+        [
+         "T-Creds",
+         30000
+        ],
+        [
+         "Arms INSP Set",
+         30
         ]
        ]
       }
@@ -6095,11 +6222,11 @@
    },
    "groups": [
     {
-     "title": "Event Details",
+     "title": "Arena Milestone & Rewards",
      "partial": true,
      "rows": [
       {
-       "label": "Event Details",
+       "label": "Arena Milestone & Rewards",
        "rewards": [
         [
          "Oroberyl",
