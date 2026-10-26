@@ -5,9 +5,9 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-20"
+  "fetched": "2026-10-26"
  },
- "fetched": "2026-10-20",
+ "fetched": "2026-10-26",
  "daily": {
   "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Daily",
   "rewards": {
@@ -54,12 +54,10 @@
    "end": "2026-03-11T22:00:00Z",
    "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Awaken",
    "rewards": {
-    "Oroberyl": 600,
-    "Basic HH Permit": 2
+    "Oroberyl": 600
    },
    "originium": {
-    "Origeometry": 32,
-    "Basic HH Permit": 4
+    "Origeometry": 32
    },
    "customized": {
     "Origeometry": 16,
@@ -897,7 +895,7 @@
      "type": "Exploration Mission",
      "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage%2FMission",
      "rewards": {
-      "Oroberyl": 100
+      "Oroberyl": 60
      },
      "how": "region"
     },
@@ -1014,7 +1012,7 @@
      "type": "Exploration Mission",
      "url": "https://endfield.wiki.gg/wiki/OD_Project%3A_Infra-Station_I",
      "rewards": {
-      "Oroberyl": 50
+      "Oroberyl": 100
      },
      "how": "region"
     },
@@ -2330,96 +2328,56 @@
      "url": "https://endfield.wiki.gg/wiki/The_Hub",
      "region": "Valley IV",
      "crates": 107,
-     "aurylene": 43,
-     "chests": 120,
-     "rewards": {
-      "Oroberyl": 4080,
-      "Origeometry": 7
-     }
+     "aurylene": 43
     },
     {
      "area": "Valley Pass",
      "url": "https://endfield.wiki.gg/wiki/Valley_Pass",
      "region": "Valley IV",
      "crates": 12,
-     "aurylene": 14,
-     "chests": 14,
-     "rewards": {
-      "Oroberyl": 500,
-      "Origeometry": 1
-     }
+     "aurylene": 14
     },
     {
      "area": "Aburrey Quarry",
      "url": "https://endfield.wiki.gg/wiki/Aburrey_Quarry",
      "region": "Valley IV",
      "crates": 32,
-     "aurylene": 17,
-     "chests": 36,
-     "rewards": {
-      "Oroberyl": 1365,
-      "Origeometry": 2
-     }
+     "aurylene": 17
     },
     {
      "area": "Originium Science Park",
      "url": "https://endfield.wiki.gg/wiki/Originium_Science_Park",
      "region": "Valley IV",
      "crates": 36,
-     "aurylene": 30,
-     "chests": 44,
-     "rewards": {
-      "Oroberyl": 1665,
-      "Origeometry": 4
-     }
+     "aurylene": 30
     },
     {
      "area": "Origin Lodespring",
      "url": "https://endfield.wiki.gg/wiki/Origin_Lodespring",
      "region": "Valley IV",
      "crates": 65,
-     "aurylene": 39,
-     "chests": 82,
-     "rewards": {
-      "Oroberyl": 2930,
-      "Origeometry": 4
-     }
+     "aurylene": 39
     },
     {
      "area": "Power Plateau",
      "url": "https://endfield.wiki.gg/wiki/Power_Plateau",
      "region": "Valley IV",
      "crates": 36,
-     "aurylene": 23,
-     "chests": 40,
-     "rewards": {
-      "Oroberyl": 1285,
-      "Origeometry": 4
-     }
+     "aurylene": 23
     },
     {
      "area": "Jingyu Valley",
      "url": "https://endfield.wiki.gg/wiki/Jingyu_Valley",
      "region": "Wuling",
      "crates": 44,
-     "aurylene": 20,
-     "chests": 52,
-     "rewards": {
-      "Oroberyl": 1965,
-      "Origeometry": 2
-     }
+     "aurylene": 20
     },
     {
      "area": "Wuling City",
      "url": "https://endfield.wiki.gg/wiki/Wuling_City",
      "region": "Wuling",
      "crates": 198,
-     "aurylene": 61,
-     "chests": 214,
-     "rewards": {
-      "Oroberyl": 7650,
-      "Origeometry": 5
-     }
+     "aurylene": 61
     }
    ],
    "Old Deep Water Dies, by Rising Tide It is Denied": [
@@ -2428,12 +2386,7 @@
      "url": "https://endfield.wiki.gg/wiki/Qingbo_Stockade_(location)",
      "region": "Wuling",
      "crates": 36,
-     "aurylene": 14,
-     "chests": 39,
-     "rewards": {
-      "Oroberyl": 1185,
-      "Origeometry": 2
-     }
+     "aurylene": 14
     }
    ],
    "At the Wake of Spring": [
@@ -2442,34 +2395,14 @@
      "url": "https://endfield.wiki.gg/wiki/Marker_Stone",
      "region": "Wuling",
      "crates": 48,
-     "aurylene": 26,
-     "chests": 50,
-     "rewards": {
-      "Oroberyl": 1860,
-      "Origeometry": 3
-     }
-    },
-    {
-     "area": "Marker Stone Interiors",
-     "url": "https://endfield.wiki.gg/wiki/Marker_Stone",
-     "crates": 0,
-     "aurylene": 0,
-     "chests": 6,
-     "rewards": {
-      "Oroberyl": 210
-     }
+     "aurylene": 26
     },
     {
      "area": "Test Area",
      "url": "https://endfield.wiki.gg/wiki/Test_Area",
      "region": "Wuling",
      "crates": 32,
-     "aurylene": 17,
-     "chests": 35,
-     "rewards": {
-      "Oroberyl": 1195,
-      "Origeometry": 2
-     }
+     "aurylene": 17
     }
    ],
    "Sketches of Lost Heirlooms": [
@@ -2478,12 +2411,7 @@
      "url": "https://endfield.wiki.gg/wiki/Sword_Vault_Dale",
      "region": "Wuling",
      "crates": 40,
-     "aurylene": 15,
-     "chests": 42,
-     "rewards": {
-      "Oroberyl": 1465,
-      "Origeometry": 2
-     }
+     "aurylene": 15
     }
    ],
    "Homecoming": [
@@ -2492,24 +2420,14 @@
      "url": "https://endfield.wiki.gg/wiki/Yinglung_Pass",
      "region": "Wuling",
      "crates": 26,
-     "aurylene": 16,
-     "chests": 33,
-     "rewards": {
-      "Oroberyl": 905,
-      "Origeometry": 1
-     }
+     "aurylene": 16
     },
     {
      "area": "North Wuling Exclusion Zone",
      "url": "https://endfield.wiki.gg/wiki/North_Wuling_Exclusion_Zone",
      "region": "Wuling",
      "crates": 85,
-     "aurylene": 28,
-     "chests": 106,
-     "rewards": {
-      "Oroberyl": 3485,
-      "Origeometry": 2
-     }
+     "aurylene": 28
     }
    ],
    "Dreamscape of Wind and Snow": [
@@ -2518,23 +2436,14 @@
      "url": "https://endfield.wiki.gg/wiki/Snowy_Forest",
      "region": "Wuling",
      "crates": 39,
-     "aurylene": 13,
-     "chests": 43,
-     "rewards": {
-      "Oroberyl": 1390,
-      "Origeometry": 2
-     }
+     "aurylene": 13
     },
     {
      "area": "Suiming",
      "url": "https://endfield.wiki.gg/wiki/Suiming",
      "region": "Wuling",
      "crates": 28,
-     "aurylene": 0,
-     "chests": 28,
-     "rewards": {
-      "Oroberyl": 1440
-     }
+     "aurylene": 0
     }
    ],
    "Sanctuary of Ink": [
@@ -2543,12 +2452,7 @@
      "url": "https://endfield.wiki.gg/wiki/Si's_Painting",
      "region": "Wuling",
      "crates": 101,
-     "aurylene": 28,
-     "chests": 107,
-     "rewards": {
-      "Oroberyl": 3815,
-      "Origeometry": 3
-     }
+     "aurylene": 28
     }
    ]
   },
@@ -3136,17 +3040,6 @@
      "rewards": {
       "Oroberyl": 150
      }
-    },
-    {
-     "name": "Valley's Aberrants chests (3 of 6 zones)",
-     "section": "exploration",
-     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
-     "rewards": {
-      "Oroberyl": 1433
-     },
-     "count": 50,
-     "estimate": true,
-     "game": true
     }
    ],
    "Old Deep Water Dies, by Rising Tide It is Denied": [
@@ -3177,17 +3070,6 @@
      "rewards": {
       "Oroberyl": 200
      }
-    },
-    {
-     "name": "Valley's Aberrants chests (1 of 6 zones)",
-     "section": "exploration",
-     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
-     "rewards": {
-      "Oroberyl": 478
-     },
-     "count": 17,
-     "estimate": true,
-     "game": true
     }
    ],
    "At the Wake of Spring": [
@@ -3219,17 +3101,6 @@
      "rewards": {
       "Oroberyl": 200
      }
-    },
-    {
-     "name": "Valley's Aberrants chests (2 of 6 zones)",
-     "section": "exploration",
-     "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
-     "rewards": {
-      "Oroberyl": 955
-     },
-     "count": 33,
-     "estimate": true,
-     "game": true
     }
    ],
    "Sketches of Lost Heirlooms": [
@@ -3518,18 +3389,5 @@
     }
    ]
   }
- },
- "game": {
-  "source": "https://git.escartem.moe/Endfield/EndfieldData",
-  "note": "Amounts from the game’s own tables (EndfieldData dump); dates and random crate odds from the wiki.",
-  "exact": [
-   "daily",
-   "weekly",
-   "passes",
-   "quests",
-   "exploration",
-   "progression"
-  ],
-  "quests": 215
  }
 }
