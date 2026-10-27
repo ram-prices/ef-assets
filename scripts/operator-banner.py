@@ -24,6 +24,16 @@ writes banners/game/<pool id>.webp for each pool (special_1_6_1,
 rerun_chr_tangtang, ...); --full also writes <pool id>-full.png, the whole
 layout with its buttons and lettering, zoomed out, for checking.
 
+It also writes the same banner in two layers, so a page can move the
+operator a little against the rest (the site's mouse parallax):
+banners/game/layers/<pool id>-back.webp, the banner without its operator
+(the MainRoleImage node: the operator's figure; the motif behind them,
+MainShowImage, stays in the backdrop), and <pool id>-op.webp, the operator
+on transparency. The operator layer's
+colours and coverage are solved from the flat banner, so the operator over
+the backdrop gives back the flat picture exactly (whatever later layers
+blend over the operator is baked into it).
+
 Needs UnityPy, Pillow and NumPy.
 """
 import math
@@ -551,6 +561,7 @@ class Canvas:
         self.px = np.zeros((self.size[1], self.size[0], 4), np.float32)  # premultiplied
         self.base = to_screen(view, k)
         self.flat = False  # draw pictureless graphics (see read_graphic)
+        self.part = None  # None: everything; 'back': all but the operator art; 'op': only it
 
     def node_to_px(self, n, w, h):
         """Matrix from the node's graphic picture (w x h px, top-left origin) to output px."""
@@ -566,7 +577,7 @@ class Canvas:
         return pts, sc
 
 
-def draw(game, canvas, n, alpha, masks, full):
+def draw(game, canvas, n, alpha, masks, full, inside=False):
     if not n.active:
         return
     if not full and n.name in SKIP:
@@ -574,6 +585,8 @@ def draw(game, canvas, n, alpha, masks, full):
     if abs(np.linalg.det(n.m[:2, :2])) < 1e-9:  # scaled to nothing
         return
     alpha = n.alpha if n.ignore_parent_groups else alpha * n.alpha
+    # The operator's figure (MainRoleImage) and everything under it.
+    inside = inside or n.path.endswith('/Main/Bg/MainRoleImage')
     g = n.graphic
     own = None
     if g and g.get('image') is not None and (g['image'] != 'flat' or canvas.flat or (g['kind'] == 'image' and '/GroundBg/' in n.path)) and g.get('enabled', True) and n.rect[2] > 0.5 and n.rect[3] > 0.5:
@@ -598,6 +611,7 @@ def draw(game, canvas, n, alpha, masks, full):
                 m = (m > 0.01).astype(np.float32)
             child_masks = masks + [np.clip(m, 0, 1)]
         show = not (n.mask == 'stencil' and not n.show_mask_graphic) and (full or g.get('name') not in LETTERING)
+        show = show and (canvas.part is None or (canvas.part == 'op') == inside)
         if show and alpha > 0:
             layer = own * alpha
             for m in masks:
@@ -622,10 +636,11 @@ def draw(game, canvas, n, alpha, masks, full):
     elif n.mask is None or own is None:
         child_masks = masks
     for c in n.children:
-        draw(game, canvas, c, alpha, child_masks, full)
+        draw(game, canvas, c, alpha, child_masks, full, inside)
 
 
-def render(game, pool_id, view=None, width=W, full=False):
+def render(game, pool_id, view=None, width=W, full=False, part=None):
+    """The banner (RGB image), or with part='back' / 'op' that part's premultiplied pixels."""
     view = view or VIEW
     sf = game.prefab(pool_id)
     tree = read_tree(game, sf)
@@ -636,6 +651,7 @@ def render(game, pool_id, view=None, width=W, full=False):
     tree.a_min, tree.a_max, tree.size, tree.pos = (0, 0), (1, 1), [0, 0], [0, 0]
     place(tree, root_rect, np.eye(3))
     canvas = Canvas(view, width / view[2])
+    canvas.part = part
     panel = read_tree(game, game.panel())
     panel.a_min, panel.a_max, panel.size, panel.pos, panel.scale = (0, 0), (1, 1), [0, 0], [0, 0], (1, 1)
     place(panel, root_rect, np.eye(3))
@@ -646,8 +662,32 @@ def render(game, pool_id, view=None, width=W, full=False):
             draw(game, canvas, c, 1.0, [], False)
     canvas.flat = False
     draw(game, canvas, tree, 1.0, [], full)
+    if part:
+        return canvas.px
     out = np.clip(canvas.px[..., :3], 0, 1)  # premultiplied, over black
     return Image.fromarray((out * 255).astype(np.uint8), 'RGB')
+
+
+def layers(game, pool_id):
+    """(backdrop RGB, operator RGBA): the operator over the backdrop is the flat banner."""
+    flat = np.clip(np.asarray(render(game, pool_id), np.float32) / 255, 0, 1)
+    # 8-bit like render() makes the flat file (truncated, not rounded).
+    back = np.floor(np.clip(render(game, pool_id, part='back')[..., :3], 0, 1) * 255) / 255
+    a = np.clip(render(game, pool_id, part='op')[..., 3], 0, 1)
+    # The least coverage that lets a colour in 0..1 give the flat pixel over
+    # the backdrop, per channel: more where the flat is brighter or darker
+    # than the backdrop (additive glows, layers blended over the operator).
+    up = np.where(flat > back, (flat - back) / np.maximum(1 - back, 1e-6), 0)
+    down = np.where(flat < back, (back - flat) / np.maximum(back, 1e-6), 0)
+    a = np.maximum(a, np.maximum(up, down).max(axis=2))
+    a = np.where(np.abs(flat - back).max(axis=2) < 0.5 / 255, 0, a)  # the same pixel: no operator there
+    a = np.clip(np.ceil(a * 255) / 255, 0, 1)  # rounded up, so the colour stays in range
+    safe = np.maximum(a, 1e-6)[..., None]
+    col = np.clip((flat - (1 - a[..., None]) * back) / safe, 0, 1)
+    col = np.where(a[..., None] > 0, col, 0)
+    op = np.dstack([col, a])
+    return (Image.fromarray(np.round(back * 255).astype(np.uint8), 'RGB'),
+            Image.fromarray(np.round(op * 255).astype(np.uint8), 'RGBA'))
 
 
 if __name__ == '__main__':
@@ -658,6 +698,10 @@ if __name__ == '__main__':
     game = Game(dump)
     for pool_id in pools:
         render(game, pool_id).save(os.path.join(out_dir, pool_id + '.webp'), 'WEBP', quality=86, method=6)
+        back, op = layers(game, pool_id)
+        os.makedirs(os.path.join(out_dir, 'layers'), exist_ok=True)
+        back.save(os.path.join(out_dir, 'layers', pool_id + '-back.webp'), 'WEBP', quality=86, method=6)
+        op.save(os.path.join(out_dir, 'layers', pool_id + '-op.webp'), 'WEBP', quality=86, method=6)
         if '--full' in sys.argv:
             render(game, pool_id, view=(-1920, -1080, 3840, 2160), width=1920, full=True).save(
                 os.path.join(out_dir, pool_id + '-full.png'))
