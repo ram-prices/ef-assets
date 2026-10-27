@@ -271,6 +271,11 @@ def read_graphic(game, sf, c):
             g['ppu'] = ppu
             r = d.get('m_Rect', {})
             g['native'] = (r.get('width', 0), r.get('height', 0))
+            # A tightly packed sprite keeps only the part of its picture that
+            # isn't empty (textureRect, textureRectOffset px in from its
+            # rect's bottom-left); the rest of the rect is transparent.
+            off = d.get('m_RD', {}).get('textureRectOffset', {})
+            g['trim'] = (off.get('x', 0), off.get('y', 0))
         else:
             d = io.read_typetree()
             g['native'] = (d.get('m_Width', 0), d.get('m_Height', 0))
@@ -464,12 +469,26 @@ def tiled(img, w, h, scale):
     return out
 
 
+def untrim(img, g):
+    """A sprite's decoded picture (only its packed part) back on its whole rect,
+    so it isn't stretched over the empty margins the packing cut off."""
+    if 'trim' not in g:
+        return img
+    rw, rh = round(g['native'][0]), round(g['native'][1])
+    if img.size == (rw, rh):
+        return img
+    ox, oy = g['trim']
+    out = Image.new('RGBA', (rw, rh), (0, 0, 0, 0))
+    out.paste(img, (round(ox), rh - round(oy) - img.height))
+    return out
+
+
 def graphic_pixels(game, g, w, h, scale):
     """The graphic as an RGBA picture at w x h output pixels (its rect, tinted)."""
     if g['image'] == 'flat':
         return np.ones((h, w, 4), np.float32) * np.array(g['color'], dtype=np.float32)
     sfile, obj = g['image']
-    img = game.pixels(sfile, obj)
+    img = untrim(game.pixels(sfile, obj), g)
     if g['kind'] == 'raw':
         u, v, uw, vh = g['uv']
         if (u, v, uw, vh) != (0, 0, 1, 1):
