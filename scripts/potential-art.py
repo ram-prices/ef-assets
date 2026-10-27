@@ -9,8 +9,8 @@ wide. A picture beyond the first at one Potential (Perlica's P1) is
 
 index.json: {"<operator id>": {"<Potential>": ["<file>", ...]}}, every
 operator the dump's table lists, so the site knows which levels have art,
-and "focus": {"<file>": [x, y]}, the point the site's banner keeps in view
-(the face and upper body, as fractions of the width and height). Points are
+and "focus": {"<file>": [x, y]}, the point between the operator's eyes, which
+the site's banner places in view (fractions of the width and height). Points are
 set by hand from a contact sheet; a run keeps them, and a new picture has
 none (the site centres it) until one is added.
 
