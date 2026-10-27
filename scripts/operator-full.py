@@ -1,8 +1,8 @@
-"""Full operator art (operators/full-2/<id>.webp): the game's character portrait
+"""Full operator art (operators/full/<id>.webp): the game's character portrait
 (ui/sprites/characterportrait/<id>.png), the operator merged with their
 splash motif on a transparent background, at the game's own size (about
-2048 px), since the site shows it zoomed in. A new folder name whenever the
-art changes: jsDelivr and browsers keep a file a week.
+2048 px), since the site shows it zoomed in. After a change, purge each file
+on jsDelivr (purge.jsdelivr.net/gh/ram-prices/ef-assets@main/<path>).
 
 It reads the game files a dump of the client made (the EndfieldDataDump
 checkout), through operator-banner.py's Game class.
@@ -18,7 +18,7 @@ import sys
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(os.path.dirname(HERE), 'operators', 'full-2')
+OUT = os.path.join(os.path.dirname(HERE), 'operators', 'full')
 SPRITES = 'assets/beyond/dynamicassets/gameplay/ui/sprites/characterportrait/'
 
 
