@@ -44,8 +44,10 @@ W, H = 1024, 576
 # close-up. The official banners show more of it: the same layout on a bigger
 # screen (the stretched backdrops grow, the art keeps its size). VIEW is the
 # part of that screen drawn, in layout units (x, y of its bottom-left corner
-# from the centre, width, height).
-VIEW = (-1280, -720, 2560, 1440)
+# from the centre, width, height). It sits SHIFT units left of centre, so the
+# art lands right of the middle, clear of the names the site prints bottom-left.
+SHIFT = 256
+VIEW = (-1280 - SHIFT, -720, 2560, 1440)
 # Layout nodes left out: the screen's buttons, texts and timers, the operator
 # name and banner title lettering, particles, and the shading the game puts
 # under its buttons. Node names.
@@ -609,7 +611,9 @@ def render(game, pool_id, view=None, width=W, full=False):
     sf = game.prefab(pool_id)
     tree = read_tree(game, sf)
     opening_state(game, sf, tree)
-    root_rect = (-view[2] / 2, -view[3] / 2, view[2], view[3])
+    # The screen, centred on the layout, just big enough to cover the view.
+    hw, hh = max(-view[0], view[0] + view[2]), max(-view[1], view[1] + view[3])
+    root_rect = (-hw, -hh, 2 * hw, 2 * hh)
     tree.a_min, tree.a_max, tree.size, tree.pos = (0, 0), (1, 1), [0, 0], [0, 0]
     place(tree, root_rect, np.eye(3))
     canvas = Canvas(view, width / view[2])
