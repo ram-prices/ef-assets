@@ -67,11 +67,12 @@ def main(dump):
     render()
 
 
-def render(w=96, h=59, fps=24, seconds=10, opacity=0.6, brightness=1.5):
+def render(w=96, h=59, fps=30, seconds=5, opacity=0.5, time_speed=2, distort=3, mask_gamma=0.6):
     """smoke.webp's loop, the way the game draws the item slot's 6StarColorSequence (m_fx_sixstar_bg_w: every
-    texture tiled 1 x 1 on the box except the noise, 1 x 0.5; U intensities 0.05 and 0.2, both noises at -0.1 UV/s,
-    so it loops every 10 s) into smoke-loop.webp, an animated WebP the site can show as is. 96 x 59 is the 48px
-    tile's 48 x 29.6 box at 2x."""
+    texture tiled 1 x 1 on the box except the noise, 1 x 0.5; U intensities 0.05 and 0.2, both noises at -0.1 UV/s)
+    into smoke-loop.webp, an animated WebP the site shows as is. 96 x 59 is the 48px tile's 48 x 29.6 box at 2x.
+    Matched by eye to an in-game recording, since the shader is compiled: the sway is 3x the material's
+    intensities, time runs 2x (a 5 s loop), and the mask is lifted (gamma 0.6, as Unity blends in linear space)."""
     load = lambda n: np.asarray(Image.open(os.path.join(OUT, n)).convert('RGBA'), dtype=np.float32) / 255
     rainbow, mask, n1, n2 = load('smoke.webp'), load('mask.png'), load('noise-1.png'), load('noise-2.png')
     u, v = np.meshgrid((np.arange(w) + 0.5) / w, 1 - (np.arange(h) + 0.5) / h)  # v up, like Unity
@@ -84,14 +85,14 @@ def render(w=96, h=59, fps=24, seconds=10, opacity=0.6, brightness=1.5):
         p = lambda yy, xx: t[yy % th, xx % tw]
         return (p(y0, x0) * (1 - fx) + p(y0, x0 + 1) * fx) * (1 - fy) + (p(y0 + 1, x0) * (1 - fx) + p(y0 + 1, x0 + 1) * fx) * fy
 
-    alpha = sample(mask, u, v)[..., 3] * opacity
+    alpha = sample(mask, u, v)[..., 3] ** mask_gamma * opacity
     frames = []
-    for i in range(fps * seconds):
-        s = i / fps
+    for i in range(round(fps * seconds)):
+        s = i / fps * time_speed
         a = sample(n1, u - 0.1 * s, v * 0.5 - 0.1 * s)[..., 0]
         b = sample(n2, u - 0.1 * s, v * 0.5 - 0.1 * s)[..., 0]
-        du = (a * 2 - 1) * 0.05 + (b * 2 - 1) * 0.2
-        rgb = np.clip(sample(rainbow, u + du, v)[..., :3] * brightness, 0, 1)
+        du = ((a * 2 - 1) * 0.05 + (b * 2 - 1) * 0.2) * distort
+        rgb = sample(rainbow, u + du, v)[..., :3]
         frames.append(Image.fromarray((np.dstack([rgb, alpha]) * 255).round().astype(np.uint8), 'RGBA'))
     path = os.path.join(OUT, 'smoke-loop.webp')
     frames[0].save(path, save_all=True, append_images=frames[1:], duration=round(1000 / fps), loop=0, quality=80, method=6)
