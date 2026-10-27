@@ -1,0 +1,377 @@
+{
+ "chr_0002_endminm": {
+  "1": [
+   "chr_0002_endminm-p1.webp"
+  ],
+  "3": [
+   "chr_0002_endminm-p3.webp"
+  ],
+  "5": [
+   "chr_0002_endminm-p5.webp"
+  ]
+ },
+ "chr_0003_endminf": {
+  "1": [
+   "chr_0003_endminf-p1.webp"
+  ],
+  "3": [
+   "chr_0003_endminf-p3.webp"
+  ],
+  "5": [
+   "chr_0003_endminf-p5.webp"
+  ]
+ },
+ "chr_0004_pelica": {
+  "1": [
+   "chr_0004_pelica-p1.webp",
+   "chr_0004_pelica-p1-ex01.webp"
+  ],
+  "3": [
+   "chr_0004_pelica-p3.webp"
+  ],
+  "5": [
+   "chr_0004_pelica-p5.webp"
+  ]
+ },
+ "chr_0005_chen": {
+  "1": [
+   "chr_0005_chen-p1.webp"
+  ],
+  "3": [
+   "chr_0005_chen-p3.webp"
+  ],
+  "5": [
+   "chr_0005_chen-p5.webp"
+  ]
+ },
+ "chr_0006_wolfgd": {
+  "1": [
+   "chr_0006_wolfgd-p1.webp"
+  ],
+  "3": [
+   "chr_0006_wolfgd-p3.webp"
+  ],
+  "5": [
+   "chr_0006_wolfgd-p5.webp"
+  ]
+ },
+ "chr_0007_ikut": {
+  "1": [
+   "chr_0007_ikut-p1.webp"
+  ],
+  "3": [
+   "chr_0007_ikut-p3.webp"
+  ],
+  "5": [
+   "chr_0007_ikut-p5.webp"
+  ]
+ },
+ "chr_0009_azrila": {
+  "1": [
+   "chr_0009_azrila-p1.webp"
+  ],
+  "3": [
+   "chr_0009_azrila-p3.webp"
+  ],
+  "5": [
+   "chr_0009_azrila-p5.webp"
+  ]
+ },
+ "chr_0011_seraph": {
+  "1": [
+   "chr_0011_seraph-p1.webp"
+  ],
+  "3": [
+   "chr_0011_seraph-p3.webp"
+  ],
+  "5": [
+   "chr_0011_seraph-p5.webp"
+  ]
+ },
+ "chr_0012_avywen": {
+  "1": [
+   "chr_0012_avywen-p1.webp"
+  ],
+  "3": [
+   "chr_0012_avywen-p3.webp"
+  ],
+  "5": [
+   "chr_0012_avywen-p5.webp"
+  ]
+ },
+ "chr_0013_aglina": {
+  "1": [
+   "chr_0013_aglina-p1.webp"
+  ],
+  "3": [
+   "chr_0013_aglina-p3.webp"
+  ],
+  "5": [
+   "chr_0013_aglina-p5.webp"
+  ]
+ },
+ "chr_0014_aurora": {
+  "1": [
+   "chr_0014_aurora-p1.webp"
+  ],
+  "3": [
+   "chr_0014_aurora-p3.webp"
+  ],
+  "5": [
+   "chr_0014_aurora-p5.webp"
+  ]
+ },
+ "chr_0015_lifeng": {
+  "1": [
+   "chr_0015_lifeng-p1.webp"
+  ],
+  "3": [
+   "chr_0015_lifeng-p3.webp"
+  ],
+  "5": [
+   "chr_0015_lifeng-p5.webp"
+  ]
+ },
+ "chr_0016_laevat": {
+  "1": [
+   "chr_0016_laevat-p1.webp"
+  ],
+  "3": [
+   "chr_0016_laevat-p3.webp"
+  ],
+  "5": [
+   "chr_0016_laevat-p5.webp"
+  ]
+ },
+ "chr_0017_yvonne": {
+  "1": [
+   "chr_0017_yvonne-p1.webp"
+  ],
+  "3": [
+   "chr_0017_yvonne-p3.webp"
+  ],
+  "5": [
+   "chr_0017_yvonne-p5.webp"
+  ]
+ },
+ "chr_0018_dapan": {
+  "1": [
+   "chr_0018_dapan-p1.webp"
+  ],
+  "3": [
+   "chr_0018_dapan-p3.webp"
+  ],
+  "5": [
+   "chr_0018_dapan-p5.webp"
+  ]
+ },
+ "chr_0019_karin": {
+  "1": [
+   "chr_0019_karin-p1.webp"
+  ],
+  "3": [
+   "chr_0019_karin-p3.webp"
+  ],
+  "5": [
+   "chr_0019_karin-p5.webp"
+  ]
+ },
+ "chr_0020_meurs": {
+  "1": [
+   "chr_0020_meurs-p1.webp"
+  ],
+  "3": [
+   "chr_0020_meurs-p3.webp"
+  ],
+  "5": [
+   "chr_0020_meurs-p5.webp"
+  ]
+ },
+ "chr_0021_whiten": {
+  "1": [
+   "chr_0021_whiten-p1.webp"
+  ],
+  "3": [
+   "chr_0021_whiten-p3.webp"
+  ],
+  "5": [
+   "chr_0021_whiten-p5.webp"
+  ]
+ },
+ "chr_0022_bounda": {
+  "1": [
+   "chr_0022_bounda-p1.webp"
+  ],
+  "3": [
+   "chr_0022_bounda-p3.webp"
+  ],
+  "5": [
+   "chr_0022_bounda-p5.webp"
+  ]
+ },
+ "chr_0023_antal": {
+  "1": [
+   "chr_0023_antal-p1.webp"
+  ],
+  "3": [
+   "chr_0023_antal-p3.webp"
+  ],
+  "5": [
+   "chr_0023_antal-p5.webp"
+  ]
+ },
+ "chr_0024_deepfin": {
+  "1": [
+   "chr_0024_deepfin-p1.webp"
+  ],
+  "3": [
+   "chr_0024_deepfin-p3.webp"
+  ],
+  "5": [
+   "chr_0024_deepfin-p5.webp"
+  ]
+ },
+ "chr_0025_ardelia": {
+  "1": [
+   "chr_0025_ardelia-p1.webp"
+  ],
+  "3": [
+   "chr_0025_ardelia-p3.webp"
+  ],
+  "5": [
+   "chr_0025_ardelia-p5.webp"
+  ]
+ },
+ "chr_0026_lastrite": {
+  "1": [
+   "chr_0026_lastrite-p1.webp"
+  ],
+  "3": [
+   "chr_0026_lastrite-p3.webp"
+  ],
+  "5": [
+   "chr_0026_lastrite-p5.webp"
+  ]
+ },
+ "chr_0027_tangtang": {
+  "1": [
+   "chr_0027_tangtang-p1.webp"
+  ],
+  "3": [
+   "chr_0027_tangtang-p3.webp"
+  ],
+  "5": [
+   "chr_0027_tangtang-p5.webp"
+  ]
+ },
+ "chr_0028_wulfa": {
+  "1": [
+   "chr_0028_wulfa-p1.webp"
+  ],
+  "3": [
+   "chr_0028_wulfa-p3.webp"
+  ],
+  "5": [
+   "chr_0028_wulfa-p5.webp"
+  ]
+ },
+ "chr_0029_pograni": {
+  "1": [
+   "chr_0029_pograni-p1.webp"
+  ],
+  "3": [
+   "chr_0029_pograni-p3.webp"
+  ],
+  "5": [
+   "chr_0029_pograni-p5.webp"
+  ]
+ },
+ "chr_0030_zhuangfy": {
+  "1": [
+   "chr_0030_zhuangfy-p1.webp"
+  ],
+  "3": [
+   "chr_0030_zhuangfy-p3.webp"
+  ],
+  "5": [
+   "chr_0030_zhuangfy-p5.webp"
+  ]
+ },
+ "chr_0031_mifu": {
+  "1": [
+   "chr_0031_mifu-p1.webp"
+  ],
+  "3": [
+   "chr_0031_mifu-p3.webp"
+  ],
+  "5": [
+   "chr_0031_mifu-p5.webp"
+  ]
+ },
+ "chr_0032_lizhiyan": {
+  "1": [
+   "chr_0032_lizhiyan-p1.webp"
+  ],
+  "3": [
+   "chr_0032_lizhiyan-p3.webp"
+  ],
+  "5": [
+   "chr_0032_lizhiyan-p5.webp"
+  ]
+ },
+ "chr_0033_camille": {
+  "1": [
+   "chr_0033_camille-p1.webp"
+  ],
+  "3": [
+   "chr_0033_camille-p3.webp"
+  ],
+  "5": [
+   "chr_0033_camille-p5.webp"
+  ]
+ },
+ "chr_0034_typhoea": {
+  "1": [
+   "chr_0034_typhoea-p1.webp"
+  ],
+  "3": [
+   "chr_0034_typhoea-p3.webp"
+  ],
+  "5": [
+   "chr_0034_typhoea-p5.webp"
+  ]
+ },
+ "chr_0035_liino": {
+  "1": [
+   "chr_0035_liino-p1.webp"
+  ],
+  "3": [
+   "chr_0035_liino-p3.webp"
+  ],
+  "5": [
+   "chr_0035_liino-p5.webp"
+  ]
+ },
+ "chr_0036_jsspsi": {
+  "1": [
+   "chr_0036_jsspsi-p1.webp"
+  ],
+  "3": [
+   "chr_0036_jsspsi-p3.webp"
+  ],
+  "5": [
+   "chr_0036_jsspsi-p5.webp"
+  ]
+ },
+ "chr_0038_purrche": {
+  "1": [
+   "chr_0038_purrche-p1.webp"
+  ],
+  "3": [
+   "chr_0038_purrche-p3.webp"
+  ],
+  "5": [
+   "chr_0038_purrche-p5.webp"
+  ]
+ }
+}
