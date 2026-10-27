@@ -19,6 +19,7 @@ Needs UnityPy and Pillow.
 import os
 import sys
 
+import numpy as np
 import UnityPy
 from PIL import Image
 
@@ -63,6 +64,38 @@ def main(dump):
         else:
             im.convert('RGB').save(os.path.join(OUT, out), quality=90, method=6)
         print(out, im.size)
+    render()
+
+
+def render(w=96, h=59, fps=24, seconds=10, opacity=0.6, brightness=1.5):
+    """smoke.webp's loop, the way the game draws the item slot's 6StarColorSequence (m_fx_sixstar_bg_w: every
+    texture tiled 1 x 1 on the box except the noise, 1 x 0.5; U intensities 0.05 and 0.2, both noises at -0.1 UV/s,
+    so it loops every 10 s) into smoke-loop.webp, an animated WebP the site can show as is. 96 x 59 is the 48px
+    tile's 48 x 29.6 box at 2x."""
+    load = lambda n: np.asarray(Image.open(os.path.join(OUT, n)).convert('RGBA'), dtype=np.float32) / 255
+    rainbow, mask, n1, n2 = load('smoke.webp'), load('mask.png'), load('noise-1.png'), load('noise-2.png')
+    u, v = np.meshgrid((np.arange(w) + 0.5) / w, 1 - (np.arange(h) + 0.5) / h)  # v up, like Unity
+
+    def sample(t, uu, vv):  # bilinear, wrapping; t's rows go top down
+        th, tw = t.shape[:2]
+        x, y = (uu % 1) * tw - 0.5, (1 - vv % 1) * th - 0.5
+        x0, y0 = np.floor(x).astype(int), np.floor(y).astype(int)
+        fx, fy = (x - x0)[..., None], (y - y0)[..., None]
+        p = lambda yy, xx: t[yy % th, xx % tw]
+        return (p(y0, x0) * (1 - fx) + p(y0, x0 + 1) * fx) * (1 - fy) + (p(y0 + 1, x0) * (1 - fx) + p(y0 + 1, x0 + 1) * fx) * fy
+
+    alpha = sample(mask, u, v)[..., 3] * opacity
+    frames = []
+    for i in range(fps * seconds):
+        s = i / fps
+        a = sample(n1, u - 0.1 * s, v * 0.5 - 0.1 * s)[..., 0]
+        b = sample(n2, u - 0.1 * s, v * 0.5 - 0.1 * s)[..., 0]
+        du = (a * 2 - 1) * 0.05 + (b * 2 - 1) * 0.2
+        rgb = np.clip(sample(rainbow, u + du, v)[..., :3] * brightness, 0, 1)
+        frames.append(Image.fromarray((np.dstack([rgb, alpha]) * 255).round().astype(np.uint8), 'RGBA'))
+    path = os.path.join(OUT, 'smoke-loop.webp')
+    frames[0].save(path, save_all=True, append_images=frames[1:], duration=round(1000 / fps), loop=0, quality=80, method=6)
+    print('smoke-loop.webp', (w, h), len(frames), 'frames', os.path.getsize(path) // 1024, 'KB')
 
 
 if __name__ == '__main__':
