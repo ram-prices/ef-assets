@@ -67,12 +67,12 @@ def main(dump):
     render()
 
 
-def render(w=96, h=59, fps=30, seconds=5, opacity=0.5, time_speed=2, distort=3, mask_gamma=0.6):
+def render(w=96, h=59, fps=24, seconds=10, opacity=0.5, time_speed=1, distort=3, mask_gamma=0.6):
     """smoke.webp's loop, the way the game draws the item slot's 6StarColorSequence (m_fx_sixstar_bg_w: every
     texture tiled 1 x 1 on the box except the noise, 1 x 0.5; U intensities 0.05 and 0.2, both noises at -0.1 UV/s)
-    into smoke-loop-2.webp (a new name whenever it changes, as browsers keep it a week), an animated WebP the site shows as is. 96 x 59 is the 48px tile's 48 x 29.6 box at 2x.
+    into smoke-loop-3.webp (a new name whenever it changes, as browsers keep it a week), an animated WebP the site shows as is. 96 x 59 is the 48px tile's 48 x 29.6 box at 2x.
     Matched by eye to an in-game recording, since the shader is compiled: the sway is 3x the material's
-    intensities, time runs 2x (a 5 s loop), and the mask is lifted (gamma 0.6, as Unity blends in linear space)."""
+    intensities, time runs at the material's speed (a 10 s loop), and the mask is lifted (gamma 0.6, as Unity blends in linear space)."""
     load = lambda n: np.asarray(Image.open(os.path.join(OUT, n)).convert('RGBA'), dtype=np.float32) / 255
     rainbow, mask, n1, n2 = load('smoke.webp'), load('mask.png'), load('noise-1.png'), load('noise-2.png')
     u, v = np.meshgrid((np.arange(w) + 0.5) / w, 1 - (np.arange(h) + 0.5) / h)  # v up, like Unity
@@ -94,9 +94,9 @@ def render(w=96, h=59, fps=30, seconds=5, opacity=0.5, time_speed=2, distort=3, 
         du = ((a * 2 - 1) * 0.05 + (b * 2 - 1) * 0.2) * distort
         rgb = sample(rainbow, u + du, v)[..., :3]
         frames.append(Image.fromarray((np.dstack([rgb, alpha]) * 255).round().astype(np.uint8), 'RGBA'))
-    path = os.path.join(OUT, 'smoke-loop-2.webp')
+    path = os.path.join(OUT, 'smoke-loop-3.webp')
     frames[0].save(path, save_all=True, append_images=frames[1:], duration=round(1000 / fps), loop=0, quality=80, method=6)
-    print('smoke-loop-2.webp', (w, h), len(frames), 'frames', os.path.getsize(path) // 1024, 'KB')
+    print('smoke-loop-3.webp', (w, h), len(frames), 'frames', os.path.getsize(path) // 1024, 'KB')
 
 
 if __name__ == '__main__':
