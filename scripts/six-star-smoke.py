@@ -1,10 +1,14 @@
 """The rainbow smoke the game draws at the bottom of 6★ item icons (effects/six-star/), read from the owner's
 EndfieldDataDump output. The game's material is assets/beyond/arts/effects/ui/material/gacha/m_fx_sixstar_bg.mat: it
-scrolls a rainbow texture (_MainTex, tiled 0.16 x 1, -0.1 UV/s on both axes) through a mask that fades up from the
-bottom (_MaskTex), at 60% opacity, rippled by two noise textures. The site redraws it in CSS with these two:
+holds a rainbow texture still (_VFXMainTex, tiled 0.16 x 1) and shifts it sideways by two scrolling noise textures
+(_DisturbTex1 tiled 0.2 x 0.2, U intensity 0.05; _DisturbTex2 tiled 0.1 x 0.5, U intensity 0.1; both -0.1 UV/s),
+under a static mask (_MaskTex tiled 0.2 x 0.5, offset 1 x 0: the bottom left of the fade), at 60% opacity. The site
+redraws it with an SVG filter from these:
 
-    smoke.webp  t_fx_flow_302_d, the rainbow (256x256, tiles)
-    mask.png    t_ui_6starcolour_mask, the fade (128x64, white in the red channel; saved as alpha here)
+    smoke.webp   t_fx_flow_302_d, the rainbow (256x256, tiles)
+    mask.png     t_ui_6starcolour_mask, the fade (128x64, white in the red channel; saved as alpha here)
+    noise-1.png  t_fx_flow_326_m, _DisturbTex1 (256x256, grey)
+    noise-2.png  t_fx_flow_407_m, _DisturbTex2 (128x128, grey)
 
 Bundle folders are found through output/asset_index.tsv, since their names change with patches. Run by hand:
 
@@ -23,6 +27,8 @@ OUT = os.path.join(os.path.dirname(HERE), 'effects', 'six-star')
 WANT = {
     'assets/beyond/arts/effects/commonassets/arts/t_texture/color/noise/t_fx_flow_302_d.png': 'smoke.webp',
     'assets/beyond/arts/effects/ui/sprites/common/t_ui_6starcolour_mask.png': 'mask.png',
+    'assets/beyond/arts/effects/commonassets/arts/t_texture/mask/noise/t_fx_flow_326_m.png': 'noise-1.png',
+    'assets/beyond/arts/effects/commonassets/arts/t_texture/mask/noise/t_fx_flow_407_m.png': 'noise-2.png',
 }
 
 
@@ -52,6 +58,8 @@ def main(dump):
             im = Image.new('RGBA', im.size, (255, 255, 255, 0))
             im.putalpha(alpha)
             im.save(os.path.join(OUT, out), optimize=True)
+        elif out.startswith('noise'):
+            im.convert('L').save(os.path.join(OUT, out), optimize=True)
         else:
             im.convert('RGB').save(os.path.join(OUT, out), quality=90, method=6)
         print(out, im.size)
