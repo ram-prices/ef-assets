@@ -4,10 +4,6 @@ for operators (the face close-up the site has always used) and 256px for
 weapons. The two Endministrators have their own files, "(Female)" and
 "(Male)".
 
-Operators also get their card art (operators/card/<id>.webp): the wiki's
-"<Name>_tooltip.png", the game's own 180x360 crop from the head down, on its
-background, as the Operators list shows it.
-
 A portrait larger than the old 72px icons is kept, so a run after the first
 only fetches new operators and weapons, and replaces the version guide's
 72px stand-ins (guide-art.py) once the wiki has the real icon. A weapon icon
@@ -38,8 +34,6 @@ KINDS = {
     'operators': ('operators', 120),
     'weapons': ('arsenals', 256),
 }
-# Operator card art: folder and the wiki file's suffix.
-CARDS = ('operators/card', 'tooltip')
 # The size of the icons these replace.
 STAND_IN = 72
 # Operators who share a name: their own files.
@@ -54,38 +48,6 @@ def save(url, path, size):
     if im.width != im.height:
         im = square(im)
     im.save(path, 'WEBP', quality=92, method=6)
-
-
-def save_card(url, path):
-    Image.open(io.BytesIO(icons.get(url))).convert('RGB').save(path, 'WEBP', quality=90, method=6)
-
-
-def cards(files, missing):
-    """Card art for every operator that has none yet; False if the wiki turned us away."""
-    folder, suffix = CARDS
-    items = json.load(open(os.path.join(ROOT, 'wiki', 'operators.json'), encoding='utf8'))['operators']
-    os.makedirs(os.path.join(ROOT, folder), exist_ok=True)
-    made = 0
-    for id, item in items.items():
-        path = os.path.join(ROOT, folder, f'{id}.webp')
-        if os.path.exists(path):
-            continue
-        name = NAMES.get(id, item['name'])
-        f = icons.find(files, [f'{name} {suffix}'], [''])
-        if not f:
-            missing.append(f'{name} (card)')
-            continue
-        try:
-            save_card(files[f], path)
-        except icons.Refused as e:
-            print(f'stopped: {e}')
-            return made
-        except urllib.error.HTTPError:
-            missing.append(f'{name} (card)')
-            continue
-        made += 1
-        print(f'  {folder}/{id}.webp  <- {f}', flush=True)
-    return made
 
 
 def square(im):
@@ -129,8 +91,6 @@ def main():
         else:
             continue
         break
-    else:
-        made += cards(files, missing)
     print(f'portraits: {made} new or sharper')
     if missing:
         print(f'no icon on the wiki for: {"; ".join(missing)}')
