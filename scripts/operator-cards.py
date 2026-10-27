@@ -1,7 +1,10 @@
 """Operator card art (operators/card/<id>.webp) for the site's Operators list:
-the game's own operator portraits (sprites/charremoteicon700, 700x652, no
-background, head and shoulders), cut to the game's operator-list card
-(152x212: the middle 467 pixels) and saved at 300x419. Read from the owner's
+the game's clean Headhunting results art (sprites/chargacha, 236x1352, no
+background, every operator's face at the same height), cut to the game's
+operator-list card shape (152:212) from the top of the head down, starting
+where the game's own list icon (sprites/charremoteicon) starts, at full
+resolution (236x329). The wider charremoteicon700 portraits are communication-screen art
+with scanlines and grain, so they aren't used. Read from the owner's
 EndfieldDataDump output: the decrypted bundles that hold that folder (found
 through output/asset_index.tsv, since bundle folder names change with
 patches). Run by hand after a game patch adds operators:
@@ -13,19 +16,18 @@ Needs UnityPy and Pillow.
 import glob
 import json
 import os
-import re
 import sys
 
 import UnityPy
-from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, 'operators', 'card')
-FOLDER = '/ui/sprites/charremoteicon700/'
-# The game's list card is 152x212; its middle of the 700x652 portrait, and the size saved.
-WIDTH = round(652 * 152 / 212)
-SIZE = (300, 419)
+FOLDER = '/ui/sprites/chargacha/'
+# The crop: the sprite's full width at 152:212, from y 350 (where the list icon's
+# top falls on these sprites, measured by matching the two).
+HEIGHT = round(236 * 212 / 152)
+TOP = 350
 
 
 def bundles_of(dump):
@@ -63,15 +65,12 @@ def main():
                 if obj.type.name != 'Texture2D':
                     continue
                 tex = obj.read()
-                # Listed operators only (icon_chr_0005_chen); the folder also has NPCs.
-                id = re.fullmatch(r'icon_(chr_\d{4}_\w+)', tex.m_Name)
-                if not id or id[1] not in ids:
+                if tex.m_Name not in ids:
                     continue
                 im = tex.image.convert('RGBA')
-                left = (im.width - WIDTH) // 2
-                im = im.crop((left, 0, left + WIDTH, im.height)).resize(SIZE, Image.LANCZOS)
-                im.save(os.path.join(OUT, id[1] + '.webp'), 'WEBP', quality=80, method=6)
-                made.append(id[1])
+                im = im.crop((0, TOP, im.width, TOP + HEIGHT))
+                im.save(os.path.join(OUT, tex.m_Name + '.webp'), 'WEBP', quality=88, method=6)
+                made.append(tex.m_Name)
     print(f'{len(made)} operator cards')
 
 
