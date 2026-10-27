@@ -1,4 +1,4 @@
-"""Operator card art (operators/card/<id>.webp) for the site's Operators list:
+"""Operator card art (operators/bust/<id>.webp) for the site's Operators list:
 the game's clean Headhunting results art (sprites/chargacha, 236x1352, no
 background, every operator's face at the same height), cut to the game's
 operator-list card shape (152:212) from the top of the head down, starting
@@ -22,7 +22,8 @@ import UnityPy
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-OUT = os.path.join(ROOT, 'operators', 'card')
+# A new folder name whenever the art changes: jsDelivr and browsers keep a file a week.
+OUT = os.path.join(ROOT, 'operators', 'bust')
 FOLDER = '/ui/sprites/chargacha/'
 # The crop: the sprite's full width at 152:212, from y 350 (where the list icon's
 # top falls on these sprites, measured by matching the two).
