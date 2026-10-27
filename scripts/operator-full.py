@@ -1,6 +1,8 @@
-"""Full operator art (operators/full/<id>.webp): the game's character portrait
+"""Full operator art (operators/full-2/<id>.webp): the game's character portrait
 (ui/sprites/characterportrait/<id>.png), the operator merged with their
-splash motif on a transparent background, scaled to 1024 on the long side.
+splash motif on a transparent background, at the game's own size (about
+2048 px), since the site shows it zoomed in. A new folder name whenever the
+art changes: jsDelivr and browsers keep a file a week.
 
 It reads the game files a dump of the client made (the EndfieldDataDump
 checkout), through operator-banner.py's Game class.
@@ -16,7 +18,7 @@ import sys
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(os.path.dirname(HERE), 'operators', 'full')
+OUT = os.path.join(os.path.dirname(HERE), 'operators', 'full-2')
 SPRITES = 'assets/beyond/dynamicassets/gameplay/ui/sprites/characterportrait/'
 
 
@@ -35,13 +37,11 @@ def main():
             print('missing', id)
             continue
         im = game.pixels(sf, obj)
-        s = 1024 / max(im.size)
-        im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
         r, g, b, a = im.split()
         solid = a.point(lambda v: 255 if v else 0)
         zero = Image.new('L', im.size, 0)
         im = Image.merge('RGBA', [Image.composite(c, zero, solid) for c in (r, g, b)] + [a])
-        im.save(os.path.join(OUT, id + '.webp'), 'WEBP', quality=88, method=6)
+        im.save(os.path.join(OUT, id + '.webp'), 'WEBP', quality=90, method=4)
         print(id)
 
 
