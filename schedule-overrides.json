@@ -1,0 +1,24 @@
+{
+  "about": "Official schedule changes the news feed doesn't carry yet (e.g. notices posted only on X). scripts/update-schedule.mjs applies each entry to the event with that id and name. `feed` is what the feed gave when the entry was written (Americas ISO time, or null); once the feed gives something else, the feed wins and the entry is skipped and reported, so delete it then. Dates are server time (the same wall-clock time on each server). `note` is added to the event's details.",
+  "events": [
+    {
+      "id": 41,
+      "name": "Yuanyuan's Blazing Stoves",
+      "source": "https://x.com/AKEndfield/status/2115269823751958764",
+      "feed": {
+        "end": null
+      },
+      "end": "Nov. 25, 2026 at 06:00",
+      "availability": "After [Sanctuary of Ink] version update – Nov. 25, 2026 at 06:00 (server time)"
+    },
+    {
+      "id": 50,
+      "name": "Contingency Contract: Indigo Experimental Operation",
+      "source": "https://x.com/AKEndfield/status/2115269823751958764",
+      "feed": {
+        "end": null
+      },
+      "note": "Secret Sanctuary exchanges close Dec. 2, 2026 at 04:00 (server time)."
+    }
+  ]
+}

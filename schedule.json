@@ -1543,11 +1543,15 @@
         "americas": "2026-10-14T23:00:00-05:00",
         "asia": "2026-10-15T12:00:00+08:00"
       },
-      "end": null,
+      "end": {
+        "americas": "2026-11-25T06:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
+      },
       "details": "Visit the [Si's Painting] area in [Wuling], manage [Yuanyuan Manor Inn], complete the corresponding Session Tasks, and increase your Inn Milestones to claim rewards including [Oroberyl]×1000 and [Mark of Perseverance].",
-      "availability": "After [Sanctuary of Ink] version update – Before the next version update and maintenance",
+      "availability": "After [Sanctuary of Ink] version update – Nov. 25, 2026 at 06:00 (server time)",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/yuanyuan-s-blazing-stoves.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/yuanyuan-s-blazing-stoves.webp",
+      "source": "https://x.com/AKEndfield/status/2115269823751958764"
     },
     {
       "id": 42,
@@ -1694,10 +1698,11 @@
         "asia": "2026-11-05T12:00:00+08:00"
       },
       "end": null,
-      "details": "During the event, you can select any combination of Test Criteria for the challenge, and try to complete it. Complete event missions to earn rewards such as [Portrait: Silverblade Medal], [Portrait Frame: Contingency...",
+      "details": "During the event, you can select any combination of Test Criteria for the challenge, and try to complete it. Complete event missions to earn rewards such as [Portrait: Silverblade Medal], [Portrait Frame: Contingency... Secret Sanctuary exchanges close Dec. 2, 2026 at 04:00 (server time).",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/contingency-contract-indigo-experimental-operation.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/contingency-contract-indigo-experimental-operation.webp",
+      "source": "https://x.com/AKEndfield/status/2115269823751958764"
     },
     {
       "id": 51,
@@ -1705,12 +1710,12 @@
       "type": "Limited-Time Event",
       "version": "Sanctuary of Ink",
       "start": {
-        "americas": "2026-11-19T04:00:00-05:00",
-        "asia": "2026-11-19T04:00:00+08:00"
+        "americas": "2026-11-18T04:00:00-05:00",
+        "asia": "2026-11-18T04:00:00+08:00"
       },
       "end": {
-        "americas": "2026-11-25T17:00:00-05:00",
-        "asia": "2026-11-26T04:00:00+08:00"
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T04:00:00+08:00"
       },
       "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
       "post": "9560"

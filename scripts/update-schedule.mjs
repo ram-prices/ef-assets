@@ -27,13 +27,19 @@
 //     banner (previews/<banner>.webp, until the banner's own cover arrives);
 //     schedule.json links the ones it has.
 //
+// Overrides: schedule-overrides.json holds official schedule changes the
+// feed doesn't carry yet (notices posted only on X, say). Each entry names an
+// event by id and name and records what the feed gave when it was written;
+// once the feed gives something else, the feed wins and the entry is reported
+// as stale. See applyOverrides.
+//
 // Times: banner dates are "server time", i.e. local time on each server
 // (Americas/Europe UTC-5, Asia UTC+8), so the same date opens 13 hours apart.
 // Version updates happen at one instant on both. Every time in schedule.json is
 // given for both servers as ISO strings with their offset.
 
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const NEWS = 'https://web-news.gryphline.com/api/bulletin';
@@ -617,7 +623,7 @@ async function build() {
         posts: v.posts,
       })),
       banners: out,
-      events: events.map((e, i) => ({
+      events: applyOverrides(events.map((e, i) => ({
         id: ids[i],
         name: e.name,
         type: e.type,
@@ -629,11 +635,53 @@ async function build() {
         post: e.post,
         ...(e.art ? { art: e.art } : {}),
         ...(e.needsReview ? { needsReview: true } : {}),
-      })),
+      })), review),
     },
     review,
     db,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Overrides
+// ---------------------------------------------------------------------------
+
+/**
+ * Applies schedule-overrides.json to the built events (ISO times). An entry
+ * {id, name, source, feed, start?, end?, availability?, note?} changes the
+ * event with that id and name, but only while the feed still gives what
+ * `feed` records (Americas ISO time or null for each of start/end): a feed
+ * that has caught up or changed is authoritative, and the entry is skipped
+ * and listed for review. start/end are server-time dates ("Nov. 25, 2026 at
+ * 06:00"); note is added to the details.
+ */
+function applyOverrides(events, review) {
+  const file = join(ROOT, 'schedule-overrides.json');
+  if (!existsSync(file)) return events;
+  const { events: list = [] } = JSON.parse(readFileSync(file, 'utf8'));
+  const at = (text) => {
+    const [w] = findDates(text);
+    if (!w) throw new Error(`schedule-overrides.json: no date in "${text}"`);
+    return isoBoth(serverTime(w));
+  };
+  for (const o of list) {
+    const e = events.find((x) => x.id === o.id && norm(x.name) === norm(o.name));
+    if (!e) {
+      review.push(`override ${o.id} ${o.name}: no such event`);
+      continue;
+    }
+    const changed = Object.entries(o.feed ?? {}).filter(([k, v]) => (e[k]?.americas ?? null) !== v);
+    if (changed.length) {
+      review.push(`override ${o.id} ${o.name}: the feed now gives its own ${changed.map(([k]) => k).join(' and ')}; delete the entry`);
+      continue;
+    }
+    if (o.start) e.start = at(o.start);
+    if (o.end) e.end = at(o.end);
+    if (o.availability) e.availability = o.availability;
+    if (o.note) e.details = e.details ? `${e.details} ${o.note}` : o.note;
+    e.source = o.source;
+  }
+  return events;
 }
 
 // ---------------------------------------------------------------------------
