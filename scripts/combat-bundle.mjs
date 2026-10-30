@@ -18,7 +18,11 @@
  *   and `nodes`: the attribute talents (CharGrowthTable attribute nodes, such
  *   as "Forged": Strength +10/+15/+15/+20), each with the promotion it needs;
  *   `talentStages`: each talent level's promotion (its passive skill node; a
- *   level with none, such as Xaihi's talent_2_2, isn't obtainable).
+ *   level with none, such as Xaihi's talent_2_2, isn't obtainable);
+ *   `skillGroups`: the operator's four skills as the game groups them
+ *   (CharGrowthTable skillGroupMap: basic, normal, combo, ultimate), each the
+ *   skills that level with it, the button's own first (Yvonne's ultimate form
+ *   attacks are her ultimate's; Typhoeus's ultimate is ultimate_skillfloating).
  *
  * And for builds, combat/weapons/<id>.json (each weapon's skills the same way,
  * its base ATK by level, its skills' level caps) and combat/gear.json (every
@@ -216,10 +220,25 @@ async function bundle(opId) {
       .filter((n) => n?.talentEffectId)
       .map((n) => [opId + /_talent_\d+_\d+$/.exec(n.talentEffectId)[0], n.breakStage]),
   );
-  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels, nodes, talentStages } : undefined;
+  const skillGroups = skillGroupsOf(growth, opId);
+  const base = c ? { main: ATTRIBUTES[c.mainAttrType], sub: ATTRIBUTES[c.subAttrType], levels, nodes, talentStages, skillGroups } : undefined;
   // dontInterruptCombo: casting a skill keeps the basic attack chain where it was.
   // profession: the operator's class, as the wiki names it (Gilberta's talent checks it).
   return { element: c?.charTypeId, profession: operators[opId]?.class, dontInterruptCombo: !!c?.dontInterruptCombo, ...(await follow(roots)), talents, conditions, attributes: ATTRIBUTES, composites: COMPOSITE, base };
+}
+
+/**
+ * An operator's skill groups by kind, from its CharGrowthTable entry (the group's id ends in its kind: _NormalAttack,
+ * _NormalSkill, _ComboSkill, _UltimateSkill). The Endministrators share one entry: its ids are the operator's own.
+ */
+const GROUP_KIND = { NormalAttack: 'basic', NormalSkill: 'normal', ComboSkill: 'combo', UltimateSkill: 'ultimate' };
+export function skillGroupsOf(growth, opId) {
+  const out = {};
+  for (const g of Object.values(growth?.skillGroupMap ?? {})) {
+    const kind = GROUP_KIND[/_([A-Za-z]+)$/.exec(g.skillGroupId ?? '')?.[1]];
+    if (kind) out[kind] = (g.skillIdList ?? []).map((id) => (growth.charId ? id.replace(growth.charId, opId) : id));
+  }
+  return out;
 }
 
 async function weapon(id) {
