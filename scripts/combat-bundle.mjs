@@ -188,8 +188,14 @@ async function follow(roots) {
 /** An attribute list ([{attrType, attrValue}]) by name. */
 const named = (attrs) => Object.fromEntries(attrs.filter((a) => ATTRIBUTES[a.attrType]).map((a) => [ATTRIBUTES[a.attrType], Number(a.attrValue)]));
 
-/** Buffs the game's code applies, which no skill or buff file names: Vulnerability (Physical Statuses). */
-const CODE_BUFFS = ['buff_physical_no_guard'];
+/**
+ * Buffs the game's code applies, which no skill or buff file names: Vulnerability (Physical Statuses) and every Arts
+ * Infliction's burst and reaction (buff_common_<on>_<applied>_triggered and its try_ form, Solidification's
+ * cryst_cryst_frozen): an operator who forces Electrification alone (Arclight) or reacts into Solidification
+ * (Estella) needs them whoever else is on the team.
+ */
+const REACTIONS = /^buff_common_(try_)?(cryst|pulse|natural|fire)_(cryst|pulse|natural|fire)(_[a-z]+)?_triggered$/;
+const CODE_BUFFS = ['buff_physical_no_guard', ...buffNames.filter((n) => REACTIONS.test(n))];
 
 async function bundle(opId) {
   // Talents and Potentials: what each level does (attach a skill or buff, set skill values, change attributes).
