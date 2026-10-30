@@ -199,7 +199,13 @@ const CODE_BUFFS = ['buff_physical_no_guard', ...buffNames.filter((n) => REACTIO
 
 async function bundle(opId) {
   // Talents and Potentials: what each level does (attach a skill or buff, set skill values, change attributes).
-  const talents = Object.fromEntries(Object.entries(TALENTS).filter(([k]) => k.startsWith(`${opId}_`)).map(([k, v]) => [k, v.dataList]));
+  // An operator with two appearances keeps its Potentials under a shared id (chr_9000_endmin_potential_<n>, both
+  // Endministrators): an operator with none of its own takes those, under the shared id.
+  const own = (k) => k.startsWith(`${opId}_`);
+  const name = opId.replace(/^chr_\d+_/, '');
+  const shared = (k) => /^chr_9000_([a-z]+)_potential_\d+$/.test(k) && name.startsWith(/^chr_9000_([a-z]+)_/.exec(k)[1]);
+  const hasOwnPotentials = Object.keys(TALENTS).some((k) => own(k) && /_potential_\d+$/.test(k));
+  const talents = Object.fromEntries(Object.entries(TALENTS).filter(([k]) => own(k) || (!hasOwnPotentials && shared(k))).map(([k, v]) => [k, v.dataList]));
   const conditions = {};
   for (const list of Object.values(talents)) for (const d of list) for (const c of d.activeCondition ?? []) if (CONDITIONS[c]) conditions[c] = CONDITIONS[c];
   const roots = skillNames.filter((n) => n.startsWith(`${opId}_`));
