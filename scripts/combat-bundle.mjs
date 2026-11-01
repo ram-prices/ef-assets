@@ -195,7 +195,8 @@ const named = (attrs) => Object.fromEntries(attrs.filter((a) => ATTRIBUTES[a.att
  * (Estella) needs them whoever else is on the team.
  */
 const REACTIONS = /^buff_common_(try_)?(cryst|pulse|natural|fire)_(cryst|pulse|natural|fire)(_[a-z]+)?_triggered$/;
-const CODE_BUFFS = ['buff_physical_no_guard', ...buffNames.filter((n) => REACTIONS.test(n))];
+// And the Link's buff, which consuming Links gives (its imbue_scale is the game code's).
+const CODE_BUFFS = ['buff_physical_no_guard', 'buff_common_affixes_skillimbue_atk', ...buffNames.filter((n) => REACTIONS.test(n))];
 
 async function bundle(opId) {
   // Talents and Potentials: what each level does (attach a skill or buff, set skill values, change attributes).
