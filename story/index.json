@@ -3,7 +3,7 @@
   "source": "EndfieldData",
   "url": "https://git.escartem.moe/Endfield/EndfieldData",
   "dumper": "https://git.escartem.moe/Escartem/EndfieldDataDumper",
-  "fetched": "2026-10-23",
+  "fetched": "2026-11-02",
   "note": "Game text © Gryphline / Hypergryph"
  },
  "groups": [
@@ -137,14 +137,19 @@
      ]
     },
     {
-     "title": "Chapter 2 · Wuling · VIII · Paint with Fresh Ink",
+     "title": "Chapter 2 · Wuling · VIII · Sanctuary from the Rift",
      "missions": [
-      "e11m8d5",
       "e12m1",
       "e12m2",
       "e12m3",
       "e12m4",
       "e12m5"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · VIII · Paint with Fresh Ink",
+     "missions": [
+      "e11m8d5"
      ]
     }
    ]
@@ -781,11 +786,6 @@
    "lines": 187,
    "scenes": 13
   },
-  "e11m8d5": {
-   "name": "Freedom of Expansion",
-   "lines": 12,
-   "scenes": 2
-  },
   "e12m1": {
    "name": "Enter the Painted World",
    "lines": 233,
@@ -810,6 +810,11 @@
    "name": "Paint with Fresh Ink",
    "lines": 231,
    "scenes": 16
+  },
+  "e11m8d5": {
+   "name": "Freedom of Expansion",
+   "lines": 12,
+   "scenes": 2
   },
   "c16m1": {
    "name": "Echoes Of Then",
