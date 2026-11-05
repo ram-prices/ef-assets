@@ -76,6 +76,8 @@ LETTERING = {
     'bg_gachapool_texture_03', 'deco_gacha_jsspsi_text',
     'gachapool_1_4_1_text_a', 'gachapool_1_4_1_text_r', 'gachapool_1_4_1_text_c',
     'gachapool_1_4_1_text_n', 'gachapool_1_4_1_text_e',
+    'bg_gacha_1_6_2_letter', 'deco_gacha_1_6_2_name', 'deco_gacha_1_6_2_name_01', 'deco_gacha_1_6_2_name_02',
+    *(f'6_2text_bg_{i:02d}' for i in range(1, 11)),
 }
 
 
