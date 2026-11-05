@@ -363,6 +363,17 @@
    "chr_0036_jsspsi-p5.webp"
   ]
  },
+ "chr_0037_minghe": {
+  "1": [
+   "chr_0037_minghe-p1.webp"
+  ],
+  "3": [
+   "chr_0037_minghe-p3.webp"
+  ],
+  "5": [
+   "chr_0037_minghe-p5.webp"
+  ]
+ },
  "chr_0038_purrche": {
   "1": [
    "chr_0038_purrche-p1.webp"
@@ -786,6 +797,18 @@
   "chr_0038_purrche-p5.webp": [
    0.53,
    0.27
+  ],
+  "chr_0037_minghe-p1.webp": [
+   0.475,
+   0.235
+  ],
+  "chr_0037_minghe-p3.webp": [
+   0.76,
+   0.31
+  ],
+  "chr_0037_minghe-p5.webp": [
+   0.49,
+   0.42
   ]
  }
 }
