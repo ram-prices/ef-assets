@@ -16,9 +16,12 @@
   "mainAttribute": "Will",
   "secondaryAttribute": "Strength",
   "headhunting": "chartered",
-  "quote": "Argent Flow of HAS, at your service. Captain of Pacified Skies? That title serves little purpose here, so let's just drop it and avoid confusion.",
+  "quote": "Minghe of HAS, at your service. Captain of Pacified Skies? That title serves little purpose here, so let's just drop it and avoid confusion.",
   "profile": "\"Suited up and ready. There will be no holding back.\"\n\nArgent Flow, Imperial Guard of Yan and Captain of Pacified Skies of Hongshan Academy of Sciences. With sword in hand, he spurs his galloper, Nuli, forward like a bolt of lightning across the northern front lines, leaving countless legends in his wake. Yet beyond the legends, he is not nearly as aloof as people make him out to be. As he journeys across mountains and rivers, he never hesitates to lend a hand whenever he encounters someone in need, no matter how small the matter.\n\nHe rarely speaks of the past, yet old tales still linger on people's lips: it was you who changed how he wields his sword.\n\nBody of steel, heart of soul. The answer you gave him has illuminated his path through the long night. From here on, he will continue to serve under Tianshi Tan and journey across Talos-II to solve whatever disasters may arise. Sword in hand, he will walk alongside Endfield and carve a path for civilization, until the lights of every home can shine undisturbed by calamity.\n\n\"When you need to make a hard decision, I will be at your side. You can have full faith in our bond.\"",
-  "expertise": [],
+  "expertise": [
+   "Combat Technique",
+   "Erudite"
+  ],
   "hobbies": [
    "Lifestyle",
    "Nature"
@@ -100,7 +103,8 @@
     178.013
    ],
    "critRate": 0.05,
-   "attackSpeed": 100
+   "attackSpeed": 100,
+   "range": "8 Meters"
   },
   "potentials": [
    {

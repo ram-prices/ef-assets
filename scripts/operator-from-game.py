@@ -6,7 +6,7 @@ and scripts/update-wiki.mjs skips an operator with no game id. This reads the
 same numbers from a dump of the client (the EndfieldDataDump checkout's
 output\\Data\\TableCfg) and writes them in the same shape, using the markup
 update-wiki.mjs documents. What the tables don't hold (faction, race, birthday,
-quote, profile, tags, hobbies...) comes from the operator's wiki page.
+quote, profile, tags, range...) comes from the operator's wiki page.
 
     python scripts/operator-from-game.py <EndfieldDataDump> <operator id>...
     python scripts/operator-from-game.py <EndfieldDataDump> --check <operator id>
@@ -59,6 +59,8 @@ class Tables:
         self.ship_chars = self.load('SpaceshipCharSkillTable')
         self.ship = self.load('SpaceshipSkillTable')
         self.items = self.load('ItemTable')
+        self.tags = self.load('CharacterTagTable')
+        self.tag_names = self.load('TagDataTable')
 
     def load(self, name):
         with open(os.path.join(self.dir, name + '.json'), encoding='utf-8') as f:
@@ -66,6 +68,9 @@ class Tables:
 
     def text(self, o):
         return self.en.get(str(o['id']), '') if isinstance(o, dict) else (o or '')
+
+    def tag(self, cid, field):
+        return [self.text(self.tag_names[x]['tagName']) for x in self.tags[cid][field]]
 
 
 def fill(text, board):
@@ -177,7 +182,7 @@ def effect_text(e, t):
     return markup(fill(t.text(e['desc']), effect_board(e))).replace('\r', '').strip()
 
 
-def stats(c):
+def stats(c, reach):
     rows = c['attributes']
 
     def at(level, stage):
@@ -189,7 +194,7 @@ def stats(c):
         'levels': [{'level': l, 'promotion': s} for l, s in LEVELS],
         'hp': [round(a[1]) for a in attrs], 'atk': [round(a[2]) for a in attrs],
         'strength': get(39), 'agility': get(40), 'intellect': get(41), 'will': get(42),
-        'critRate': 0.05, 'attackSpeed': 100,
+        'critRate': 0.05, 'attackSpeed': 100, 'range': reach,
     }
 
 
@@ -261,9 +266,8 @@ def build(cid, t):
         'gender': box.get('gender'), 'birthday': box.get('birthdate'), 'tags': tags,
         'mainAttribute': ATTR[c['mainAttrType']], 'secondaryAttribute': ATTR[c['subAttrType']],
         'headhunting': box.get('headhunting'), 'quote': box.get('quote'), 'profile': profile,
-        'expertise': [box[k] for k in ('exp1', 'exp2') if box.get(k)],
-        'hobbies': [box[k] for k in ('hb1', 'hb2') if box.get(k)], 'gift': box.get('prefer'),
-        'stats': stats(c), 'potentials': potentials, 'promotions': promotions(g, t),
+        'expertise': t.tag(cid, 'expertTagIds'), 'hobbies': t.tag(cid, 'hobbyTagIds'), 'gift': box.get('prefer'),
+        'stats': stats(c, box.get('AR')), 'potentials': potentials, 'promotions': promotions(g, t),
         'skills': skills(g, t), 'talents': talents(g, t), 'baseSkills': base_skills(cid, t),
         'page': 'https://endfield.wiki.gg/wiki/' + name.replace(' ', '_'),
     }
