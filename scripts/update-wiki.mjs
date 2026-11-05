@@ -462,6 +462,15 @@ const fetched = new Date().toISOString().slice(0, 10);
 const wrap = (key, data) => ({ attribution: { ...ATTRIBUTION, fetched }, [key]: data });
 
 const operators = await buildOperators();
+// Operators the wiki has no numbers for yet, from the game's tables
+// (scripts/operator-from-game.py). Once the wiki has one, delete its entry.
+const gameOps = join(ROOT, 'wiki', 'operators-game.json');
+if (existsSync(gameOps)) {
+  for (const [id, o] of Object.entries(JSON.parse(await readFile(gameOps, 'utf8')))) {
+    if (operators[id]?.stats) warn(`operator ${o.name}: the wiki has it now, delete it from wiki/operators-game.json`);
+    else operators[id] = o;
+  }
+}
 const weapons = await buildWeapons();
 const gear = await buildGear();
 

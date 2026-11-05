@@ -7,6 +7,9 @@ Operator, weapon and gear data snapshotted from the
 - `operators.json`: class, element, weapon, attributes, HP/ATK/attributes at
   levels 1/20/40/60/80/90, potentials, combat skills with per-rank values
   (ranks 1-12), talents, base skills, promotion costs.
+- `operators-game.json`: operators the wiki has no numbers for yet, built from
+  the game's tables by `scripts/operator-from-game.py`; `update-wiki.mjs`
+  merges them into `operators.json` until the wiki has them.
 - `weapons.json`: type, rarity, base ATK at 6 levels, potential, tuning costs,
   skills with their values at ranks 1-9.
 - `gear.json`: gear pieces (defense, stats, set) and gear set effects.
