@@ -820,7 +820,7 @@
       "rateUps": [
         "Argent Flow"
       ],
-      "poolId": null,
+      "poolId": "special_1_6_2",
       "version": "Sanctuary of Ink",
       "start": {
         "americas": "2026-11-05T12:00:00-05:00",
@@ -843,7 +843,7 @@
       "rateUps": [
         "Lunar Calling"
       ],
-      "poolId": null,
+      "poolId": "weponbox_1_6_2",
       "version": "Sanctuary of Ink",
       "start": {
         "americas": "2026-11-05T12:00:00-05:00",

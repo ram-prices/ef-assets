@@ -99,6 +99,12 @@
     "rateupName": ["Si"],
     "type": "Special"
   },
+  "special_1_6_2": {
+    "name": "The Hearth Fire Beckons the Starry Flow",
+    "rateUpIds": ["chr_0037_minghe"],
+    "rateupName": ["Argent Flow"],
+    "type": "Special"
+  },
   "weponbox_1_0_1": {
     "name": "Smelting Forge Issue",
     "rateUpIds": ["wpn_sword_0006"],
@@ -169,6 +175,12 @@
     "name": "Seal of Jade Issue",
     "rateUpIds": ["wpn_claym_0018"],
     "rateupName": ["Jade Vessel"],
+    "type": "Weapon"
+  },
+  "weponbox_1_6_2": {
+    "name": "Moongleam Issue",
+    "rateUpIds": ["wpn_sword_0025"],
+    "rateupName": ["Lunar Calling"],
     "type": "Weapon"
   },
   "weaponbox_constant_1": {
