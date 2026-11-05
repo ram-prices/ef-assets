@@ -1,0 +1,30 @@
+name: CDN branches
+
+# Publishes the pictures to the cdn, cdn-full and cdn-potential branches, which
+# jsDelivr serves (scripts/cdn-branches.sh says why). Runs on every push to main.
+# Commits made by the other workflows trigger nothing, so it also runs daily.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '53 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cdn-branches
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GIT_AUTHOR_NAME: github-actions[bot]
+      GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+      GIT_COMMITTER_NAME: github-actions[bot]
+      GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+    steps:
+      - uses: actions/checkout@v5
+      - run: bash scripts/cdn-branches.sh
