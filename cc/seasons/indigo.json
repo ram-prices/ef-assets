@@ -1,0 +1,1780 @@
+{
+ "attribution": {
+  "text": "endfield.wiki.gg, CC BY-SA 4.0",
+  "url": "https://endfield.wiki.gg",
+  "license": "CC BY-SA 4.0"
+ },
+ "id": "indigo",
+ "rules": "- Participation Requirements -\n· Endministrator Authority Level ≥ 30\n\n- Event Rules -\n· During the event, you can select any combination of Test Criteria for the challenge, and try to complete it.\n· Every combat challenge includes 3 waves. Defeat all enemies to succeed. A failed challenge can be restarted, but you cannot continue midway through a challenge.\n· \"Test Criteria\" are a series of effects that make challenges more difficult, and can be divided into 1 / 2 / 3 according to their difficulty level. \"Total Test Criteria\" is the sum of difficulty levels of all Test Criteria selected.\n· Test Criteria are divided into \"Criteria Sets\". Completing challenges with higher \"Total Test Criteria\" will unlock more \"Criteria Sets\".\n· Some Test Criteria are [Locked Criteria] that cannot be selected by default. Select the specified [Key Criteria] to unlock them.\n· Unselecting a [Key Criteria] will also unselect and cache the dependent [Locked Criteria]. Cached criteria will not be activated for the challenge. You must select the required [Key Criteria] to activate them.\n\n- Event Rewards -\n· Complete event missions to earn rewards such as Vitrified Indigos. Completing a Test Criterion for the first time also rewards some Vitrified Indigos.\n· Vitrified Indigos can be spent at the [Secret Sanctuary] for various rewards.\n\n- Sanctuary Rating -\n· [Sanctuary Rating] represents your current best records in terms of \"Total Test Criteria\" and will be displayed in Friends-related screens.\n· Successfully completing a challenge with Total Test Criteria of at least 1 activates [Sanctuary Rating] for the event.\n· [Sanctuary Rating] for this Contingency Contract event will only be active for the duration of the said event.\n\n- Event Updates -\n· After event launch, an update will be applied on day 8 at 12:00 (server time). This adds a new batch of Test Criteria. The new Test Criteria cannot be selected if their Criteria Set is still locked.\n· After the event begins, a new Cycle Mission will be added every 3 days (at 04:00 server time), until all 7 Cycle Missions have been added.\n· All Contract Missions are effective until the end of the event.\n\n- End of the Event -\n· This is a limited-time event and will end at the scheduled time.\n· After the event ends, no more challenges can be attempted. Engraved medal(s) of the event cannot be earned, and mission progress will not be updated.\n· After the event ends, the [Secret Sanctuary] will remain open for a while so that you may exchange the remaining rewards. Once the [Secret Sanctuary] closes, all Vitrified Indigos earned from this event will expire.",
+ "feature": "- Enemies include various blightshades, witchcraft creations, feral beasts, and Cangzei pirates such as Cloud Obliterators.\n- You can still apply Vulnerability, Arts Inflictions, Physical Statuses, and Arts Reactions to enemies with shield stacks.",
+ "stageRules": "- The operation comprises 3 consecutive enemy waves to fight. Defeat all enemy waves to complete the operation.\n- Healing Masses will be dropped between the waves. Touch them to restore HP to every teammate.\n- There is a resting session between waves, during which the operators are still considered to be in battle.\n- The operation has a countdown timer. Once the timer ends or all operators in the team are reduced to ZERO HP, the operation is interrupted.\n- Tacticals and consumables cannot be used.",
+ "recommendLv": 80,
+ "timer": null,
+ "maxTotal": 55,
+ "maxTotalByPhase": {
+  "1": 48,
+  "2": 55
+ },
+ "ratingBands": [
+  20,
+  30
+ ],
+ "importWarning": [
+  20,
+  30
+ ],
+ "grid": {
+  "cols": 23,
+  "rows": 3
+ },
+ "keys": {
+  "key1_v1d6": {
+   "color": "#be58ff",
+   "keyLabel": "Key Criteria",
+   "lockLabel": "Locked Criteria"
+  }
+ },
+ "criteria": [
+  {
+   "id": 110001,
+   "col": 1,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Thrill I",
+   "numeral": "I",
+   "desc": "DMG Dealt by enemies +30%/+80%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110001.webp",
+   "conflict": "c_cc002_c1",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 110002,
+   "col": 1,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Thrill II",
+   "numeral": "II",
+   "desc": "DMG Dealt by enemies +30%/+80%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110002.webp",
+   "conflict": "c_cc002_c1",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 30,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 110101,
+   "col": 2,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Withering",
+   "numeral": "",
+   "desc": "No Healing Masses are generated between waves.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110101.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 110601,
+   "col": 3,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Decapitate I",
+   "numeral": "I",
+   "desc": "DMG Taken by the controlled operator +50%/+100%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110601.webp",
+   "conflict": "c_cc002_c4",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 110602,
+   "col": 3,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Decapitate II",
+   "numeral": "II",
+   "desc": "DMG Taken by the controlled operator +50%/+100%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110602.webp",
+   "conflict": "c_cc002_c4",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 113201,
+   "col": 4,
+   "row": 1,
+   "points": 1,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113201.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 2,
+   "firstClear": 15
+  },
+  {
+   "id": 110703,
+   "col": 4,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/110703.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 110801,
+   "col": 5,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Mylosis I",
+   "numeral": "I",
+   "desc": "At 0.1s after an operator consumes Vulnerability or Arts Infliction, DMG Dealt -30%/-80% for 10s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110801.webp",
+   "conflict": "c_cc002_c5",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 110802,
+   "col": 5,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Mylosis II",
+   "numeral": "II",
+   "desc": "At 0.1s after an operator consumes Vulnerability or Arts Infliction, DMG Dealt -30%/-80% for 10s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/110802.webp",
+   "conflict": "c_cc002_c5",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 111201,
+   "col": 6,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Partition",
+   "numeral": "",
+   "desc": "Cannot switch controlled operator once battle begins.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/111201.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 112801,
+   "col": 7,
+   "row": 1,
+   "points": 1,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/112801.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 111301,
+   "col": 8,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Whittle Down I",
+   "numeral": "I",
+   "desc": "DMG dealt by enemies ignores shields. 20% of DMG dealt by enemies is converted to Max HP Reduction. After the controlled operator takes DMG, their HP Treatment will be reduced by 40% for 4s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/111301.webp",
+   "conflict": "c_cc002_c8",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 111303,
+   "col": 8,
+   "row": 3,
+   "points": 3,
+   "name": "Team: Whittle Down III",
+   "numeral": "III",
+   "desc": "DMG dealt by enemies ignores shields. 50% of DMG dealt by enemies is converted to Max HP Reduction. After the controlled operator takes DMG, their HP Treatment will be reduced by 90% for 6s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/111303.webp",
+   "conflict": "c_cc002_c8",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 111001,
+   "col": 9,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Binding I",
+   "numeral": "I",
+   "desc": "The operators' stamina bar is replaced with 5 Stamina Points. Each dodge consumes 1 Stamina Point. For every 8s, regenerate 1 Stamina Point(s).",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/111001.webp",
+   "conflict": "c_cc002_c9",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 111003,
+   "col": 9,
+   "row": 3,
+   "points": 3,
+   "name": "Ambient: Binding III",
+   "numeral": "III",
+   "desc": "Dodging cannot be performed.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/111003.webp",
+   "conflict": "c_cc002_c9",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 112701,
+   "col": 10,
+   "row": 1,
+   "points": 1,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/112701.webp",
+   "conflict": "c_cc002_hate",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 110403,
+   "col": 10,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/110403.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 113801,
+   "col": 11,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Time Limit I",
+   "numeral": "I",
+   "desc": "Timer -45s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/113801.webp",
+   "conflict": "c_cc002_time1",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 113802,
+   "col": 11,
+   "row": 2,
+   "points": 2,
+   "name": "Ambient: Time Limit II",
+   "numeral": "II",
+   "desc": "Timer -90s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/113802.webp",
+   "conflict": "c_cc002_time1",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30,
+   "matchedBy": "icon"
+  },
+  {
+   "id": 113803,
+   "col": 11,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "III",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113803.webp",
+   "conflict": "c_cc002_time1",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 2,
+   "firstClear": 45
+  },
+  {
+   "id": 110302,
+   "col": 12,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/110302.webp",
+   "conflict": "c_cc002_key1",
+   "key": "key1_v1d6",
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 113502,
+   "col": 13,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113502.webp",
+   "conflict": "c_cc002_key1",
+   "key": "key1_v1d6",
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 110502,
+   "col": 14,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/110502.webp",
+   "conflict": "c_cc002_key1",
+   "key": "key1_v1d6",
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 2,
+   "firstClear": 30
+  },
+  {
+   "id": 112901,
+   "col": 15,
+   "row": 1,
+   "points": 1,
+   "name": null,
+   "numeral": "I",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/112901.webp",
+   "conflict": "c_cc002_c13",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 112903,
+   "col": 15,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "III",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/112903.webp",
+   "conflict": "c_cc002_c13",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 110901,
+   "col": 16,
+   "row": 1,
+   "points": 1,
+   "name": null,
+   "numeral": "I",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/110901.webp",
+   "conflict": "c_cc002_c14",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 110903,
+   "col": 16,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "III",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/110903.webp",
+   "conflict": "c_cc002_c14",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 111602,
+   "col": 17,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/111602.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 113603,
+   "col": 17,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113603.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 113302,
+   "col": 18,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113302.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 113402,
+   "col": 19,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113402.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 30
+  },
+  {
+   "id": 111703,
+   "col": 19,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/111703.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 113701,
+   "col": 20,
+   "row": 1,
+   "points": 1,
+   "name": null,
+   "numeral": "I",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113701.webp",
+   "conflict": "c_cc002_c18",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 15
+  },
+  {
+   "id": 113702,
+   "col": 20,
+   "row": 2,
+   "points": 2,
+   "name": null,
+   "numeral": "II",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/113702.webp",
+   "conflict": "c_cc002_c18",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 30
+  },
+  {
+   "id": 112302,
+   "col": 21,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Team Mangler II",
+   "numeral": "II",
+   "desc": "When the Armored Mangler enters battle, and when it is at 50% HP, its next skill will be a channeling skill that can only be interrupted after a while.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/112302.webp",
+   "conflict": "c_cc002_c19",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 112303,
+   "col": 21,
+   "row": 3,
+   "points": 3,
+   "name": null,
+   "numeral": "III",
+   "desc": null,
+   "descSource": null,
+   "icon": "cc/art/tags/112303.webp",
+   "conflict": "c_cc002_c19",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 45
+  },
+  {
+   "id": 112402,
+   "col": 22,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Skyfall II",
+   "numeral": "II",
+   "desc": "When the Cloud Obliterator enters battle, and when it is at 50% HP, its next skill will be a special skill.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/112402.webp",
+   "conflict": "c_cc002_c20",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 112403,
+   "col": 22,
+   "row": 3,
+   "points": 3,
+   "name": "Edit: Skyfall III",
+   "numeral": "III",
+   "desc": "When the Cloud Obliterator enters battle, and when it is at 50% HP, its next skill will be a special skill and dispel all Vulnerability, Arts Inflictions, Physical Statuses, and Arts Reactions from itself. The dispel effect does not trigger again.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/112403.webp",
+   "conflict": "c_cc002_c20",
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 45,
+   "matchedBy": "signature"
+  },
+  {
+   "id": 112501,
+   "col": 23,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Reactive Formula",
+   "numeral": "",
+   "desc": "The Cloud Obliterator's missiles will create a corrosion pool when it hits the ground. The pool applies Corrosion on operators in its area of effect.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/112501.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key1_v1d6"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15,
+   "matchedBy": "signature"
+  }
+ ],
+ "variants": [
+  {
+   "id": 0,
+   "note": "On-looking Rockhowlers, likely Edit: Fruity Slippers",
+   "inferred": true
+  },
+  {
+   "id": 1,
+   "note": null,
+   "inferred": false
+  },
+  {
+   "id": 2,
+   "note": "Adds a second Armored Manglerbeast, likely Edit: Team Mangler",
+   "inferred": true
+  }
+ ],
+ "waves": [
+  {
+   "variant": 0,
+   "wave": 1,
+   "enemies": [
+    {
+     "id": "eny_0112_jzmonk_cc",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "wave": 1,
+   "enemies": [
+    {
+     "id": "eny_0117_klhound_cc02",
+     "count": 3
+    },
+    {
+     "id": "eny_0118_klhog_cc",
+     "count": 2
+    },
+    {
+     "id": "eny_0124_kltdcap_cc",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "wave": 2,
+   "enemies": [
+    {
+     "id": "eny_0112_jzmonk_cc_2",
+     "count": 3
+    },
+    {
+     "id": "eny_0128_babyents_cc",
+     "count": 2
+    },
+    {
+     "id": "eny_0113_jzogre_cc",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "wave": 3,
+   "enemies": [
+    {
+     "id": "eny_0097_hsmino2_cc",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 1,
+   "enemies": [
+    {
+     "id": "eny_0117_klhound_cc02",
+     "count": 3
+    },
+    {
+     "id": "eny_0118_klhog_cc",
+     "count": 2
+    },
+    {
+     "id": "eny_0124_kltdcap_cc",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 2,
+   "enemies": [
+    {
+     "id": "eny_0112_jzmonk_cc_2",
+     "count": 3
+    },
+    {
+     "id": "eny_0128_babyents_cc",
+     "count": 2
+    },
+    {
+     "id": "eny_0113_jzogre_cc",
+     "count": 2
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 3,
+   "enemies": [
+    {
+     "id": "eny_0097_hsmino2_cc",
+     "count": 1
+    }
+   ]
+  }
+ ],
+ "enemies": {
+  "eny_0112_jzmonk_cc": {
+   "name": "Rockhowler",
+   "level": 60,
+   "hp": 24750,
+   "atk": 479,
+   "def": 100,
+   "hpBonus": 0,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 20.0,
+    "natural": 0.0,
+    "physical": 20.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "This enemy typically roams around in packs. Any operator or Rockhowler that steps on discarded banana peels will slip and fall."
+   ],
+   "portrait": "icons/enemies/eny_0112_jzmonk.webp",
+   "desc": "Rockhowlers can live in the natural wilderness. These intelligent yet mischievous creatures often prepare \"traps\" and \"dangers\" for hapless travelers. They seem to enjoy the sight of humans frustrated by their antics. Please deal with them patiently."
+  },
+  "eny_0117_klhound_cc02": {
+   "name": "Tuskbeast Blightshade",
+   "level": 60,
+   "hp": 22275,
+   "atk": 1078,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 20.0,
+    "pulse": 35.0
+   },
+   "abilities": [
+    "Some attacks can activate Blightshade Energy they hit."
+   ],
+   "portrait": "icons/enemies/eny_0117_klhound.webp",
+   "desc": "A manifestation of residual Æther energy that projects the outward form of a tuskbeast. Although this is but a \"lingering shadow\", its sharp fangs are still capable of tearing through armor and protective gear."
+  },
+  "eny_0118_klhog_cc": {
+   "name": "Quillbeast Blightshade",
+   "level": 60,
+   "hp": 173253,
+   "atk": 1557,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 20.0,
+    "pulse": 35.0
+   },
+   "abilities": [
+    "After a short charge-up, the Quillbeast Blightshade can summon multiple bolts of lightning and activate Blightshade Energy within a large area. Interrupt the beast quickly when it starts charging up."
+   ],
+   "portrait": "icons/enemies/eny_0118_klhog.webp",
+   "desc": "A manifestation of residual Æther energy that projects the outward form of a quillbeast. This blightshade seems to exhibit far more aggressive rolling and bouncing attacks than its living counterpart, though it may just be a matter of imagination."
+  },
+  "eny_0124_kltdcap_cc": {
+   "name": "YSTF Captain Blightshade",
+   "level": 60,
+   "hp": 222753,
+   "atk": 2395,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 20.0,
+    "pulse": 35.0
+   },
+   "abilities": [
+    "After dissipating, this enemy can blink next to an operator and attack. Try to dodge.",
+    "The YSTF Captain Blightshade can use its weapon to call down thunderbolts. A Blightshade Energy entity is activated when hit by a thunderbolt."
+   ],
+   "portrait": "icons/enemies/eny_0124_kltdcap.webp",
+   "desc": "A manifestation of residual Æther energy that projects the outward form of a YSTF Captain. Only veterans who have demonstrated gifts for command, exceptional combat prowess, and achieved true valor in war will receive the chance of becoming a YSTF Captain."
+  },
+  "eny_0112_jzmonk_cc_2": {
+   "name": "Rockhowler",
+   "level": 60,
+   "hp": 24750,
+   "atk": 479,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 20.0,
+    "natural": 0.0,
+    "physical": 20.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "This enemy typically roams around in packs. The controlled operator or Rockhowler that steps on discarded banana peels will slip and fall."
+   ],
+   "portrait": "icons/enemies/eny_0112_jzmonk.webp",
+   "desc": "Rockhowlers can live in the natural wilderness. These intelligent yet mischievous creatures often prepare \"traps\" and \"dangers\" for hapless travelers. They seem to enjoy the sight of humans frustrated by their antics. Please deal with them patiently."
+  },
+  "eny_0128_babyents_cc": {
+   "name": "Woodcraft Wanderer",
+   "level": 60,
+   "hp": 148502,
+   "atk": 1796,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 0.0,
+    "natural": 20.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "A Woodcraft Wanderer with zero shield stacks will trap operators to absorb their energy and restore its shield stacks.",
+    "Woodcraft Wanderers will work with each other when attacking."
+   ],
+   "portrait": "icons/enemies/eny_0128_babyents.webp",
+   "desc": "A small battle puppet created by a Snowpriestess. It is in charge of keeping the Snowy Forest safe. Do not underestimate its fists of wood, for they can smash through stone with hardly any effort."
+  },
+  "eny_0113_jzogre_cc": {
+   "name": "Armored Manglerbeast",
+   "level": 60,
+   "hp": 210378,
+   "atk": 1198,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 20.0,
+    "natural": 0.0,
+    "physical": 20.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "The Rockhowler riding on the Armored Manglerbeast's back can throw banana peels.",
+    "Drops Rockhowlers when knocked down. Attack the Rockhowlers to deal even more DMG."
+   ],
+   "portrait": "icons/enemies/eny_0113_jzogre.webp",
+   "desc": "A variant of manglerbeasts that evolved specifically on Talos-II. These unique manglers are armored in extremely thick scales and share a mutualistic symbiosis with rockhowlers. The former species provides the bulwark and muscle while the latter offers keen senses and warns against trespassers."
+  },
+  "eny_0097_hsmino2_cc": {
+   "name": "Cloud Obliterator",
+   "level": 60,
+   "hp": 297005,
+   "atk": 2395,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 20.0,
+    "natural": 20.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "Uses the heavy rocket launcher as a melee weapon. Also shoots fireworks for its ranged attacks. Getting rammed and lifted by its horns might set off some super fireworks!",
+    "Don't try to backstab it. It has a powerful hind kick!"
+   ],
+   "portrait": "icons/enemies/eny_0097_hsmino2.webp",
+   "desc": "A criminal equipped with heavy weaponry. Obliteration is no small feat. Only the strongest smashers armed with quadruple rocket launchers can achieve the title of Cloud Obliterator."
+  }
+ },
+ "missions": [
+  {
+   "id": "activity_contingency_contract_1_task_1_1",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission I",
+   "desc": "Cycle Mission I: Beat a challenge with this Test Criteria Set (of any difficulty rating)\n[Edit: Thrill], [Team: Decapitate], [Ambient: Partition], [Ambient: Aggro Focus]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_1_2",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission II",
+   "desc": "Cycle Mission II: Beat a challenge with this Test Criteria Set (of any difficulty rating) \n[Ambient: Silence] [Edit: Blood Rush] [Edit: Skyfall] [Edit: Reactive Formula]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-08T04:00:00+08:00",
+    "americas": "2026-11-08T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_1_3",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission III",
+   "desc": "Cycle Mission III: Beat a challenge with this Test Criteria Set \n[Ambient: Combo Lock] [Edit: Light Protection I] [Edit: Blood Rush I] [Edit: Solid Body] [Edit: Hard Stacks]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-11T04:00:00+08:00",
+    "americas": "2026-11-11T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_1_4",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission IV",
+   "desc": "Cycle Mission IV: Beat a challenge with this Test Criteria Set \n[Ambient: Withering] [Ambient: Volatile Gains] [Edit: Fruity Slippers] [Ambient: Echombo]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-14T04:00:00+08:00",
+    "americas": "2026-11-14T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_1_5",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission V",
+   "desc": "Cycle Mission V: Beat a challenge with this Test Criteria Set \n[Team: Myolysis] [Ambient: Binding] [Ambient: Echombo] [Edit: Encasement]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-17T04:00:00+08:00",
+    "americas": "2026-11-17T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_1_6",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission VI",
+   "desc": "Cycle Mission VI: Beat a challenge with this Test Criteria Set \n[Edit: Control Shield] [Team: Lethargy] [Ambient: Silence] [Edit: Team Mangler II]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-20T04:00:00+08:00",
+    "americas": "2026-11-20T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_1_7",
+   "group": "Cycle Mission",
+   "name": "Cycle Mission VII",
+   "desc": "Cycle Mission VII: Beat a challenge with this Test Criteria Set \n[Ambient: Combo Lock] [Team: Apathy] [Edit: Dueling Circle]",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-20T04:00:00+08:00",
+    "americas": "2026-11-20T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_2_1",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Complete a challenge with ≥ 1 Total Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 200,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_2_2",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Complete a challenge with ≥ 5 Total Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 1050,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_2_3",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Complete a challenge with ≥ 10 Total Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_2_4",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Complete a challenge with ≥ 15 Total Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_2_5",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Complete a challenge with ≥ 20 Total Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Indigo",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_1.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_3_1",
+   "group": "Phase Mission",
+   "name": null,
+   "desc": "Earn a total of 8,500 Vitrified Indigos",
+   "reward": [
+    {
+     "item": "Contingency Respondent",
+     "count": 1,
+     "icon": "cc/art/items/item_user_avatar_frame_activity_9.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_1_task_3_2",
+   "group": "Phase Mission",
+   "name": null,
+   "desc": "Complete 13 Contract Missions",
+   "reward": [
+    {
+     "item": "Silverblade Medal",
+     "count": 1,
+     "icon": "cc/art/items/item_user_avatar_activity_13.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-11-05T12:00:00+08:00",
+    "americas": "2026-11-05T12:00:00-05:00"
+   }
+  }
+ ],
+ "shop": [
+  {
+   "id": "shop_activity_contingency_contract_1_4_1",
+   "item": "T-Creds",
+   "count": 500,
+   "price": 5,
+   "limit": 0,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_14",
+   "item": "Heavy Cast Die",
+   "count": 2,
+   "price": 15,
+   "limit": 10,
+   "icon": "cc/art/items/item_weapon_break_high.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_13",
+   "item": "Arms INSP Set",
+   "count": 3,
+   "price": 20,
+   "limit": 20,
+   "icon": "cc/art/items/item_weapon_expcard_high.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_12",
+   "item": "Protohedron",
+   "count": 3,
+   "price": 20,
+   "limit": 60,
+   "icon": "cc/art/items/item_char_skill_level_7_12.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_11",
+   "item": "Protoset",
+   "count": 2,
+   "price": 15,
+   "limit": 10,
+   "icon": "cc/art/items/item_char_break_stage_3_4.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_10",
+   "item": "Advanced Cognitive Carrier",
+   "count": 1,
+   "price": 15,
+   "limit": 35,
+   "icon": "cc/art/items/item_expcard_stage2_high.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_9",
+   "item": "T-Creds",
+   "count": 10000,
+   "price": 30,
+   "limit": 60,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_8",
+   "item": "Warp Plasma-Coated Slide",
+   "count": 1,
+   "price": 15,
+   "limit": 12,
+   "icon": "cc/art/items/item_char_skill_specialize_6.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_7",
+   "item": "Triphasic Nanoflake",
+   "count": 1,
+   "price": 15,
+   "limit": 12,
+   "icon": "cc/art/items/item_char_skill_specialize_5.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_6",
+   "item": "Quadrant Fitting Fluid",
+   "count": 1,
+   "price": 15,
+   "limit": 12,
+   "icon": "cc/art/items/item_char_skill_specialize_4.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_5",
+   "item": "Tachyon Screening Lattice",
+   "count": 1,
+   "price": 15,
+   "limit": 12,
+   "icon": "cc/art/items/item_char_skill_specialize_3.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_4",
+   "item": "D96 Steel Sample 4",
+   "count": 1,
+   "price": 15,
+   "limit": 12,
+   "icon": "cc/art/items/item_char_skill_specialize_2.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_3",
+   "item": "Metadiastima Photoemission Tube",
+   "count": 1,
+   "price": 15,
+   "limit": 12,
+   "icon": "cc/art/items/item_char_skill_specialize_1.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_2",
+   "item": "Coolant Gel",
+   "count": 10,
+   "price": 15,
+   "limit": 30,
+   "icon": "cc/art/items/item_wpngem_enhance_dust.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_3_1",
+   "item": "Mark of Perseverance",
+   "count": 1,
+   "price": 60,
+   "limit": 10,
+   "icon": "cc/art/items/item_char_skill_crown.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_2_4",
+   "item": "Protohedron",
+   "count": 3,
+   "price": 20,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_level_7_12.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_2_3",
+   "item": "T-Creds",
+   "count": 10000,
+   "price": 30,
+   "limit": 15,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_2_2",
+   "item": "Advanced Progression Selection Crate II",
+   "count": 1,
+   "price": 30,
+   "limit": 10,
+   "icon": "cc/art/items/item_case_bp_selfselect_skillsp_2.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_2_1",
+   "item": "Coolant Gel",
+   "count": 10,
+   "price": 15,
+   "limit": 30,
+   "icon": "cc/art/items/item_wpngem_enhance_dust.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_1_2",
+   "item": "Oroberyl",
+   "count": 100,
+   "price": 50,
+   "limit": 20,
+   "icon": "cc/art/items/item_diamond.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_1_1_1",
+   "item": "Sticker: Contingency Resolved",
+   "count": 1,
+   "price": 200,
+   "limit": 1,
+   "icon": "cc/art/items/item_shot_sticker_activity_5.webp"
+  }
+ ],
+ "medal": {
+  "name": "Indigo Cleansed",
+  "desc": "The gift has been tainted by a corrupting hue of indigo. But as long as you are with us, the fire of re-ignition shall never die.",
+  "howTo": "In [Contingency Contract: Indigo Experimental Operation], successfully complete a challenge with ≥ 20 Total Test Criteria",
+  "needs": 20,
+  "icon": "cc/art/medals/indigo.webp",
+  "plate": "In [Contingency Contract: Indigo Experimental Operation], successfully complete a challenge with ≥ 30 Total Test Criteria",
+  "plateIcon": "cc/art/medals/indigo-plated.webp"
+ },
+ "rewards": [
+  {
+   "item": "Silverblade Medal",
+   "count": null,
+   "icon": "cc/art/items/item_user_avatar_activity_13.webp"
+  },
+  {
+   "item": "Contingency Respondent",
+   "count": null,
+   "icon": "cc/art/items/item_user_avatar_frame_activity_9.webp"
+  },
+  {
+   "item": "Sticker: Contingency Resolved",
+   "count": null,
+   "icon": "cc/art/items/item_shot_sticker_activity_5.webp"
+  },
+  {
+   "item": "Oroberyl",
+   "count": 2000,
+   "icon": "cc/art/items/item_diamond.webp"
+  },
+  {
+   "item": "Advanced Progression Selection Crate II",
+   "count": null,
+   "icon": "cc/art/items/item_case_bp_selfselect_skillsp_2.webp"
+  },
+  {
+   "item": "Mark of Perseverance",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_crown.webp"
+  },
+  {
+   "item": "Advanced Cognitive Carrier",
+   "count": null,
+   "icon": "cc/art/items/item_expcard_stage2_high.webp"
+  },
+  {
+   "item": "Warp Plasma-Coated Slide",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_6.webp"
+  },
+  {
+   "item": "Triphasic Nanoflake",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_5.webp"
+  },
+  {
+   "item": "Quadrant Fitting Fluid",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_4.webp"
+  },
+  {
+   "item": "Tachyon Screening Lattice",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_3.webp"
+  },
+  {
+   "item": "D96 Steel Sample 4",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_2.webp"
+  },
+  {
+   "item": "Metadiastima Photoemission Tube",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_1.webp"
+  },
+  {
+   "item": "Coolant Gel",
+   "count": null,
+   "icon": "cc/art/items/item_wpngem_enhance_dust.webp"
+  },
+  {
+   "item": "T-Creds",
+   "count": null,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "item": "Protoset",
+   "count": null,
+   "icon": "cc/art/items/item_char_break_stage_3_4.webp"
+  },
+  {
+   "item": "Protohedron",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_level_7_12.webp"
+  },
+  {
+   "item": "Arms INSP Set",
+   "count": null,
+   "icon": "cc/art/items/item_weapon_expcard_high.webp"
+  },
+  {
+   "item": "Heavy Cast Die",
+   "count": null,
+   "icon": "cc/art/items/item_weapon_break_high.webp"
+  }
+ ],
+ "shareCode": {
+  "digits": "octal",
+  "bitsPerColumn": 3,
+  "rowWeights": [
+   1,
+   2,
+   4
+  ],
+  "alphabet": "0123456789ABCDEFGHJKMNPQRSTVWXYZ",
+  "length": 14,
+  "wrap": "<CODE>",
+  "columns": [
+   {
+    "col": 1,
+    "rows": [
+     110001,
+     110002,
+     null
+    ]
+   },
+   {
+    "col": 2,
+    "rows": [
+     110101,
+     null,
+     null
+    ]
+   },
+   {
+    "col": 3,
+    "rows": [
+     110601,
+     110602,
+     null
+    ]
+   },
+   {
+    "col": 4,
+    "rows": [
+     113201,
+     null,
+     110703
+    ]
+   },
+   {
+    "col": 5,
+    "rows": [
+     110801,
+     110802,
+     null
+    ]
+   },
+   {
+    "col": 6,
+    "rows": [
+     111201,
+     null,
+     null
+    ]
+   },
+   {
+    "col": 7,
+    "rows": [
+     112801,
+     null,
+     null
+    ]
+   },
+   {
+    "col": 8,
+    "rows": [
+     111301,
+     null,
+     111303
+    ]
+   },
+   {
+    "col": 9,
+    "rows": [
+     111001,
+     null,
+     111003
+    ]
+   },
+   {
+    "col": 10,
+    "rows": [
+     112701,
+     null,
+     110403
+    ]
+   },
+   {
+    "col": 11,
+    "rows": [
+     113801,
+     113802,
+     113803
+    ]
+   },
+   {
+    "col": 12,
+    "rows": [
+     null,
+     110302,
+     null
+    ]
+   },
+   {
+    "col": 13,
+    "rows": [
+     null,
+     113502,
+     null
+    ]
+   },
+   {
+    "col": 14,
+    "rows": [
+     null,
+     110502,
+     null
+    ]
+   },
+   {
+    "col": 15,
+    "rows": [
+     112901,
+     null,
+     112903
+    ]
+   },
+   {
+    "col": 16,
+    "rows": [
+     110901,
+     null,
+     110903
+    ]
+   },
+   {
+    "col": 17,
+    "rows": [
+     null,
+     111602,
+     113603
+    ]
+   },
+   {
+    "col": 18,
+    "rows": [
+     null,
+     113302,
+     null
+    ]
+   },
+   {
+    "col": 19,
+    "rows": [
+     null,
+     113402,
+     111703
+    ]
+   },
+   {
+    "col": 20,
+    "rows": [
+     113701,
+     113702,
+     null
+    ]
+   },
+   {
+    "col": 21,
+    "rows": [
+     null,
+     112302,
+     112303
+    ]
+   },
+   {
+    "col": 22,
+    "rows": [
+     null,
+     112402,
+     112403
+    ]
+   },
+   {
+    "col": 23,
+    "rows": [
+     112501,
+     null,
+     null
+    ]
+   }
+  ],
+  "examples": [
+   {
+    "criteria": [
+     110001,
+     110101
+    ],
+    "total": 2,
+    "code": "00000000000009"
+   },
+   {
+    "criteria": [
+     110001,
+     110302,
+     112901
+    ],
+    "total": 4,
+    "code": "0000040G000001"
+   }
+  ]
+ }
+}

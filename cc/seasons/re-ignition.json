@@ -1,0 +1,2062 @@
+{
+ "attribution": {
+  "text": "endfield.wiki.gg, CC BY-SA 4.0",
+  "url": "https://endfield.wiki.gg",
+  "license": "CC BY-SA 4.0"
+ },
+ "id": "re-ignition",
+ "rules": "- Participation Requirements -\n· Endministrator Authority Level ≥ 30\n\n- Event Rules -\n· During the event, you can select any combination of Test Criteria before starting the combat challenge.\n· The combat challenge has a total of 4 waves. Defeat all enemies to beat the challenge. If you fail the challenge, the challenge must be re-attempted from the beginning.\n· Test Criteria are a series of effects that make the challenge more difficult. They are divided into these difficulty ratings: 1 / 2 / 3. Total Test Criteria is the sum of difficulty rating of all selected Test Criteria.\n· Test Criteria are also divided into regional \"Criteria Sets\". Complete challenges at higher Total Test Criteria to unlock more Criteria Sets.\n· Some Test Criteria are [Locked Criteria] that cannot be selected by default. Select the specified [Key Criteria] to unlock them.\n\n- Event Rewards -\n· Complete event mission goals to earn rewards such as Vitrified Coins. Successfully completing a Test Criterion for the first time also rewards Vitrified Coins.\n· Vitrified Coins can be exchanged at the [Secret Sanctuary] for rewards.\n\n- Sanctuary Rating -\n· [Sanctuary Rating] represents your current best challenge record in terms of Total Test Criteria. Sanctuary Rating will be displayed at Friends-related screens.\n· Successfully completing a challenge with Total Test Criteria of at least 1 activates [Sanctuary Rating] for the event.\n· [Sanctuary Rating] for this Contingency Contract event will only be active for the duration of the said event.\n\n- Event Updates -\n· After event launch, an update will be applied on day 8 at 12:00 (server time). This adds a new batch of Test Criteria. The new Test Criteria cannot be selected if their Criteria Set is still locked.\n· After event launch, another update will be applied every 3 days at 04:00 (server time) to update and add 1 cycle mission.\n· All Contingency Contract missions will be available until the end of the event.\n\n- End of the Event -\n· This is a limited-time event that will end at the specified time.\n· After the event ends, combat challenges can no longer be attempted. Mission progress will not be updated as well.\n· After the event ends, the [Secret Sanctuary] will remain open for a while so that the remaining rewards can be exchanged. Once the [Secret Sanctuary] closes, all unused Vitrified Coins earned during the event will be removed.",
+ "feature": "- The enemies are various types of Aggeloi.\n- Some enemies apply Cryo Infliction to operators. An operator who reaches 4 Cryo Infliction stacks becomes solidified.",
+ "stageRules": "- The operation comprises 4 consecutive enemy waves to fight. Defeat all enemy waves to complete the operation.\n- Healing Masses will be dropped between the waves. Touch them to restore HP to every teammate.\n- There is a resting session between waves, during which the operators are still considered to be in battle.\n- The operation has a countdown timer. Once the timer ends or all operators in the team are reduced to ZERO HP, the operation is interrupted.\n- Tacticals and consumables cannot be used.",
+ "recommendLv": 80,
+ "timer": null,
+ "maxTotal": 54,
+ "maxTotalByPhase": {
+  "1": 47,
+  "2": 54
+ },
+ "ratingBands": [
+  20,
+  35
+ ],
+ "importWarning": [
+  25,
+  35
+ ],
+ "grid": {
+  "cols": 24,
+  "rows": 3
+ },
+ "keys": {
+  "key2": {
+   "color": "#ffbb00",
+   "keyLabel": "Key Criteria",
+   "lockLabel": "Locked Criteria"
+  }
+ },
+ "criteria": [
+  {
+   "id": 102801,
+   "col": 1,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Weaken I",
+   "numeral": "I",
+   "desc": "Operator Attributes -10%/-20%/-40%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102801.webp",
+   "conflict": "c1028",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 102802,
+   "col": 1,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Weaken II",
+   "numeral": "II",
+   "desc": "Operator Attributes -10%/-20%/-40%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102802.webp",
+   "conflict": "c1028",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 102803,
+   "col": 1,
+   "row": 3,
+   "points": 3,
+   "name": "Team: Weaken III",
+   "numeral": "III",
+   "desc": "Operator Attributes -10%/-20%/-40%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102803.webp",
+   "conflict": "c1028",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 100201,
+   "col": 2,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Thrill I",
+   "numeral": "I",
+   "desc": "DMG Dealt by enemies +30%/-80%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100201.webp",
+   "conflict": "c1002",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 100202,
+   "col": 2,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Thrill II",
+   "numeral": "II",
+   "desc": "DMG Dealt by enemies +30%/+80%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100202.webp",
+   "conflict": "c1002",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 102101,
+   "col": 3,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Time Limit I",
+   "numeral": "I",
+   "desc": "Timer -100s/-200s/-300s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102101.webp",
+   "conflict": "c1021",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 102102,
+   "col": 3,
+   "row": 2,
+   "points": 2,
+   "name": "Ambient: Time Limit II",
+   "numeral": "II",
+   "desc": "Timer -100s/-200s/-300s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102102.webp",
+   "conflict": "c1021",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 102103,
+   "col": 3,
+   "row": 3,
+   "points": 3,
+   "name": "Ambient: Time Limit III",
+   "numeral": "III",
+   "desc": "Timer -100s/-200s/-300s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102103.webp",
+   "conflict": "c1021",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 0,
+   "unlockPhase": 2,
+   "firstClear": 45
+  },
+  {
+   "id": 900101,
+   "col": 4,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Vitality I",
+   "numeral": "I",
+   "desc": "Enemy HP +50%/+100%/+200%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/900101.webp",
+   "conflict": "c9001",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 900102,
+   "col": 4,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Vitality II",
+   "numeral": "II",
+   "desc": "Enemy HP +50%/+100%/+200%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/900102.webp",
+   "conflict": "c9001",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 900103,
+   "col": 4,
+   "row": 3,
+   "points": 3,
+   "name": "Edit: Vitality III",
+   "numeral": "III",
+   "desc": "Enemy HP +50%/+100%/+200%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/900103.webp",
+   "conflict": "c9001",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 100901,
+   "col": 5,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Restraint I",
+   "numeral": "I",
+   "desc": "When an operator applies Vulnerability or Arts Infliction stacks, DMG Dealt (of the corresponding type) by the said operator -45%/-90%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100901.webp",
+   "conflict": "c1009",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 100902,
+   "col": 5,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Restraint II",
+   "numeral": "II",
+   "desc": "When an operator applies Vulnerability or Arts Infliction stacks, DMG Dealt (of the corresponding type) by the said operator -45%/-90%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100902.webp",
+   "conflict": "c1009",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 100601,
+   "col": 6,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Decapitate I",
+   "numeral": "I",
+   "desc": "DMG Taken by the controlled operator +50%/+100%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100601.webp",
+   "conflict": "c1006",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 100602,
+   "col": 6,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Decapitate II",
+   "numeral": "II",
+   "desc": "DMG Taken by the controlled operator +50%/+100%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100602.webp",
+   "conflict": "c1006",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 101301,
+   "col": 7,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Hypoxia",
+   "numeral": "",
+   "desc": "Stamina Regeneration Rate -50%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101301.webp",
+   "conflict": "c1013",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101303,
+   "col": 7,
+   "row": 3,
+   "points": 3,
+   "name": "Ambient: Mire",
+   "numeral": "",
+   "desc": "Dodge cannot be performed.",
+   "descSource": "game",
+   "icon": "cc/art/tags/101303.webp",
+   "conflict": "c1013",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 102001,
+   "col": 8,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Withering I",
+   "numeral": "I",
+   "desc": "Only 1 Healing Mass is generated between waves.",
+   "descSource": "game",
+   "icon": "cc/art/tags/102001.webp",
+   "conflict": "c1020",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 102002,
+   "col": 8,
+   "row": 2,
+   "points": 2,
+   "name": "Ambient: Withering II",
+   "numeral": "II",
+   "desc": "No Healing Masses are generated between waves.",
+   "descSource": "game",
+   "icon": "cc/art/tags/102002.webp",
+   "conflict": "c1020",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 100501,
+   "col": 9,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Bent Edges I",
+   "numeral": "I",
+   "desc": "When an operator casts an ultimate, Ultimate DMG Dealt by the said operator's subsequent ultimates -50%/-100%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100501.webp",
+   "conflict": "c1005",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 100502,
+   "col": 9,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Bent Edges II",
+   "numeral": "II",
+   "desc": "When an operator casts an ultimate, Ultimate DMG Dealt by the said operator's subsequent ultimates -50%/-100%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100502.webp",
+   "conflict": "c1005",
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 101001,
+   "col": 10,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Effect Barrier",
+   "numeral": "",
+   "desc": "Vulnerability or Arts Infliction of the same element can only be applied to the same enemy once every 5s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101001.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 102302,
+   "col": 10,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Rush",
+   "numeral": "",
+   "desc": "Enemy Movement Speed +100%. Enemies do not suffer more than 25% Max HP of DMG within 0.1s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102302.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 100803,
+   "col": 10,
+   "row": 3,
+   "points": 3,
+   "name": "Team: Poor Basics",
+   "numeral": "",
+   "desc": "Operator's Basic Attack DMG Dealt -70%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100803.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 103401,
+   "col": 11,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Encumbered",
+   "numeral": "",
+   "desc": "Natural SP Recovery is temporarily paused when the controlled operator has not dealt a Final Strike to the enemy for 12 seconds.",
+   "descSource": "game",
+   "icon": "cc/art/tags/103401.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 2,
+   "firstClear": 15
+  },
+  {
+   "id": 103302,
+   "col": 11,
+   "row": 2,
+   "points": 2,
+   "name": "Ambient: Synced Growth",
+   "numeral": "",
+   "desc": "When the controlled operator is restored for 10% Max HP or acquires a shield with 20% Max HP, every enemy in the battlefield is also restored for 8% Max HP.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/103302.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 101402,
+   "col": 11,
+   "row": 3,
+   "points": 3,
+   "name": "Team: Whittle Down",
+   "numeral": "",
+   "desc": "When operators take DMG, part of that DMG will be converted to Max HP Reductions. Conversion rates: 30% (for melee operators) / 50% (for ranged operators)",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101402.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 100003,
+   "col": 12,
+   "row": 3,
+   "points": 3,
+   "name": "Ambient: Overclock",
+   "numeral": "",
+   "desc": "Length of Operator Combo Skill Cooldown -60%. Battle Skill DMG Dealt -60%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100003.webp",
+   "conflict": "c1000c1001",
+   "key": "key2",
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 103203,
+   "col": 13,
+   "row": 3,
+   "points": 3,
+   "name": "Ambient: Tremor",
+   "numeral": "",
+   "desc": "Operator's DMG Dealt +100% for any DMG not dealt by Basic Attack, Battle Skill, Combo Skill, or Ultimate. Battle Skill DMG Dealt -60%.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/103203.webp",
+   "conflict": "c1000c1001",
+   "key": "key2",
+   "locks": [],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 45
+  },
+  {
+   "id": 103102,
+   "col": 14,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Encasement",
+   "numeral": "",
+   "desc": "For each Vulnerability or Arts Infliction stack that an enemy has, the enemy receives DMG Taken (of the corresponding type) -10%. This effect is removed 0.1s after the Vulnerability or Arts Infliction ends.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/103102.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101201,
+   "col": 14,
+   "row": 2,
+   "points": 2,
+   "name": "Ambient: Partition",
+   "numeral": "",
+   "desc": "Cannot switch controlled operator once battle begins.",
+   "descSource": "game",
+   "icon": "cc/art/tags/101201.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 101501,
+   "col": 15,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Toxic Residue I",
+   "numeral": "I",
+   "desc": "A defeated enemy will leave a patch of toxins on the battlefield. Operators caught within the patch take {{Color|-2%}} of their Max HP of DMG every second.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101501.webp",
+   "conflict": "c1015",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101502,
+   "col": 15,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Toxic Residue II",
+   "numeral": "II",
+   "desc": "A defeated enemy leaves a Toxic Puddle on the ground. Operators caught in the patch take 2%/5% of their Max HP every second.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101502.webp",
+   "conflict": "c1015",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 1,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 100301,
+   "col": 16,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Battle Chill I",
+   "numeral": "I",
+   "desc": "Whenever operators cast battle skill 2/1 time(s), apply 1 stack of Cryo Infliction to the controlled operator. Effect trigger cooldown for each operator: 3s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100301.webp",
+   "conflict": "c1003",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 100302,
+   "col": 16,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Battle Chill II",
+   "numeral": "II",
+   "desc": "Whenever operators cast battle skill 2/1 time(s), apply 1 stack of Cryo Infliction to the controlled operator.\nEffect trigger cooldown for each operator: 3s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100302.webp",
+   "conflict": "c1003",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 100401,
+   "col": 17,
+   "row": 1,
+   "points": 1,
+   "name": "Team: Heat Loss I",
+   "numeral": "I",
+   "desc": "Whenever operators cast combo skill 2/1 time(s), apply 1 stack of Cryo Infliction to the controlled operator. Effect trigger cooldown for each operator: 3s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100401.webp",
+   "conflict": "c1004",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 100402,
+   "col": 17,
+   "row": 2,
+   "points": 2,
+   "name": "Team: Heat Loss II",
+   "numeral": "II",
+   "desc": "Whenever operators cast combo skill 2/1 time(s), apply 1 stack of Cryo Infliction to the controlled operator.\nEffect trigger cooldown for each operator: 3s.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/100402.webp",
+   "conflict": "c1004",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 101701,
+   "col": 18,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Thermolysis",
+   "numeral": "",
+   "desc": "Duration of Solidification extended to 15s. Casting Heat-type skills can dispel the Solidification.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101701.webp",
+   "conflict": "c1017c1019",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101603,
+   "col": 18,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Flashfreeze",
+   "numeral": "",
+   "desc": "If an enemy applies Cryo Infliction to the controlled operator, directly convert the effect to Solidification instead.",
+   "descSource": "game",
+   "icon": "cc/art/tags/101603.webp",
+   "conflict": null,
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 30
+  },
+  {
+   "id": 101801,
+   "col": 19,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Biolysis",
+   "numeral": "",
+   "desc": "Duration of Solidification extended to 15s. Casting Nature-type skills can dispel the Solidification.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101801.webp",
+   "conflict": "c1017c1019",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101901,
+   "col": 20,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Electrolysis",
+   "numeral": "",
+   "desc": "Duration of Solidification extended to 15s. Casting Electric-type skills can dispel the Solidification.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101901.webp",
+   "conflict": "c1017c1019",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 102401,
+   "col": 21,
+   "row": 1,
+   "points": 1,
+   "name": "Ambient: Physicolysis",
+   "numeral": "",
+   "desc": "Duration of Solidification extended to 15s. Casting Physical-type skills can dispel the Solidification.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/102401.webp",
+   "conflict": "c1017c1019",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101101,
+   "col": 22,
+   "row": 1,
+   "points": 1,
+   "name": "Edit: Regeneration I",
+   "numeral": "I",
+   "desc": "An enemy under crowd control effects regenerates 5%/15% Max HP per second.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101101.webp",
+   "conflict": "c1011",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 15
+  },
+  {
+   "id": 101102,
+   "col": 22,
+   "row": 2,
+   "points": 2,
+   "name": "Edit: Regeneration II",
+   "numeral": "II",
+   "desc": "An enemy under crowd control effects regenerates 5%/15% Max HP per second.",
+   "descSource": "wiki",
+   "icon": "cc/art/tags/101102.webp",
+   "conflict": "c1011",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 1,
+   "firstClear": 30
+  },
+  {
+   "id": 102201,
+   "col": 23,
+   "row": 2,
+   "points": 2,
+   "name": "Ambient: RE-Construct I",
+   "numeral": "I",
+   "desc": "Heavy Ram and Heavy Sting enemies in the final wave are replaced by Heavy Ram α and Heavy Sting α.",
+   "descSource": "game",
+   "icon": "cc/art/tags/102201.webp",
+   "conflict": "c1022",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 30
+  },
+  {
+   "id": 102202,
+   "col": 23,
+   "row": 3,
+   "points": 3,
+   "name": "Ambient: RE-Construct II",
+   "numeral": "II",
+   "desc": "Heavy Ram and Heavy Sting enemies in the third and fourth waves are replaced by Heavy Ram α and Heavy Sting α.",
+   "descSource": "game",
+   "icon": "cc/art/tags/102202.webp",
+   "conflict": "c1022",
+   "key": null,
+   "locks": [
+    "key2"
+   ],
+   "unlockTotal": 10,
+   "unlockPhase": 2,
+   "firstClear": 45
+  }
+ ],
+ "variants": [
+  {
+   "id": 1,
+   "note": null,
+   "inferred": false
+  },
+  {
+   "id": 2,
+   "note": "Final-wave Heavy Ram and Heavy Sting become their α forms, likely Ambient: RE-Construct I",
+   "inferred": true
+  },
+  {
+   "id": 3,
+   "note": "Third and fourth wave Heavy Ram and Heavy Sting become their α forms, likely Ambient: RE-Construct II",
+   "inferred": true
+  }
+ ],
+ "waves": [
+  {
+   "variant": 1,
+   "wave": 1,
+   "enemies": [
+    {
+     "id": "eny_0021_agmelee",
+     "count": 3
+    },
+    {
+     "id": "eny_0076_agfly",
+     "count": 3
+    },
+    {
+     "id": "eny_0027_agscorp",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "wave": 2,
+   "enemies": [
+    {
+     "id": "eny_0087_wgslime",
+     "count": 3
+    },
+    {
+     "id": "eny_0088_wgthorns",
+     "count": 3
+    },
+    {
+     "id": "eny_0089_wgreflec",
+     "count": 1
+    },
+    {
+     "id": "eny_0091_wgshoal",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "wave": 3,
+   "enemies": [
+    {
+     "id": "eny_0023_aghornb",
+     "count": 2
+    },
+    {
+     "id": "eny_0058_agdisk",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "wave": 4,
+   "enemies": [
+    {
+     "id": "eny_0023_aghornb",
+     "count": 1
+    },
+    {
+     "id": "eny_0027_agscorp",
+     "count": 1
+    },
+    {
+     "id": "eny_0090_wgabyss",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 1,
+   "enemies": [
+    {
+     "id": "eny_0021_agmelee",
+     "count": 3
+    },
+    {
+     "id": "eny_0076_agfly",
+     "count": 3
+    },
+    {
+     "id": "eny_0027_agscorp",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 2,
+   "enemies": [
+    {
+     "id": "eny_0087_wgslime",
+     "count": 3
+    },
+    {
+     "id": "eny_0088_wgthorns",
+     "count": 3
+    },
+    {
+     "id": "eny_0089_wgreflec",
+     "count": 1
+    },
+    {
+     "id": "eny_0091_wgshoal",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 3,
+   "enemies": [
+    {
+     "id": "eny_0023_aghornb",
+     "count": 2
+    },
+    {
+     "id": "eny_0058_agdisk",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "wave": 4,
+   "enemies": [
+    {
+     "id": "eny_0069_aghornb2",
+     "count": 1
+    },
+    {
+     "id": "eny_0070_agscorp2",
+     "count": 1
+    },
+    {
+     "id": "eny_0090_wgabyss",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 3,
+   "wave": 1,
+   "enemies": [
+    {
+     "id": "eny_0021_agmelee",
+     "count": 3
+    },
+    {
+     "id": "eny_0076_agfly",
+     "count": 3
+    },
+    {
+     "id": "eny_0027_agscorp",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 3,
+   "wave": 2,
+   "enemies": [
+    {
+     "id": "eny_0087_wgslime",
+     "count": 3
+    },
+    {
+     "id": "eny_0088_wgthorns",
+     "count": 3
+    },
+    {
+     "id": "eny_0089_wgreflec",
+     "count": 1
+    },
+    {
+     "id": "eny_0091_wgshoal",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 3,
+   "wave": 3,
+   "enemies": [
+    {
+     "id": "eny_0069_aghornb2",
+     "count": 2
+    },
+    {
+     "id": "eny_0058_agdisk",
+     "count": 1
+    }
+   ]
+  },
+  {
+   "variant": 3,
+   "wave": 4,
+   "enemies": [
+    {
+     "id": "eny_0069_aghornb2",
+     "count": 1
+    },
+    {
+     "id": "eny_0070_agscorp2",
+     "count": 1
+    },
+    {
+     "id": "eny_0090_wgabyss",
+     "count": 1
+    }
+   ]
+  }
+ ],
+ "enemies": {
+  "eny_0021_agmelee": {
+   "name": "Ram",
+   "level": 60,
+   "hp": 24750,
+   "atk": 1198,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "This enemy has no special abilities."
+   ],
+   "portrait": "icons/enemies/eny_0021_agmelee.webp",
+   "desc": "The \"Kriosson\" (archive ID: ACL071) is amongst the earliest recorded form of the Aggeloi and the most commonly encountered. It attacks by ramming its victims with its horns."
+  },
+  "eny_0076_agfly": {
+   "name": "Falsewings",
+   "level": 60,
+   "hp": 19800,
+   "atk": 958,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "Launches small whirlwinds that can also slow down operators."
+   ],
+   "portrait": "icons/enemies/eny_0076_agfly.webp",
+   "desc": "The \"Psuthopteron\" (archive ID: ARA07C) has flight capabilities that are wholly unrelated to its morphology. This pattern was originally regarded as biomimicry. However, the modern consensus believes it was a mimic of Terran flying vehicles."
+  },
+  "eny_0027_agscorp": {
+   "name": "Heavy Sting",
+   "level": 60,
+   "hp": 131177,
+   "atk": 1796,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 20.0,
+    "natural": 20.0,
+    "physical": 20.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "This enemy attacks by causing Originium pillars to erupt under the operators.",
+    "When approached, this enemy will summon stone pillars around itself for protection."
+   ],
+   "portrait": "icons/enemies/eny_0027_agscorp.webp",
+   "desc": "The \"Varykentron\" (archive ID: ARL141) is a non-standard variant of ARL121. It would occasionally perform whip attacks with its tail instead of using its ranged energy attack."
+  },
+  "eny_0087_wgslime": {
+   "name": "Mudflow",
+   "level": 60,
+   "hp": 32175,
+   "atk": 958,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "This enemy can quickly close the distance from afar. Its attacks can apply Cryo Infliction to operators upon hit."
+   ],
+   "portrait": "icons/enemies/eny_0087_wgslime.webp",
+   "desc": "The \"Tholeroygran\" (archive ID: ACM311) is the first fluid-based pattern to be discovered. The morphology of the halo is unstable and the internal temperature is typically lower than its constituent materials."
+  },
+  "eny_0088_wgthorns": {
+   "name": "Hedron",
+   "level": 60,
+   "hp": 27225,
+   "atk": 958,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "The projectiles it launches apply Cryo Infliction to operators upon hit."
+   ],
+   "portrait": "icons/enemies/eny_0088_wgthorns.webp",
+   "desc": "The \"Diaphaistagran\" (archive ID: ARM315) is a fluid-based pattern with energy projecting capabilities. Its shape is that of a complex yet symmetrical geometry. Its attacks can also sap heat from any surface they come in contact with."
+  },
+  "eny_0089_wgreflec": {
+   "name": "Prism",
+   "level": 60,
+   "hp": 19800,
+   "atk": 958,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 45.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "This enemy can greatly strengthen nearby allies to improve their capabilities."
+   ],
+   "portrait": "icons/enemies/eny_0089_wgreflec.webp",
+   "desc": "The \"Prismastagran\" (archive ID: ASM316) is a non-model variant of ARM315. It is capable of protecting nearby Aggeloi, and is very difficult to hit as it often surrounds itself with ARM315 entities."
+  },
+  "eny_0091_wgshoal": {
+   "name": "Tidewalker",
+   "level": 60,
+   "hp": 222753,
+   "atk": 2395,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "Attacks with abilities that apply Cryo Infliction, and applies Solidification to operators it hits."
+   ],
+   "portrait": "icons/enemies/eny_0091_wgshoal.webp",
+   "desc": "The \"Genesklydan\" (archive ID: AGM321) exhibits humanoid head and legs. Ever since the discovery of this particular pattern, human resemblance became an unspoken rule for assessing Aggeloid threat levels."
+  },
+  "eny_0023_aghornb": {
+   "name": "Heavy Ram",
+   "level": 60,
+   "hp": 148502,
+   "atk": 2395,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 20.0,
+    "natural": 20.0,
+    "physical": 20.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "This enemy has no special abilities."
+   ],
+   "portrait": "icons/enemies/eny_0023_aghornb.webp",
+   "desc": "The \"Thrylissoron\" (archive ID: ACL072) is a non-standard variant of ACL071. It can manipulate its environment and make tactical decisions."
+  },
+  "eny_0058_agdisk": {
+   "name": "Effigy",
+   "level": 60,
+   "hp": 222753,
+   "atk": 2395,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 20.0,
+    "natural": 20.0,
+    "physical": 20.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "This enemy has powerful slam attacks but rotates slowly during casting. This is the best time to go behind it and attack.",
+    "The enemy can reassemble its body in various forms and move quickly across the battlefield.",
+    "The enemy will attempt to trap the operators! Quick interruption will counter it."
+   ],
+   "portrait": "icons/enemies/eny_0058_agdisk.webp",
+   "desc": "The \"Homoiossaron\" (archive ID: AGL371) is capable of mimicking human forms or parts thereof. Some of these rare and dangerous entities are capable of channeling the Æther itself."
+  },
+  "eny_0090_wgabyss": {
+   "name": "Tidalklast",
+   "level": 60,
+   "hp": 247504,
+   "atk": 2395,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 20.0,
+    "fire": 0.0,
+    "natural": 0.0,
+    "physical": 0.0,
+    "pulse": 20.0
+   },
+   "abilities": [
+    "The enemy has two states: Ranged and Melee.",
+    "Melee State: In this state, the enemy will try to approach the target to unleash melee attacks.",
+    "Ranged State: In this state, the enemy will maintain its distance and attack with more powerful abilities.",
+    "The ranged state suffers more Heat DMG, but has significant DMG Reduction against other elements."
+   ],
+   "portrait": "icons/enemies/eny_0090_wgabyss.webp",
+   "desc": "The \"Anavatklydan\" (archive ID: AGM32L) is a non-model variant of AGM321. Such entities come in a wide range of sizes. The sight of particularly large individuals breaking out of the water has become a nightmare for those who witnessed it."
+  },
+  "eny_0069_aghornb2": {
+   "name": "Heavy Ram α",
+   "level": 60,
+   "hp": 222753,
+   "atk": 2635,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 20.0,
+    "natural": 20.0,
+    "physical": 20.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "This enemy has no special abilities."
+   ],
+   "portrait": "icons/enemies/eny_0069_aghornb2.webp",
+   "desc": "The \"Thrylissoron Anavon\" (archive ID: ACL072α) is an energized variant of ACL072. Its high energy contents did not affect its decision-making abilities. This entity is extremely dangerous."
+  },
+  "eny_0070_agscorp2": {
+   "name": "Heavy Sting α",
+   "level": 60,
+   "hp": 195528,
+   "atk": 2156,
+   "def": 100,
+   "hpBonus": 0.3,
+   "stagger": 65.0,
+   "res": {
+    "cryst": 0.0,
+    "fire": 20.0,
+    "natural": 20.0,
+    "physical": 20.0,
+    "pulse": 0.0
+   },
+   "abilities": [
+    "This enemy attacks by causing Originium pillars to erupt under the operators.",
+    "When approached, this enemy will summon stone pillars around itself for protection."
+   ],
+   "portrait": "icons/enemies/eny_0070_agscorp2.webp",
+   "desc": "The \"Varykentron Anavon\" (archive ID: ARL141α) is an energized variant of ARL141 that has retained a plethora of attack patterns. It is a tougher and more dangerous entity."
+  }
+ },
+ "missions": [
+  {
+   "id": "activity_contingency_contract_0_task_1_1",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Stress Adaptation: Beat a challenge with these Test Criteria (of any difficulty rating) \n[Edit: Thrill] [Edit: Vitality] [Ambient: Hypoxia]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_1_6",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Arts Disruption: Beat a challenge with these Test Criteria (of any difficulty rating) \n[Ambient: Overclock] [Team: Restraint] [Edit: Encasement] [Team: Battle Chill] [Team: Heat Loss]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-22T04:00:00+08:00",
+    "americas": "2026-06-22T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_1_3",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Total Debilitation: Beat a challenge with these Test Criteria\n[Ambient: Tremor] [Edit: Rush] [Ambient: Synced Growth] [Team: Whittle Down]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-25T04:00:00+08:00",
+    "americas": "2026-06-25T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_1_4",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Rampant Malice: Beat a challenge with these Test Criteria (of any difficulty rating) \n[Ambient: Overclock] [Edit: Vitality] [Edit: Rush] [Edit: Toxic Residue] [Edit: Regeneration] [Ambient: RE-Construct]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-28T04:00:00+08:00",
+    "americas": "2026-06-28T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_1_5",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Suppressed Healing: Beat a challenge with these Test Criteria\n[Ambient: Tremor] [Edit: Thrill II] [Team: Decapitate II] [Ambient: Withering II] [Team: Whittle Down]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-07-01T04:00:00+08:00",
+    "americas": "2026-07-01T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_1_2",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Entropic Derivative: Beat a challenge with these Test Criteria\n[Ambient: Overclock] [Team: Battle Chill II] [Team: Heat Loss II] [Edit: Flashfreeze]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-07-04T04:00:00+08:00",
+    "americas": "2026-07-04T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_1_7",
+   "group": "Cycle Mission",
+   "name": null,
+   "desc": "Dynamic Solidification: Beat a challenge with these Test Criteria\n[Ambient: Tremor] [Ambient: Mire] [Ambient: Partition]",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 500,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-07-07T04:00:00+08:00",
+    "americas": "2026-07-07T04:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_2_1",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Successfully complete a challenge with at least 5 Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_2_2",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Successfully complete a challenge with at least 10 Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_2_3",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Successfully complete a challenge with at least 15 Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_2_4",
+   "group": "Test Criteria Mission",
+   "name": null,
+   "desc": "Successfully complete a challenge with at least 20 Test Criteria",
+   "reward": [
+    {
+     "item": "Vitrified Coin",
+     "count": 1250,
+     "icon": "cc/art/items/item_activity_contract_gold_0.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_3_1",
+   "group": "Phase Mission",
+   "name": null,
+   "desc": "Earn a total of 8,500 Vitrified Coins",
+   "reward": [
+    {
+     "item": "Contingent Inscription",
+     "count": 1,
+     "icon": "cc/art/items/item_user_avatar_frame_activity_5.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  },
+  {
+   "id": "activity_contingency_contract_0_task_3_2",
+   "group": "Phase Mission",
+   "name": null,
+   "desc": "Complete 12 Contract Missions",
+   "reward": [
+    {
+     "item": "Ancient Contract",
+     "count": 1,
+     "icon": "cc/art/items/item_user_avatar_activity_7.webp"
+    }
+   ],
+   "opens": {
+    "asia": "2026-06-19T12:00:00+08:00",
+    "americas": "2026-06-19T12:00:00-05:00"
+   }
+  }
+ ],
+ "shop": [
+  {
+   "id": "shop_activity_contingency_contract_0_4_1",
+   "item": "T-Creds",
+   "count": 500,
+   "price": 5,
+   "limit": 0,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_13",
+   "item": "Heavy Cast Die",
+   "count": 2,
+   "price": 15,
+   "limit": 10,
+   "icon": "cc/art/items/item_weapon_break_high.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_12",
+   "item": "Arms INSP Set",
+   "count": 3,
+   "price": 20,
+   "limit": 20,
+   "icon": "cc/art/items/item_weapon_expcard_high.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_11",
+   "item": "Protohedron",
+   "count": 3,
+   "price": 20,
+   "limit": 60,
+   "icon": "cc/art/items/item_char_skill_level_7_12.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_10",
+   "item": "Protoset",
+   "count": 2,
+   "price": 15,
+   "limit": 10,
+   "icon": "cc/art/items/item_char_break_stage_3_4.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_9",
+   "item": "Advanced Cognitive Carrier",
+   "count": 1,
+   "price": 15,
+   "limit": 30,
+   "icon": "cc/art/items/item_expcard_stage2_high.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_8",
+   "item": "T-Creds",
+   "count": 10000,
+   "price": 30,
+   "limit": 60,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_7",
+   "item": "Triphasic Nanoflake",
+   "count": 1,
+   "price": 15,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_specialize_5.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_6",
+   "item": "Quadrant Fitting Fluid",
+   "count": 1,
+   "price": 15,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_specialize_4.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_5",
+   "item": "Tachyon Screening Lattice",
+   "count": 1,
+   "price": 15,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_specialize_3.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_4",
+   "item": "D96 Steel Sample 4",
+   "count": 1,
+   "price": 15,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_specialize_2.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_3",
+   "item": "Metadiastima Photoemission Tube",
+   "count": 1,
+   "price": 15,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_specialize_1.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_2",
+   "item": "Coolant Gel",
+   "count": 10,
+   "price": 15,
+   "limit": 30,
+   "icon": "cc/art/items/item_wpngem_enhance_dust.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_3_1",
+   "item": "Mark of Perseverance",
+   "count": 1,
+   "price": 60,
+   "limit": 10,
+   "icon": "cc/art/items/item_char_skill_crown.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_2_4",
+   "item": "Protohedron",
+   "count": 3,
+   "price": 20,
+   "limit": 15,
+   "icon": "cc/art/items/item_char_skill_level_7_12.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_2_3",
+   "item": "T-Creds",
+   "count": 10000,
+   "price": 30,
+   "limit": 15,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_2_2",
+   "item": "Advanced Progression Selection Crate I",
+   "count": 1,
+   "price": 30,
+   "limit": 10,
+   "icon": "cc/art/items/item_case_bp_selfselect_skillsp_1.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_2_1",
+   "item": "Coolant Gel",
+   "count": 10,
+   "price": 15,
+   "limit": 30,
+   "icon": "cc/art/items/item_wpngem_enhance_dust.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_1_2",
+   "item": "Oroberyl",
+   "count": 100,
+   "price": 50,
+   "limit": 20,
+   "icon": "cc/art/items/item_diamond.webp"
+  },
+  {
+   "id": "shop_activity_contingency_contract_0_1_1",
+   "item": "Sticker: Contingency Contract",
+   "count": 1,
+   "price": 200,
+   "limit": 1,
+   "icon": "cc/art/items/item_shot_sticker_activity_3.webp"
+  }
+ ],
+ "medal": {
+  "name": "Re-Ignition",
+  "desc": "A pact from the past is being restored. You have re-ignited an ancient contract.",
+  "howTo": "In [Contingency Contract: Re-Ignition Experimental Operation], successfully complete a challenge with at least 20 Test Criteria",
+  "needs": 20,
+  "icon": "cc/art/medals/re-ignition.webp",
+  "plate": null,
+  "plateIcon": null
+ },
+ "rewards": [
+  {
+   "item": "Ancient Contract",
+   "count": null,
+   "icon": "cc/art/items/item_user_avatar_activity_7.webp"
+  },
+  {
+   "item": "Contingent Inscription",
+   "count": null,
+   "icon": "cc/art/items/item_user_avatar_frame_activity_5.webp"
+  },
+  {
+   "item": "Sticker: Contingency Contract",
+   "count": null,
+   "icon": "cc/art/items/item_shot_sticker_activity_3.webp"
+  },
+  {
+   "item": "Oroberyl",
+   "count": 2000,
+   "icon": "cc/art/items/item_diamond.webp"
+  },
+  {
+   "item": "Advanced Progression Selection Crate I",
+   "count": null,
+   "icon": "cc/art/items/item_case_bp_selfselect_skillsp_1.webp"
+  },
+  {
+   "item": "Mark of Perseverance",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_crown.webp"
+  },
+  {
+   "item": "Advanced Cognitive Carrier",
+   "count": null,
+   "icon": "cc/art/items/item_expcard_stage2_high.webp"
+  },
+  {
+   "item": "Triphasic Nanoflake",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_5.webp"
+  },
+  {
+   "item": "Quadrant Fitting Fluid",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_4.webp"
+  },
+  {
+   "item": "Tachyon Screening Lattice",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_3.webp"
+  },
+  {
+   "item": "D96 Steel Sample 4",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_2.webp"
+  },
+  {
+   "item": "Metadiastima Photoemission Tube",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_specialize_1.webp"
+  },
+  {
+   "item": "Coolant Gel",
+   "count": null,
+   "icon": "cc/art/items/item_wpngem_enhance_dust.webp"
+  },
+  {
+   "item": "T-Creds",
+   "count": null,
+   "icon": "cc/art/items/item_gold.webp"
+  },
+  {
+   "item": "Protoset",
+   "count": null,
+   "icon": "cc/art/items/item_char_break_stage_3_4.webp"
+  },
+  {
+   "item": "Protohedron",
+   "count": null,
+   "icon": "cc/art/items/item_char_skill_level_7_12.webp"
+  },
+  {
+   "item": "Arms INSP Set",
+   "count": null,
+   "icon": "cc/art/items/item_weapon_expcard_high.webp"
+  },
+  {
+   "item": "Heavy Cast Die",
+   "count": null,
+   "icon": "cc/art/items/item_weapon_break_high.webp"
+  }
+ ],
+ "shareCode": {
+  "digits": "octal",
+  "bitsPerColumn": 3,
+  "rowWeights": [
+   1,
+   2,
+   4
+  ],
+  "alphabet": "0123456789ABCDEFGHJKMNPQRSTVWXYZ",
+  "length": 15,
+  "wrap": "<CODE>",
+  "columns": [
+   {
+    "col": 1,
+    "rows": [
+     102801,
+     102802,
+     102803
+    ]
+   },
+   {
+    "col": 2,
+    "rows": [
+     100201,
+     100202,
+     null
+    ]
+   },
+   {
+    "col": 3,
+    "rows": [
+     102101,
+     102102,
+     102103
+    ]
+   },
+   {
+    "col": 4,
+    "rows": [
+     900101,
+     900102,
+     900103
+    ]
+   },
+   {
+    "col": 5,
+    "rows": [
+     100901,
+     100902,
+     null
+    ]
+   },
+   {
+    "col": 6,
+    "rows": [
+     100601,
+     100602,
+     null
+    ]
+   },
+   {
+    "col": 7,
+    "rows": [
+     101301,
+     null,
+     101303
+    ]
+   },
+   {
+    "col": 8,
+    "rows": [
+     102001,
+     102002,
+     null
+    ]
+   },
+   {
+    "col": 9,
+    "rows": [
+     100501,
+     100502,
+     null
+    ]
+   },
+   {
+    "col": 10,
+    "rows": [
+     101001,
+     102302,
+     100803
+    ]
+   },
+   {
+    "col": 11,
+    "rows": [
+     103401,
+     103302,
+     101402
+    ]
+   },
+   {
+    "col": 12,
+    "rows": [
+     null,
+     null,
+     100003
+    ]
+   },
+   {
+    "col": 13,
+    "rows": [
+     null,
+     null,
+     103203
+    ]
+   },
+   {
+    "col": 14,
+    "rows": [
+     103102,
+     101201,
+     null
+    ]
+   },
+   {
+    "col": 15,
+    "rows": [
+     101501,
+     101502,
+     null
+    ]
+   },
+   {
+    "col": 16,
+    "rows": [
+     100301,
+     100302,
+     null
+    ]
+   },
+   {
+    "col": 17,
+    "rows": [
+     100401,
+     100402,
+     null
+    ]
+   },
+   {
+    "col": 18,
+    "rows": [
+     101701,
+     101603,
+     null
+    ]
+   },
+   {
+    "col": 19,
+    "rows": [
+     101801,
+     null,
+     null
+    ]
+   },
+   {
+    "col": 20,
+    "rows": [
+     101901,
+     null,
+     null
+    ]
+   },
+   {
+    "col": 21,
+    "rows": [
+     102401,
+     null,
+     null
+    ]
+   },
+   {
+    "col": 22,
+    "rows": [
+     101101,
+     101102,
+     null
+    ]
+   },
+   {
+    "col": 23,
+    "rows": [
+     null,
+     102201,
+     102202
+    ]
+   },
+   {
+    "col": 24,
+    "rows": [
+     null,
+     null,
+     null
+    ]
+   }
+  ],
+  "examples": [
+   {
+    "criteria": [
+     102801,
+     102103
+    ],
+    "total": 4,
+    "code": "000000000000081"
+   },
+   {
+    "criteria": [
+     102801,
+     100003,
+     103102
+    ],
+    "total": 5,
+    "code": "0000000H0000001"
+   }
+  ]
+ }
+}
