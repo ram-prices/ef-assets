@@ -98,7 +98,7 @@ Status isn't stored; derive it from the dates. `end` is when combat closes, `sho
 | `name`, `desc` | Null when unknown |
 | `numeral` | `I`, `II`, `III` or an empty string |
 | `descSource` | `game`, `wiki` or null |
-| `matchedBy` | Only on criteria tied to the wiki without game text: `signature` or `icon` |
+| `matchedBy` | Only on criteria with no text in the tables: `signature`, `icon` or `recording` |
 | `conflict` | Conflict group id, or null |
 | `key` | Key id if this is a Key Criterion, or null |
 | `locks` | Key ids this needs selected |
@@ -181,9 +181,19 @@ Wave files are named `sc_<scene>_<number>.json`, and `variant` is the last digit
 - Indigo 2 adds an Armored Manglerbeast.
 - Re-Ignition 2 and 3 swap in α enemies.
 
+## Transcribed text
+
+`seasons/*.json` is rewritten on every run, so never edit text there. Text read from the game by hand goes in `transcribed/<season>.json`:
+
+```json
+{ "source": "...", "criteria": { "112801": { "name": "...", "desc": "..." } } }
+```
+
+Either field can be left out. Clean text from the tables wins, then this file, then the wiki. Transcribed descriptions get `descSource: "game"`, and names get `matchedBy: "recording"`. Tag 110302 also has a Japanese description in `I18nHotFix`, which can check that transcription.
+
 ## Not known yet
 
-- **Indigo text:** the tables have no text for Indigo's criteria in any language, and only 18 of 39 are tied to wiki rows. See the gaps below. Rerun after the next dump.
+- **Indigo text:** the server sends it to the running game through `I18nServerTextManager`, so no dump holds it unless a patch adds it. Only 18 of 39 criteria are tied to wiki rows; see the gaps below. Text read from the game goes in `cc/transcribed/`.
 - **Numbers in descriptions:** the game fills them from compiled code. The wiki supplies them, so a new season's descriptions need its wiki page.
 - **`timer`:** always null. The script `CcStartStageSwitchTimer` is only the rest countdown between waves; the base limit wasn't found. Time Limit criteria take 45–300 s off it.
 

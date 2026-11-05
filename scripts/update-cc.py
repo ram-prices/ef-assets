@@ -9,6 +9,7 @@ Rerun it locally after a game patch (the dump exists only on the owner's PC):
     3. Read the gap list it prints, commit cc/ and purge the art paths on jsDelivr.
 
 Flags: --no-art skips the pictures, --no-wiki uses only the tables.
+Text read from the game by hand goes in cc/transcribed/, never in the season files, which are rewritten here.
 Needs UnityPy and Pillow. The wiki is read through its API, as scripts/update-wiki.mjs does.
 
 Sources and the schema are in cc/README.md. Wiki text is CC BY-SA 4.0, so any file holding some carries
@@ -192,6 +193,15 @@ def save_art(im, path, width=None, lossless=True):
         im.save(path, 'WEBP', lossless=True, quality=100, method=6, exact=True)
     else:
         im.convert('RGB').save(path, 'WEBP', quality=90, method=6)
+
+
+def transcribed(slug):
+    """cc/transcribed/<season>.json: criterion id -> {name, desc}, or nothing if there's no file."""
+    path = os.path.join(CC, 'transcribed', slug + '.json')
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding='utf-8') as f:
+        return json.load(f)['criteria']
 
 
 def grid_of(game):
@@ -444,9 +454,27 @@ def main():
             else:
                 continue
             c['_vector'] = icon_vector(im)
+        # Text read from the game by hand outlives this script: the season file is rewritten on every run,
+        # so it's kept in cc/transcribed/. Clean text from the tables wins, then this, then the wiki.
+        typed = transcribed(slug)
+        for tag in set(typed) - {str(c['id']) for c in criteria}:
+            print('UNKNOWN transcribed criterion', slug, tag)
+        for c in criteria:
+            entry = typed.get(str(c['id']))
+            if not entry:
+                continue
+            if c['name'] is None and entry.get('name'):
+                c['name'], c['matchedBy'] = entry['name'], 'recording'
+            if entry.get('desc') and c['descSource'] != 'game':
+                c['desc'], c['descSource'] = entry['desc'], 'game'
+            r = by_name.get((c['name'] or '').lower())
+            if r and c['desc'] is None:
+                c['desc'], c['descSource'] = r['desc'], 'wiki'
+                wiki_used = True
+        taken = {c['name'] for c in criteria if c['name']}
         unnamed = [c for c in criteria if c['name'] is None]
         if unnamed and rows:
-            found = match_wiki(unnamed, rows, reference, art)
+            found = match_wiki(unnamed, [r for r in rows if r['name'] not in taken], reference, art)
             for c in unnamed:
                 if c['id'] in found:
                     r, how = found[c['id']]
@@ -567,7 +595,7 @@ def main():
             json.dump(season, f, ensure_ascii=False, indent=1)
             f.write('\n')
         gaps[slug] = {'noName': [c['id'] for c in criteria if not c['name']], 'noDesc': [c['id'] for c in criteria if not c['desc']],
-                      'matched': {k: sum(1 for c in criteria if c.get('matchedBy') == k) for k in ('signature', 'icon')}, 'wikiRows': len(rows), 'maxTotalByPhase': by_phase}
+                      'matched': {k: sum(1 for c in criteria if c.get('matchedBy') == k) for k in ('signature', 'icon', 'recording')}, 'wikiRows': len(rows), 'maxTotalByPhase': by_phase}
         if art:
             n = activity_id.rsplit('_', 1)[1]
             key = art.get(f'bg_loading_dung_contract_{n}_01')
