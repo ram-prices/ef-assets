@@ -5,7 +5,7 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-19"
+  "fetched": "2026-11-09"
  },
  "gear": {
   "items": {
@@ -5169,7 +5169,7 @@
     "page": "https://endfield.wiki.gg/wiki/Type_50_Yinglung_Gloves_T1"
    },
    "item_equip_t4_suit_atk02_hand_03": {
-    "name": "Type 50 Yinglung Gloves (03)",
+    "name": "Type 50 Yinglung Hands PPE",
     "type": "Gloves",
     "rarity": 5,
     "level": 70,
@@ -5207,7 +5207,7 @@
      }
     ],
     "source": "Exploring and Gathering",
-    "page": "https://endfield.wiki.gg/wiki/Type_50_Yinglung_Gloves_(03)"
+    "page": "https://endfield.wiki.gg/wiki/Type_50_Yinglung_Hands_PPE"
    },
    "item_equip_t4_suit_attri01_body_01": {
     "name": "Bonekrusha Heavy Armor",

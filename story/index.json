@@ -3,7 +3,7 @@
   "source": "EndfieldData",
   "url": "https://git.escartem.moe/Endfield/EndfieldData",
   "dumper": "https://git.escartem.moe/Escartem/EndfieldDataDumper",
-  "fetched": "2026-10-23",
+  "fetched": "2026-11-09",
   "note": "Game text © Gryphline / Hypergryph"
  },
  "groups": [
@@ -137,14 +137,19 @@
      ]
     },
     {
-     "title": "Chapter 2 · Wuling · VIII · Paint with Fresh Ink",
+     "title": "Chapter 2 · Wuling · VIII · Sanctuary from the Rift",
      "missions": [
-      "e11m8d5",
       "e12m1",
       "e12m2",
       "e12m3",
       "e12m4",
       "e12m5"
+     ]
+    },
+    {
+     "title": "Chapter 2 · Wuling · VIII · Paint with Fresh Ink",
+     "missions": [
+      "e11m8d5"
      ]
     }
    ]
@@ -336,7 +341,8 @@
       "a1m16d2",
       "a1m16d3",
       "a1m18",
-      "a1m19"
+      "a1m19",
+      "a1m21"
      ]
     }
    ]
@@ -397,6 +403,9 @@
      "title": "",
      "missions": [
       "c6m1",
+      "c37m1",
+      "c37m2",
+      "c37m3",
       "db01m1",
       "db01m2",
       "db01m3",
@@ -781,11 +790,6 @@
    "lines": 187,
    "scenes": 13
   },
-  "e11m8d5": {
-   "name": "Freedom of Expansion",
-   "lines": 12,
-   "scenes": 2
-  },
   "e12m1": {
    "name": "Enter the Painted World",
    "lines": 233,
@@ -810,6 +814,11 @@
    "name": "Paint with Fresh Ink",
    "lines": 231,
    "scenes": 16
+  },
+  "e11m8d5": {
+   "name": "Freedom of Expansion",
+   "lines": 12,
+   "scenes": 2
   },
   "c16m1": {
    "name": "Echoes Of Then",
@@ -1366,6 +1375,11 @@
    "lines": 10,
    "scenes": 2
   },
+  "a1m21": {
+   "name": "Tincture of Indigo",
+   "lines": 12,
+   "scenes": 2
+  },
   "f1m3": {
    "name": "Restart Area Stock Redistribution I",
    "lines": 33,
@@ -1565,6 +1579,21 @@
    "name": "Lone Wolf",
    "lines": 245,
    "scenes": 31
+  },
+  "c37m1": {
+   "name": "Parting Grass",
+   "lines": 81,
+   "scenes": 5
+  },
+  "c37m2": {
+   "name": "Kindling the Fire",
+   "lines": 102,
+   "scenes": 11
+  },
+  "c37m3": {
+   "name": "Seeking the Branch",
+   "lines": 292,
+   "scenes": 26
   },
   "db01m1": {
    "name": "Etchspace Salvage",
@@ -1808,67 +1837,17 @@
   }
  },
  "activities": {
-  "Survival Training": [
-   "a1m2"
+  "Yuanyuan's Blazing Stoves": [
+   "f1m36"
   ],
   "Trial of the Bow": [
    "gm02m29"
   ],
-  "Yuanyuan's Blazing Stoves": [
-   "f1m36"
-  ],
-  "Runners' Steeplechase": [
-   "a1m15"
-  ],
-  "Supply: Wuling Super Chef": [
-   "a1m9"
-  ],
-  "Monumental Etching: Old Wounds": [
-   "a1m4"
-  ],
-  "HEAT RAGE! MEGA ARENA!": [
-   "a1m11"
-  ],
   "Trial Algorithmics": [
    "gm02m16"
   ],
-  "Monumental Etching: Forest of Maras": [
-   "a1m4"
-  ],
-  "Monumental Etching: Shadow Marked": [
-   "a1m4"
-  ],
-  "Arena of Games": [
-   "a1m19"
-  ],
-  "Monumental Etching: Beastly Howl": [
-   "a1m4"
-  ],
-  "Monumental Etching: Dirge of Grief": [
-   "a1m4"
-  ],
-  "Monumental Etching: Corrupting Surge": [
-   "a1m4"
-  ],
-  "Monumental Etching: Scorch Mark": [
-   "a1m4"
-  ],
-  "AIC Support: Chubby Lung Attacks": [
-   "a1m16d1",
-   "a1m16d2",
-   "a1m16d3"
-  ],
-  "Snapshot: Etchings of Our Cosmic Dreams": [
-   "a1m10"
-  ],
-  "Carly's Fairytale of Wuling": [
-   "a1m7"
-  ],
-  "The Rooted Realm": [
-   "a1m13"
-  ],
-  "Echoes of War": [
-   "db01m10"
+  "Carly's Fairytale of the Valley": [
+   "a1m3"
   ],
   "Cleanse and Rinse": [
    "a1m6d1",
@@ -1884,17 +1863,70 @@
    "a1m8d2",
    "a1m8d3"
   ],
-  "Carly's Verdant Anthology": [
-   "a1m18"
+  "Contingency Contract: Indigo Experimental Operation": [
+   "a1m21"
+  ],
+  "Contingency Contract: Re-Ignition Experimental Operation": [
+   "a1m14"
+  ],
+  "The Rooted Realm": [
+   "a1m13"
+  ],
+  "Arena of Games": [
+   "a1m19"
+  ],
+  "HEAT RAGE! MEGA ARENA!": [
+   "a1m11"
   ],
   "Supply: Exploration Day": [
    "a1m5"
   ],
-  "Carly's Fairytale of the Valley": [
-   "a1m3"
+  "Carly's Verdant Anthology": [
+   "a1m18"
   ],
-  "Contingency Contract: Re-Ignition Experimental Operation": [
-   "a1m14"
+  "Echoes of War": [
+   "db01m10"
+  ],
+  "Snapshot: Etchings of Our Cosmic Dreams": [
+   "a1m10"
+  ],
+  "AIC Support: Chubby Lung Attacks": [
+   "a1m16d1",
+   "a1m16d2",
+   "a1m16d3"
+  ],
+  "Monumental Etching: Forest of Maras": [
+   "a1m4"
+  ],
+  "Monumental Etching: Shadow Marked": [
+   "a1m4"
+  ],
+  "Monumental Etching: Beastly Howl": [
+   "a1m4"
+  ],
+  "Monumental Etching: Dirge of Grief": [
+   "a1m4"
+  ],
+  "Monumental Etching: Corrupting Surge": [
+   "a1m4"
+  ],
+  "Supply: Wuling Super Chef": [
+   "a1m9"
+  ],
+  "Monumental Etching: Scorch Mark": [
+   "a1m4"
+  ],
+  "Carly's Fairytale of Wuling": [
+   "a1m7"
+  ],
+  "Survival Training": [
+   "a1m2"
+  ],
+  "Monumental Etching: Old Wounds": [
+   "a1m4"
+  ],
+  "Runners' Steeplechase": [
+   "a1m15"
   ]
  }
 }
