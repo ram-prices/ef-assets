@@ -5,7 +5,7 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-19"
+  "fetched": "2026-11-09"
  },
  "weapons": {
   "wpn_claym_0003": {
@@ -14137,6 +14137,188 @@
     }
    ],
    "page": "https://endfield.wiki.gg/wiki/Complexed_Industry"
+  },
+  "wpn_sword_0025": {
+   "name": "Lunar Calling",
+   "rarity": 6,
+   "type": "Sword",
+   "source": "Acquisition Center: Arsenal Exchange",
+   "description": [
+    "A weapon equipped by Endfield operators to significantly boost their combat capabilities.",
+    "A symbolic masterpiece of Hongshan Swordmancers. The weapon is constructed using the latest metal smelting technologies and forged with ancient Yanese sword-forging techniques. The result features both excellent performance and time-tested beauty."
+   ],
+   "stats": {
+    "levels": [
+     1,
+     20,
+     40,
+     60,
+     80,
+     90
+    ],
+    "baseAtk": [
+     51,
+     148,
+     250,
+     352,
+     454,
+     505
+    ]
+   },
+   "potential": "Skill ⟦accent|Infliction: Coursing Stars⟧ improved.",
+   "tuning": [
+    {
+     "stage": 1,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 5
+      },
+      {
+       "item": "Kalkonyx",
+       "count": 3
+      },
+      {
+       "item": "T-Creds",
+       "count": 2200
+      }
+     ]
+    },
+    {
+     "stage": 2,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 18
+      },
+      {
+       "item": "Auronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 8500
+      }
+     ]
+    },
+    {
+     "stage": 3,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 20
+      },
+      {
+       "item": "Umbronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 25000
+      }
+     ]
+    },
+    {
+     "stage": 4,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 30
+      },
+      {
+       "item": "Warp Plasma-Coated Slide",
+       "count": 16
+      },
+      {
+       "item": "Protocolith",
+       "count": 8
+      },
+      {
+       "item": "T-Creds",
+       "count": 90000
+      }
+     ]
+    }
+   ],
+   "skills": [
+    {
+     "name": "Will [L]",
+     "tag": "Will",
+     "text": "Will ⟦num|+{0}⟧",
+     "values": [
+      [
+       20,
+       36,
+       52,
+       68,
+       84,
+       100,
+       116,
+       132,
+       156
+      ]
+     ]
+    },
+    {
+     "name": "ATK [L]",
+     "tag": "ATK",
+     "text": "ATK ⟦num|+{0}%⟧",
+     "values": [
+      [
+       5,
+       9,
+       13,
+       17,
+       21,
+       25,
+       29,
+       33,
+       39
+      ]
+     ]
+    },
+    {
+     "name": "Infliction: Coursing Stars",
+     "tag": "Infliction",
+     "text": "Arts Intensity ⟦num|+{0}⟧. When wielder's skill applies ⟦key|Electrification⟧, the entire team gains ATK ⟦num|+{1}%⟧ for 20.00s. When the wielder ⟦key|consumes⟧ ⟦key|Arts Infliction⟧, the wielder gains Electric DMG Dealt ⟦num|+{2}%⟧ for 20.00s. ⟦muted|The two effects apply separately and do not stack with themselves.⟧",
+     "values": [
+      [
+       30,
+       36,
+       42,
+       48,
+       54,
+       60,
+       66,
+       72,
+       84
+      ],
+      [
+       7.5,
+       9,
+       10.5,
+       12,
+       13.5,
+       15,
+       16.5,
+       18,
+       21
+      ],
+      [
+       12,
+       14.4,
+       16.8,
+       19.2,
+       21.6,
+       24,
+       26.4,
+       28.8,
+       33.6
+      ]
+     ]
+    }
+   ],
+   "page": "https://endfield.wiki.gg/wiki/Lunar_Calling"
   },
   "wpn_sword_0026": {
    "name": "Farsight",

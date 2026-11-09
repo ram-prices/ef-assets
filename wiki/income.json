@@ -5,9 +5,9 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-20"
+  "fetched": "2026-11-09"
  },
- "fetched": "2026-10-20",
+ "fetched": "2026-11-09",
  "daily": {
   "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Daily",
   "rewards": {
@@ -2357,8 +2357,8 @@
      "aurylene": 17,
      "chests": 36,
      "rewards": {
-      "Oroberyl": 1365,
-      "Origeometry": 2
+      "Origeometry": 2,
+      "Oroberyl": 1365
      }
     },
     {
@@ -2507,8 +2507,8 @@
      "aurylene": 28,
      "chests": 106,
      "rewards": {
-      "Oroberyl": 3485,
-      "Origeometry": 2
+      "Origeometry": 2,
+      "Oroberyl": 3485
      }
     }
    ],
