@@ -5,9 +5,9 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-20"
+  "fetched": "2026-11-16"
  },
- "fetched": "2026-10-20",
+ "fetched": "2026-11-16",
  "daily": {
   "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Daily",
   "rewards": {
@@ -195,7 +195,7 @@
    "name": "Ink Scroll",
    "version": "Sanctuary of Ink",
    "start": "2026-10-15T04:00:00Z",
-   "end": "2026-12-14T22:00:00Z",
+   "end": "2026-11-24T22:00:00Z",
    "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Ink_Scroll",
    "rewards": {
     "Oroberyl": 600,
@@ -2357,8 +2357,8 @@
      "aurylene": 17,
      "chests": 36,
      "rewards": {
-      "Oroberyl": 1365,
-      "Origeometry": 2
+      "Origeometry": 2,
+      "Oroberyl": 1365
      }
     },
     {
@@ -2507,8 +2507,8 @@
      "aurylene": 28,
      "chests": 106,
      "rewards": {
-      "Oroberyl": 3485,
-      "Origeometry": 2
+      "Origeometry": 2,
+      "Oroberyl": 3485
      }
     }
    ],
@@ -3278,15 +3278,6 @@
      "name": "RE-Crisis",
      "section": "modes",
      "url": "https://endfield.wiki.gg/wiki/Operational_Manual#RE-Crisis",
-     "rewards": {
-      "Oroberyl": 150
-     }
-    },
-    {
-     "count": 1,
-     "name": "Yuanyuan Manor Inn milestones",
-     "section": "modes",
-     "url": "https://endfield.wiki.gg/wiki/Yuanyuan_Manor_Inn",
      "rewards": {
       "Oroberyl": 150
      }
