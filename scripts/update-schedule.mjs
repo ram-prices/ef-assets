@@ -623,19 +623,22 @@ async function build() {
         posts: v.posts,
       })),
       banners: out,
-      events: applyOverrides(events.map((e, i) => ({
-        id: ids[i],
-        name: e.name,
-        type: e.type,
-        version: e.version,
-        start: isoBoth(e.start),
-        end: isoBoth(e.end),
-        details: e.details,
-        ...(e.availability ? { availability: e.availability } : {}),
-        post: e.post,
-        ...(e.art ? { art: e.art } : {}),
-        ...(e.needsReview ? { needsReview: true } : {}),
-      })), review),
+      events: applyExtras(
+        applyOverrides(events.map((e, i) => ({
+          id: ids[i],
+          name: e.name,
+          type: e.type,
+          version: e.version,
+          start: isoBoth(e.start),
+          end: isoBoth(e.end),
+          details: e.details,
+          ...(e.availability ? { availability: e.availability } : {}),
+          post: e.post,
+          ...(e.art ? { art: e.art } : {}),
+          ...(e.needsReview ? { needsReview: true } : {}),
+        })), review),
+        review,
+      ).sort((a, b) => (a.start?.americas ?? '').localeCompare(b.start?.americas ?? '')),
     },
     review,
     db,
@@ -648,12 +651,15 @@ async function build() {
 
 /**
  * Applies schedule-overrides.json to the built events (ISO times). An entry
- * {id, name, source, feed, start?, end?, availability?, note?} changes the
- * event with that id and name, but only while the feed still gives what
- * `feed` records (Americas ISO time or null for each of start/end): a feed
- * that has caught up or changed is authoritative, and the entry is skipped
- * and listed for review. start/end are server-time dates ("Nov. 25, 2026 at
- * 06:00"); note is added to the details.
+ * {id, name, source, feed, start?, end?, startInstant?, endInstant?,
+ * availability?, note?} changes the event with that id and name, but only
+ * while the feed still gives what `feed` records (Americas ISO time or null
+ * for each of start/end): a feed that has caught up or changed is
+ * authoritative, and the entry is skipped and listed for review. start/end
+ * are server-time dates ("Nov. 25, 2026 at 06:00", the same wall-clock time
+ * on each server); startInstant/endInstant are one instant, given as the
+ * Americas/Europe wall-clock time (the Asia server is 13 h ahead). note is
+ * added to the details.
  */
 function applyOverrides(events, review) {
   const file = join(ROOT, 'schedule-overrides.json');
@@ -663,6 +669,12 @@ function applyOverrides(events, review) {
     const [w] = findDates(text);
     if (!w) throw new Error(`schedule-overrides.json: no date in "${text}"`);
     return isoBoth(serverTime(w));
+  };
+  /** One instant: the Americas/Europe wall-clock time, the same moment on both servers. */
+  const atInstant = (text) => {
+    const [w] = findDates(text);
+    if (!w) throw new Error(`schedule-overrides.json: no date in "${text}"`);
+    return isoBoth(instant(wallToMs(w, REGIONS.americas)));
   };
   for (const o of list) {
     const e = events.find((x) => x.id === o.id && norm(x.name) === norm(o.name));
@@ -677,9 +689,43 @@ function applyOverrides(events, review) {
     }
     if (o.start) e.start = at(o.start);
     if (o.end) e.end = at(o.end);
+    if (o.startInstant) e.start = atInstant(o.startInstant);
+    if (o.endInstant) e.end = atInstant(o.endInstant);
     if (o.availability) e.availability = o.availability;
     if (o.note) e.details = e.details ? `${e.details} ${o.note}` : o.note;
     e.source = o.source;
+  }
+  return events;
+}
+
+/**
+ * Merges schedule-extras.json into the built events: events the official news
+ * feed no longer lists (older versions' events, verified against the game's
+ * tables). Each entry is a full event with a stable id; it is added unless
+ * the feed already carries an event with the same name and start time (the
+ * feed wins, and the extra is reported for review so it can be dropped).
+ */
+function applyExtras(events, review) {
+  const file = join(ROOT, 'schedule-extras.json');
+  if (!existsSync(file)) return events;
+  const { events: list = [] } = JSON.parse(readFileSync(file, 'utf8'));
+  const key = (e) => `${norm(e.name)}|${e.start?.americas ?? ''}`;
+  const have = new Set(events.map(key));
+  for (const x of list) {
+    if (!x.id) {
+      review.push(`extra ${x.name}: no id`);
+      continue;
+    }
+    if (have.has(key(x))) {
+      review.push(`extra ${x.id} ${x.name}: the feed now carries it; drop it from schedule-extras.json`);
+      continue;
+    }
+    if (events.some((e) => e.id === x.id)) {
+      review.push(`extra ${x.id} ${x.name}: id ${x.id} already used`);
+      continue;
+    }
+    events.push(x);
+    have.add(key(x));
   }
   return events;
 }
