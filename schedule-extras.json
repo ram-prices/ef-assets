@@ -336,6 +336,115 @@
       },
       "details": null,
       "post": ""
+    },
+    {
+      "id": 73,
+      "name": "Letter From a Messenger",
+      "type": "Narrative Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-06T12:00:00-05:00",
+        "asia": "2026-02-06T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
+      "id": 74,
+      "name": "Let Fire Consume the Ashen Past",
+      "type": "Narrative Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2025-12-09T04:00:00-05:00",
+        "asia": "2025-12-09T04:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
+      "id": 75,
+      "name": "Lone Wolf",
+      "type": "Narrative Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2025-12-09T04:00:00-05:00",
+        "asia": "2025-12-09T04:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
+      "id": 76,
+      "name": "Love, Scream & The Prototype",
+      "type": "Narrative Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-01-30T12:00:00-05:00",
+        "asia": "2026-01-30T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-11T17:00:00-05:00",
+        "asia": "2026-03-12T06:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
+      "id": 77,
+      "name": "Carly's Fairytale of the Valley",
+      "type": "Camera Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-07T12:00:00-05:00",
+        "asia": "2026-02-07T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-02-24T04:00:00-05:00",
+        "asia": "2026-02-24T04:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
+      "id": 78,
+      "name": "Glittering Life at Wuling",
+      "type": "Guide Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-07T12:00:00-05:00",
+        "asia": "2026-02-07T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-02-24T04:00:00-05:00",
+        "asia": "2026-02-24T04:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
+      "id": 79,
+      "name": "Delver of the Cryptic",
+      "type": "Space Exploration Event",
+      "version": "Launch",
+      "start": {
+        "americas": "2026-02-24T12:00:00-05:00",
+        "asia": "2026-02-24T12:00:00+08:00"
+      },
+      "end": null,
+      "details": null,
+      "post": ""
     }
   ]
 }

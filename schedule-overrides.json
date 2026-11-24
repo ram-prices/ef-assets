@@ -78,15 +78,6 @@
       "availability": "After [Sanctuary of Ink] version update – the timed phase ran until Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia); the event is now permanently available"
     },
     {
-      "id": 48,
-      "name": "Back to the Rustics",
-      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_minghe",
-      "feed": {
-        "end": null
-      },
-      "endInstant": "Nov. 24, 2026 at 17:00"
-    },
-    {
       "id": 50,
       "name": "Contingency Contract: Indigo Experimental Operation",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1",
