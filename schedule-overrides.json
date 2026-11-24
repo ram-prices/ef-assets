@@ -1,5 +1,5 @@
 {
-  "about": "Official schedule changes the news feed doesn't carry yet (e.g. notices posted only on X, or times the feed gets wrong). scripts/update-schedule.mjs applies each entry to the event with that id and name. `feed` is what the feed gave when the entry was written (Americas ISO time, or null); once the feed gives something else, the feed wins and the entry is skipped and reported, so delete it then. `start`/`end` are server-time dates (the same wall-clock time on each server); `startInstant`/`endInstant` are one instant, given as the Americas/Europe wall-clock time (the Asia server is 13 h ahead). `availability` replaces the event's availability text; `note` is added to the event's details.",
+  "about": "Official schedule changes the news feed doesn't carry yet (e.g. notices posted only on X, or times the feed gets wrong). scripts/update-schedule.mjs applies each entry to the event with that id and name. `feed` is what the feed gave when the entry was written (Americas ISO time, or null); once the feed gives something else, the feed wins and the entry is skipped and reported, so delete it then. `start`/`end` are server-time dates (the same wall-clock time on each server); `startInstant`/`endInstant` are one instant, given as the Americas/Europe wall-clock time (the Asia server is 13 h ahead); `permanent` sets the event's end to null (a timed phase that became a permanent activity). `availability` replaces the event's availability text; `note` is added to the event's details.",
   "events": [
     {
       "id": 13,
@@ -47,6 +47,17 @@
       "startInstant": "Sep. 1, 2026 at 18:00"
     },
     {
+      "id": 37,
+      "name": "Trial of the Bow",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timeunlimited_typhoea_archery",
+      "feed": {
+        "start": "2026-09-09T12:00:00-05:00",
+        "end": "2026-10-14T17:00:00-05:00"
+      },
+      "permanent": true,
+      "availability": "Sept. 9, 2026 at 12:00 (server time) – the timed phase ran until Oct. 14, 2026 at 17:00 (Americas/Europe) / Oct. 15, 2026 at 06:00 (Asia); the event is now permanently available"
+    },
+    {
       "id": 38,
       "name": "AIC Support: Chubby Lung Attacks",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_limited_formula_2",
@@ -58,14 +69,13 @@
     {
       "id": 41,
       "name": "Yuanyuan's Blazing Stoves",
-      "source": "EndfieldDataDump TimeRangeTable: time_activity_timelimited_inn",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timeunlimited_inn",
       "feed": {
-        "start": "2026-10-14T23:00:00-05:00",
-        "end": null
+        "start": "2026-10-14T23:00:00-05:00"
       },
       "startInstant": "Oct. 14, 2026 at 18:00",
-      "endInstant": "Nov. 24, 2026 at 17:00",
-      "availability": "After [Sanctuary of Ink] version update – Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia)"
+      "permanent": true,
+      "availability": "After [Sanctuary of Ink] version update – the timed phase ran until Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia); the event is now permanently available"
     },
     {
       "id": 48,
@@ -81,7 +91,7 @@
       "name": "Contingency Contract: Indigo Experimental Operation",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1",
       "feed": {
-        "end": null
+        "end": "2026-11-24T17:00:00-05:00"
       },
       "end": "Dec. 2, 2026 at 04:00",
       "note": "Secret Sanctuary exchanges close Dec. 2, 2026 at 04:00 (server time)."

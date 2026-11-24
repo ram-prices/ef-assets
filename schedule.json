@@ -105,6 +105,20 @@
         "0744",
         "9560"
       ]
+    },
+    {
+      "name": "Meeting You in the World o'Shrooms",
+      "release": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "maintenance": {
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
+      },
+      "posts": [
+        "3835"
+      ]
     }
   ],
   "banners": [
@@ -665,15 +679,15 @@
         "americas": "2026-09-01T23:00:00-05:00",
         "asia": "2026-09-02T12:00:00+08:00"
       },
-      "end": null,
+      "end": {
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
+      },
       "availability": "Opens after [Dreamscape of Wind and Snow] version update; ends after 3 [Chartered Headhunting] banners (starting from [Winter Hunt])",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/umbra-of-frigid-eventide.webp",
       "posts": [
         "4480",
         "5208"
-      ],
-      "notes": [
-        "Ends with the 3rd Chartered banner from [Winter Hunt] (not announced yet)"
       ]
     },
     {
@@ -757,15 +771,15 @@
         "americas": "2026-10-14T23:00:00-05:00",
         "asia": "2026-10-15T12:00:00+08:00"
       },
-      "end": null,
+      "end": {
+        "americas": "2026-12-23T11:59:00-05:00",
+        "asia": "2026-12-23T11:59:00+08:00"
+      },
       "availability": "Opens after [Sanctuary of Ink] version update; ends after 3 [Chartered Headhunting] banners (starting from [Rejuvenation])",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/jade-vessel.webp",
       "posts": [
         "2652",
         "9560"
-      ],
-      "notes": [
-        "Ends with the 3rd Chartered banner from [Rejuvenation] (not announced yet)"
       ]
     },
     {
@@ -826,15 +840,15 @@
         "americas": "2026-11-05T12:00:00-05:00",
         "asia": "2026-11-05T12:00:00+08:00"
       },
-      "end": null,
+      "end": {
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
+      },
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/argent-flow.webp",
       "posts": [
         "9560",
         "7012"
-      ],
-      "notes": [
-        "Ends at the next version update (not announced yet)"
       ]
     },
     {
@@ -858,6 +872,94 @@
       ],
       "notes": [
         "Ends with the 3rd Chartered banner from [The Hearth Fire Beckons the Starry Flow] (not announced yet)"
+      ]
+    },
+    {
+      "name": "Anvil, Backpack, Plus A Pot o'Honey",
+      "kind": "chartered",
+      "rateUps": [
+        "Kay"
+      ],
+      "poolId": null,
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T11:59:00-05:00",
+        "asia": "2026-12-23T11:59:00+08:00"
+      },
+      "availability": "Opens after [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 11:59 (server time)",
+      "art": "https://web-static.hg-cdn.com/upload/image/20261123/f3e83651348938f439ade52c5f2e5107.png",
+      "posts": [
+        "5204"
+      ]
+    },
+    {
+      "name": "To Every Wish Adrift",
+      "kind": "refactor",
+      "rateUps": [
+        "Gilberta"
+      ],
+      "poolId": null,
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-16T11:59:00-05:00",
+        "asia": "2026-12-16T11:59:00+08:00"
+      },
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 11:59 (server time)",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/gilberta.webp",
+      "posts": [
+        "8992"
+      ]
+    },
+    {
+      "name": "Casual Roamer Issue",
+      "kind": "issue",
+      "rateUps": [
+        "Sweet Deal"
+      ],
+      "poolId": null,
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Opens after [Meeting You in the World o'Shrooms] version update; ends after 3 [Chartered Headhunting] banners (starting from [Anvil, Backpack, Plus A Pot o'Honey])",
+      "art": "https://web-static.hg-cdn.com/upload/image/20261123/e3a469158b64e7b64bba55335676fcae.png",
+      "posts": [
+        "2659"
+      ],
+      "notes": [
+        "Ends with the 3rd Chartered banner from [Anvil, Backpack, Plus A Pot o'Honey] (not announced yet)"
+      ]
+    },
+    {
+      "name": "Floaty Traveler Issue",
+      "kind": "refactorIssue",
+      "rateUps": [
+        "Delivery Guaranteed"
+      ],
+      "poolId": null,
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-16T11:59:00-05:00",
+        "asia": "2026-12-16T11:59:00+08:00"
+      },
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 11:59 (server time)",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/delivery-guaranteed.webp",
+      "posts": [
+        "8992"
       ]
     }
   ],
@@ -946,6 +1048,22 @@
       "post": "8907"
     },
     {
+      "id": 71,
+      "name": "Sanity Discount",
+      "type": "Limited-Time Event",
+      "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "start": {
+        "americas": "2026-03-22T12:00:00-05:00",
+        "asia": "2026-03-22T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-03-29T04:00:00-05:00",
+        "asia": "2026-03-29T04:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
+    },
+    {
       "id": 63,
       "name": "Monumental Etching: Scorch Mark",
       "type": "Challenge Event",
@@ -1028,6 +1146,22 @@
       "details": "Complete challenge stages to earn event rewards that include: [Portrait: Expert Survivor], [Oroberyls], [Mark of Perseverance], and [Advanced Progression Selection Crate Ⅰ].",
       "availability": "2026/04/09 12:00 – 2026/04/30 04:00 (server time)",
       "post": "8907"
+    },
+    {
+      "id": 72,
+      "name": "Sanity Discount",
+      "type": "Limited-Time Event",
+      "version": "Old Deep Water Dies, by Rising Tide It is Denied",
+      "start": {
+        "americas": "2026-04-10T12:00:00-05:00",
+        "asia": "2026-04-10T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-04-16T17:00:00-05:00",
+        "asia": "2026-04-17T04:00:00+08:00"
+      },
+      "details": null,
+      "post": ""
     },
     {
       "id": 56,
@@ -1145,7 +1279,8 @@
       },
       "details": "During the event, complete specified missions to unlock support goods formulas and the Goods Exchange. Produce support goods and submit them at the outpost to get bonus [Fruits of Altruism Certs], which are exchangeab...",
       "availability": "Apr. 28, 2026 at 12:00 – May 13, 2026 at 16:00 (server time)",
-      "post": "0751"
+      "post": "0751",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_limited_formula_1"
     },
     {
       "id": 52,
@@ -1277,7 +1412,8 @@
       },
       "details": "Complete the side mission [A Fistful of Reflections] to acquire [Oroberyls], [Elementary Cognitive Carrier], [Protohedron], [Arms INSP Set], and other rewards.",
       "availability": "After [Sketches of Lost Heirlooms] version release – Before version update and maintenance",
-      "post": "0758"
+      "post": "0758",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_mifu"
     },
     {
       "id": 17,
@@ -1361,7 +1497,8 @@
       },
       "details": "During the event, you can select any combination of Test Criteria before starting the combat challenge. Complete event mission goals to earn rewards such as [Portrait: Ancient Contract], [Portrait Frame: Contingent In...",
       "availability": "June 19, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0758"
+      "post": "0758",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_0"
     },
     {
       "id": 22,
@@ -1477,7 +1614,8 @@
       },
       "details": "",
       "availability": "After [Homecoming] version update – July 31, 2026 at 04:00 (server time)",
-      "post": "5200"
+      "post": "5200",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_lottery_v1d4"
     },
     {
       "id": 25,
@@ -1677,7 +1815,8 @@
       },
       "details": "Complete the side mission [A Winter Dream Fogged Deep in the Woods] to acquire [Oroberyl]×600, [Elementary Cognitive Carrier], and other rewards.",
       "availability": "Throughout the [Dreamscape of Wind and Snow] version",
-      "post": "5208"
+      "post": "5208",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_typhoeus"
     },
     {
       "id": 36,
@@ -1705,13 +1844,11 @@
         "americas": "2026-09-09T12:00:00-05:00",
         "asia": "2026-09-09T12:00:00+08:00"
       },
-      "end": {
-        "americas": "2026-10-14T17:00:00-05:00",
-        "asia": "2026-10-15T06:00:00+08:00"
-      },
+      "end": null,
       "details": "Complete Simulations at [Typhoeus's Archery Range] and event-related Trial Missions during the event to earn rewards including [Oroberyl]×1200, [Advanced Cognitive Carrier], [Mark of Perseverance], and [Advanced Progr...",
-      "availability": "Sept. 9, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "5208"
+      "availability": "Sept. 9, 2026 at 12:00 (server time) – the timed phase ran until Oct. 14, 2026 at 17:00 (Americas/Europe) / Oct. 15, 2026 at 06:00 (Asia); the event is now permanently available",
+      "post": "5208",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timeunlimited_typhoea_archery"
     },
     {
       "id": 38,
@@ -1728,7 +1865,8 @@
       },
       "details": "During the event, complete specified missions to unlock support goods formulas and the Goods Exchange. Produce support goods and submit them at the outpost to get bonus [Fruits of Altruism Certs], which are exchangeab...",
       "availability": "Sept. 16, 2026 at 12:00 – Sept. 30, 2026 at 16:00 (server time)",
-      "post": "5208"
+      "post": "5208",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_limited_formula_2"
     },
     {
       "id": 39,
@@ -1819,15 +1957,12 @@
         "americas": "2026-10-14T18:00:00-05:00",
         "asia": "2026-10-15T07:00:00+08:00"
       },
-      "end": {
-        "americas": "2026-11-24T17:00:00-05:00",
-        "asia": "2026-11-25T06:00:00+08:00"
-      },
+      "end": null,
       "details": "Visit the [Si's Painting] area in [Wuling], manage [Yuanyuan Manor Inn], complete the corresponding Session Tasks, and increase your Inn Milestones to claim rewards including [Oroberyl]×1000 and [Mark of Perseverance].",
-      "availability": "After [Sanctuary of Ink] version update – Nov. 25, 2026 at 06:00 (server time)",
+      "availability": "After [Sanctuary of Ink] version update – the timed phase ran until Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia); the event is now permanently available",
       "post": "9560",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/yuanyuan-s-blazing-stoves.webp",
-      "source": "https://x.com/AKEndfield/status/2115269823751958764"
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timeunlimited_inn"
     },
     {
       "id": 42,
@@ -1978,7 +2113,10 @@
         "americas": "2026-11-05T12:00:00-05:00",
         "asia": "2026-11-05T12:00:00+08:00"
       },
-      "end": null,
+      "end": {
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
+      },
       "details": "Sign in for a total of 7 days to earn rewards such as [The Stars Are With Me HH Permit]×5.",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
       "post": "9560"
@@ -2000,7 +2138,7 @@
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
       "post": "9560",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/contingency-contract-indigo-experimental-operation.webp",
-      "source": "https://x.com/AKEndfield/status/2115269823751958764"
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1"
     },
     {
       "id": 51,

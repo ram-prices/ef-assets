@@ -652,14 +652,16 @@ async function build() {
 /**
  * Applies schedule-overrides.json to the built events (ISO times). An entry
  * {id, name, source, feed, start?, end?, startInstant?, endInstant?,
- * availability?, note?} changes the event with that id and name, but only
- * while the feed still gives what `feed` records (Americas ISO time or null
- * for each of start/end): a feed that has caught up or changed is
+ * permanent?, availability?, note?} changes the event with that id and name,
+ * but only while the feed still gives what `feed` records (Americas ISO time
+ * or null for each of start/end): a feed that has caught up or changed is
  * authoritative, and the entry is skipped and listed for review. start/end
  * are server-time dates ("Nov. 25, 2026 at 06:00", the same wall-clock time
  * on each server); startInstant/endInstant are one instant, given as the
- * Americas/Europe wall-clock time (the Asia server is 13 h ahead). note is
- * added to the details.
+ * Americas/Europe wall-clock time (the Asia server is 13 h ahead); permanent
+ * sets the event's end to null (a timed phase that became a permanent
+ * activity, the game's tables carry the two as separate rows). note is added
+ * to the details.
  */
 function applyOverrides(events, review) {
   const file = join(ROOT, 'schedule-overrides.json');
@@ -691,6 +693,7 @@ function applyOverrides(events, review) {
     if (o.end) e.end = at(o.end);
     if (o.startInstant) e.start = atInstant(o.startInstant);
     if (o.endInstant) e.end = atInstant(o.endInstant);
+    if (o.permanent) e.end = null;
     if (o.availability) e.availability = o.availability;
     if (o.note) e.details = e.details ? `${e.details} ${o.note}` : o.note;
     e.source = o.source;
