@@ -227,7 +227,6 @@
     "type": "Weapon"
   },
   "special_1_7_1": {
-    "gameArt": true,
     "name": "Anvil, Backpack, Plus A Pot o'Honey",
     "rateUpIds": ["chr_0040_sweetpie"],
     "rateupName": ["Kay"],
