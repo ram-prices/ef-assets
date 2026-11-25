@@ -7,8 +7,16 @@ name: Update banner schedule
 # event art from the current New Version Guide to events/. Unreleased
 # operators and weapons from the guide go to wiki/previews.json with icons and
 # banners made from its art (guide-previews.mjs, guide-art.py), until the wiki
-# has them. Changes arrive as a pull request to review; nothing is pushed to
-# main directly.
+# has them. scripts/site-art.mjs then copies new banner art to the paths the
+# site loads, flags game-screen art in banners.json and lists what is still
+# missing (needs.md), and issue-layers.py splits new Issue art into layers.
+#
+# Changes are committed straight to main (no pull request to merge), then
+# published to the CDN branches here, since a push made with GITHUB_TOKEN
+# triggers no other workflow. Whatever still needs a hand (needs.md, or this
+# run failing) goes into the "ef-assets: needs attention" issue, assigned to
+# and mentioning ram-prices (scripts/needs-issue.mjs); it closes itself once
+# nothing is listed.
 #
 # Banners are announced about a day before they open and run for weeks, so
 # every three days is plenty. Run it by hand from the Actions tab any time.
@@ -19,7 +27,8 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
+  issues: write
+  actions: read
 
 concurrency:
   group: update-schedule
@@ -28,6 +37,11 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      GIT_AUTHOR_NAME: github-actions[bot]
+      GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+      GIT_COMMITTER_NAME: github-actions[bot]
+      GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -46,36 +60,29 @@ jobs:
       - name: Update schedule-news.json, schedule.json and banners.json
         # GitHub's bash runs with pipefail, so a failing script still fails the job.
         run: node scripts/update-schedule.mjs --find-pools 2>&1 | tee -a report.txt
+      - name: Banner art where the site loads it, gameArt flags, needs.md
+        run: node scripts/site-art.mjs 2>&1 | tee -a report.txt
       - name: Split new Arsenal Issue banners into layers
         run: python scripts/issue-layers.py 2>&1 | tee -a report.txt
-      - name: Write the pull request text
+      - name: Commit to main
         run: |
-          {
-            echo 'Automated update from the official news feed (web-news.gryphline.com).'
-            echo
-            echo '```'
-            cat report.txt
-            echo '```'
-            echo
-            echo 'Check any entry marked `needsReview` in schedule.json before merging.'
-          } > pr-body.md
-      - uses: peter-evans/create-pull-request@v7
-        with:
-          branch: automated/update-schedule
-          commit-message: Update banner schedule from the official news feed
-          title: Update banner schedule
-          body-path: pr-body.md
-          add-paths: |
-            schedule.json
-            schedule-news.json
-            banners.json
-            banners/*.webp
-            banners/layers/*.webp
-            events/*.webp
-            previews/*.webp
-            wiki/previews.json
-            operators/*.webp
-            arsenals/*.webp
-            headhunting/*.webp
-            issues/*.webp
-          delete-branch: true
+          git add -- schedule.json schedule-news.json banners.json 'banners/*.webp' 'banners/layers/*.webp' \
+            'events/*.webp' 'previews/*.webp' wiki/previews.json 'operators/*.webp' 'arsenals/*.webp' \
+            'headhunting/*.webp' 'issues/*.webp'
+          if git diff --cached --quiet; then echo 'Nothing changed.'; exit 0; fi
+          git commit -q -m 'Update banner schedule from the official news feed'
+          for attempt in 1 2; do
+            git pull -q --rebase && git push && exit 0
+            echo 'Push rejected; trying once more.'
+          done
+          exit 1
+      - name: Publish the pictures to the CDN branches
+        run: bash scripts/cdn-branches.sh
+      - name: Keep the "ef-assets needs attention" issue up to date
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+        run: node scripts/needs-issue.mjs schedule

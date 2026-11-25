@@ -12,36 +12,42 @@
     "type": "Standard"
   },
   "special_1_0_1": {
+    "gameArt": true,
     "name": "Scars of the Forge",
     "rateUpIds": ["chr_0016_laevat"],
     "rateupName": ["Laevatain"],
     "type": "Special"
   },
   "special_1_0_2": {
+    "gameArt": true,
     "name": "Hues of Passion",
     "rateUpIds": ["chr_0017_yvonne"],
     "rateupName": ["Yvonne"],
     "type": "Special"
   },
   "special_1_0_3": {
+    "gameArt": true,
     "name": "The Floaty Messenger",
     "rateUpIds": ["chr_0013_aglina"],
     "rateupName": ["Gilberta"],
     "type": "Special"
   },
   "special_1_1_1": {
+    "gameArt": true,
     "name": "River's Daughter",
     "rateUpIds": ["chr_0027_tangtang"],
     "rateupName": ["Tangtang"],
     "type": "Special"
   },
   "special_1_1_2": {
+    "gameArt": true,
     "name": "Wolf Pearl",
     "rateUpIds": ["chr_0028_wulfa"],
     "rateupName": ["Rossi"],
     "type": "Special"
   },
   "special_1_2_1": {
+    "gameArt": true,
     "name": "Thunder of Renewal",
     "rateUpIds": ["chr_0030_zhuangfy"],
     "rateupName": ["Zhuang Fangyi"],
@@ -64,12 +70,14 @@
     "type": "Special"
   },
   "special_1_3_1": {
+    "gameArt": true,
     "name": "Fists of No Regrets",
     "rateUpIds": ["chr_0031_mifu"],
     "rateupName": ["Mi Fu"],
     "type": "Special"
   },
   "special_1_3_2": {
+    "gameArt": true,
     "name": "Expunger of Sin",
     "rateUpIds": ["chr_0033_camille"],
     "rateupName": ["Camille"],
@@ -82,24 +90,28 @@
     "type": "Special"
   },
   "special_1_4_2": {
+    "gameArt": true,
     "name": "Good Morning from Your Dawnstar",
     "rateUpIds": ["chr_0035_liino"],
     "rateupName": ["Liino"],
     "type": "Special"
   },
   "special_1_5_1": {
+    "gameArt": true,
     "name": "Winter Hunt",
     "rateUpIds": ["chr_0034_typhoea", "chr_0034_typhoeus"],
     "rateupName": ["Typhoeus"],
     "type": "Special"
   },
     "special_1_6_1": {
+    "gameArt": true,
     "name": "Rejuvenation",
     "rateUpIds": ["chr_0036_jsspsi"],
     "rateupName": ["Si"],
     "type": "Special"
   },
   "special_1_6_2": {
+    "gameArt": true,
     "name": "The Hearth Fire Beckons the Starry Flow",
     "rateUpIds": ["chr_0037_minghe"],
     "rateupName": ["Argent Flow"],
@@ -214,30 +226,35 @@
     "type": "Weapon"
   },
   "special_1_7_1": {
+    "gameArt": true,
     "name": "Anvil, Backpack, Plus A Pot o'Honey",
     "rateUpIds": ["chr_0040_sweetpie"],
     "rateupName": ["Kay"],
     "type": "Special"
   },
   "rerun_chr_aglina": {
+    "gameArt": true,
     "name": "To Every Wish Adrift",
     "rateUpIds": ["chr_0013_aglina"],
     "rateupName": ["Gilberta"],
     "type": "Special"
   },
   "rerun_chr_wulfa": {
+    "gameArt": true,
     "name": "Precious Scarlet",
     "rateUpIds": ["chr_0028_wulfa"],
     "rateupName": ["Rossi"],
     "type": "Special"
   },
   "rerun_chr_tangtang": {
+    "gameArt": true,
     "name": "Ancestral Spring Flows Anew",
     "rateUpIds": ["chr_0027_tangtang"],
     "rateupName": ["Tangtang"],
     "type": "Special"
   },
   "rerun_chr_yvonne": {
+    "gameArt": true,
     "name": "Resplendent Spectrum",
     "rateUpIds": ["chr_0017_yvonne"],
     "rateupName": ["Yvonne"],
