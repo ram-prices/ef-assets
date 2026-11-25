@@ -27847,6 +27847,40 @@
     }
    ],
    "page": "https://endfield.wiki.gg/wiki/Kay"
+  },
+  "chr_0039_mimino": {
+   "name": "Mimino",
+   "rarity": 5,
+   "class": "Supporter",
+   "element": "Physical",
+   "weapon": "Handcannon",
+   "faction": "United Workers' Syndicates of Talos II",
+   "race": "Feline",
+   "gender": "Female",
+   "birthday": null,
+   "tags": [
+    "Protect",
+    "Vulnerable",
+    "Amp"
+   ],
+   "mainAttribute": "Strength",
+   "secondaryAttribute": null,
+   "headhunting": "welfare",
+   "quote": null,
+   "profile": "\"Did someone call for heavy artillery?! Ah... Okay. Maybe I misheard it.\"\n\nMimino was born in Valley IV and grew up listening to stories about the Endministrator. She later moved to Simonch with her parents, where she became a top student with excellent grades and conduct. She soon joined the Workers' Guards and became one of their youngest elites.\n\nAlthough Mimino was not selected during her practical training before heading to the Northern Front, she did not give up on herself. Instead, she proactively requested to return to Valley IV to participate in and assist with the internship work at Endfield. Mimino is a warrior and activity organizer with great potential. As long as everyone can tolerate her simple, somewhat stubborn personality and her overly serious approach to doing things, she will be a good companion.\n\nThough she's still young and has yet to accomplish anything truly great, she knows that one day, history will turn into a legend, and all she hopes is to carve her name into its pages — for those who did not survive and for those who long to survive.\n\n\"Mat' Gorodov, I have taken another step to completing your grand enterprise!\"",
+   "expertise": [],
+   "hobbies": [
+    "Sports",
+    "Technology"
+   ],
+   "gift": "Wuling Sightseeker's Choice",
+   "stats": null,
+   "potentials": [],
+   "promotions": [],
+   "skills": [],
+   "talents": [],
+   "baseSkills": [],
+   "page": "https://endfield.wiki.gg/wiki/Mimino"
   }
  }
 }

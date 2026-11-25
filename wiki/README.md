@@ -9,7 +9,10 @@ Operator, weapon and gear data snapshotted from the
   (ranks 1-12), talents, base skills, promotion costs.
 - `operators-game.json`: operators the wiki has no numbers for yet, built from
   the game's tables by `scripts/operator-from-game.py`; `update-wiki.mjs`
-  merges them into `operators.json` until the wiki has them.
+  merges them into `operators.json` until the wiki has them. An operator the
+  dump lists only in ForesightCharGrowthTable (announced, not yet released:
+  Mimino in 1.7) gets class, element and rarity from the game, the rest from
+  the wiki page, and no stats or skills until a dump has her tables.
 - `medals.json`, `findings.json`: the Medal Album and Intel Archives
   (`scripts/wiki-collections.mjs`, weekly; pictures in `collections/`).
   `medals-game.json` and `findings-game.json` hold what the wiki doesn't list

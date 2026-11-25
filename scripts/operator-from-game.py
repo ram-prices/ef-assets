@@ -14,6 +14,13 @@ quote, profile, tags, range...) comes from the operator's wiki page.
 writes wiki/operators-game.json, which update-wiki.mjs merges into
 operators.json until the wiki has the operator (delete the entry then).
 --check prints how an operator the wiki already has compares, to test this.
+
+An operator announced before release (Mimino in 1.7, an event gift from a
+later date) can be missing from CharacterTable and every growth, skill and
+Potential table, and only listed in ForesightCharGrowthTable (name, rarity,
+class, element). Such an entry gets those, the wiki page's profile and
+infobox, and no stats, skills, talents or Potentials: run the script again
+once a dump has the operator's tables.
 """
 import json
 import math
@@ -39,6 +46,9 @@ SKILL_TYPE = {'NormalAttack': 'Basic Attack', 'NormalSkill': 'Battle Skill', 'Co
 # SpaceshipSkillTable room types.
 FACILITY = {0: 'Control Nexus', 1: 'Manufacturing Cabin', 2: 'Growth Chamber', 5: 'Reception Room'}
 LEVELS = [(1, 0), (20, 1), (40, 2), (60, 3), (80, 4), (90, 4)]
+# CharacterTable / ForesightCharGrowthTable profession and charTypeId -> the wiki's names.
+CLASS_OF = {0: 'Guard', 2: 'Defender', 4: 'Supporter', 5: 'Caster', 7: 'Vanguard', 8: 'Striker'}
+ELEMENT_OF = {'Physical': 'Physical', 'Cryst': 'Cryo', 'Pulse': 'Electric', 'Fire': 'Heat', 'Natural': 'Nature'}
 
 
 def fmt(v):
@@ -61,6 +71,7 @@ class Tables:
         self.items = self.load('ItemTable')
         self.tags = self.load('CharacterTagTable')
         self.tag_names = self.load('TagDataTable')
+        self.foresight = self.load('ForesightCharGrowthTable')
 
     def load(self, name):
         with open(os.path.join(self.dir, name + '.json'), encoding='utf-8') as f:
@@ -249,14 +260,45 @@ def infobox(text):
     return {m.group(1): m.group(2).strip() for m in re.finditer(r'^\|(\w+) = ?(.*)$', text, flags=re.M)}
 
 
-def build(cid, t):
-    c, g = t.chars[cid], t.growth[cid]
-    name = c['engName']
+def wiki_parts(name):
+    """The operator's wiki page: its infobox, its Profile section and its tags."""
     page = wiki_page(name)
     box = infobox(page)
     profile = re.search(r'==Profile==\n(.*?)\n==', page, flags=re.S)
     profile = re.sub(r'\n(?=[a-z])', ' ', profile.group(1).strip()) if profile else ''
     tags = [x.strip() for x in box.get('tags', '').split(',') if x.strip()]
+    return box, profile, tags
+
+
+def foresight(cid, t):
+    """An announced operator only ForesightCharGrowthTable lists: the game's
+    name, rarity, class and element; weapon, faction and profile from the
+    wiki; no numbers until a dump has the operator's tables."""
+    f = t.foresight[cid]
+    name = t.text(f['name'])
+    box, profile, tags = wiki_parts(name)
+    for field, game in (('class', CLASS_OF[f['profession']]), ('element', ELEMENT_OF[f['charTypeId']])):
+        if box.get(field) and box[field] != game:
+            print(f'{name}: the wiki says {field} {box[field]}, the game {game}; using the game\'s')
+    listed = lambda *keys: [box[k] for k in keys if box.get(k)]
+    return {
+        'name': name, 'rarity': f['rarity'], 'class': CLASS_OF[f['profession']], 'element': ELEMENT_OF[f['charTypeId']],
+        'weapon': box.get('weapon') or None, 'faction': box.get('faction') or None, 'race': box.get('race') or None,
+        'gender': box.get('gender') or None, 'birthday': box.get('birthdate') or None, 'tags': tags,
+        'mainAttribute': box.get('main') or None, 'secondaryAttribute': box.get('sub') or None,
+        'headhunting': box.get('headhunting') or None, 'quote': box.get('quote') or None, 'profile': profile,
+        'expertise': listed('exp1', 'exp2'), 'hobbies': listed('hb1', 'hb2'), 'gift': box.get('prefer') or None,
+        'stats': None, 'potentials': [], 'promotions': [], 'skills': [], 'talents': [], 'baseSkills': [],
+        'page': 'https://endfield.wiki.gg/wiki/' + name.replace(' ', '_'),
+    }
+
+
+def build(cid, t):
+    if cid not in t.chars and cid in t.foresight:
+        return foresight(cid, t)
+    c, g = t.chars[cid], t.growth[cid]
+    name = c['engName']
+    box, profile, tags = wiki_parts(name)
     potentials = [{'rank': p['level'], 'name': t.text(p['name']),
                    'description': effect_text(t.effects[p['potentialEffectId']], t)}
                   for p in t.potentials[cid]['potentialUnlockBundle']]
