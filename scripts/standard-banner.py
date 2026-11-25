@@ -129,9 +129,11 @@ def main():
     flat = back.copy()
     flat.alpha_composite(op)
     os.makedirs(os.path.join(out_dir, 'layers'), exist_ok=True)
-    flat.convert('RGB').save(os.path.join(out_dir, POOL + '.webp'), 'WEBP', quality=86, method=6)
-    back.convert('RGB').save(os.path.join(out_dir, 'layers', POOL + '-back.webp'), 'WEBP', quality=86, method=6)
-    op.save(os.path.join(out_dir, 'layers', POOL + '-op.webp'), 'WEBP', quality=86, method=6)
+    # At 2048 wide (the banner page's header needs it) quality 80, and 70 for the operator layer's alpha,
+    # look the same as 86 in 2x crops of faces and card edges, at about 60% of the bytes.
+    flat.convert('RGB').save(os.path.join(out_dir, POOL + '.webp'), 'WEBP', quality=80, method=6)
+    back.convert('RGB').save(os.path.join(out_dir, 'layers', POOL + '-back.webp'), 'WEBP', quality=80, method=6)
+    op.save(os.path.join(out_dir, 'layers', POOL + '-op.webp'), 'WEBP', quality=80, alpha_quality=70, method=6)
     print(POOL, back.size, 'cards:', ', '.join(ids), 'overlap', overlap)
 
 
