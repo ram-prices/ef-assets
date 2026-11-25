@@ -1,0 +1,25 @@
+# Cloudflare Pages response headers (https://developers.cloudflare.com/pages/configuration/headers/).
+# The site (itjustlogs.dev) loads everything here from https://assets.itjustlogs.dev.
+# JSON keeps Pages' default (public, max-age=0, must-revalidate): data is fresh on every load.
+# Pictures and clips are kept a day; a replaced one only shows sooner under a new URL (the site's
+# PORTRAIT_V and banners.json's gameArtV add ?v= for that).
+
+/*
+  Access-Control-Allow-Origin: *
+
+/*.webp
+  Cache-Control: public, max-age=86400
+/*.png
+  Cache-Control: public, max-age=86400
+/*.jpg
+  Cache-Control: public, max-age=86400
+/*.jpeg
+  Cache-Control: public, max-age=86400
+/*.gif
+  Cache-Control: public, max-age=86400
+/*.svg
+  Cache-Control: public, max-age=86400
+/*.webm
+  Cache-Control: public, max-age=86400
+/*.mp4
+  Cache-Control: public, max-age=86400
