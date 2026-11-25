@@ -117,7 +117,8 @@
         "asia": "2026-11-25T06:00:00+08:00"
       },
       "posts": [
-        "3835"
+        "3835",
+        "0740"
       ]
     }
   ],
@@ -398,7 +399,7 @@
       "name": "Fest of Brilliance",
       "kind": "special",
       "rateUps": [],
-      "poolId": null,
+      "poolId": "joint_1_2_2",
       "version": "At the Wake of Spring",
       "start": {
         "americas": "2026-05-14T12:00:00-05:00",
@@ -420,7 +421,7 @@
       "rateUps": [
         "Forgeborn Scathe"
       ],
-      "poolId": null,
+      "poolId": "weponbox_1_2_2",
       "version": "At the Wake of Spring",
       "start": {
         "americas": "2026-05-14T12:00:00-05:00",
@@ -443,7 +444,7 @@
       "rateUps": [
         "Delivery Guaranteed"
       ],
-      "poolId": null,
+      "poolId": "weponbox_1_2_3",
       "version": "At the Wake of Spring",
       "start": {
         "americas": "2026-05-14T12:00:00-05:00",
@@ -696,7 +697,7 @@
       "rateUps": [
         "Yvonne"
       ],
-      "poolId": null,
+      "poolId": "rerun_chr_yvonne",
       "version": "Dreamscape of Wind and Snow",
       "start": {
         "americas": "2026-09-24T12:00:00-05:00",
@@ -719,7 +720,7 @@
       "rateUps": [
         "Artzy Tyrannical"
       ],
-      "poolId": null,
+      "poolId": "rerun_wpn_yvonne",
       "version": "Dreamscape of Wind and Snow",
       "start": {
         "americas": "2026-09-24T12:00:00-05:00",
@@ -788,7 +789,7 @@
       "rateUps": [
         "Tangtang"
       ],
-      "poolId": null,
+      "poolId": "rerun_chr_tangtang",
       "version": "Sanctuary of Ink",
       "start": {
         "americas": "2026-10-29T12:00:00-05:00",
@@ -811,7 +812,7 @@
       "rateUps": [
         "Brigand's Calling"
       ],
-      "poolId": null,
+      "poolId": "rerun_wpn_tangtang",
       "version": "Sanctuary of Ink",
       "start": {
         "americas": "2026-10-29T12:00:00-05:00",
@@ -880,7 +881,7 @@
       "rateUps": [
         "Kay"
       ],
-      "poolId": null,
+      "poolId": "special_1_7_1",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
         "americas": "2026-11-24T23:00:00-05:00",
@@ -893,7 +894,8 @@
       "availability": "Opens after [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 11:59 (server time)",
       "art": "https://web-static.hg-cdn.com/upload/image/20261123/f3e83651348938f439ade52c5f2e5107.png",
       "posts": [
-        "5204"
+        "5204",
+        "0740"
       ]
     },
     {
@@ -902,7 +904,7 @@
       "rateUps": [
         "Gilberta"
       ],
-      "poolId": null,
+      "poolId": "rerun_chr_aglina",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
         "americas": "2026-11-24T23:00:00-05:00",
@@ -915,7 +917,8 @@
       "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 11:59 (server time)",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/gilberta.webp",
       "posts": [
-        "8992"
+        "8992",
+        "0740"
       ]
     },
     {
@@ -924,7 +927,7 @@
       "rateUps": [
         "Sweet Deal"
       ],
-      "poolId": null,
+      "poolId": "weaponbox_1_7_1",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
         "americas": "2026-11-24T23:00:00-05:00",
@@ -934,7 +937,8 @@
       "availability": "Opens after [Meeting You in the World o'Shrooms] version update; ends after 3 [Chartered Headhunting] banners (starting from [Anvil, Backpack, Plus A Pot o'Honey])",
       "art": "https://web-static.hg-cdn.com/upload/image/20261123/e3a469158b64e7b64bba55335676fcae.png",
       "posts": [
-        "2659"
+        "2659",
+        "0740"
       ],
       "notes": [
         "Ends with the 3rd Chartered banner from [Anvil, Backpack, Plus A Pot o'Honey] (not announced yet)"
@@ -946,7 +950,7 @@
       "rateUps": [
         "Delivery Guaranteed"
       ],
-      "poolId": null,
+      "poolId": "rerun_wpn_aglina",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
         "americas": "2026-11-24T23:00:00-05:00",
@@ -959,7 +963,52 @@
       "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 11:59 (server time)",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/delivery-guaranteed.webp",
       "posts": [
-        "8992"
+        "8992",
+        "0740"
+      ]
+    },
+    {
+      "name": "Precious Scarlet",
+      "kind": "refactor",
+      "rateUps": [
+        "Rossi"
+      ],
+      "poolId": "rerun_chr_wulfa",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/rossi.webp",
+      "posts": [
+        "0740"
+      ],
+      "notes": [
+        "Ends at the next version update (not announced yet)"
+      ]
+    },
+    {
+      "name": "Scarlet Claws Issue",
+      "kind": "refactorIssue",
+      "rateUps": [
+        "Lupine Scarlet"
+      ],
+      "poolId": "rerun_wpn_wulfa",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": null,
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/lupine-scarlet.webp",
+      "posts": [
+        "0740"
+      ],
+      "notes": [
+        "Ends at the next version update (not announced yet)"
       ]
     }
   ],
@@ -1832,6 +1881,156 @@
       },
       "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
       "post": "9560"
+    },
+    {
+      "id": 93,
+      "name": "I Dream of Honey Waffles",
+      "type": "Narrative Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "Complete the side mission [I Dream of Honey Waffles] to earn [Oroberyl]×600, [Elementary Cognitive Carrier], and other rewards.",
+      "availability": "Throughout the [Meeting You in the World o'Shrooms] version",
+      "post": "0740"
+    },
+    {
+      "id": 92,
+      "name": "Array Building: Mend the Old Gash",
+      "type": "Building Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "During the event, progress through missions to unlock the [Exclusion Zone Rebuilding] game mode and related AIC technologies, then use the AIC to produce supplies needed by the Exclusion Zone Rebuilding project, advan...",
+      "availability": "Throughout the [Meeting You in the World o'Shrooms] version",
+      "post": "0740"
+    },
+    {
+      "id": 95,
+      "name": "Roaming Wilderpaw",
+      "type": "Sign-In Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T11:59:00-05:00",
+        "asia": "2026-12-23T11:59:00+08:00"
+      },
+      "details": "Sign in for a total of 7 days to earn rewards such as [Roaming Wilderpaw HH Permit]×5.",
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 11:59 (server time)",
+      "post": "0740"
+    },
+    {
+      "id": 96,
+      "name": "Caps! Shrooms! FUNGI!",
+      "type": "Guide Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T23:00:00-05:00",
+        "asia": "2026-11-25T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "details": "Visit the [Old Dam] area in [Wuling] and complete specified missions to claim event rewards such as [Oroberyl]×1200 and [Mark of Perseverance].",
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 12:00 (server time)",
+      "post": "0740"
+    },
+    {
+      "id": 98,
+      "name": "Sanity Supply",
+      "type": "Limited-Time Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-09T04:00:00-05:00",
+        "asia": "2026-12-09T04:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-16T04:00:00-05:00",
+        "asia": "2026-12-16T04:00:00+08:00"
+      },
+      "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
+      "post": "0740"
+    },
+    {
+      "id": 99,
+      "name": "RISE! MEGA ARENA!",
+      "type": "Challenge Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "During the event, complete challenge stages to earn rewards, including [Oroberyl]×1200, [Portrait Frame: Crown-Snatcher's Bright Star], [Advanced Progression Selection Crate Ⅱ], [Mark of Perseverance], and [Advanced C...",
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "post": "0740"
+    },
+    {
+      "id": 100,
+      "name": "Lucky Carrot's Games of Wonder",
+      "type": "Fun & Games Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "During the event, experience the \"Witchcraft Paradise\" games, complete Games Challenges to earn [Carrot Payper], and spend [Carrot Payper] at the [Souvenir Exchange] to exchange for event rewards, including [Oroberyl]...",
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "post": "0740"
+    },
+    {
+      "id": 111,
+      "name": "Workers' Guards: Roll Call",
+      "type": "Giveaway Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "During the event, log into the game and participate in various game modes to claim the new max-potential 5★ operator [Mimino] and new max-potential 5★ weapon [Star of Tomorrow (Handcannon)].",
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "post": "0740"
+    },
+    {
+      "id": 101,
+      "name": "Endmin! Let's Sort the Prezzies!",
+      "type": "Fun & Games Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "Visit the Web Event page to sort gift boxes on transport belts, experience various stages, and claim event rewards, including [Oroberyl]×300 and [T-Creds].",
+      "availability": "Dec. 23, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "post": "0740"
+    },
+    {
+      "id": 102,
+      "name": "Sanity Supply",
+      "type": "Limited-Time Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-31T04:00:00-05:00",
+        "asia": "2026-12-31T04:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T04:00:00+08:00"
+      },
+      "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
+      "post": "0740"
     }
   ]
 }

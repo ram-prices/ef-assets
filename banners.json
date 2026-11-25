@@ -76,7 +76,7 @@
     "type": "Special"
   },
   "special_1_4_1": {
-    "name": "North Yearns The Rift Vigile",
+    "name": "North Yearns the Rift Vigile",
     "rateUpIds": ["chr_0032_lizhiyan"],
     "rateupName": ["Arcane"],
     "type": "Special"
@@ -211,6 +211,84 @@
     "name": "Constant Issue",
     "rateUpIds": ["wpn_claym_0007"],
     "rateupName": ["Thunderberge"],
+    "type": "Weapon"
+  },
+  "special_1_7_1": {
+    "name": "Anvil, Backpack, Plus A Pot o'Honey",
+    "rateUpIds": ["chr_0040_sweetpie"],
+    "rateupName": ["Kay"],
+    "type": "Special"
+  },
+  "rerun_chr_aglina": {
+    "name": "To Every Wish Adrift",
+    "rateUpIds": ["chr_0013_aglina"],
+    "rateupName": ["Gilberta"],
+    "type": "Special"
+  },
+  "rerun_chr_wulfa": {
+    "name": "Precious Scarlet",
+    "rateUpIds": ["chr_0028_wulfa"],
+    "rateupName": ["Rossi"],
+    "type": "Special"
+  },
+  "rerun_chr_tangtang": {
+    "name": "Ancestral Spring Flows Anew",
+    "rateUpIds": ["chr_0027_tangtang"],
+    "rateupName": ["Tangtang"],
+    "type": "Special"
+  },
+  "rerun_chr_yvonne": {
+    "name": "Resplendent Spectrum",
+    "rateUpIds": ["chr_0017_yvonne"],
+    "rateupName": ["Yvonne"],
+    "type": "Special"
+  },
+  "joint_1_2_2": {
+    "name": "Fest of Brilliance",
+    "rateUpIds": ["chr_0016_laevat","chr_0013_aglina"],
+    "rateupName": ["Laevatain","Gilberta"],
+    "type": "Special"
+  },
+  "weaponbox_1_7_1": {
+    "name": "Casual Roamer Issue",
+    "rateUpIds": ["wpn_lance_0017"],
+    "rateupName": ["Sweet Deal"],
+    "type": "Weapon"
+  },
+  "rerun_wpn_aglina": {
+    "name": "Floaty Traveler Issue",
+    "rateUpIds": ["wpn_funnel_0011"],
+    "rateupName": ["Delivery Guaranteed"],
+    "type": "Weapon"
+  },
+  "rerun_wpn_wulfa": {
+    "name": "Scarlet Claws Issue",
+    "rateUpIds": ["wpn_sword_0022"],
+    "rateupName": ["Lupine Scarlet"],
+    "type": "Weapon"
+  },
+  "rerun_wpn_tangtang": {
+    "name": "Tender Sprig Issue",
+    "rateUpIds": ["wpn_pistol_0011"],
+    "rateupName": ["Brigand's Calling"],
+    "type": "Weapon"
+  },
+  "rerun_wpn_yvonne": {
+    "name": "Tag Artist Issue",
+    "rateUpIds": ["wpn_pistol_0010"],
+    "rateupName": ["Artzy Tyrannical"],
+    "type": "Weapon"
+  },
+  "weponbox_1_2_2": {
+    "name": "Smelting Fire Issue",
+    "rateUpIds": ["wpn_sword_0006"],
+    "rateupName": ["Forgeborn Scathe"],
+    "type": "Weapon"
+  },
+  "weponbox_1_2_3": {
+    "name": "Swift Walker Issue",
+    "rateUpIds": ["wpn_funnel_0011"],
+    "rateupName": ["Delivery Guaranteed"],
     "type": "Weapon"
   }
 }

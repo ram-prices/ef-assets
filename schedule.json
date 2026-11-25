@@ -20,8 +20,8 @@
     {
       "name": "Old Deep Water Dies, by Rising Tide It is Denied",
       "release": {
-        "americas": "2026-03-11T23:00:00-05:00",
-        "asia": "2026-03-12T12:00:00+08:00"
+        "americas": "2026-03-11T18:00:00-05:00",
+        "asia": "2026-03-12T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-03-11T17:00:00-05:00",
@@ -31,13 +31,13 @@
         "9570",
         "8907"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d1"
     },
     {
       "name": "At the Wake of Spring",
       "release": {
-        "americas": "2026-04-16T23:00:00-05:00",
-        "asia": "2026-04-17T12:00:00+08:00"
+        "americas": "2026-04-16T18:00:00-05:00",
+        "asia": "2026-04-17T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-04-16T17:00:00-05:00",
@@ -47,13 +47,13 @@
         "7025",
         "0751"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d2"
     },
     {
       "name": "Sketches of Lost Heirlooms",
       "release": {
-        "americas": "2026-06-04T23:00:00-05:00",
-        "asia": "2026-06-05T12:00:00+08:00"
+        "americas": "2026-06-04T18:00:00-05:00",
+        "asia": "2026-06-05T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-06-04T17:00:00-05:00",
@@ -63,13 +63,13 @@
         "8904",
         "0758"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d3"
     },
     {
       "name": "Homecoming",
       "release": {
-        "americas": "2026-07-15T23:00:00-05:00",
-        "asia": "2026-07-16T12:00:00+08:00"
+        "americas": "2026-07-15T18:00:00-05:00",
+        "asia": "2026-07-16T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-07-15T17:00:00-05:00",
@@ -79,13 +79,13 @@
         "5201",
         "5200"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d4"
     },
     {
       "name": "Dreamscape of Wind and Snow",
       "release": {
-        "americas": "2026-09-01T23:00:00-05:00",
-        "asia": "2026-09-02T12:00:00+08:00"
+        "americas": "2026-09-01T18:00:00-05:00",
+        "asia": "2026-09-02T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-09-01T17:00:00-05:00",
@@ -95,13 +95,13 @@
         "5209",
         "5208"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d5"
     },
     {
       "name": "Sanctuary of Ink",
       "release": {
-        "americas": "2026-10-14T23:00:00-05:00",
-        "asia": "2026-10-15T12:00:00+08:00"
+        "americas": "2026-10-14T18:00:00-05:00",
+        "asia": "2026-10-15T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-10-14T17:00:00-05:00",
@@ -111,13 +111,13 @@
         "0744",
         "9560"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d6"
     },
     {
       "name": "Meeting You in the World o'Shrooms",
       "release": {
-        "americas": "2026-11-24T23:00:00-05:00",
-        "asia": "2026-11-25T12:00:00+08:00"
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
       },
       "maintenance": {
         "americas": "2026-11-24T17:00:00-05:00",
@@ -126,7 +126,7 @@
       "posts": [
         "3835"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_version_v1d7"
     }
   ],
   "banners": [
@@ -241,11 +241,7 @@
       "availability": null,
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/yvonne.webp",
       "posts": [],
-      "notes": [
-        "No post of its own: dates inferred from [Graffiti Issue]"
-      ],
-      "needsReview": true,
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_special_1_0_2"
     },
     {
       "name": "Graffiti Issue",
@@ -418,7 +414,7 @@
       "name": "Fest of Brilliance",
       "kind": "special",
       "rateUps": [],
-      "poolId": null,
+      "poolId": "joint_1_2_2",
       "version": "At the Wake of Spring",
       "start": {
         "americas": "2026-05-14T12:00:00-05:00",
@@ -433,7 +429,7 @@
       "posts": [
         "7024"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_joint_1_2_2"
     },
     {
       "name": "Smelting Fire Issue",
@@ -441,7 +437,7 @@
       "rateUps": [
         "Forgeborn Scathe"
       ],
-      "poolId": null,
+      "poolId": "weponbox_1_2_2",
       "version": "At the Wake of Spring",
       "start": {
         "americas": "2026-05-14T12:00:00-05:00",
@@ -457,7 +453,7 @@
         "0751",
         "2669"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump GachaWeaponPoolTable: weponbox_1_2_2 (pool id; dates from the news feed: the dump's only row for it, time_weaponbox_1_2_2, is clientTopTimeId and starts May 22)"
     },
     {
       "name": "Swift Walker Issue",
@@ -465,7 +461,7 @@
       "rateUps": [
         "Delivery Guaranteed"
       ],
-      "poolId": null,
+      "poolId": "weponbox_1_2_3",
       "version": "At the Wake of Spring",
       "start": {
         "americas": "2026-05-14T12:00:00-05:00",
@@ -481,7 +477,7 @@
         "0751",
         "5210"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump GachaWeaponPoolTable: weponbox_1_2_3 (pool id; dates from the news feed: the dump's only row for it, time_weaponbox_1_2_2, is clientTopTimeId and starts May 22)"
     },
     {
       "name": "Fists of No Regrets",
@@ -729,7 +725,7 @@
       "rateUps": [
         "Yvonne"
       ],
-      "poolId": null,
+      "poolId": "rerun_chr_yvonne",
       "version": "Dreamscape of Wind and Snow",
       "start": {
         "americas": "2026-09-24T12:00:00-05:00",
@@ -745,7 +741,7 @@
         "5208",
         "3839"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_rerun_1_5_2"
     },
     {
       "name": "Tag Artist Issue",
@@ -753,7 +749,7 @@
       "rateUps": [
         "Artzy Tyrannical"
       ],
-      "poolId": null,
+      "poolId": "rerun_wpn_yvonne",
       "version": "Dreamscape of Wind and Snow",
       "start": {
         "americas": "2026-09-24T12:00:00-05:00",
@@ -769,7 +765,7 @@
         "5208",
         "3839"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_rerun_1_5_2"
     },
     {
       "name": "Rejuvenation",
@@ -825,15 +821,15 @@
       "rateUps": [
         "Tangtang"
       ],
-      "poolId": null,
+      "poolId": "rerun_chr_tangtang",
       "version": "Sanctuary of Ink",
       "start": {
         "americas": "2026-10-29T12:00:00-05:00",
         "asia": "2026-10-29T12:00:00+08:00"
       },
       "end": {
-        "americas": "2026-11-19T11:59:00-05:00",
-        "asia": "2026-11-19T11:59:00+08:00"
+        "americas": "2026-11-19T12:00:00-05:00",
+        "asia": "2026-11-19T12:00:00+08:00"
       },
       "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 11:59 (server time)",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/tangtang.webp",
@@ -841,7 +837,7 @@
         "9560",
         "6179"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_rerun_1_6_3"
     },
     {
       "name": "Tender Sprig Issue",
@@ -849,15 +845,15 @@
       "rateUps": [
         "Brigand's Calling"
       ],
-      "poolId": null,
+      "poolId": "rerun_wpn_tangtang",
       "version": "Sanctuary of Ink",
       "start": {
         "americas": "2026-10-29T12:00:00-05:00",
         "asia": "2026-10-29T12:00:00+08:00"
       },
       "end": {
-        "americas": "2026-11-19T11:59:00-05:00",
-        "asia": "2026-11-19T11:59:00+08:00"
+        "americas": "2026-11-19T12:00:00-05:00",
+        "asia": "2026-11-19T12:00:00+08:00"
       },
       "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 11:59 (server time)",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/brigand-s-calling.webp",
@@ -865,7 +861,7 @@
         "9560",
         "6179"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_weaponbox_1_6_3"
     },
     {
       "name": "The Hearth Fire Beckons the Starry Flow",
@@ -921,22 +917,22 @@
       "rateUps": [
         "Kay"
       ],
-      "poolId": null,
+      "poolId": "special_1_7_1",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
-        "americas": "2026-11-24T23:00:00-05:00",
-        "asia": "2026-11-25T12:00:00+08:00"
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
       },
       "end": {
-        "americas": "2026-12-23T11:59:00-05:00",
-        "asia": "2026-12-23T11:59:00+08:00"
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
       },
-      "availability": "Opens after [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 11:59 (server time)",
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 12:00 (server time)",
       "art": "https://web-static.hg-cdn.com/upload/image/20261123/f3e83651348938f439ade52c5f2e5107.png",
       "posts": [
         "5204"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_special_1_7_1"
     },
     {
       "name": "To Every Wish Adrift",
@@ -944,22 +940,22 @@
       "rateUps": [
         "Gilberta"
       ],
-      "poolId": null,
+      "poolId": "rerun_chr_aglina",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
-        "americas": "2026-11-24T23:00:00-05:00",
-        "asia": "2026-11-25T12:00:00+08:00"
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
       },
       "end": {
-        "americas": "2026-12-16T11:59:00-05:00",
-        "asia": "2026-12-16T11:59:00+08:00"
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
       },
-      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 11:59 (server time)",
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 12:00 (server time)",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/gilberta.webp",
       "posts": [
         "8992"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_rerun_1_7_2"
     },
     {
       "name": "Casual Roamer Issue",
@@ -967,11 +963,11 @@
       "rateUps": [
         "Sweet Deal"
       ],
-      "poolId": null,
+      "poolId": "weponbox_1_7_1",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
-        "americas": "2026-11-24T23:00:00-05:00",
-        "asia": "2026-11-25T12:00:00+08:00"
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
       },
       "end": null,
       "availability": "Opens after [Meeting You in the World o'Shrooms] version update; ends after 3 [Chartered Headhunting] banners (starting from [Anvil, Backpack, Plus A Pot o'Honey])",
@@ -982,7 +978,7 @@
       "notes": [
         "Ends with the 3rd Chartered banner from [Anvil, Backpack, Plus A Pot o'Honey] (not announced yet)"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_weaponbox_1_7_1"
     },
     {
       "name": "Floaty Traveler Issue",
@@ -990,22 +986,64 @@
       "rateUps": [
         "Delivery Guaranteed"
       ],
-      "poolId": null,
+      "poolId": "rerun_wpn_aglina",
       "version": "Meeting You in the World o'Shrooms",
       "start": {
-        "americas": "2026-11-24T23:00:00-05:00",
-        "asia": "2026-11-25T12:00:00+08:00"
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
       },
       "end": {
-        "americas": "2026-12-16T11:59:00-05:00",
-        "asia": "2026-12-16T11:59:00+08:00"
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
       },
-      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 11:59 (server time)",
+      "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 16, 2026 at 12:00 (server time)",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/delivery-guaranteed.webp",
       "posts": [
         "8992"
       ],
-      "source": "news feed"
+      "source": "EndfieldDataDump TimeRangeTable: time_weaponbox_1_7_2"
+    },
+    {
+      "name": "Precious Scarlet",
+      "kind": "refactor",
+      "rateUps": [
+        "Rossi"
+      ],
+      "poolId": "rerun_chr_wulfa",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/rossi.webp",
+      "posts": [],
+      "source": "EndfieldDataDump TimeRangeTable: time_rerun_1_7_3"
+    },
+    {
+      "name": "Scarlet Claws Issue",
+      "kind": "refactorIssue",
+      "rateUps": [
+        "Lupine Scarlet"
+      ],
+      "poolId": "rerun_wpn_wulfa",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "availability": "Dec. 23, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/lupine-scarlet.webp",
+      "posts": [],
+      "source": "EndfieldDataDump TimeRangeTable: time_weaponbox_1_7_3"
     }
   ],
   "events": [
@@ -2605,6 +2643,222 @@
       "details": null,
       "post": "",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d6_end"
+    },
+    {
+      "id": 93,
+      "name": "I Dream of Honey Waffles",
+      "type": "Narrative Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_sweetpie"
+    },
+    {
+      "id": 92,
+      "name": "Array Building: Mend the Old Gash",
+      "type": "Limited-Time Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timelimited_wonder_construct (the timed event; time_activity_timeunlimited_wonder_construct, the permanent mode after it, isn't this event)"
+    },
+    {
+      "id": 95,
+      "name": "Roaming Wilderpaw",
+      "type": "Sign-In Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_special_1_7_1"
+    },
+    {
+      "id": 96,
+      "name": "Caps! Shrooms! FUNGI!",
+      "type": "Guide Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_guide_dam"
+    },
+    {
+      "id": 94,
+      "name": "Combat Drills",
+      "type": "Limited-Time Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-11-24T18:00:00-05:00",
+        "asia": "2026-11-25T07:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "details": null,
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_special_1_7_1"
+    },
+    {
+      "id": 97,
+      "name": "Monumental Revelation: Tyranny",
+      "type": "Challenge Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-02T12:00:00-05:00",
+        "asia": "2026-12-02T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-23T04:00:00-05:00",
+        "asia": "2026-12-23T04:00:00+08:00"
+      },
+      "details": null,
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d7"
+    },
+    {
+      "id": 98,
+      "name": "Sanity Supply",
+      "type": "Limited-Time Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-09T04:00:00-05:00",
+        "asia": "2026-12-09T04:00:00+08:00"
+      },
+      "end": {
+        "americas": "2026-12-16T04:00:00-05:00",
+        "asia": "2026-12-16T04:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_refund_1d7d1"
+    },
+    {
+      "id": 99,
+      "name": "RISE! MEGA ARENA!",
+      "type": "Challenge Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_takestwo_2"
+    },
+    {
+      "id": 100,
+      "name": "Lucky Carrot's Games of Wonder",
+      "type": "Fun & Games Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_cardgame_v1d7"
+    },
+    {
+      "id": 111,
+      "name": "Workers' Guards: Roll Call",
+      "type": "Giveaway Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-16T12:00:00-05:00",
+        "asia": "2026-12-16T12:00:00+08:00"
+      },
+      "end": null,
+      "details": "During the event, log into the game and participate in various game modes to claim the new max-potential 5★ operator [Mimino] and new max-potential 5★ weapon [Star of Tomorrow (Handcannon)].",
+      "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
+      "post": "0740",
+      "source": "news feed"
+    },
+    {
+      "id": 101,
+      "name": "Endmin! Let's Sort the Prezzies!",
+      "type": "Fun & Games Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-23T12:00:00-05:00",
+        "asia": "2026-12-23T12:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T06:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_belt"
+    },
+    {
+      "id": 103,
+      "name": "Esoteric Mycology",
+      "type": "Space Exploration Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-27T12:00:00-05:00",
+        "asia": "2026-12-27T12:00:00+08:00"
+      },
+      "end": null,
+      "details": null,
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_puzzle_v1d7 (the new Delver of the Cryptic series; unlocks Dec. 27 and then stays permanent)"
+    },
+    {
+      "id": 102,
+      "name": "Sanity Supply",
+      "type": "Limited-Time Event",
+      "version": "Meeting You in the World o'Shrooms",
+      "start": {
+        "americas": "2026-12-31T04:00:00-05:00",
+        "asia": "2026-12-31T04:00:00+08:00"
+      },
+      "end": {
+        "americas": "2027-01-06T17:00:00-05:00",
+        "asia": "2027-01-07T04:00:00+08:00"
+      },
+      "details": null,
+      "post": "0740",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_refund_1d7d2"
     }
   ]
 }
