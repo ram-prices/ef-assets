@@ -31,13 +31,14 @@
  * Anything a file names that looks like a skill or buff id is followed, so a
  * new kind of action doesn't hide what it uses.
  *
- *   node scripts/combat-bundle.mjs [operator id ...] [--builds] [--local <dump output folder>]
+ *   node scripts/combat-bundle.mjs [operator id ...] [--builds] [--local <dump output folder> | --local-tables <dump output folder>]
  *
  * With operator ids, only those are written (and weapons and gear with --builds).
  *
  * Skill and buff files are fetched a few at a time and cached in the system
- * temp folder between runs (`--local` reads only SkillPatchTable locally:
- * the local dump has the others in binary form).
+ * temp folder between runs. `--local` reads everything from a local dump
+ * (EndfieldDataDump's output/: Data/TableCfg and the decoded jsondata/, the
+ * Persistent copy of a file first); `--local-tables` only the tables.
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -51,13 +52,64 @@ const UA = { 'User-Agent': 'ef-assets combat snapshot (github.com/ram-prices/ef-
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const CACHE = join(tmpdir(), 'ef-assets-combat');
 const args = process.argv.slice(2);
-const LOCAL = args.includes('--local') ? args[args.indexOf('--local') + 1] : null;
-const only = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--local');
+// --local <dir>: tables and Json/SkillData and Json/BuffData all from a local dump's output folder (the decoded
+// output/jsondata tree); --local-tables <dir>: only the tables locally, the skill and buff files fetched.
+const LOCAL = args.includes('--local') ? args[args.indexOf('--local') + 1] : args.includes('--local-tables') ? args[args.indexOf('--local-tables') + 1] : null;
+const LOCAL_JSON = args.includes('--local');
+const only = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--local' && args[i - 1] !== '--local-tables');
 
 /** The tables' text ids are 64-bit: kept as their digits, which JSON.parse would round. */
 const parse = (text) => JSON.parse(text, (k, v, ctx) => (typeof v === 'number' && !Number.isSafeInteger(v) && ctx?.source ? ctx.source : v));
+/** A local table's floats are the game's 32-bit ones (0.23 as 0.23000000417...): back to the shortest the remote dump writes. */
+const f32 = (v) => (typeof v === 'number' && !Number.isInteger(v) && Math.fround(v) === v ? Number(v.toPrecision(7)) : v);
+const parseLocal = (text) => JSON.parse(text, (k, v, ctx) => (typeof v === 'number' && !Number.isSafeInteger(v) && ctx?.source ? (Number.isInteger(v) ? ctx.source : String(f32(v))) : v));
+
+/**
+ * The local decoder writes what the game's classes hold; the remote dump's files are Unity's JSON: types as
+ * "A.B+C+D, Gameplay.Beyond" (the decoder: "A.B/C/D"), a null string as "" and a null object left out, flags as
+ * "Fire, Pulse" (the decoder: "Fire|Pulse"). Changed to the remote's shape so the output is the same either way.
+ */
+const STRINGY = /(Key|Id|Name|Fx|Path|Node|Sprite|Context|Event|ContextTarget|Blackboard)$|^(value|valueStr|stringValue)$|^(skillIdOn|toIdle|toFight)/;
+function remoteShape(node) {
+  if (Array.isArray(node)) return node.map((x) => (x === null ? '' : remoteShape(x)));
+  if (node && typeof node === 'object') {
+    // Curve keys (Unity's AnimationCurve, via the decoder: m_Time...): the remote's names, a weighted mode by name, infinity spelt out.
+    if (Object.keys(node).length === 1 && 'm_Mask' in node) return { mask: node.m_Mask };
+    if ('m_Time' in node) {
+      const num = (x) => (x === 'inf' ? 'Infinity' : x === '-inf' ? '-Infinity' : remoteShape(x));
+      return { time: num(node.m_Time), value: num(node.m_Value), inTangent: num(node.m_InTangent), outTangent: num(node.m_OutTangent), weightedMode: ['None', 'In', 'Out', 'Both'][node.m_WeightedMode] ?? node.m_WeightedMode, inWeight: num(node.m_InWeight), outWeight: num(node.m_OutWeight) };
+    }
+    const out = {};
+    for (const [k, v] of Object.entries(node)) {
+      if (k === '$type' && typeof v === 'string') out[k] = `${v.replace(/\//g, '+')}, Gameplay.Beyond`;
+      else if (v === null) {
+        if (STRINGY.test(k)) out[k] = '';
+      } else out[k] = remoteShape(v);
+    }
+    return out;
+  }
+  if (typeof node === 'string' && /^-?\d+(\.\d+)?e[-+]?\d+$/.test(node)) return node.toUpperCase();
+  if (typeof node === 'string' && /^[A-Za-z]+(\|[A-Za-z]+)+$/.test(node)) return node.replace(/\|/g, ', ');
+  return node;
+}
+
+/**
+ * The local dump's decoded files (output/jsondata/<root>/<folder>/<id>.json, each wrapped as {$file,$root,$type,data}):
+ * the remote dump's layout is the `data` alone. A file in both roots (Persistent, the patched files, and
+ * StreamingAssets, the base install) is the Persistent one: the game uses that.
+ */
+const ROOTS = ['Persistent', 'StreamingAssets'];
+const localFile = (path) => {
+  for (const r of ROOTS) {
+    const f = join(LOCAL, 'jsondata', r, ...path.replace(/^Json\//, '').split('/'));
+    if (existsSync(f)) return remoteShape(parse(readFileSync(f, 'utf8')).data);
+  }
+  return null;
+};
+const localListing = (dir) => [...new Set(ROOTS.flatMap((r) => { const d = join(LOCAL, 'jsondata', r, dir.replace(/^Json\//, '')); return existsSync(d) ? readdirSync(d) : []; }))].filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5));
 
 async function get(path) {
+  if (LOCAL_JSON && path.startsWith('Json/')) return localFile(path);
   const file = join(CACHE, path.replace(/\//g, '__'));
   if (existsSync(file)) return parse(readFileSync(file, 'utf8'));
   for (let tries = 0; ; tries++) {
@@ -74,6 +126,7 @@ async function get(path) {
   }
 }
 async function listing(dir) {
+  if (LOCAL_JSON) return localListing(dir);
   const file = join(CACHE, `list__${dir.replace(/\//g, '__')}.json`);
   if (existsSync(file)) return JSON.parse(readFileSync(file, 'utf8'));
   const r = await fetch(`${API}/${dir}?ref=master`, { headers: UA });
@@ -121,7 +174,26 @@ function trim(node, ids) {
 const [skillNames, buffNames] = await Promise.all([listing('Json/SkillData'), listing('Json/BuffData')]);
 const SKILLS = new Set(skillNames);
 const BUFFS = new Set(buffNames);
-const table = (name) => (LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', `${name}.json`), 'utf8')) : get(`TableCfg/${name}.json`));
+/**
+ * A local dump's tables hold enums as numbers; the remote dump's hold their names. The names come from the game's own
+ * enum definitions (output/enums.json, made by scripts/local-enums.py), for the fields these tables use them in.
+ */
+let ENUMS = null;
+const ENUM_OF = { attrType: 'AttributeType', mainAttrType: 'AttributeType', subAttrType: 'AttributeType', attributeType: 'AttributeType', modifierType: 'ModifierType', modifyAttributeType: 'ModifyAttributeType', partType: 'PartType', weaponType: 'WeaponType' };
+function enumNames(node, key, parent, table) {
+  if (Array.isArray(node)) return node.map((x) => enumNames(x, key, parent, table));
+  if (node && typeof node === 'object') return Object.fromEntries(Object.entries(node).map(([k, v]) => [k, enumNames(v, k, key, table)]));
+  if (typeof node !== 'number') return node;
+  const name = key === 'modifyType' && table === 'PotentialTalentEffectTable' ? (parent === 'skillBbModifier' || parent === 'skillParamModifier' ? 'SkillParamModifyType' : 'PotentialModifyType')
+    : key === 'paramType' && table === 'PotentialTalentEffectTable' ? 'ModifiableSkillParam'
+    : ENUM_OF[key] && key !== 'modifierType' ? ENUM_OF[key] : key === 'modifierType' ? 'ModifierType' : null;
+  return (name && ENUMS[name]?.[node]) ?? node;
+}
+const table = (name) => {
+  if (!LOCAL) return get(`TableCfg/${name}.json`);
+  ENUMS ??= JSON.parse(readFileSync(join(LOCAL, 'enums.json'), 'utf8'));
+  return enumNames(parseLocal(readFileSync(join(LOCAL, 'Data', 'TableCfg', `${name}.json`), 'utf8')), '', '', name);
+};
 const [PATCH, TALENTS, CONDITIONS, ATTR_META, CHARACTERS, WEAPONS, WEAPON_LEVELS, WEAPON_BREAKS, WEAPON_TALENTS, EQUIP, SUITS, COMPOSITES, GROWTH] = await Promise.all(
   [
     'SkillPatchTable', 'PotentialTalentEffectTable', 'SkillConditionTable', 'AttributeMetaTable', 'CharacterTable', 'WeaponBasicTable', 'WeaponUpgradeTemplateTable',
@@ -295,7 +367,7 @@ async function gear() {
   return { items, sets, ...(await follow(Object.values(sets).flatMap((l) => l.map((s) => s.skill)))) };
 }
 
-const stamp = () => ({ source: DUMP, note: 'Game data © Gryphline / Hypergryph.', fetched: new Date().toISOString().slice(0, 10) });
+const stamp = () => ({ source: LOCAL_JSON ? 'the game files (a local EndfieldDataDump)' : DUMP, note: 'Game data © Gryphline / Hypergryph.', fetched: new Date().toISOString().slice(0, 10) });
 const ids = only.length ? only : Object.keys(operators);
 mkdirSync(join(ROOT, 'combat', 'ops'), { recursive: true });
 for (const id of ids) {

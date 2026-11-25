@@ -23,9 +23,10 @@
  *
  *   node scripts/combat.mjs [--dry-run] [--local <dump output folder>]
  *
- * `--local` reads SkillPatchTable from a local dump; skill files are always
- * fetched (the local dump has them in binary form), a few at a time, cached
- * in the system temp folder between runs.
+ * `--local` reads SkillPatchTable and the skill files from a local dump
+ * (EndfieldDataDump's output/: Data/TableCfg and the decoded jsondata/);
+ * `--local-tables` only the table, the skill files fetched a few at a time
+ * and cached in the system temp folder between runs.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -38,12 +39,56 @@ const UA = { 'User-Agent': 'ef-assets combat snapshot (github.com/ram-prices/ef-
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const CACHE = join(tmpdir(), 'ef-assets-combat');
 const DRY = process.argv.includes('--dry-run');
-const LOCAL = process.argv.includes('--local') ? process.argv[process.argv.indexOf('--local') + 1] : null;
+// --local <dir>: table and skill files from a local dump's output folder; --local-tables <dir>: only the table.
+const LOCAL = process.argv.includes('--local') ? process.argv[process.argv.indexOf('--local') + 1] : process.argv.includes('--local-tables') ? process.argv[process.argv.indexOf('--local-tables') + 1] : null;
+const LOCAL_JSON = process.argv.includes('--local');
 
 /** The tables' text ids are 64-bit: kept as their digits, which JSON.parse would round. */
 const parse = (text) => JSON.parse(text, (k, v, ctx) => (typeof v === 'number' && !Number.isSafeInteger(v) && ctx?.source ? ctx.source : v));
+/** A local table's floats are the game's 32-bit ones (0.23 as 0.23000000417...): back to the shortest the remote dump writes. */
+const f32 = (v) => (typeof v === 'number' && !Number.isInteger(v) && Math.fround(v) === v ? Number(v.toPrecision(7)) : v);
+const parseLocal = (text) => JSON.parse(text, (k, v, ctx) => (typeof v === 'number' && !Number.isSafeInteger(v) && ctx?.source ? (Number.isInteger(v) ? ctx.source : String(f32(v))) : v));
+
+/**
+ * The local decoder writes what the game's classes hold; the remote dump's files are Unity's JSON: types as
+ * "A.B+C+D, Gameplay.Beyond" (the decoder: "A.B/C/D"), a null string as "" and a null object left out, flags as
+ * "Fire, Pulse" (the decoder: "Fire|Pulse"). Changed to the remote's shape so the output is the same either way.
+ */
+const STRINGY = /(Key|Id|Name|Fx|Path|Node|Sprite|Context|Event|ContextTarget|Blackboard)$|^(value|valueStr|stringValue)$|^(skillIdOn|toIdle|toFight)/;
+function remoteShape(node) {
+  if (Array.isArray(node)) return node.map((x) => (x === null ? '' : remoteShape(x)));
+  if (node && typeof node === 'object') {
+    // Curve keys (Unity's AnimationCurve, via the decoder: m_Time...): the remote's names, a weighted mode by name, infinity spelt out.
+    if (Object.keys(node).length === 1 && 'm_Mask' in node) return { mask: node.m_Mask };
+    if ('m_Time' in node) {
+      const num = (x) => (x === 'inf' ? 'Infinity' : x === '-inf' ? '-Infinity' : remoteShape(x));
+      return { time: num(node.m_Time), value: num(node.m_Value), inTangent: num(node.m_InTangent), outTangent: num(node.m_OutTangent), weightedMode: ['None', 'In', 'Out', 'Both'][node.m_WeightedMode] ?? node.m_WeightedMode, inWeight: num(node.m_InWeight), outWeight: num(node.m_OutWeight) };
+    }
+    const out = {};
+    for (const [k, v] of Object.entries(node)) {
+      if (k === '$type' && typeof v === 'string') out[k] = `${v.replace(/\//g, '+')}, Gameplay.Beyond`;
+      else if (v === null) {
+        if (STRINGY.test(k)) out[k] = '';
+      } else out[k] = remoteShape(v);
+    }
+    return out;
+  }
+  if (typeof node === 'string' && /^-?\d+(\.\d+)?e[-+]?\d+$/.test(node)) return node.toUpperCase();
+  if (typeof node === 'string' && /^[A-Za-z]+(\|[A-Za-z]+)+$/.test(node)) return node.replace(/\|/g, ', ');
+  return node;
+}
+
+/** The local dump's decoded files are wrapped as {$file,$root,$type,data}; the remote layout is the `data`. Persistent wins over StreamingAssets. */
+function localFile(path) {
+  for (const r of ['Persistent', 'StreamingAssets']) {
+    const f = join(LOCAL, 'jsondata', r, ...path.replace(/^Json\//, '').split('/'));
+    if (existsSync(f)) return remoteShape(parse(readFileSync(f, 'utf8')).data);
+  }
+  return null;
+}
 
 async function get(path) {
+  if (LOCAL_JSON && path.startsWith('Json/')) return localFile(path);
   const file = join(CACHE, path.replace(/\//g, '__'));
   if (existsSync(file)) return parse(readFileSync(file, 'utf8'));
   for (let tries = 0; ; tries++) {
@@ -62,7 +107,7 @@ async function get(path) {
 const skillFile = (id) => get(`Json/SkillData/${id}.json`);
 const short = (t) => (t || '').split(',')[0].split('.').pop();
 
-const PATCH = LOCAL ? parse(readFileSync(join(LOCAL, 'Data', 'TableCfg', 'SkillPatchTable.json'), 'utf8')) : await get('TableCfg/SkillPatchTable.json');
+const PATCH = LOCAL ? parseLocal(readFileSync(join(LOCAL, 'Data', 'TableCfg', 'SkillPatchTable.json'), 'utf8')) : await get('TableCfg/SkillPatchTable.json');
 const operators = JSON.parse(readFileSync(join(ROOT, 'wiki', 'operators.json'), 'utf8')).operators;
 
 /** A blackboard-or-direct value: the key it reads (with its default), or the value. */
@@ -158,6 +203,6 @@ if (!DRY) {
   mkdirSync(join(ROOT, 'combat'), { recursive: true });
   writeFileSync(
     join(ROOT, 'combat', 'skills.json'),
-    `${JSON.stringify({ source: DUMP, note: 'Game data © Gryphline / Hypergryph.', fetched: new Date().toISOString().slice(0, 10), fps: 30, operators: out })}\n`,
+    `${JSON.stringify({ source: LOCAL_JSON ? 'the game files (a local EndfieldDataDump)' : DUMP, note: 'Game data © Gryphline / Hypergryph.', fetched: new Date().toISOString().slice(0, 10), fps: 30, operators: out })}\n`,
   );
 }
