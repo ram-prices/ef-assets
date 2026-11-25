@@ -11,7 +11,9 @@
 //    banners/game/<pool>.webp and both layers (banners/game/layers/<pool>-back
 //    and -op) exist, with an -op layer over 10 KB (1.7's first build had an
 //    empty one). The site shows banners/game/ art only for flagged pools. HOLD
-//    pools are never flagged. Only the flag lines change in banners.json.
+//    pools are never flagged. Each flag has a `"gameArtV"` fingerprint of the
+//    three files, which the site puts in their URLs, so changed art is never
+//    served from an old cached copy. Only these lines change in banners.json.
 // 3. needs.md (not committed): a checklist of what is still missing for every
 //    banner open or upcoming in schedule.json, each line with the command that
 //    fixes it. With --wiki-report, the warnings update-wiki.mjs printed go in
@@ -19,6 +21,7 @@
 //    "ef-assets: needs attention" issue (scripts/needs-issue.mjs).
 //
 // Node built-ins only.
+import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -97,25 +100,52 @@ function gameArtProblem(pool) {
 // Edit the text line by line, so the diff is only the flag lines (banners.json
 // is hand-formatted: arrays on one line, which JSON.stringify wouldn't keep).
 const lines = bannersText.split('\n');
+// `"gameArtV": "<fingerprint>"` follows each flag: the first 8 hex of a SHA-1 of the
+// three files, which the site adds to their URLs (?v=), so changed art gets a new
+// address. Browsers keep a jsDelivr file a week; in 1.7 they kept an empty -op layer.
+const fingerprint = (pool) => {
+  const h = createHash('sha1');
+  for (const f of gameFiles(pool)) h.update(readFileSync(at(f)));
+  return h.digest('hex').slice(0, 8);
+};
 const flagLine = /^\s*"gameArt": true,?\r?$/;
+const versionLine = /^\s*"gameArtV": "[^"]*",?\r?$/;
+/** Remove line i of an entry; when it was the entry's last key, the key before it loses its comma. */
+const dropLine = (i) => {
+  if (!lines[i].replace(/\r$/, '').endsWith(',')) lines[i - 1] = lines[i - 1].replace(/,(\r?)$/, '$1');
+  lines.splice(i, 1);
+};
 const changed = [];
 for (const pool of Object.keys(db)) {
   const want = !gameArtProblem(pool);
   // (Entries only hold strings and arrays, so a `"<key>": {` line opens a pool, whatever its indent.)
   const start = lines.findIndex((l) => l.replace(/\r$/, '').trim() === `${JSON.stringify(pool)}: {`);
   if (start < 0) throw new Error(`banners.json: can't find the line opening "${pool}"`);
-  let end = start + 1;
-  while (end < lines.length && !/^  \}/.test(lines[end])) end++;
-  const flag = lines.slice(start + 1, end).findIndex((l) => flagLine.test(l));
-  if (want && flag < 0) {
-    const eol = lines[start].endsWith('\r') ? '\r' : '';
-    lines.splice(start + 1, 0, `    "gameArt": true,${eol}`);
-    changed.push(`+ ${pool}`);
-  } else if (!want && flag >= 0) {
-    const i = start + 1 + flag;
-    // The flag was the entry's last key: the key before it loses its comma.
-    if (!lines[i].replace(/\r$/, '').endsWith(',')) lines[i - 1] = lines[i - 1].replace(/,(\r?)$/, '$1');
-    lines.splice(i, 1);
+  const eol = lines[start].endsWith('\r') ? '\r' : '';
+  const find = (re) => {
+    let end = start + 1;
+    while (end < lines.length && !/^  \}/.test(lines[end])) end++;
+    const i = lines.slice(start + 1, end).findIndex((l) => re.test(l));
+    return i < 0 ? -1 : start + 1 + i;
+  };
+  if (want) {
+    const v = fingerprint(pool);
+    const vLine = `    "gameArtV": ${JSON.stringify(v)},${eol}`;
+    if (find(flagLine) < 0) {
+      lines.splice(start + 1, 0, `    "gameArt": true,${eol}`);
+      changed.push(`+ ${pool}`);
+    }
+    const vi = find(versionLine);
+    if (vi < 0) {
+      lines.splice(find(flagLine) + 1, 0, vLine);
+      changed.push(`  ${pool} art ${v}`);
+    } else if (!lines[vi].includes(`"${v}"`)) {
+      lines[vi] = vLine;
+      changed.push(`  ${pool} art changed: ${v}`);
+    }
+  } else if (find(flagLine) >= 0 || find(versionLine) >= 0) {
+    if (find(versionLine) >= 0) dropLine(find(versionLine));
+    if (find(flagLine) >= 0) dropLine(find(flagLine));
     changed.push(`- ${pool} (${gameArtProblem(pool)})`);
   }
 }
@@ -123,8 +153,8 @@ if (changed.length) {
   const text = lines.join('\n');
   const check = JSON.parse(text); // still valid, and only the flags differ
   for (const [k, v] of Object.entries(check)) {
-    const { gameArt, ...rest } = v;
-    const { gameArt: _, ...before } = db[k];
+    const { gameArt, gameArtV, ...rest } = v;
+    const { gameArt: _, gameArtV: __, ...before } = db[k];
     if (JSON.stringify(rest) !== JSON.stringify(before)) throw new Error(`banners.json: editing ${k} changed more than its flag`);
   }
   if (!DRY) writeFileSync(at('banners.json'), text);
