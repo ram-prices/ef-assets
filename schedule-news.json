@@ -892,7 +892,7 @@
         "asia": "2026-12-23T11:59:00+08:00"
       },
       "availability": "Opens after [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 11:59 (server time)",
-      "art": "https://web-static.hg-cdn.com/upload/image/20261123/f3e83651348938f439ade52c5f2e5107.png",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/kay.webp",
       "posts": [
         "5204",
         "0740"
@@ -935,7 +935,7 @@
       },
       "end": null,
       "availability": "Opens after [Meeting You in the World o'Shrooms] version update; ends after 3 [Chartered Headhunting] banners (starting from [Anvil, Backpack, Plus A Pot o'Honey])",
-      "art": "https://web-static.hg-cdn.com/upload/image/20261123/e3a469158b64e7b64bba55335676fcae.png",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/sweet-deal.webp",
       "posts": [
         "2659",
         "0740"
@@ -1894,7 +1894,8 @@
       "end": null,
       "details": "Complete the side mission [I Dream of Honey Waffles] to earn [Oroberyl]×600, [Elementary Cognitive Carrier], and other rewards.",
       "availability": "Throughout the [Meeting You in the World o'Shrooms] version",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/i-dream-of-honey-waffles.webp"
     },
     {
       "id": 92,
