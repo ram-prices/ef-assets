@@ -5,7 +5,7 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-19"
+  "fetched": "2026-11-25"
  },
  "weapons": {
   "wpn_claym_0003": {
@@ -8498,6 +8498,370 @@
    ],
    "page": "https://endfield.wiki.gg/wiki/Golden_Age"
   },
+  "wpn_lance_0017": {
+   "name": "Sweet Deal",
+   "rarity": 6,
+   "type": "Polearm",
+   "source": "Acquisition Center: Arsenal Exchange",
+   "description": [
+    "A weapon equipped by Endfield operators to significantly boost their combat capabilities.",
+    "A weapon with a customized and improved powertrain made by Endfield Industries. Every specification is far above standard issue to ensure that the wielder is capable of unleashing maximum output, even in the most unforgiving operational environments."
+   ],
+   "stats": {
+    "levels": [
+     1,
+     20,
+     40,
+     60,
+     80,
+     90
+    ],
+    "baseAtk": [
+     51,
+     146,
+     247,
+     348,
+     449,
+     500
+    ]
+   },
+   "potential": "Skill ⟦accent|Flow: Sweetening Function⟧ improved.",
+   "tuning": [
+    {
+     "stage": 1,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 5
+      },
+      {
+       "item": "Kalkonyx",
+       "count": 3
+      },
+      {
+       "item": "T-Creds",
+       "count": 2200
+      }
+     ]
+    },
+    {
+     "stage": 2,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 18
+      },
+      {
+       "item": "Auronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 8500
+      }
+     ]
+    },
+    {
+     "stage": 3,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 20
+      },
+      {
+       "item": "Umbronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 25000
+      }
+     ]
+    },
+    {
+     "stage": 4,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 30
+      },
+      {
+       "item": "D96 Steel Sample 4",
+       "count": 16
+      },
+      {
+       "item": "Igneosite",
+       "count": 8
+      },
+      {
+       "item": "T-Creds",
+       "count": 90000
+      }
+     ]
+    }
+   ],
+   "skills": [
+    {
+     "name": "Strength [L]",
+     "tag": "Strength",
+     "text": "Strength ⟦num|+{0}⟧",
+     "values": [
+      [
+       20,
+       36,
+       52,
+       68,
+       84,
+       100,
+       116,
+       132,
+       156
+      ]
+     ]
+    },
+    {
+     "name": "Nature DMG [L]",
+     "tag": "Nature DMG",
+     "text": "Nature DMG Dealt ⟦num|+{0}%⟧",
+     "values": [
+      [
+       5.56,
+       10,
+       14.44,
+       18.89,
+       23.33,
+       27.78,
+       32.22,
+       36.67,
+       43.33
+      ]
+     ]
+    },
+    {
+     "name": "Flow: Sweetening Function",
+     "tag": "Flow",
+     "text": "Ultimate Gain Efficiency ⟦num|+{0}%⟧. After the wielder's skill recovers SP, the entire team gains ATK ⟦num|+{1}%⟧ for 30.00s. ⟦muted|Max stacks for this effect: 3.00. Duration of each stack is counted separately. Effect only triggers once every 0.1s.⟧ After the wielder's skill applies an ⟦key|Arts Burst⟧, the entire team gains Arts DMG Dealt ⟦num|+{2}%⟧ for 15.00s. ⟦muted|This effect cannot stack.⟧",
+     "values": [
+      [
+       18,
+       21.6,
+       25.2,
+       28.8,
+       32.4,
+       36,
+       39.6,
+       43.2,
+       50.4
+      ],
+      [
+       2,
+       2.4,
+       2.8,
+       3.2,
+       3.6,
+       4,
+       4.4,
+       4.8,
+       5.6
+      ],
+      [
+       6,
+       7.2,
+       8.4,
+       9.6,
+       10.8,
+       12,
+       13.2,
+       14.4,
+       16.8
+      ]
+     ]
+    }
+   ],
+   "page": "https://endfield.wiki.gg/wiki/Sweet_Deal"
+  },
+  "wpn_lance_0018": {
+   "name": "Raid Comet",
+   "rarity": 6,
+   "type": "Polearm",
+   "source": "Reward: Protocol Pass",
+   "description": [
+    "A weapon equipped by Endfield operators to significantly boost their combat capabilities.",
+    "A popular standard issue lance from RAYTHEAN Industries. The weapon also features significant weight-reduction measures, adjustable center-of-gravity, and custom tassels to achieve a perfect balance of mass and handling."
+   ],
+   "stats": {
+    "levels": [
+     1,
+     20,
+     40,
+     60,
+     80,
+     90
+    ],
+    "baseAtk": [
+     49,
+     142,
+     240,
+     338,
+     436,
+     485
+    ]
+   },
+   "potential": "Skill ⟦accent|Detonate: Skybreaker⟧ improved.",
+   "tuning": [
+    {
+     "stage": 1,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 5
+      },
+      {
+       "item": "Kalkonyx",
+       "count": 3
+      },
+      {
+       "item": "T-Creds",
+       "count": 2200
+      }
+     ]
+    },
+    {
+     "stage": 2,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 18
+      },
+      {
+       "item": "Auronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 8500
+      }
+     ]
+    },
+    {
+     "stage": 3,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 20
+      },
+      {
+       "item": "Umbronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 25000
+      }
+     ]
+    },
+    {
+     "stage": 4,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 30
+      },
+      {
+       "item": "Warp Plasma-Coated Slide",
+       "count": 16
+      },
+      {
+       "item": "Protocolith",
+       "count": 8
+      },
+      {
+       "item": "T-Creds",
+       "count": 90000
+      }
+     ]
+    }
+   ],
+   "skills": [
+    {
+     "name": "Strength [L]",
+     "tag": "Strength",
+     "text": "Strength ⟦num|+{0}⟧",
+     "values": [
+      [
+       20,
+       36,
+       52,
+       68,
+       84,
+       100,
+       116,
+       132,
+       156
+      ]
+     ]
+    },
+    {
+     "name": "ULT Efficiency [L]",
+     "tag": "ULT Efficiency",
+     "text": "Ultimate Gain Efficiency ⟦num|+{0}%⟧",
+     "values": [
+      [
+       5.95,
+       10.71,
+       15.48,
+       20.24,
+       25,
+       29.76,
+       34.52,
+       39.29,
+       46.43
+      ]
+     ]
+    },
+    {
+     "name": "Detonate: Skybreaker",
+     "tag": "Detonate",
+     "text": "Nature DMG Dealt ⟦num|+{0}%⟧. After the wielder applies a ⟦key|Nature Burst⟧, the wielder gains Nature DMG Dealt ⟦num|+{1}%⟧ for 20.00s. After the wielder's skill recovers SP, the entire team gains Arts DMG Dealt ⟦num|+{2}%⟧ for 20.00s. ⟦muted|The two effects apply separately and do not stack with themselves.⟧",
+     "values": [
+      [
+       7,
+       8.4,
+       9.8,
+       11.2,
+       12.6,
+       14,
+       15.4,
+       16.8,
+       19.6
+      ],
+      [
+       12,
+       14.4,
+       16.8,
+       19.2,
+       21.6,
+       24,
+       26.4,
+       28.8,
+       33.6
+      ],
+      [
+       2,
+       2.4,
+       2.8,
+       3.2,
+       3.6,
+       4,
+       4.4,
+       4.8,
+       5.6
+      ]
+     ]
+    }
+   ],
+   "page": "https://endfield.wiki.gg/wiki/Raid_Comet"
+  },
   "wpn_pistol_0001": {
    "name": "Peco 5",
    "rarity": 3,
@@ -14137,6 +14501,188 @@
     }
    ],
    "page": "https://endfield.wiki.gg/wiki/Complexed_Industry"
+  },
+  "wpn_sword_0025": {
+   "name": "Lunar Calling",
+   "rarity": 6,
+   "type": "Sword",
+   "source": "Acquisition Center: Arsenal Exchange",
+   "description": [
+    "A weapon equipped by Endfield operators to significantly boost their combat capabilities.",
+    "A symbolic masterpiece of Hongshan Swordmancers. The weapon is constructed using the latest metal smelting technologies and forged with ancient Yanese sword-forging techniques. The result features both excellent performance and time-tested beauty."
+   ],
+   "stats": {
+    "levels": [
+     1,
+     20,
+     40,
+     60,
+     80,
+     90
+    ],
+    "baseAtk": [
+     51,
+     148,
+     250,
+     352,
+     454,
+     505
+    ]
+   },
+   "potential": "Skill ⟦accent|Infliction: Coursing Stars⟧ improved.",
+   "tuning": [
+    {
+     "stage": 1,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 5
+      },
+      {
+       "item": "Kalkonyx",
+       "count": 3
+      },
+      {
+       "item": "T-Creds",
+       "count": 2200
+      }
+     ]
+    },
+    {
+     "stage": 2,
+     "cost": [
+      {
+       "item": "Cast Die",
+       "count": 18
+      },
+      {
+       "item": "Auronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 8500
+      }
+     ]
+    },
+    {
+     "stage": 3,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 20
+      },
+      {
+       "item": "Umbronyx",
+       "count": 5
+      },
+      {
+       "item": "T-Creds",
+       "count": 25000
+      }
+     ]
+    },
+    {
+     "stage": 4,
+     "cost": [
+      {
+       "item": "Heavy Cast Die",
+       "count": 30
+      },
+      {
+       "item": "Warp Plasma-Coated Slide",
+       "count": 16
+      },
+      {
+       "item": "Protocolith",
+       "count": 8
+      },
+      {
+       "item": "T-Creds",
+       "count": 90000
+      }
+     ]
+    }
+   ],
+   "skills": [
+    {
+     "name": "Will [L]",
+     "tag": "Will",
+     "text": "Will ⟦num|+{0}⟧",
+     "values": [
+      [
+       20,
+       36,
+       52,
+       68,
+       84,
+       100,
+       116,
+       132,
+       156
+      ]
+     ]
+    },
+    {
+     "name": "ATK [L]",
+     "tag": "ATK",
+     "text": "ATK ⟦num|+{0}%⟧",
+     "values": [
+      [
+       5,
+       9,
+       13,
+       17,
+       21,
+       25,
+       29,
+       33,
+       39
+      ]
+     ]
+    },
+    {
+     "name": "Infliction: Coursing Stars",
+     "tag": "Infliction",
+     "text": "Arts Intensity ⟦num|+{0}⟧. When wielder's skill applies ⟦key|Electrification⟧, the entire team gains ATK ⟦num|+{1}%⟧ for 20.00s. When the wielder ⟦key|consumes⟧ ⟦key|Arts Infliction⟧, the wielder gains Electric DMG Dealt ⟦num|+{2}%⟧ for 20.00s. ⟦muted|The two effects apply separately and do not stack with themselves.⟧",
+     "values": [
+      [
+       30,
+       36,
+       42,
+       48,
+       54,
+       60,
+       66,
+       72,
+       84
+      ],
+      [
+       7.5,
+       9,
+       10.5,
+       12,
+       13.5,
+       15,
+       16.5,
+       18,
+       21
+      ],
+      [
+       12,
+       14.4,
+       16.8,
+       19.2,
+       21.6,
+       24,
+       26.4,
+       28.8,
+       33.6
+      ]
+     ]
+    }
+   ],
+   "page": "https://endfield.wiki.gg/wiki/Lunar_Calling"
   },
   "wpn_sword_0026": {
    "name": "Farsight",

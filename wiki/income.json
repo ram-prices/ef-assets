@@ -5,9 +5,9 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-20"
+  "fetched": "2026-11-25"
  },
- "fetched": "2026-10-20",
+ "fetched": "2026-11-25",
  "daily": {
   "url": "https://endfield.wiki.gg/wiki/Operational_Manual#Daily",
   "rewards": {
@@ -195,8 +195,32 @@
    "name": "Ink Scroll",
    "version": "Sanctuary of Ink",
    "start": "2026-10-15T04:00:00Z",
-   "end": "2026-12-14T22:00:00Z",
+   "end": "2026-11-24T22:00:00Z",
    "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Ink_Scroll",
+   "rewards": {
+    "Oroberyl": 600,
+    "Basic HH Permit": 2
+   },
+   "originium": {
+    "Origeometry": 32,
+    "Basic HH Permit": 4
+   },
+   "customized": {
+    "Origeometry": 16,
+    "Arsenal Ticket": 2400
+   },
+   "freeCrates": {
+    "item": "Exchange Crate-o-Surprise [M]",
+    "count": 26,
+    "oroberyl": 318.5
+   }
+  },
+  {
+   "name": "Shroom World",
+   "version": "Meeting You in the World o'Shrooms",
+   "start": "2026-11-25T04:00:00Z",
+   "end": "2027-01-06T22:00:00Z",
+   "url": "https://endfield.wiki.gg/wiki/Protocol_Pass%3A_Shroom_World",
    "rewards": {
     "Oroberyl": 600,
     "Basic HH Permit": 2
@@ -1069,15 +1093,6 @@
      "url": "https://endfield.wiki.gg/wiki/Illusion",
      "rewards": {
       "Oroberyl": 75
-     },
-     "how": "region"
-    },
-    {
-     "name": "Lone Wolf (Mission)",
-     "type": "Side Mission",
-     "url": "https://endfield.wiki.gg/wiki/Lone_Wolf_(Mission)",
-     "rewards": {
-      "Oroberyl": 600
      },
      "how": "region"
     },
@@ -2299,7 +2314,8 @@
      },
      "how": "story"
     }
-   ]
+   ],
+   "Meeting You in the World o'Shrooms": []
   }
  },
  "exploration": {
@@ -2405,8 +2421,8 @@
      "aurylene": 20,
      "chests": 52,
      "rewards": {
-      "Oroberyl": 1965,
-      "Origeometry": 2
+      "Origeometry": 2,
+      "Oroberyl": 1965
      }
     },
     {
@@ -2521,8 +2537,8 @@
      "aurylene": 13,
      "chests": 43,
      "rewards": {
-      "Oroberyl": 1390,
-      "Origeometry": 2
+      "Origeometry": 2,
+      "Oroberyl": 1390
      }
     },
     {
@@ -2550,7 +2566,8 @@
       "Origeometry": 3
      }
     }
-   ]
+   ],
+   "Meeting You in the World o'Shrooms": []
   },
   "outposts": {
    "Launch": [
@@ -2589,7 +2606,8 @@
     }
    ],
    "Dreamscape of Wind and Snow": [],
-   "Sanctuary of Ink": []
+   "Sanctuary of Ink": [],
+   "Meeting You in the World o'Shrooms": []
   },
   "crafting": {
    "url": "https://endfield.wiki.gg/wiki/Crafting%2FCrafting_Manual",
@@ -2635,6 +2653,10 @@
       "Oroberyl": 305
      },
      "items": 3
+    },
+    "Meeting You in the World o'Shrooms": {
+     "rewards": {},
+     "items": 0
     }
    }
   },
@@ -2896,6 +2918,9 @@
     "Sanctuary of Ink": {
      "rewards": {},
      "partial": "Wuling's table on the wiki ends at 190 Aurylene; its areas so far have 238"
+    },
+    "Meeting You in the World o'Shrooms": {
+     "rewards": {}
     }
    }
   }
@@ -3283,15 +3308,6 @@
      }
     },
     {
-     "count": 1,
-     "name": "Yuanyuan Manor Inn milestones",
-     "section": "modes",
-     "url": "https://endfield.wiki.gg/wiki/Yuanyuan_Manor_Inn",
-     "rewards": {
-      "Oroberyl": 150
-     }
-    },
-    {
      "count": 4,
      "name": "Regional Development: Wuling",
      "section": "exploration",
@@ -3364,7 +3380,8 @@
      },
      "estimate": true
     }
-   ]
+   ],
+   "Meeting You in the World o'Shrooms": []
   }
  },
  "modes": {
@@ -3384,21 +3401,6 @@
    ],
    "Old Deep Water Dies, by Rising Tide It is Denied": [
     {
-     "name": "Monumental Etching: Scorch Mark",
-     "from": "wiki",
-     "url": "https://endfield.wiki.gg/wiki/Monumental_Etching%3A_Scorch_Mark",
-     "rewards": {
-      "Oroberyl": 1200
-     }
-    },
-    {
-     "name": "Delver of the Cryptic",
-     "from": "notes",
-     "url": "https://endfield.gryphline.com/en-us/news/8907",
-     "rewards": {},
-     "partial": true
-    },
-    {
      "name": "Etchspace Salvage: Operation Metrics milestones",
      "from": "wiki",
      "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
@@ -3411,14 +3413,6 @@
    ],
    "At the Wake of Spring": [
     {
-     "name": "Monumental Etching: Corrupting Surge",
-     "from": "wiki",
-     "url": "https://endfield.wiki.gg/wiki/Monumental_Etching%3A_Corrupting_Surge",
-     "rewards": {
-      "Oroberyl": 1200
-     }
-    },
-    {
      "name": "Etchspace Salvage: Operation Metrics milestones",
      "from": "wiki",
      "url": "https://endfield.wiki.gg/wiki/Etchspace_Salvage",
@@ -3429,24 +3423,7 @@
      "estimate": true
     }
    ],
-   "Sketches of Lost Heirlooms": [
-    {
-     "name": "Trial Algorithmics",
-     "from": "wiki",
-     "url": "https://endfield.wiki.gg/wiki/Trial_Algorithmics",
-     "rewards": {
-      "Oroberyl": 1200
-     }
-    },
-    {
-     "name": "Monumental Etching: Dirge of Grief",
-     "from": "wiki",
-     "url": "https://endfield.wiki.gg/wiki/Monumental_Etching%3A_Dirge_of_Grief",
-     "rewards": {
-      "Oroberyl": 1200
-     }
-    }
-   ],
+   "Sketches of Lost Heirlooms": [],
    "Homecoming": [
     {
      "name": "Echoes of War",
@@ -3454,22 +3431,6 @@
      "url": "https://endfield.gryphline.com/en-us/news/5200",
      "rewards": {
       "Oroberyl": 800
-     }
-    },
-    {
-     "name": "Umbral Monument",
-     "from": "notes",
-     "url": "https://endfield.gryphline.com/en-us/news/5200",
-     "rewards": {
-      "Oroberyl": 1200
-     }
-    },
-    {
-     "name": "Delver of the Cryptic",
-     "from": "notes",
-     "url": "https://endfield.gryphline.com/en-us/news/5200",
-     "rewards": {
-      "Oroberyl": 1200
      }
     }
    ],
@@ -3481,14 +3442,6 @@
      "rewards": {
       "Oroberyl": 600
      }
-    },
-    {
-     "name": "Umbral Monument",
-     "from": "notes",
-     "url": "https://endfield.gryphline.com/en-us/news/5208",
-     "rewards": {
-      "Oroberyl": 1200
-     }
     }
    ],
    "Sanctuary of Ink": [
@@ -3499,24 +3452,9 @@
      "rewards": {
       "Oroberyl": 600
      }
-    },
-    {
-     "name": "Umbral Monument",
-     "from": "notes",
-     "url": "https://endfield.gryphline.com/en-us/news/9560",
-     "rewards": {
-      "Oroberyl": 1200
-     }
-    },
-    {
-     "name": "Delver of the Cryptic",
-     "from": "notes",
-     "url": "https://endfield.gryphline.com/en-us/news/9560",
-     "rewards": {
-      "Oroberyl": 1200
-     }
     }
-   ]
+   ],
+   "Meeting You in the World o'Shrooms": []
   }
  },
  "game": {
@@ -3530,6 +3468,6 @@
    "exploration",
    "progression"
   ],
-  "quests": 215
+  "quests": 214
  }
 }

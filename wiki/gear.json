@@ -5,7 +5,7 @@
   "license": "CC BY-SA 4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
   "note": "Derived from the Arknights: Endfield Wiki (endfield.wiki.gg) by its contributors. This data is shared under the same license.",
-  "fetched": "2026-10-19"
+  "fetched": "2026-11-25"
  },
  "gear": {
   "items": {
@@ -3011,6 +3011,47 @@
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/AIC_Fieldwork_CQB_Armor"
    },
+   "item_equip_t4_parts_wuling00_body_07": {
+    "name": "AIC Fieldwork Mecha-Armor",
+    "type": "Armor",
+    "rarity": 5,
+    "level": 60,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "AIC Fieldwork",
+    "defense": 48,
+    "stats": [
+     {
+      "stat": "Main Attribute",
+      "values": [
+       74,
+       81,
+       88,
+       96
+      ]
+     },
+     {
+      "stat": "Secondary Attribute",
+      "values": [
+       49,
+       53,
+       58,
+       63
+      ]
+     },
+     {
+      "stat": "Critical Rate",
+      "values": [
+       0.044,
+       0.049,
+       0.053,
+       0.058
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/AIC_Fieldwork_Mecha-Armor"
+   },
    "item_equip_t4_parts_wuling00_edc_01": {
     "name": "AIC Fieldwork Machete",
     "type": "Kit",
@@ -3257,6 +3298,47 @@
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/AIC_Fieldwork_CQB_Hacksaw"
    },
+   "item_equip_t4_parts_wuling00_edc_07": {
+    "name": "AIC Fieldwork Mecha-Slab",
+    "type": "Kit",
+    "rarity": 5,
+    "level": 60,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "AIC Fieldwork",
+    "defense": 18,
+    "stats": [
+     {
+      "stat": "Main Attribute",
+      "values": [
+       27,
+       29,
+       32,
+       35
+      ]
+     },
+     {
+      "stat": "Secondary Attribute",
+      "values": [
+       18,
+       19,
+       21,
+       23
+      ]
+     },
+     {
+      "stat": "Critical Rate",
+      "values": [
+       0.088,
+       0.097,
+       0.106,
+       0.115
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/AIC_Fieldwork_Mecha-Slab"
+   },
    "item_equip_t4_parts_wuling00_hand_01": {
     "name": "AIC Fieldwork Gloves",
     "type": "Gloves",
@@ -3502,6 +3584,47 @@
     ],
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/AIC_Fieldwork_CQB_Gloves"
+   },
+   "item_equip_t4_parts_wuling00_hand_07": {
+    "name": "AIC Fieldwork Mecha-Gloves",
+    "type": "Gloves",
+    "rarity": 5,
+    "level": 60,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "AIC Fieldwork",
+    "defense": 36,
+    "stats": [
+     {
+      "stat": "Main Attribute",
+      "values": [
+       55,
+       60,
+       66,
+       71
+      ]
+     },
+     {
+      "stat": "Secondary Attribute",
+      "values": [
+       37,
+       40,
+       44,
+       48
+      ]
+     },
+     {
+      "stat": "Critical Rate",
+      "values": [
+       0.074,
+       0.081,
+       0.088,
+       0.096
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/AIC_Fieldwork_Mecha-Gloves"
    },
    "item_equip_t4_parts_wuling01_body_01": {
     "name": "Redeemer Plates",
@@ -3887,6 +4010,70 @@
     "source": "Talosite Exchange",
     "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_Overalls"
    },
+   "item_equip_t4_parts_wuling02_body_05": {
+    "name": "Rift Trekker HVY Plate",
+    "type": "Armor",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": null,
+    "defense": 56,
+    "stats": [
+     {
+      "stat": "Strength",
+      "values": [
+       115,
+       126,
+       138,
+       149
+      ]
+     },
+     {
+      "stat": "Cryo & Electric DMG",
+      "values": [
+       0.12,
+       0.132,
+       0.144,
+       0.156
+      ]
+     }
+    ],
+    "source": "Talosite Exchange",
+    "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_HVY_Plate"
+   },
+   "item_equip_t4_parts_wuling02_body_06": {
+    "name": "Rift Trekker LITE Armor",
+    "type": "Armor",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": null,
+    "defense": 56,
+    "stats": [
+     {
+      "stat": "Will",
+      "values": [
+       115,
+       126,
+       138,
+       149
+      ]
+     },
+     {
+      "stat": "Ultimate DMG Bonus",
+      "values": [
+       0.27,
+       0.297,
+       0.324,
+       0.351
+      ]
+     }
+    ],
+    "source": "Talosite Exchange",
+    "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_LITE_Armor"
+   },
    "item_equip_t4_parts_wuling02_edc_01": {
     "name": "Rift Trekker Armor Slab",
     "type": "Kit",
@@ -3950,6 +4137,38 @@
     ],
     "source": "Talosite Exchange",
     "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_Silver_Blade"
+   },
+   "item_equip_t4_parts_wuling02_edc_03": {
+    "name": "Rift Trekker Rock Pick",
+    "type": "Kit",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": null,
+    "defense": 21,
+    "stats": [
+     {
+      "stat": "Strength",
+      "values": [
+       43,
+       47,
+       51,
+       55
+      ]
+     },
+     {
+      "stat": "Battle Skill DMG Bonus",
+      "values": [
+       0.432,
+       0.475,
+       0.518,
+       0.562
+      ]
+     }
+    ],
+    "source": "Talosite Exchange",
+    "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_Rock_Pick"
    },
    "item_equip_t4_parts_wuling02_hand_01": {
     "name": "Rift Trekker Gloves",
@@ -4078,6 +4297,70 @@
     ],
     "source": "Talosite Exchange",
     "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_Gauntlets"
+   },
+   "item_equip_t4_parts_wuling02_hand_05": {
+    "name": "Rift Trekker LITE Wraps",
+    "type": "Gloves",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": null,
+    "defense": 42,
+    "stats": [
+     {
+      "stat": "Intellect",
+      "values": [
+       86,
+       94,
+       103,
+       111
+      ]
+     },
+     {
+      "stat": "Combo Skill DMG Bonus",
+      "values": [
+       0.36,
+       0.396,
+       0.432,
+       0.468
+      ]
+     }
+    ],
+    "source": "Talosite Exchange",
+    "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_LITE_Wraps"
+   },
+   "item_equip_t4_parts_wuling02_hand_06": {
+    "name": "Rift Trekker HVY Gauntlets",
+    "type": "Gloves",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": null,
+    "defense": 42,
+    "stats": [
+     {
+      "stat": "Agility",
+      "values": [
+       86,
+       94,
+       103,
+       111
+      ]
+     },
+     {
+      "stat": "Heat & Nature DMG",
+      "values": [
+       0.2,
+       0.22,
+       0.24,
+       0.26
+      ]
+     }
+    ],
+    "source": "Talosite Exchange",
+    "page": "https://endfield.wiki.gg/wiki/Rift_Trekker_HVY_Gauntlets"
    },
    "item_equip_t4_suit_atb01_body_01": {
     "name": "Frontiers Armor",
@@ -4283,6 +4566,88 @@
     ],
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/Frontiers_Protection_Suit"
+   },
+   "item_equip_t4_suit_atb01_body_06": {
+    "name": "Frontiers HVY Steel Plate",
+    "type": "Armor",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Frontiers",
+    "defense": 56,
+    "stats": [
+     {
+      "stat": "Agility",
+      "values": [
+       87,
+       95,
+       104,
+       113
+      ]
+     },
+     {
+      "stat": "Strength",
+      "values": [
+       58,
+       63,
+       69,
+       75
+      ]
+     },
+     {
+      "stat": "Ultimate Gain Efficiency",
+      "values": [
+       0.123,
+       0.136,
+       0.148,
+       0.16
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Frontiers_HVY_Steel_Plate"
+   },
+   "item_equip_t4_suit_atb01_body_07": {
+    "name": "Frontiers LITE Armor",
+    "type": "Armor",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Frontiers",
+    "defense": 56,
+    "stats": [
+     {
+      "stat": "Will",
+      "values": [
+       87,
+       95,
+       104,
+       113
+      ]
+     },
+     {
+      "stat": "Agility",
+      "values": [
+       58,
+       63,
+       69,
+       75
+      ]
+     },
+     {
+      "stat": "Ultimate Gain Efficiency",
+      "values": [
+       0.123,
+       0.136,
+       0.148,
+       0.16
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Frontiers_LITE_Armor"
    },
    "item_equip_t4_suit_atb01_edc_01": {
     "name": "Frontiers Comm",
@@ -4512,6 +4877,88 @@
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/Frontiers_Extra_O2_Tube_T1"
    },
+   "item_equip_t4_suit_atb01_edc_07": {
+    "name": "Frontiers Composite RHA",
+    "type": "Kit",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Frontiers",
+    "defense": 21,
+    "stats": [
+     {
+      "stat": "Agility",
+      "values": [
+       32,
+       35,
+       38,
+       41
+      ]
+     },
+     {
+      "stat": "Strength",
+      "values": [
+       21,
+       23,
+       25,
+       27
+      ]
+     },
+     {
+      "stat": "Secondary Attribute",
+      "values": [
+       0.207,
+       0.228,
+       0.248,
+       0.269
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Frontiers_Composite_RHA"
+   },
+   "item_equip_t4_suit_atb01_edc_08": {
+    "name": "Frontiers Compressed Slab",
+    "type": "Kit",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Frontiers",
+    "defense": 21,
+    "stats": [
+     {
+      "stat": "Will",
+      "values": [
+       32,
+       35,
+       38,
+       41
+      ]
+     },
+     {
+      "stat": "Agility",
+      "values": [
+       21,
+       23,
+       25,
+       27
+      ]
+     },
+     {
+      "stat": "Arts Intensity",
+      "values": [
+       41.4,
+       45.5,
+       49.7,
+       53.8
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Frontiers_Compressed_Slab"
+   },
    "item_equip_t4_suit_atb01_hand_01": {
     "name": "Frontiers Blight RES Gloves",
     "type": "Gloves",
@@ -4634,6 +5081,88 @@
     ],
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/Frontiers_Fiber_Gloves_T1"
+   },
+   "item_equip_t4_suit_atb01_hand_04": {
+    "name": "Frontiers HVY Gauntlets",
+    "type": "Gloves",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Frontiers",
+    "defense": 42,
+    "stats": [
+     {
+      "stat": "Agility",
+      "values": [
+       65,
+       71,
+       78,
+       84
+      ]
+     },
+     {
+      "stat": "Strength",
+      "values": [
+       43,
+       47,
+       51,
+       55
+      ]
+     },
+     {
+      "stat": "Ultimate Gain Efficiency",
+      "values": [
+       0.205,
+       0.226,
+       0.246,
+       0.267
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Frontiers_HVY_Gauntlets"
+   },
+   "item_equip_t4_suit_atb01_hand_05": {
+    "name": "Frontiers LITE Gloves",
+    "type": "Gloves",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Frontiers",
+    "defense": 42,
+    "stats": [
+     {
+      "stat": "Will",
+      "values": [
+       65,
+       71,
+       78,
+       84
+      ]
+     },
+     {
+      "stat": "Agility",
+      "values": [
+       43,
+       47,
+       51,
+       55
+      ]
+     },
+     {
+      "stat": "Ultimate Gain Efficiency",
+      "values": [
+       0.205,
+       0.226,
+       0.246,
+       0.267
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Frontiers_LITE_Gloves"
    },
    "item_equip_t4_suit_atk02_body_01": {
     "name": "Type 50 Yinglung Heavy Armor",
@@ -5169,7 +5698,7 @@
     "page": "https://endfield.wiki.gg/wiki/Type_50_Yinglung_Gloves_T1"
    },
    "item_equip_t4_suit_atk02_hand_03": {
-    "name": "Type 50 Yinglung Gloves (03)",
+    "name": "Type 50 Yinglung Hands PPE",
     "type": "Gloves",
     "rarity": 5,
     "level": 70,
@@ -5207,7 +5736,7 @@
      }
     ],
     "source": "Exploring and Gathering",
-    "page": "https://endfield.wiki.gg/wiki/Type_50_Yinglung_Gloves_(03)"
+    "page": "https://endfield.wiki.gg/wiki/Type_50_Yinglung_Hands_PPE"
    },
    "item_equip_t4_suit_attri01_body_01": {
     "name": "Bonekrusha Heavy Armor",
@@ -10097,6 +10626,47 @@
     ],
     "source": "Exploring and Gathering",
     "page": "https://endfield.wiki.gg/wiki/Eternal_Xiranite_Channeling_Gloves"
+   },
+   "item_equip_t4_suit_usp02_hand_06": {
+    "name": "Eternal Xiranite HVY Gauntlets",
+    "type": "Gloves",
+    "rarity": 5,
+    "level": 70,
+    "artifice": true,
+    "region": "Wuling",
+    "set": "Eternal Xiranite",
+    "defense": 42,
+    "stats": [
+     {
+      "stat": "Will",
+      "values": [
+       65,
+       71,
+       78,
+       84
+      ]
+     },
+     {
+      "stat": "Strength",
+      "values": [
+       43,
+       47,
+       51,
+       55
+      ]
+     },
+     {
+      "stat": "Ultimate Gain Efficiency",
+      "values": [
+       0.205,
+       0.226,
+       0.246,
+       0.267
+      ]
+     }
+    ],
+    "source": "Exploring and Gathering",
+    "page": "https://endfield.wiki.gg/wiki/Eternal_Xiranite_HVY_Gauntlets"
    }
   },
   "sets": {
