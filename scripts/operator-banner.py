@@ -588,7 +588,7 @@ def draw(game, canvas, n, alpha, masks, full, inside=False):
         return
     alpha = n.alpha if n.ignore_parent_groups else alpha * n.alpha
     # The operator's figure (MainRoleImage) and everything under it.
-    inside = inside or n.path.endswith('/Main/Bg/MainRoleImage')
+    inside = inside or n.path.endswith(('/Main/Bg/MainRoleImage', '/Main/CenterNode/MainRoleLayer/MainRoleImage'))  # 1.7 moved the figure into CenterNode
     g = n.graphic
     own = None
     if g and g.get('image') is not None and (g['image'] != 'flat' or canvas.flat or (g['kind'] == 'image' and '/GroundBg/' in n.path)) and g.get('enabled', True) and n.rect[2] > 0.5 and n.rect[3] > 0.5:
