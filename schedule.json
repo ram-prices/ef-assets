@@ -14,7 +14,8 @@
       "maintenance": null,
       "posts": [
         "9574"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Old Deep Water Dies, by Rising Tide It is Denied",
@@ -29,7 +30,8 @@
       "posts": [
         "9570",
         "8907"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "At the Wake of Spring",
@@ -44,7 +46,8 @@
       "posts": [
         "7025",
         "0751"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Sketches of Lost Heirlooms",
@@ -59,7 +62,8 @@
       "posts": [
         "8904",
         "0758"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Homecoming",
@@ -74,7 +78,8 @@
       "posts": [
         "5201",
         "5200"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Dreamscape of Wind and Snow",
@@ -89,7 +94,8 @@
       "posts": [
         "5209",
         "5208"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Sanctuary of Ink",
@@ -104,7 +110,8 @@
       "posts": [
         "0744",
         "9560"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Meeting You in the World o'Shrooms",
@@ -118,7 +125,8 @@
       },
       "posts": [
         "3835"
-      ]
+      ],
+      "source": "news feed"
     }
   ],
   "banners": [
@@ -142,7 +150,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/laevatain.webp",
       "posts": [
         "3847"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Smelting Forge Issue",
@@ -164,7 +173,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/forgeborn-scathe.webp",
       "posts": [
         "5216"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "The Floaty Messenger",
@@ -186,7 +196,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/gilberta.webp",
       "posts": [
         "7028"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Express Delivery Issue",
@@ -208,7 +219,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/delivery-guaranteed.webp",
       "posts": [
         "0754"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Hues of Passion",
@@ -232,7 +244,8 @@
       "notes": [
         "No post of its own: dates inferred from [Graffiti Issue]"
       ],
-      "needsReview": true
+      "needsReview": true,
+      "source": "news feed"
     },
     {
       "name": "Graffiti Issue",
@@ -254,7 +267,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/artzy-tyrannical.webp",
       "posts": [
         "8909"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "River's Daughter",
@@ -277,7 +291,8 @@
       "posts": [
         "1338",
         "8907"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Budding Anew Issue",
@@ -300,7 +315,8 @@
       "posts": [
         "5213",
         "8907"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Wolf Pearl",
@@ -323,7 +339,8 @@
       "posts": [
         "8907",
         "3843"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Scarlet Pearl Issue",
@@ -346,7 +363,8 @@
       "posts": [
         "8907",
         "2660"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Thunder of Renewal",
@@ -369,7 +387,8 @@
       "posts": [
         "9579",
         "0751"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Drifting Raft Issue",
@@ -392,7 +411,8 @@
       "posts": [
         "5212",
         "0751"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Fest of Brilliance",
@@ -412,7 +432,8 @@
       "art": "https://web-static.hg-cdn.com/upload/image/20260508/fc997b32648f9c305a9f53ccfef096c4.jpg",
       "posts": [
         "7024"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Smelting Fire Issue",
@@ -435,7 +456,8 @@
       "posts": [
         "0751",
         "2669"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Swift Walker Issue",
@@ -458,7 +480,8 @@
       "posts": [
         "0751",
         "5210"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Fists of No Regrets",
@@ -481,7 +504,8 @@
       "posts": [
         "0759",
         "0758"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Scarlet Knot Issue",
@@ -504,7 +528,8 @@
       "posts": [
         "4492",
         "0758"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Expunger of Sin",
@@ -527,7 +552,8 @@
       "posts": [
         "0758",
         "6175"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Crimson Hued Issue",
@@ -550,7 +576,8 @@
       "posts": [
         "0758",
         "1321"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "North Yearns the Rift Vigile",
@@ -573,7 +600,8 @@
       "posts": [
         "2656",
         "5200"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Military Grade Issue",
@@ -596,7 +624,8 @@
       "posts": [
         "6174",
         "5200"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Good Morning from Your Dawnstar",
@@ -619,7 +648,8 @@
       "posts": [
         "5200",
         "3831"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Bedazzled Issue",
@@ -642,7 +672,8 @@
       "posts": [
         "5200",
         "9564"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Winter Hunt",
@@ -665,7 +696,8 @@
       "posts": [
         "6172",
         "5208"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Deep Cold Issue",
@@ -688,7 +720,8 @@
       "posts": [
         "4480",
         "5208"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Resplendent Spectrum",
@@ -711,7 +744,8 @@
       "posts": [
         "5208",
         "3839"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Tag Artist Issue",
@@ -734,7 +768,8 @@
       "posts": [
         "5208",
         "3839"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Rejuvenation",
@@ -757,7 +792,8 @@
       "posts": [
         "4489",
         "9560"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Seal of Jade Issue",
@@ -780,7 +816,8 @@
       "posts": [
         "2652",
         "9560"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Ancestral Spring Flows Anew",
@@ -803,7 +840,8 @@
       "posts": [
         "9560",
         "6179"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Tender Sprig Issue",
@@ -826,7 +864,8 @@
       "posts": [
         "9560",
         "6179"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "The Hearth Fire Beckons the Starry Flow",
@@ -849,7 +888,8 @@
       "posts": [
         "9560",
         "7012"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Moongleam Issue",
@@ -872,7 +912,8 @@
       ],
       "notes": [
         "Ends with the 3rd Chartered banner from [The Hearth Fire Beckons the Starry Flow] (not announced yet)"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Anvil, Backpack, Plus A Pot o'Honey",
@@ -894,7 +935,8 @@
       "art": "https://web-static.hg-cdn.com/upload/image/20261123/f3e83651348938f439ade52c5f2e5107.png",
       "posts": [
         "5204"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "To Every Wish Adrift",
@@ -916,7 +958,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/headhunting/gilberta.webp",
       "posts": [
         "8992"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Casual Roamer Issue",
@@ -938,7 +981,8 @@
       ],
       "notes": [
         "Ends with the 3rd Chartered banner from [Anvil, Backpack, Plus A Pot o'Honey] (not announced yet)"
-      ]
+      ],
+      "source": "news feed"
     },
     {
       "name": "Floaty Traveler Issue",
@@ -960,7 +1004,8 @@
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/issues/delivery-guaranteed.webp",
       "posts": [
         "8992"
-      ]
+      ],
+      "source": "news feed"
     }
   ],
   "events": [
@@ -978,7 +1023,8 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_laevat"
     },
     {
       "id": 75,
@@ -994,7 +1040,8 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_wolfgd"
     },
     {
       "id": 76,
@@ -1010,7 +1057,8 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_yvonne"
     },
     {
       "id": 73,
@@ -1026,7 +1074,8 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_CharacterGuide_aglina"
     },
     {
       "id": 77,
@@ -1042,7 +1091,8 @@
         "asia": "2026-02-24T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_conditional_multistage_1"
     },
     {
       "id": 78,
@@ -1058,7 +1108,8 @@
         "asia": "2026-02-24T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_guide_wuling"
     },
     {
       "id": 62,
@@ -1074,7 +1125,8 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_1"
     },
     {
       "id": 79,
@@ -1087,7 +1139,8 @@
       },
       "end": null,
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_puzzle_1"
     },
     {
       "id": 55,
@@ -1103,7 +1156,8 @@
         "asia": "2026-03-12T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d0_end"
     },
     {
       "id": 1,
@@ -1120,7 +1174,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Gently Flows Qingbo HH Permit]×5.",
       "availability": "After [Old Deep Water Dies, by Rising Tide It is Denied] version release – 2026/03/29 11:59 (server time)",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 2,
@@ -1137,7 +1192,8 @@
       },
       "details": "Complete missions to earn event rewards that include: [Oroberyls] and [Mark of Perseverance].",
       "availability": "After [Old Deep Water Dies, by Rising Tide It is Denied] version release – 2026/04/02 04:00 (server time)",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 3,
@@ -1154,7 +1210,8 @@
       },
       "details": "Complete supply tasks to earn event rewards that include: [Sticker: Cuisine of Exploration Day], [Oroberyls], [Mark of Perseverance], and [Advanced Cognitive Carrier].",
       "availability": "2026/03/19 12:00 – 2026/04/02 04:00 (server time)",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 71,
@@ -1170,7 +1227,8 @@
         "asia": "2026-03-29T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_reduce_v1d1_1"
     },
     {
       "id": 63,
@@ -1186,7 +1244,8 @@
         "asia": "2026-04-09T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d1"
     },
     {
       "id": 4,
@@ -1203,7 +1262,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Pearl of the Pack HH Permit]×5.",
       "availability": "2026/03/29 12:00 (server time) – Before version update and maintenance",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 5,
@@ -1220,7 +1280,8 @@
       },
       "details": "Complete the side mission [The Red Knight] to acquire [Oroberyls], [Arms INSP Set], and other rewards.",
       "availability": "2026/03/29 12:00 (server time) – Before version update and maintenance",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 6,
@@ -1237,7 +1298,8 @@
       },
       "details": "Complete clean-up missions to earn event rewards that include: [Portrait: Expert Cleaner], [Oroberyls], [Mark of Perseverance], and [Advanced Progression Selection Crate Ⅰ].",
       "availability": "2026/03/29 12:00 – 2026/04/19 04:00 (server time)",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 7,
@@ -1254,7 +1316,8 @@
       },
       "details": "Complete challenge stages to earn event rewards that include: [Portrait: Expert Survivor], [Oroberyls], [Mark of Perseverance], and [Advanced Progression Selection Crate Ⅰ].",
       "availability": "2026/04/09 12:00 – 2026/04/30 04:00 (server time)",
-      "post": "8907"
+      "post": "8907",
+      "source": "news feed"
     },
     {
       "id": 72,
@@ -1270,7 +1333,8 @@
         "asia": "2026-04-17T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_reduce_v1d1_2"
     },
     {
       "id": 56,
@@ -1286,7 +1350,8 @@
         "asia": "2026-04-17T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d1_end"
     },
     {
       "id": 8,
@@ -1303,7 +1368,8 @@
       },
       "details": "Log in every day during the event to receive [Oroberyl]×200, [Emergency Sanity Booster]×1 and [Sanity Usage Permit]×4. Daily login rewards are refreshed daily at 04:00 (server time). You can earn up to [Oroberyl]×6000...",
       "availability": "After [At the Wake of Spring] version release – May 18, 2026 at 04:00 (server time)",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 9,
@@ -1320,7 +1386,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Blitz of Verdance HH Permit]×5.",
       "availability": "After [At the Wake of Spring] version release – May 22, 2026 at 11:59 (server time)",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 10,
@@ -1337,7 +1404,8 @@
       },
       "details": "Complete specified missions in the [Marker Stone] region to receive event rewards like [Oroberyls] and [Mark of Perseverance].",
       "availability": "After [At the Wake of Spring] version release – May 14, 2026 at 04:00 (server time)",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 11,
@@ -1354,7 +1422,8 @@
       },
       "details": "Complete camera missions to earn event rewards that include: [Qiming Station Model], [Oroberyls], [Mark of Perseverance], and [Advanced Cognitive Carrier].",
       "availability": "Apr. 24, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 12,
@@ -1371,7 +1440,8 @@
       },
       "details": "Keep signing in to receive event rewards that include: [Sticker: Qiming], [Perlica's Token], [Portrait Frame: Cosmic Etchings], and [Oroberyls].",
       "availability": "Apr. 24, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 13,
@@ -1405,7 +1475,8 @@
         "asia": "2026-05-14T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_refund_1d2d1"
     },
     {
       "id": 64,
@@ -1421,7 +1492,8 @@
         "asia": "2026-05-22T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d2"
     },
     {
       "id": 14,
@@ -1438,7 +1510,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Shimmering Moment HH Permit]×5.",
       "availability": "May 14, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 15,
@@ -1455,7 +1528,8 @@
       },
       "details": "Complete supply tasks to earn event rewards that include: [Sticker: Wuling Super Chef], [Oroberyls], [Mark of Perseverance], and [Advanced Cognitive Carrier].",
       "availability": "May 14, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 16,
@@ -1472,7 +1546,8 @@
       },
       "details": "Complete specified missions in the [Test Area] to receive event rewards like [Oroberyls] and [Mark of Perseverance].",
       "availability": "May 14, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0751"
+      "post": "0751",
+      "source": "news feed"
     },
     {
       "id": 53,
@@ -1488,7 +1563,8 @@
         "asia": "2026-06-05T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_refund_1d2d2"
     },
     {
       "id": 57,
@@ -1504,7 +1580,8 @@
         "asia": "2026-06-05T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d2_end"
     },
     {
       "id": 19,
@@ -1539,7 +1616,8 @@
       },
       "details": "Complete specified missions in the [Sword Vault Dale] area to receive event rewards like [Oroberyls] and [Mark of Perseverance].",
       "availability": "After [Sketches of Lost Heirlooms] version release – June 26, 2026 at 12:00 (server time)",
-      "post": "0758"
+      "post": "0758",
+      "source": "news feed"
     },
     {
       "id": 18,
@@ -1556,7 +1634,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [One with Her Fists HH Permit]×5.",
       "availability": "After [Sketches of Lost Heirlooms] version release – June 26, 2026 at 11:59 (server time)",
-      "post": "0758"
+      "post": "0758",
+      "source": "news feed"
     },
     {
       "id": 20,
@@ -1573,7 +1652,8 @@
       },
       "details": "During the event, complete specified missions every day to receive rewards, including [Sanity Usage Permit], [Emergency Sanity Booster], [Wuling Artificing Catalyst], and [Coolant Gel].",
       "availability": "June 12, 2026 at 04:00 – June 19, 2026 at 04:00 (server time)",
-      "post": "0758"
+      "post": "0758",
+      "source": "news feed"
     },
     {
       "id": 70,
@@ -1589,7 +1669,8 @@
         "asia": "2026-07-16T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_simulation_training_1"
     },
     {
       "id": 21,
@@ -1624,7 +1705,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Peacekeeper's Nocturne HH Permit]×5.",
       "availability": "June 26, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0758"
+      "post": "0758",
+      "source": "news feed"
     },
     {
       "id": 23,
@@ -1641,7 +1723,8 @@
       },
       "details": "Complete the side mission [Danse Macabre] to acquire [Oroberyls], [Elementary Cognitive Carrier], [Protohedron], [Arms INSP Set], and other rewards.",
       "availability": "June 26, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0758"
+      "post": "0758",
+      "source": "news feed"
     },
     {
       "id": 24,
@@ -1658,7 +1741,8 @@
       },
       "details": "Complete camera missions to earn event rewards that include: [Portrait Frame: Carly's Ink Painting Book], [Oroberyls], and [Mark of Perseverance].",
       "availability": "July 2, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0758"
+      "post": "0758",
+      "source": "news feed"
     },
     {
       "id": 65,
@@ -1674,7 +1758,8 @@
         "asia": "2026-07-16T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d3"
     },
     {
       "id": 54,
@@ -1690,7 +1775,8 @@
         "asia": "2026-07-16T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_stamina_refund_1d3d2"
     },
     {
       "id": 58,
@@ -1706,7 +1792,8 @@
         "asia": "2026-07-16T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d3_end"
     },
     {
       "id": 26,
@@ -1741,7 +1828,8 @@
       },
       "details": "Sign in for 3 days in total to earn rich rewards, including [Oroberyl]×3000, [Basic HH Permit]×5, and 6★ weapon [Farsight (Sword)].",
       "availability": "After [Homecoming] version update – Aug. 9, 2026 at 12:00 (server time)",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 27,
@@ -1758,7 +1846,8 @@
       },
       "details": "Complete specified missions in the [Yinglung Pass] and [North Wuling Exclusion Zone] areas of the [Wuling] region to claim [Oroberyl]×1200 and [Mark of Perseverance] rewards.",
       "availability": "After [Homecoming] version update – Aug. 9, 2026 at 12:00 (server time)",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 28,
@@ -1775,7 +1864,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Gaze North to the Rift HH Permit]×5.",
       "availability": "After [Homecoming] version update – Aug. 9, 2026 at 11:59 (server time)",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 29,
@@ -1792,7 +1882,8 @@
       },
       "details": "During the event, complete a series of challenge stages to claim rewards such as [Oroberyl]×1200, [Portrait Frame: Heat Ragers' Party], and [Mark of Perseverance].",
       "availability": "July 30, 2026 at 12:00 – Aug. 13, 2026 at 04:00 (server time)",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 30,
@@ -1808,7 +1899,8 @@
         "asia": "2026-08-09T04:00:00+08:00"
       },
       "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 66,
@@ -1824,7 +1916,8 @@
         "asia": "2026-08-20T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d4"
     },
     {
       "id": 31,
@@ -1841,7 +1934,8 @@
       },
       "details": "Complete the side mission [Like a Star Streaking Through the Boundaries] to acquire [Oroberyl]×600, [Elementary Cognitive Carrier], and other rewards.",
       "availability": "Aug. 9, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 32,
@@ -1858,7 +1952,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Bedazzling Dawnstar HH Permit]×5.",
       "availability": "Aug. 9, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 33,
@@ -1875,7 +1970,8 @@
       },
       "details": "Collect Aurylene Fragments and complete Realm Quests in [The Rooted Realm] to claim rewards including [Oroberyl]×1600 and [Mark of Perseverance].",
       "availability": "Aug. 9, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 34,
@@ -1891,7 +1987,8 @@
         "asia": "2026-09-02T04:00:00+08:00"
       },
       "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
-      "post": "5200"
+      "post": "5200",
+      "source": "news feed"
     },
     {
       "id": 59,
@@ -1907,7 +2004,8 @@
         "asia": "2026-09-02T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d4_end"
     },
     {
       "id": 35,
@@ -1942,7 +2040,8 @@
       },
       "details": "Complete specified missions in the [Snowy Forest] area of the [Wuling] region to claim [Oroberyl]×1200 and [Mark of Perseverance].",
       "availability": "After [Dreamscape of Wind and Snow] version update – Sept. 30, 2026 at 12:00 (server time)",
-      "post": "5208"
+      "post": "5208",
+      "source": "news feed"
     },
     {
       "id": 37,
@@ -1991,7 +2090,8 @@
         "asia": "2026-09-24T04:00:00+08:00"
       },
       "details": null,
-      "post": "5208"
+      "post": "5208",
+      "source": "news feed"
     },
     {
       "id": 69,
@@ -2007,7 +2107,8 @@
         "asia": "2026-10-15T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_character_gift_purrche"
     },
     {
       "id": 67,
@@ -2023,7 +2124,8 @@
         "asia": "2026-10-19T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d5"
     },
     {
       "id": 40,
@@ -2039,7 +2141,8 @@
         "asia": "2026-10-15T04:00:00+08:00"
       },
       "details": null,
-      "post": "5208"
+      "post": "5208",
+      "source": "news feed"
     },
     {
       "id": 60,
@@ -2055,7 +2158,8 @@
         "asia": "2026-10-15T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d5_end"
     },
     {
       "id": 41,
@@ -2091,7 +2195,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [Spirit's Restoration HH Permit]×5.",
       "availability": "After [Sanctuary of Ink] version update – Nov. 5, 2026 at 11:59 (server time)",
-      "post": "9560"
+      "post": "9560",
+      "source": "news feed"
     },
     {
       "id": 43,
@@ -2109,7 +2214,8 @@
       "details": "Visit the [Si's Painting] area in the region of [Wuling] and complete specified missions to earn event rewards such as [Oroberyl]×1200 and [Mark of Perseverance].",
       "availability": "After [Sanctuary of Ink] version update – Nov. 5, 2026 at 12:00 (server time)",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/all-the-inky-hues.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/all-the-inky-hues.webp",
+      "source": "news feed"
     },
     {
       "id": 44,
@@ -2127,7 +2233,8 @@
       "details": "Complete camera missions to earn event rewards that include: [Oroberyl]×1500, [Portrait Frame: Carly's Verdant Anthology], [Mark of Perseverance].",
       "availability": "Oct. 22, 2026 at 12:00 – Nov. 5, 2026 at 04:00 (server time)",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/carly-s-verdant-anthology.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/carly-s-verdant-anthology.webp",
+      "source": "news feed"
     },
     {
       "id": 68,
@@ -2143,7 +2250,8 @@
         "asia": "2026-11-05T04:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d6"
     },
     {
       "id": 45,
@@ -2160,7 +2268,8 @@
       },
       "details": "During the event, complete specified missions every day to receive rewards including [Sanity Usage Permit], [Emergency Sanity Booster], [Wuling Artificing Catalyst], and [Coolant Gel].",
       "availability": "Oct. 29, 2026 at 04:00 – Nov. 5, 2026 at 04:00 (server time)",
-      "post": "9560"
+      "post": "9560",
+      "source": "news feed"
     },
     {
       "id": 46,
@@ -2178,7 +2287,8 @@
       "details": "During the event, take on [Arena of Games] challenges to earn Arena Points. Reach every tier in [Arena Milestone] to earn rewards including [Oroberyl]×1200 and [Mark of Perseverance].",
       "availability": "Oct. 29, 2026 at 12:00 – Nov. 19, 2026 at 04:00 (server time)",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/arena-of-games.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/arena-of-games.webp",
+      "source": "news feed"
     },
     {
       "id": 47,
@@ -2196,7 +2306,8 @@
       "details": "Visit the event page, then add actors and props to complete a story shoot, unlock different endings, and claim rewards such as [Oroberyl]×300 and [T-Creds].",
       "availability": "Oct. 31, 2026 at 12:00 – Nov. 14, 2026 at 04:00 (server time)",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/new-era-for-the-myriad-souls.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/new-era-for-the-myriad-souls.webp",
+      "source": "news feed"
     },
     {
       "id": 48,
@@ -2214,7 +2325,8 @@
       "details": "Complete the side mission [Back to the Rustics] to earn [Oroberyl]×600, [Elementary Cognitive Carrier], and other rewards.",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
       "post": "9560",
-      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/back-to-the-rustics.webp"
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/back-to-the-rustics.webp",
+      "source": "news feed"
     },
     {
       "id": 49,
@@ -2231,7 +2343,8 @@
       },
       "details": "Sign in for a total of 7 days to earn rewards such as [The Stars Are With Me HH Permit]×5.",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "9560"
+      "post": "9560",
+      "source": "news feed"
     },
     {
       "id": 50,
@@ -2266,7 +2379,8 @@
         "asia": "2026-11-25T04:00:00+08:00"
       },
       "details": "During the event, complete specified missions every day to claim Sanity Supply rewards: [Sanity Usage Permit] and [Emergency Sanity Booster].",
-      "post": "9560"
+      "post": "9560",
+      "source": "news feed"
     },
     {
       "id": 61,
@@ -2282,7 +2396,8 @@
         "asia": "2026-11-25T06:00:00+08:00"
       },
       "details": null,
-      "post": ""
+      "post": "",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_checkin_v1d6_end"
     }
   ]
 }

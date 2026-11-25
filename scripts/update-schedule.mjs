@@ -1,9 +1,10 @@
-// Builds schedule.json (every banner's and event's dates, rate-ups and
-// version) from the official Arknights: Endfield news feed, and adds newly
+// Reads every banner's and event's dates, rate-ups and version from the
+// official Arknights: Endfield news feed into schedule-news.json, fills
+// schedule.json (the master) with what it doesn't have yet, and adds newly
 // opened banners to banners.json with their art.
 //
-//   node scripts/update-schedule.mjs                write schedule.json
-//   node scripts/update-schedule.mjs --dry-run      print it, write nothing
+//   node scripts/update-schedule.mjs                write schedule-news.json and schedule.json
+//   node scripts/update-schedule.mjs --dry-run      print schedule.json, write nothing
 //   node scripts/update-schedule.mjs --find-pools   also look up the pool id of
 //                                                  banners that are open now and
 //                                                  add them to banners.json + art
@@ -27,11 +28,51 @@
 //     banner (previews/<banner>.webp, until the banner's own cover arrives);
 //     schedule.json links the ones it has.
 //
-// Overrides: schedule-overrides.json holds official schedule changes the
-// feed doesn't carry yet (notices posted only on X, say). Each entry names an
-// event by id and name and records what the feed gave when it was written;
-// once the feed gives something else, the feed wins and the entry is reported
-// as stale. See applyOverrides.
+// Two files:
+//   schedule-news.json  what the official news says: versions, banners and
+//     events exactly as the feed gives them. Regenerated every run; never
+//     hand-edit it.
+//   schedule.json  the master, the file the site reads and the one to
+//     hand-edit. Dates come from the game dump (the wiki only for past events
+//     the dump lacks); new entries are filled in from the news until verified.
+//
+// After writing schedule-news.json, each run fills schedule.json from it (see
+// fillMaster). Versions and banners match by name, events by id and name.
+//   - A news entry schedule.json doesn't have is added, with source "news
+//     feed". A new event gets the next free id; it's marked needsReview when
+//     its dates can't be read.
+//   - An entry whose source is "news feed" (not verified yet) takes the news's
+//     newer values.
+//   - An entry with any other source (the dump, the wiki fallback, a hand
+//     edit) is never changed by the news; when the news gives other dates, the
+//     run lists it for review.
+//   - An entry the news no longer lists (older versions' events, events the
+//     feed never carried) stays as it is.
+//
+// Hand-editing an event in schedule.json:
+//   - Dates come from the game dump (EndfieldDataDump, Data\TableCfg): the
+//     activity's ActivityTable `timeId` row in TimeRangeTable. timeRangeList
+//     entries 0/1 are Asia wall-clock times (UTC+8), entry 2 Americas/Europe
+//     (UTC-5); an empty closeTime is permanent (end null). Write both servers'
+//     times as ISO strings with their offset: a "server time" date is the same
+//     wall-clock time on each server (13 h apart), a version update one instant
+//     (e.g. 2026-11-24T17:00:00-05:00 / 2026-11-25T06:00:00+08:00).
+//   - Take the row the in-game timer counts to. A Contingency Contract's
+//     whole-activity row (time_activity_contingency_contract_N) also covers
+//     stage_3, the exchange-only phase after the challenge, so its end is
+//     stage_2's (the version maintenance); put the exchange close in details.
+//     An event with a timed phase that then stays playable (a timelimited row
+//     followed by a timeunlimited one) ends where the timed row ends. end is
+//     null (permanent) only for an event that never had a timed phase.
+//   - Set `source` to the row: "EndfieldDataDump TimeRangeTable: <row>". Any
+//     source other than "news feed" locks the entry against the news.
+//   - Only past events the client no longer carries may take the wiki's dates
+//     (ef-assets wiki/events.json), with source
+//     "endfield.wiki.gg (not in the game dump)". Current and future events,
+//     including every event this script adds from the feed, are dated from
+//     the dump only, never the wiki.
+//   - Keep an event's id: ids are the site's /event/<id> links and never move
+//     or get reused. A new event takes the next number after the highest.
 //
 // Times: banner dates are "server time", i.e. local time on each server
 // (Americas/Europe UTC-5, Asia UTC+8), so the same date opens 13 hours apart.
@@ -39,7 +80,7 @@
 // given for both servers as ISO strings with their offset.
 
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const NEWS = 'https://web-news.gryphline.com/api/bulletin';
@@ -407,13 +448,7 @@ function eventsInNotes(post, lines) {
  * so ids never move or get reused. An event is matched by name, post and which
  * of that post's same-named windows it is (Sanity Supply runs several times).
  */
-async function eventIds(events) {
-  let prev = [];
-  try {
-    prev = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8')).events ?? [];
-  } catch {
-    /* first run */
-  }
+function eventIds(events, prev) {
   const keys = (list) => {
     const seen = new Map();
     return list.map((e) => {
@@ -429,7 +464,8 @@ async function eventIds(events) {
   return keys(events).map((k) => known.get(k) ?? next++);
 }
 
-async function build() {
+/** The news feed's schedule (schedule-news.json); event ids come from `master` (schedule.json). */
+async function build(master) {
   const list = await loadPostList();
   const posts = [...list].sort((a, b) => Number(a.displayTime) - Number(b.displayTime));
   const facts = [];
@@ -609,7 +645,7 @@ async function build() {
     events.push({ ...base, start, end, availability: e.avail, ...(start ? {} : { needsReview: true }) });
   }
   events.sort((a, b) => (a.start?.americas ?? Infinity) - (b.start?.americas ?? Infinity));
-  const ids = await eventIds(events);
+  const ids = eventIds(events, master?.events ?? []);
   for (const e of events) if (!e.start) review.push(`event ${e.name}`);
 
   return {
@@ -623,22 +659,19 @@ async function build() {
         posts: v.posts,
       })),
       banners: out,
-      events: applyExtras(
-        applyOverrides(events.map((e, i) => ({
-          id: ids[i],
-          name: e.name,
-          type: e.type,
-          version: e.version,
-          start: isoBoth(e.start),
-          end: isoBoth(e.end),
-          details: e.details,
-          ...(e.availability ? { availability: e.availability } : {}),
-          post: e.post,
-          ...(e.art ? { art: e.art } : {}),
-          ...(e.needsReview ? { needsReview: true } : {}),
-        })), review),
-        review,
-      ).sort((a, b) => (a.start?.americas ?? '').localeCompare(b.start?.americas ?? '')),
+      events: events.map((e, i) => ({
+        id: ids[i],
+        name: e.name,
+        type: e.type,
+        version: e.version,
+        start: isoBoth(e.start),
+        end: isoBoth(e.end),
+        details: e.details,
+        ...(e.availability ? { availability: e.availability } : {}),
+        post: e.post,
+        ...(e.art ? { art: e.art } : {}),
+        ...(e.needsReview ? { needsReview: true } : {}),
+      })),
     },
     review,
     db,
@@ -646,100 +679,68 @@ async function build() {
 }
 
 // ---------------------------------------------------------------------------
-// Overrides
+// Filling schedule.json from schedule-news.json
 // ---------------------------------------------------------------------------
 
-/**
- * Applies schedule-overrides.json to the built events (ISO times). An entry
- * {id, name, source, feed, start?, end?, startInstant?, endInstant?,
- * permanent?, availability?, note?} changes the event with that id and name,
- * but only while the feed still gives what `feed` records (Americas ISO time
- * or null for each of start/end): a feed that has caught up or changed is
- * authoritative, and the entry is skipped and listed for review. start/end
- * are server-time dates ("Nov. 25, 2026 at 06:00", the same wall-clock time
- * on each server); startInstant/endInstant are one instant, given as the
- * Americas/Europe wall-clock time (the Asia server is 13 h ahead); permanent
- * sets the event's end to null (a timed phase that became a permanent
- * activity, the game's tables carry the two as separate rows). note is added
- * to the details.
- *
- * Dates come from the game dump's TimeRangeTable, never the wiki. Take the
- * row for the part of the event the in-game timer counts down to: a
- * Contingency Contract's whole-activity row (time_activity_contingency_contract_N)
- * also covers stage_3, the exchange-only phase after the challenge, so its end
- * is stage_2's (the version maintenance), with the exchange close as a note. An
- * event with a timed phase that then stays playable (a timelimited row followed
- * by a timeunlimited one) ends where the timed row ends; `permanent` is only for
- * an event that never had a timed phase.
- */
-function applyOverrides(events, review) {
-  const file = join(ROOT, 'schedule-overrides.json');
-  if (!existsSync(file)) return events;
-  const { events: list = [] } = JSON.parse(readFileSync(file, 'utf8'));
-  const at = (text) => {
-    const [w] = findDates(text);
-    if (!w) throw new Error(`schedule-overrides.json: no date in "${text}"`);
-    return isoBoth(serverTime(w));
-  };
-  /** One instant: the Americas/Europe wall-clock time, the same moment on both servers. */
-  const atInstant = (text) => {
-    const [w] = findDates(text);
-    if (!w) throw new Error(`schedule-overrides.json: no date in "${text}"`);
-    return isoBoth(instant(wallToMs(w, REGIONS.americas)));
-  };
-  for (const o of list) {
-    const e = events.find((x) => x.id === o.id && norm(x.name) === norm(o.name));
-    if (!e) {
-      review.push(`override ${o.id} ${o.name}: no such event`);
-      continue;
-    }
-    const changed = Object.entries(o.feed ?? {}).filter(([k, v]) => (e[k]?.americas ?? null) !== v);
-    if (changed.length) {
-      review.push(`override ${o.id} ${o.name}: the feed now gives its own ${changed.map(([k]) => k).join(' and ')}; delete the entry`);
-      continue;
-    }
-    if (o.start) e.start = at(o.start);
-    if (o.end) e.end = at(o.end);
-    if (o.startInstant) e.start = atInstant(o.startInstant);
-    if (o.endInstant) e.end = atInstant(o.endInstant);
-    if (o.permanent) e.end = null;
-    if (o.availability) e.availability = o.availability;
-    if (o.note) e.details = e.details ? `${e.details} ${o.note}` : o.note;
-    e.source = o.source;
-  }
-  return events;
-}
+const NEWS_SOURCE = 'news feed';
+/** Entries the news may still update: source "news feed", or none (written before sources existed). */
+const fromNews = (m) => !m.source || m.source === NEWS_SOURCE;
+const sameTime = (a, b) => (a?.americas ?? null) === (b?.americas ?? null) && (a?.asia ?? null) === (b?.asia ?? null);
+/** ISO times compared as Americas strings (all -05:00, so string order is time order); null sorts last. */
+const byTime = (key) => (a, b) => (a[key]?.americas ?? '￿').localeCompare(b[key]?.americas ?? '￿');
 
 /**
- * Merges schedule-extras.json into the built events: events the official news
- * feed no longer lists (older versions' events, verified against the game's
- * tables). Each entry is a full event with a stable id; it is added unless
- * the feed already carries an event with the same name and start time (the
- * feed wins, and the extra is reported for review so it can be dropped).
+ * Fills one list of schedule.json (`master`) from the news's (`news`).
+ * `same(m, n)` matches entries; `dates` are the keys compared for review.
+ * A news entry schedule.json lacks is added with source "news feed"; an entry
+ * whose source is "news feed" takes the news's values; an entry with any
+ * other source is never changed, and listed for review when the news gives
+ * other dates. Entries the news no longer lists are kept. The result is in
+ * the news's order, kept entries after, then sorted with `sort` (stable).
  */
-function applyExtras(events, review) {
-  const file = join(ROOT, 'schedule-extras.json');
-  if (!existsSync(file)) return events;
-  const { events: list = [] } = JSON.parse(readFileSync(file, 'utf8'));
-  const key = (e) => `${norm(e.name)}|${e.start?.americas ?? ''}`;
-  const have = new Set(events.map(key));
-  for (const x of list) {
-    if (!x.id) {
-      review.push(`extra ${x.name}: no id`);
-      continue;
-    }
-    if (have.has(key(x))) {
-      review.push(`extra ${x.id} ${x.name}: the feed now carries it; drop it from schedule-extras.json`);
-      continue;
-    }
-    if (events.some((e) => e.id === x.id)) {
-      review.push(`extra ${x.id} ${x.name}: id ${x.id} already used`);
-      continue;
-    }
-    events.push(x);
-    have.add(key(x));
-  }
-  return events;
+function fill(what, news, master, same, dates, label, sort, review) {
+  const used = new Set();
+  const out = news.map((n) => {
+    const i = master.findIndex((m, k) => !used.has(k) && same(m, n));
+    if (i >= 0) used.add(i);
+    const m = master[i];
+    if (!m || fromNews(m)) return { ...n, source: NEWS_SOURCE };
+    const differ = dates.filter((k) => !sameTime(m[k], n[k]));
+    if (differ.length) review.push(`${what} ${label(m)}: the news gives another ${differ.join(' and ')} (kept: ${m.source})`);
+    return m;
+  });
+  master.forEach((m, k) => used.has(k) || out.push(m));
+  return out.sort(sort);
+}
+
+/** schedule.json filled from the news (see the header). */
+function fillMaster(news, master, review) {
+  const KIND_ORDER = ['chartered', 'special', 'refactor', 'issue', 'refactorIssue'];
+  return {
+    ...news,
+    ...(master ? { source: master.source, timeZones: master.timeZones } : {}),
+    versions: fill('version', news.versions, master?.versions ?? [], (m, n) => norm(m.name) === norm(n.name), ['release', 'maintenance'], (v) => v.name, byTime('release'), review),
+    banners: fill(
+      'banner',
+      news.banners,
+      master?.banners ?? [],
+      (m, n) => norm(m.name) === norm(n.name),
+      ['start', 'end'],
+      (b) => b.name,
+      (a, b) => byTime('start')(a, b) || KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind),
+      review,
+    ),
+    events: fill(
+      'event',
+      news.events,
+      master?.events ?? [],
+      (m, n) => m.id === n.id && norm(m.name) === norm(n.name),
+      ['start', 'end'],
+      (e) => `${e.id} ${e.name}`,
+      (a, b) => (a.start?.americas ?? '').localeCompare(b.start?.americas ?? ''),
+      review,
+    ),
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -901,13 +902,20 @@ try {
   report += `Could not read the version guide: ${e.message}\n`;
 }
 
-const { schedule, review, db } = await build();
+let master = null;
+try {
+  master = JSON.parse(await readFile(join(ROOT, 'schedule.json'), 'utf8'));
+} catch {
+  /* first run */
+}
+const { schedule: news, review, db } = await build(master);
 if (FIND_POOLS) {
-  const { added, missingIcons } = await findPools(schedule, db);
+  const { added, missingIcons } = await findPools(news, db);
   for (const a of added) report += a.poolId ? `Added ${a.name} as ${a.poolId}\n` : `Could not find the pool id of ${a.name}\n`;
   for (const m of missingIcons) report += `Needs an icon: ${m}\n`;
   if (!DRY && added.some((a) => a.poolId)) await writeFile(join(ROOT, 'banners.json'), JSON.stringify(db, null, 2) + '\n');
 }
+const schedule = fillMaster(news, master, review);
 // Banners still showing their official cover, names printed in the art.
 for (const b of schedule.banners) {
   if (isIssue(b) && b.rateUps[0] && !issueArt(b)) report += `Needs an Issue banner: issues/${slug(b.rateUps[0])}.webp (scripts/issue-banner.py)\n`;
@@ -916,7 +924,10 @@ for (const b of schedule.banners) {
 
 const json = JSON.stringify(schedule, null, 2) + '\n';
 if (DRY) process.stdout.write(json);
-else await writeFile(join(ROOT, 'schedule.json'), json);
+else {
+  await writeFile(join(ROOT, 'schedule-news.json'), JSON.stringify(news, null, 2) + '\n');
+  await writeFile(join(ROOT, 'schedule.json'), json);
+}
 
 console.error(`${schedule.banners.length} banners and ${schedule.events.length} events across ${schedule.versions.length} versions.`);
 if (review.length) console.error(`Needs review: ${review.join(', ')}`);
