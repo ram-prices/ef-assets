@@ -69,22 +69,21 @@
     {
       "id": 41,
       "name": "Yuanyuan's Blazing Stoves",
-      "source": "EndfieldDataDump TimeRangeTable: time_activity_timeunlimited_inn",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timelimited_inn (the timed event; time_activity_timeunlimited_inn, the permanent mode after it, isn't this event)",
       "feed": {
         "start": "2026-10-14T23:00:00-05:00"
       },
       "startInstant": "Oct. 14, 2026 at 18:00",
-      "permanent": true,
-      "availability": "After [Sanctuary of Ink] version update – the timed phase ran until Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia); the event is now permanently available"
+      "endInstant": "Nov. 24, 2026 at 17:00",
+      "availability": "After [Sanctuary of Ink] version update – Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia), the version maintenance; the event stays permanently available after that, without its limited-time rewards"
     },
     {
       "id": 50,
       "name": "Contingency Contract: Indigo Experimental Operation",
-      "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1",
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1_stage_2 (the challenge ends at the version maintenance, as the feed says; time_activity_contingency_contract_1 runs to Dec. 2 because it includes stage_3, the exchange-only phase)",
       "feed": {
         "end": "2026-11-24T17:00:00-05:00"
       },
-      "end": "Dec. 2, 2026 at 04:00",
       "note": "Secret Sanctuary exchanges close Dec. 2, 2026 at 04:00 (server time)."
     }
   ]

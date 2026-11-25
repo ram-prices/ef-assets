@@ -662,6 +662,15 @@ async function build() {
  * sets the event's end to null (a timed phase that became a permanent
  * activity, the game's tables carry the two as separate rows). note is added
  * to the details.
+ *
+ * Dates come from the game dump's TimeRangeTable, never the wiki. Take the
+ * row for the part of the event the in-game timer counts down to: a
+ * Contingency Contract's whole-activity row (time_activity_contingency_contract_N)
+ * also covers stage_3, the exchange-only phase after the challenge, so its end
+ * is stage_2's (the version maintenance), with the exchange close as a note. An
+ * event with a timed phase that then stays playable (a timelimited row followed
+ * by a timeunlimited one) ends where the timed row ends; `permanent` is only for
+ * an event that never had a timed phase.
  */
 function applyOverrides(events, review) {
   const file = join(ROOT, 'schedule-overrides.json');

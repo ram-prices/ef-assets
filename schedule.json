@@ -2066,12 +2066,15 @@
         "americas": "2026-10-14T18:00:00-05:00",
         "asia": "2026-10-15T07:00:00+08:00"
       },
-      "end": null,
+      "end": {
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
+      },
       "details": "Visit the [Si's Painting] area in [Wuling], manage [Yuanyuan Manor Inn], complete the corresponding Session Tasks, and increase your Inn Milestones to claim rewards including [Oroberyl]×1000 and [Mark of Perseverance].",
-      "availability": "After [Sanctuary of Ink] version update – the timed phase ran until Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia); the event is now permanently available",
+      "availability": "After [Sanctuary of Ink] version update – Nov. 24, 2026 at 17:00 (Americas/Europe) / Nov. 25, 2026 at 06:00 (Asia), the version maintenance; the event stays permanently available after that, without its limited-time rewards",
       "post": "9560",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/yuanyuan-s-blazing-stoves.webp",
-      "source": "EndfieldDataDump TimeRangeTable: time_activity_timeunlimited_inn"
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_timelimited_inn (the timed event; time_activity_timeunlimited_inn, the permanent mode after it, isn't this event)"
     },
     {
       "id": 42,
@@ -2240,14 +2243,14 @@
         "asia": "2026-11-05T12:00:00+08:00"
       },
       "end": {
-        "americas": "2026-12-02T04:00:00-05:00",
-        "asia": "2026-12-02T04:00:00+08:00"
+        "americas": "2026-11-24T17:00:00-05:00",
+        "asia": "2026-11-25T06:00:00+08:00"
       },
       "details": "During the event, you can select any combination of Test Criteria for the challenge, and try to complete it. Complete event missions to earn rewards such as [Portrait: Silverblade Medal], [Portrait Frame: Contingency... Secret Sanctuary exchanges close Dec. 2, 2026 at 04:00 (server time).",
       "availability": "Nov. 5, 2026 at 12:00 (server time) – Before version update and maintenance",
       "post": "9560",
       "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/contingency-contract-indigo-experimental-operation.webp",
-      "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1"
+      "source": "EndfieldDataDump TimeRangeTable: time_activity_contingency_contract_1_stage_2 (the challenge ends at the version maintenance, as the feed says; time_activity_contingency_contract_1 runs to Dec. 2 because it includes stage_3, the exchange-only phase)"
     },
     {
       "id": 51,
