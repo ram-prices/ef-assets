@@ -8,9 +8,12 @@
  * collections/ so the site needn't load them from the wiki.
  * The wiki's text is CC BY-SA 4.0: the pages credit it.
  *
- *   node scripts/wiki-collections.mjs
+ * Medals and archives the wiki doesn't list yet come from the game (wiki/medals-game.json,
+ * wiki/findings-game.json, see mergeGame below).
+ *
+ *   node scripts/wiki-collections.mjs [--dry-run | --merge-only]
  */
-import { writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 const API = 'https://endfield.wiki.gg/api.php';
 const UA = 'ef-assets wiki snapshot (github.com/ram-prices/ef-assets; ItJustLogs)';
@@ -301,13 +304,73 @@ async function moreArchives(start) {
   return out;
 }
 
+// --- Entries from the game the wiki doesn't list yet ----------------------------
+// wiki/medals-game.json and wiki/findings-game.json (scripts/collections-game.py, by hand from a local dump)
+// are merged in on every run, so this weekly run keeps them. Once the wiki lists one (same category, same name,
+// or a name or text that starts the same), the wiki's entry stands in its place under the game entry's id, so a
+// player's progress on it stays; a picture the wiki lacks comes from the game. Merged entries carry
+// `source: "game"`; --merge-only redoes the merge on the files as they are, without the wiki.
+
+const squash = (s = '') => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+const textKey = (s) => {
+  const k = squash(s).slice(0, 80);
+  return k.length >= 30 ? k : null;
+};
+
+function sameEntry(w, g) {
+  if (w.category !== g.category) return false;
+  const a = squash(w.name);
+  const b = squash(g.name);
+  if (a === b || (b.length >= 12 && a.startsWith(b)) || (a.length >= 12 && b.startsWith(a))) return true;
+  const t = textKey(g.text ?? g.desc);
+  return !!t && textKey(w.text ?? w.desc) === t;
+}
+
+function mergeGame(list, file, key) {
+  if (!existsSync(file)) return { list, added: 0, matched: 0 };
+  const out = list.filter((x) => x.source !== 'game');
+  let added = 0;
+  let matched = 0;
+  for (const g of JSON.parse(readFileSync(file, 'utf8'))[key]) {
+    const { after, gameId, ...entry } = g;
+    const w = out.find((x) => sameEntry(x, entry));
+    if (w) {
+      matched++;
+      w.id = entry.id;
+      if (entry.images) w.images = { ...entry.images, ...w.images };
+      for (const k of ['icon', 'image', 'region', 'area', 'type']) if (w[k] == null && entry[k] != null) w[k] = entry[k];
+      continue;
+    }
+    added++;
+    entry.source = 'game';
+    let at = out.findIndex((x) => x.id === after);
+    if (at < 0) at = out.findLastIndex((x) => x.category === entry.category);
+    out.splice(at < 0 ? out.length : at + 1, 0, entry);
+  }
+  return { list: out, added, matched };
+}
+
+const DRY = process.argv.includes('--dry-run');
+const MERGE_ONLY = process.argv.includes('--merge-only');
+const save = (path, data) => (DRY ? null : writeFileSync(path, JSON.stringify(data, null, 1) + '\n'));
+
 const fetched = new Date().toISOString().slice(0, 10);
 const attribution = { source: 'endfield.wiki.gg', url: 'https://endfield.wiki.gg', license: 'CC BY-SA 4.0', licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/', fetched };
-const m = await medals();
-writeFileSync('wiki/medals.json', JSON.stringify({ attribution, medals: m }, null, 1) + '\n');
-console.log(`medals: ${m.length} (${m.filter((x) => !x.images.base).length} without a picture)`);
-const found = await findings();
-const f = [...found, ...(await moreArchives(found.length))];
-writeFileSync('wiki/findings.json', JSON.stringify({ attribution, findings: f }, null, 1) + '\n');
+const old = (path) => JSON.parse(readFileSync(path, 'utf8'));
+const mm = mergeGame(MERGE_ONLY ? old('wiki/medals.json').medals : await medals(), 'wiki/medals-game.json', 'medals');
+const m = mm.list;
+save('wiki/medals.json', { attribution: MERGE_ONLY ? old('wiki/medals.json').attribution : attribution, medals: m });
+console.log(`medals: ${m.length} (${m.filter((x) => !x.images.base).length} without a picture; from the game: ${mm.added} added, ${mm.matched} now on the wiki)`);
+let found;
+if (MERGE_ONLY) found = old('wiki/findings.json').findings;
+else {
+  const listed = await findings();
+  found = [...listed, ...(await moreArchives(listed.length))];
+}
+const fm = mergeGame(found, 'wiki/findings-game.json', 'findings');
+const f = fm.list;
+f.forEach((x, i) => (x.order = i));
+save('wiki/findings.json', { attribution: MERGE_ONLY ? old('wiki/findings.json').attribution : attribution, findings: f });
+console.log(`archive from the game: ${fm.added} added, ${fm.matched} now on the wiki${DRY ? ' (dry run: nothing written)' : ''}`);
 console.log(`archive: ${f.length} (${['Audio Records', 'Nexus Files', 'Intel Gathering'].map((c) => `${c} ${f.filter((x) => x.category === c).length}`).join(', ')})`);
 console.log(`findings: ${f.length} (${f.filter((x) => x.missing).length} without a page, ${f.filter((x) => !x.icon).length} without an icon)`);

@@ -10,6 +10,14 @@ Operator, weapon and gear data snapshotted from the
 - `operators-game.json`: operators the wiki has no numbers for yet, built from
   the game's tables by `scripts/operator-from-game.py`; `update-wiki.mjs`
   merges them into `operators.json` until the wiki has them.
+- `medals.json`, `findings.json`: the Medal Album and Intel Archives
+  (`scripts/wiki-collections.mjs`, weekly; pictures in `collections/`).
+  `medals-game.json` and `findings-game.json` hold what the wiki doesn't list
+  yet, from the game's tables (`scripts/collections-game.py <dump output>`,
+  by hand after a game update, then `node scripts/wiki-collections.mjs
+  --merge-only`); every run merges them in (`source: "game"`, pictures keyed
+  `game:<sprite>` in `collections/index.json`). Once the wiki lists one, its
+  entry takes the game one's place and id.
 - `weapons.json`: type, rarity, base ATK at 6 levels, potential, tuning costs,
   skills with their values at ranks 1-9.
 - `gear.json`: gear pieces (defense, stats, set) and gear set effects.

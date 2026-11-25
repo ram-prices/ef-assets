@@ -79,11 +79,12 @@ def wanted():
     out = {}
     for m in medals:
         for url in m.get('images', {}).values():
-            out.setdefault(url, 'medals')
+            if url.startswith('http'):
+                out.setdefault(url, 'medals')
     for f in findings:
-        if f.get('icon'):
+        if f.get('icon', '').startswith('http'):
             out.setdefault(f['icon'], 'finding-icons')
-        if f.get('image'):
+        if f.get('image', '').startswith('http'):
             out.setdefault(f['image'], 'findings')
     return out
 
@@ -118,13 +119,13 @@ def main():
                 print(f'  {made} saved...', flush=True)
     except Refused as e:
         print(f'stopped: {e}')
-    # Only what the files still link to.
-    index = {u: p for u, p in index.items() if u in want}
+    # Only what the files still link to, and the game's own pictures (game:<sprite>, scripts/collections-game.py).
+    index = {u: p for u, p in index.items() if u in want or u.startswith('game:')}
     os.makedirs(OUT, exist_ok=True)
     with open(index_path, 'w', encoding='utf8', newline='\n') as fh:
         json.dump(index, fh, indent=1, ensure_ascii=False, sort_keys=True)
         fh.write('\n')
-    print(f'pictures: {made} new, {len(index)} of {len(want)} saved')
+    print(f'pictures: {made} new, {sum(u in want for u in index)} of {len(want)} saved')
     if missing:
         print(f'gone from the wiki: {len(missing)}: {"; ".join(missing[:10])}')
 

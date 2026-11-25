@@ -1,8 +1,7 @@
 {
  "attribution": {
-  "source": "EndfieldData",
-  "url": "https://git.escartem.moe/Endfield/EndfieldData",
-  "dumper": "https://git.escartem.moe/Escartem/EndfieldDataDumper",
+  "source": "the game files (a local EndfieldDataDump)",
+  "local": true,
   "fetched": "2026-11-25",
   "note": "Game text © Gryphline / Hypergryph"
  },
@@ -187,7 +186,11 @@
       "c34m3",
       "c37m1",
       "c37m2",
-      "c37m3"
+      "c37m3",
+      "c6m1",
+      "c40m1",
+      "c40m2",
+      "c40m3"
      ]
     },
     {
@@ -308,7 +311,8 @@
       "sm2l9m1",
       "sm2l10m1",
       "sm2l10m2",
-      "sm2l10m3"
+      "sm2l10m3",
+      "sm2l11m1"
      ]
     }
    ]
@@ -390,6 +394,9 @@
       "f1m29d2",
       "f1m29d3",
       "f1m29d4",
+      "f1m31d1",
+      "f1m31d2",
+      "f1m31d3",
       "f1m32",
       "f1m36",
       "f1m36d1",
@@ -405,7 +412,6 @@
     {
      "title": "",
      "missions": [
-      "c6m1",
       "db01m1",
       "db01m2",
       "db01m3",
@@ -451,6 +457,7 @@
       "gm02m27",
       "gm02m27d3",
       "gm02m27d6",
+      "gm02m28",
       "gm02m29",
       "m1m8",
       "m1m73"
@@ -960,6 +967,26 @@
    "lines": 292,
    "scenes": 26
   },
+  "c6m1": {
+   "name": "Lone Wolf",
+   "lines": 245,
+   "scenes": 31
+  },
+  "c40m1": {
+   "name": "Waffles to the Rescue: Encounter",
+   "lines": 107,
+   "scenes": 10
+  },
+  "c40m2": {
+   "name": "Waffles to the Rescue: Adventure",
+   "lines": 198,
+   "scenes": 17
+  },
+  "c40m3": {
+   "name": "Waffles to the Rescue: Return",
+   "lines": 169,
+   "scenes": 15
+  },
   "sm1l1m7": {
    "name": "Base Revisited",
    "lines": 17,
@@ -1259,6 +1286,11 @@
    "name": "A Day to Remember",
    "lines": 175,
    "scenes": 15
+  },
+  "sm2l11m1": {
+   "name": "The Day After",
+   "lines": 236,
+   "scenes": 29
   },
   "a1m2": {
    "name": "Catch-Up Training",
@@ -1565,6 +1597,21 @@
    "lines": 38,
    "scenes": 6
   },
+  "f1m31d1": {
+   "name": "Rebuilding a Home I",
+   "lines": 65,
+   "scenes": 4
+  },
+  "f1m31d2": {
+   "name": "Rebuilding a Home II",
+   "lines": 115,
+   "scenes": 12
+  },
+  "f1m31d3": {
+   "name": "Rebuilding a Home III",
+   "lines": 99,
+   "scenes": 8
+  },
   "f1m32": {
    "name": "Fissure Filling and Land Grouting",
    "lines": 93,
@@ -1589,11 +1636,6 @@
    "name": "Yuanyuan Innkeeper III",
    "lines": 3,
    "scenes": 1
-  },
-  "c6m1": {
-   "name": "Lone Wolf",
-   "lines": 245,
-   "scenes": 31
   },
   "db01m1": {
    "name": "Etchspace Salvage",
@@ -1820,6 +1862,11 @@
    "lines": 25,
    "scenes": 4
   },
+  "gm02m28": {
+   "name": "Giga-Shroom Up Close",
+   "lines": 79,
+   "scenes": 11
+  },
   "gm02m29": {
    "name": "Cliffbottom Archery Range",
    "lines": 34,
@@ -1837,52 +1884,86 @@
   }
  },
  "activities": {
-  "Trial Algorithmics": [
-   "gm02m16"
+  "Runners' Steeplechase": [
+   "a1m15"
   ],
-  "Contingency Contract: Indigo Experimental Operation": [
-   "a1m21"
+  "Monumental Etching: Corrupting Surge": [
+   "a1m4"
+  ],
+  "Snapshot: Etchings of Our Cosmic Dreams": [
+   "a1m10"
+  ],
+  "Array Building: Mend the Old Gash": [
+   "f1m31d1",
+   "f1m31d2",
+   "f1m31d3"
+  ],
+  "Monumental Etching: Old Wounds": [
+   "a1m4"
+  ],
+  "Carly's Verdant Anthology": [
+   "a1m18"
+  ],
+  "HEAT RAGE! MEGA ARENA!": [
+   "a1m11"
+  ],
+  "Contingency Contract: Re-Ignition Experimental Operation": [
+   "a1m14"
   ],
   "Arena of Games": [
    "a1m19"
   ],
-  "Contingency Contract: Re-Ignition Experimental Operation": [
-   "a1m14"
+  "Carly's Fairytale of the Valley": [
+   "a1m3"
+  ],
+  "Monumental Etching: Scorch Mark": [
+   "a1m4"
+  ],
+  "Contingency Contract: Indigo Experimental Operation": [
+   "a1m21"
+  ],
+  "Monumental Etching: Dirge of Grief": [
+   "a1m4"
+  ],
+  "Monumental Etching: Beastly Howl": [
+   "a1m4"
+  ],
+  "Monumental Etching: Shadow Marked": [
+   "a1m4"
+  ],
+  "Monumental Etching: Forest of Maras": [
+   "a1m4"
   ],
   "AIC Support: Palm-Top Savior": [
    "a1m8d1",
    "a1m8d2",
    "a1m8d3"
   ],
-  "Supply: Exploration Day": [
-   "a1m5"
-  ],
-  "Monumental Etching: Old Wounds": [
-   "a1m4"
-  ],
-  "Echoes of War": [
-   "db01m10"
-  ],
-  "Supply: Wuling Super Chef": [
-   "a1m9"
-  ],
-  "Trial of the Bow": [
-   "gm02m29"
-  ],
-  "Survival Training": [
-   "a1m2"
-  ],
-  "HEAT RAGE! MEGA ARENA!": [
-   "a1m11"
+  "AIC Support: Chubby Lung Attacks": [
+   "a1m16d1",
+   "a1m16d2",
+   "a1m16d3"
   ],
   "Carly's Fairytale of Wuling": [
    "a1m7"
   ],
-  "Runners' Steeplechase": [
-   "a1m15"
+  "Echoes of War": [
+   "db01m10"
   ],
-  "Snapshot: Etchings of Our Cosmic Dreams": [
-   "a1m10"
+  "The Rooted Realm": [
+   "a1m13"
+  ],
+  "Trial Algorithmics": [
+   "gm02m16"
+  ],
+  "Supply: Exploration Day": [
+   "a1m5"
+  ],
+  "Supply: Wuling Super Chef": [
+   "a1m9"
+  ],
+  "Yuanyuan's Blazing Stoves": [
+   "f1m36"
   ],
   "Cleanse and Rinse": [
    "a1m6d1",
@@ -1893,40 +1974,11 @@
    "a1m6d6",
    "a1m6d7"
   ],
-  "Yuanyuan's Blazing Stoves": [
-   "f1m36"
+  "Trial of the Bow": [
+   "gm02m29"
   ],
-  "Monumental Etching: Forest of Maras": [
-   "a1m4"
-  ],
-  "Monumental Etching: Shadow Marked": [
-   "a1m4"
-  ],
-  "Monumental Etching: Beastly Howl": [
-   "a1m4"
-  ],
-  "Monumental Etching: Dirge of Grief": [
-   "a1m4"
-  ],
-  "Monumental Etching: Corrupting Surge": [
-   "a1m4"
-  ],
-  "Monumental Etching: Scorch Mark": [
-   "a1m4"
-  ],
-  "The Rooted Realm": [
-   "a1m13"
-  ],
-  "AIC Support: Chubby Lung Attacks": [
-   "a1m16d1",
-   "a1m16d2",
-   "a1m16d3"
-  ],
-  "Carly's Fairytale of the Valley": [
-   "a1m3"
-  ],
-  "Carly's Verdant Anthology": [
-   "a1m18"
+  "Survival Training": [
+   "a1m2"
   ]
  }
 }

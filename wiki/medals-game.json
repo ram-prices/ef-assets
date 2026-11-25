@@ -1,0 +1,210 @@
+{
+ "source": "the game files (a local EndfieldDataDump)",
+ "note": "Game data (c) Gryphline / Hypergryph. Entries endfield.wiki.gg does not list yet; scripts/wiki-collections.mjs merges them.",
+ "fetched": "2026-11-25",
+ "medals": [
+  {
+   "id": "i-dream-of-honey-waffles",
+   "name": "\"I Dream of Honey Waffles\"",
+   "category": "Chapter",
+   "group": "Exploration Mission",
+   "desc": "You and Kay journeyed through a wondrous world of shrooms, honey waffles, and a healthy dollop of fantasy. Do not worry, and do not doubt. This is one true adventure.",
+   "cond": "Complete side mission [I Dream of Honey Waffles]",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_quest_sweetpie_lv02"
+   },
+   "gameId": "achv_quest_sweetpie",
+   "after": "a-day-to-remember"
+  },
+  {
+   "id": "a-good-marriage-needs-good-kohl",
+   "name": "\"A Good Marriage Needs Good Kohl\"",
+   "category": "Chapter",
+   "group": "Exploration Mission",
+   "desc": "And with this, the groom and shroom... Is this even right? Can't we just call her the bride? Anyways, they lived happily ever after.",
+   "cond": "Complete side mission [The Day After]",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_quest_sm2l11m1_lv02"
+   },
+   "gameId": "achv_quest_sm2l11m1",
+   "after": "i-dream-of-honey-waffles"
+  },
+  {
+   "id": "despotic-brutality",
+   "name": "\"Despotic Brutality\"",
+   "category": "Technical",
+   "group": "Protocol Space",
+   "desc": "You have crushed the heavily armed despots and exposed their brutality upon the silverscreen.",
+   "cond": "In [Umbral Monument], complete all \"Despot Weaponized\" Difficulty Ⅲ stages",
+   "reforge": [],
+   "trim": "In [Umbral Monument], complete all \"Despot Weaponized\" Difficulty Ⅵ stages",
+   "from": "2026-12-02",
+   "images": {
+    "base": "game:medalicon/achv_bat_hard_9_lv02",
+    "trim": "game:medalicon/achv_bat_hard_9_lv02_plating"
+   },
+   "gameId": "achv_bat_hard_9",
+   "after": "murmurs-of-the-deep-forest"
+  },
+  {
+   "id": "fungal-bounciness",
+   "name": "\"Fungal Bounciness\"",
+   "category": "Technical",
+   "group": "Combat Technique",
+   "desc": "You seem to have experienced true fungal bounciness. It is quite wondrous, like playing on a trampoline.",
+   "cond": "Let the controlled operator get lifted ≥ 4 times from 1 round of the Shroomkrusher Sporeknuckles' continuous quake attack",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_bat_mushro_blowoff_lv02"
+   },
+   "gameId": "achv_bat_mushro_blowoff",
+   "after": "insight-of-rejuvenation"
+  },
+  {
+   "id": "shroom-world-crate-master",
+   "name": "Shroom World Crate Master",
+   "category": "Regional",
+   "group": "Wuling",
+   "desc": "You have opened most storage crates in Wuling. They are worth tons of honey waffles.",
+   "cond": "In the Old Dam, open 47 crates",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_adv_wuling_box_5_lv01"
+   },
+   "gameId": "achv_adv_wuling_box_5",
+   "after": "regional-re-congregated-fragments"
+  },
+  {
+   "id": "dam-treader",
+   "name": "Dam Treader",
+   "category": "Regional",
+   "group": "Wuling",
+   "desc": "Actually, you might know more about this dam than its original designers.",
+   "cond": "In the Old Dam, use Waffle Strike or operator attacks to interact with special shrooms (including: Power-Feeding Mushrooms, Rainbow Mushrooms, Mushroom Vines, and Delulu Walls) 20 times",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_adv_wuling_sweetpie_lv01"
+   },
+   "gameId": "achv_adv_wuling_sweetpie",
+   "after": "shroom-world-crate-master"
+  },
+  {
+   "id": "our-lives-rebuilt",
+   "name": "\"Our Lives Rebuilt\"",
+   "category": "Construction",
+   "group": "AIC Factory",
+   "desc": "Remember the past. Welcome the future.",
+   "cond": "In Wuling, progress Exclusion Zone Rebuilding to Phase 4 (Routine Maintenance)",
+   "reforge": [],
+   "trim": "Complete 5 Routine Maintenance supplies",
+   "images": {
+    "base": "game:medalicon/achv_fac_wonder_build_lv02",
+    "trim": "game:medalicon/achv_fac_wonder_build_lv02_plating"
+   },
+   "gameId": "achv_fac_wonder_build",
+   "after": "happy-gourmand"
+  },
+  {
+   "id": "best-arena-of-talos-ii",
+   "name": "\"BEST! ARENA OF TALOS-II!\"",
+   "category": "Event",
+   "group": "Time-Limited",
+   "desc": "In Wuling, a great arena that could truly ignite the warriors' passion for battle has reached its perfect conclusion! Have faith in us! Another great arena is in the works!",
+   "cond": "In [RISE! MEGA ARENA!], complete all stages on Normal mode",
+   "reforge": [],
+   "trim": "In [RISE! MEGA ARENA!], complete these stages within 200s:\n· [Yuanyuan! Open for Biz! MAXED!]\n· [Fight! Wuling Ablaze! MAXED!]",
+   "from": "2026-12-16",
+   "images": {
+    "base": "game:medalicon/achv_event_takestwo_2_lv02",
+    "trim": "game:medalicon/achv_event_takestwo_2_lv02_plating"
+   },
+   "gameId": "achv_event_takestwo_2",
+   "after": "indigo-cleansed"
+  },
+  {
+   "id": "witchcraft-21",
+   "name": "\"Witchcraft 21\"",
+   "category": "Event",
+   "group": "Time-Limited",
+   "desc": "You seem to be getting pretty good with the witchcraft pastime introduced by \"Lucky Carrot\".",
+   "cond": "Earn ≥ 21 points without busting",
+   "reforge": [],
+   "trim": "Earn ≥ 30 points without busting",
+   "end": "2027/01/07",
+   "from": "2026-12-16",
+   "images": {
+    "base": "game:medalicon/achv_event_blackjack_1_lv02",
+    "trim": "game:medalicon/achv_event_blackjack_1_lv02_plating"
+   },
+   "gameId": "achv_event_blackjack_1",
+   "after": "best-arena-of-talos-ii"
+  },
+  {
+   "id": "joker-s-warlord-power",
+   "name": "\"Joker's Warlord Power\"",
+   "category": "Event",
+   "group": "Time-Limited",
+   "desc": "And with that mighty explosion, the despotic Warlord finally fell... However, his legend continues to spread across all sorts of card tables.",
+   "cond": "Play 1 Black Joker card",
+   "reforge": [],
+   "trim": "Play 1 Red Joker card",
+   "end": "2027/01/07",
+   "from": "2026-12-23",
+   "images": {
+    "base": "game:medalicon/achv_event_doudizhu_1_lv02",
+    "trim": "game:medalicon/achv_event_doudizhu_1_lv02_plating"
+   },
+   "gameId": "achv_event_doudizhu_1",
+   "after": "witchcraft-21"
+  },
+  {
+   "id": "shroom-city",
+   "name": "\"Shroom City\"",
+   "category": "Event",
+   "group": "Permanent",
+   "desc": "One by one you illuminated the fragmented Protocol Space. The City of Shrooms has opened its gates for you (and no, you are not hallucinating this time).",
+   "cond": "In [Delver of the Cryptic], complete all \"Esoteric Mycology\" Protocol Spaces",
+   "reforge": [],
+   "trim": "In [Delver of the Cryptic], perfectly complete all \"Esoteric Mycology\" Protocol Spaces",
+   "from": "2026-12-27",
+   "images": {
+    "base": "game:medalicon/achv_event_wuling_challenge_dung_04_lv02",
+    "trim": "game:medalicon/achv_event_wuling_challenge_dung_04_lv02_plating"
+   },
+   "gameId": "achv_event_wuling_challenge_dung_04",
+   "after": "joker-s-warlord-power"
+  },
+  {
+   "id": "come-slither-out-of-the-pipes",
+   "name": "\"Come, Slither Out of the Pipes\"",
+   "category": "Wondrous",
+   "group": null,
+   "desc": "UWST tunnel and pipeline repair crews often run into nidwyrms. Baiting them out would be a great idea.",
+   "cond": "",
+   "secret": "When the Shroomkrusher Nidwyrm is hiding, use honey waffles to lure it out of the ground",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_hide_mushbug_attract_lv02"
+   },
+   "gameId": "achv_hide_mushbug_attract",
+   "after": "most-dashing-lung"
+  },
+  {
+   "id": "professional-safe-house",
+   "name": "\"Professional Safe House\"",
+   "category": "Wondrous",
+   "group": null,
+   "desc": "A professional operator always has her safe house prepped before her operation. Never underestimate Kay's professionalism ... or lack thereof.",
+   "cond": "",
+   "secret": "In the Old Dam, reach the Secret Base",
+   "reforge": [],
+   "images": {
+    "base": "game:medalicon/achv_hide_secretbase_v1d7_lv01"
+   },
+   "gameId": "achv_hide_secretbase_v1d7",
+   "after": "come-slither-out-of-the-pipes"
+  }
+ ]
+}

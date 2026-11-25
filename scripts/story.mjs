@@ -25,9 +25,10 @@
  * mission with none is skipped. The game text is Gryphline's; this only
  * reads what the dump holds.
  *
- *   node scripts/story.mjs
+ *   node scripts/story.mjs [--local <EndfieldDataDump output folder>]
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const DUMP = 'https://git.escartem.moe/Endfield/EndfieldData/raw/branch/master';
@@ -43,7 +44,25 @@ const ORDER = existsSync(ORDER_FILE) ? JSON.parse(readFileSync(ORDER_FILE, 'utf8
 /** The tables' text ids are 64-bit: kept as their digits, which JSON.parse would round. */
 const parse = (text) => JSON.parse(text, (k, v, ctx) => (typeof v === 'number' && !Number.isSafeInteger(v) && ctx?.source ? ctx.source : v));
 
+/**
+ * --local <dump output folder>: the tables and mission files from a local EndfieldDataDump instead (its
+ * Data/TableCfg and jsondata, Persistent over StreamingAssets; the decoded files are wrapped as
+ * {$file,$root,$type,data}, the remote layout is the `data`). For a game update the community dump hasn't
+ * caught up with yet. The weekly run (remote) then leaves story/ as it is until the community dump has every
+ * mission the local run wrote.
+ */
+const LOCAL = process.argv.includes('--local') ? process.argv[process.argv.indexOf('--local') + 1] : null;
 async function get(url, json = true) {
+  if (LOCAL && url.startsWith(`${DUMP}/`)) {
+    const rel = url.slice(DUMP.length + 1);
+    const files = rel.startsWith('Json/')
+      ? ['Persistent', 'StreamingAssets'].map((r) => join(LOCAL, 'jsondata', r, ...rel.slice(5).split('/')))
+      : [join(LOCAL, 'Data', ...rel.split('/'))];
+    const file = files.find((f) => existsSync(f));
+    if (!file) throw new Error(`${rel}: not in the local dump`);
+    const data = parse(readFileSync(file, 'utf8'));
+    return rel.startsWith('Json/') && data && '$root' in data ? data.data : data;
+  }
   const r = await fetch(url, { headers: UA });
   if (!r.ok) throw new Error(`${url}: ${r.status}`);
   return json ? parse(await r.text()) : r.text();
@@ -206,9 +225,23 @@ for (const x of MAIN_EXTRA) {
 }
 const main = place(mainWiki);
 const side = place(sectionsOf(sideText));
+const natural = (a, b) => a.localeCompare(b, 'en', { numeric: true });
+
+// Operator stories (the game's episodes chr_<n>_ep<k>: missions c<n>m1, c<n>m2...) the wiki's Narrative Events
+// doesn't list yet go at its end, with the others (Kay's "I Dream of Honey Waffles" in 1.7); the wiki's own
+// list takes over once it has them.
+const episodes = new Set(Object.keys(texts).map((k) => /^chr_0*(\d+)_ep\d+_name$/.exec(k)?.[1]).filter(Boolean));
+const stories = usable
+  .map(([id]) => id)
+  .filter((id) => !placed.has(id) && episodes.has(/^c(\d+)m\d+$/.exec(id)?.[1]))
+  .sort(natural);
+if (stories.length) {
+  let narrative = side.find((s) => /^Narrative Events/.test(s.title));
+  if (!narrative) side.unshift((narrative = { title: 'Narrative Events', missions: [] }));
+  for (const id of stories) narrative.missions.push(id), placed.add(id);
+}
 
 // The rest by the id's family; ids in their natural order.
-const natural = (a, b) => a.localeCompare(b, 'en', { numeric: true });
 const family = (id) => id.match(/^[a-z]+/)[0];
 const rest = usable.map(([id]) => id).filter((id) => !placed.has(id)).sort(natural);
 const of = (...families) => rest.filter((id) => families.includes(family(id)));
@@ -225,6 +258,18 @@ const groups = [
 const known = new Set(groups.flatMap((g) => g.sections.flatMap((s) => s.missions)));
 const left = rest.filter((id) => !known.has(id));
 if (left.length) groups.push({ title: 'Other', sections: [{ title: '', missions: left }] });
+
+// A remote run behind the last local one (the community dump not yet on the game version the local dump is)
+// would drop that version's missions: story/ stays as the local run left it until the remote has them all.
+const OLD_INDEX = `${OUT}index.json`;
+const previous = existsSync(OLD_INDEX) ? JSON.parse(readFileSync(OLD_INDEX, 'utf8')) : null;
+if (!LOCAL && previous?.attribution?.local) {
+  const behind = Object.keys(previous.missions).filter((id) => !known.has(id));
+  if (behind.length) {
+    console.log(`story: left as the local dump's run wrote it; the community dump still lacks ${behind.length} of its missions (${behind.slice(0, 8).join(', ')}${behind.length > 8 ? '...' : ''})`);
+    process.exit(0);
+  }
+}
 
 // Write.
 mkdirSync(OUT, { recursive: true });
@@ -259,7 +304,9 @@ for (const [aid, a] of Object.entries(activityTable)) {
 }
 
 const index = {
-  attribution: { source: 'EndfieldData', url: DUMP_PAGE, dumper: DUMPER, fetched: new Date().toISOString().slice(0, 10), note: 'Game text © Gryphline / Hypergryph' },
+  attribution: LOCAL
+    ? { source: 'the game files (a local EndfieldDataDump)', local: true, fetched: new Date().toISOString().slice(0, 10), note: 'Game text © Gryphline / Hypergryph' }
+    : { source: 'EndfieldData', url: DUMP_PAGE, dumper: DUMPER, fetched: new Date().toISOString().slice(0, 10), note: 'Game text © Gryphline / Hypergryph' },
   groups,
   missions: {},
   activities,
