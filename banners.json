@@ -6,6 +6,8 @@
     "type": "New Horizons"
   },
   "standard": {
+    "gameArt": true,
+    "gameArtV": "bad7cb43",
     "name": "Basic Headhunting",
     "rateUpIds": [],
     "rateupName": [],
