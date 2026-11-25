@@ -205,7 +205,7 @@ const wikiOps = JSON.parse(readFileSync(at('wiki/operators.json'), 'utf8')).oper
 for (const id of [...ids].sort()) {
   const pic = PICTURE_ID[id] ?? id;
   if (id.startsWith('chr_')) {
-    if (!has(`operators/${pic}.webp`)) need(`operator ${id} has no portrait (operators/${pic}.webp)`, 'run `python scripts/portraits.py` (once the wiki has the operator; before that `python scripts/guide-art.py`)');
+    if (!has(`operators/${pic}.webp`)) need(`operator ${id} has no portrait (operators/${pic}.webp)`, `run \`python scripts/operator-icons.py ${DUMP} ${id}\` locally - needs the game dump (without it: \`python scripts/portraits.py\` once the wiki has the operator, before that \`python scripts/guide-art.py\`)`);
     if (!has(`operators/full/${pic}.webp`)) need(`operator ${id} has no full art (operators/full/${pic}.webp)`, `run \`python scripts/operator-full.py ${DUMP} ${id}\` locally — needs the game dump`);
     if (!wikiOps[id] && !wikiOps[pic]) need(`operator ${id} is missing from wiki/operators.json`, `run \`python scripts/operator-from-game.py ${DUMP} ${id}\` locally, then \`node scripts/update-wiki.mjs\``);
   } else if (id.startsWith('wpn_')) {

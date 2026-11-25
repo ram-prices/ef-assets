@@ -1,7 +1,9 @@
 """Operator and weapon portraits (operators/<id>.webp, arsenals/<id>.webp) at
 the game's own icon size, from the wiki's uploads: "<Name>_icon.png", 120px
 for operators (the face close-up the site has always used) and 256px for
-weapons. The two Endministrators have their own files, "(Female)" and
+weapons. Operators normally get theirs from the game dump instead
+(operator-icons.py, the game's remote icon at ~155px), which this never
+overwrites; here they only get one when that hasn't been run. The two Endministrators have their own files, "(Female)" and
 "(Male)".
 
 A portrait larger than the old 72px icons is kept, so a run after the first
