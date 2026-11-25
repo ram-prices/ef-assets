@@ -10,8 +10,8 @@ update-wiki workflow runs it.
 
     python scripts/operator-cards.py
 
-A new folder name whenever the art changes: jsDelivr and browsers keep a file a
-week. Needs Pillow.
+A new folder name whenever the art changes: browsers keep a picture a
+day (_headers). Needs Pillow.
 """
 import io
 import json

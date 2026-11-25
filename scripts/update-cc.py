@@ -6,7 +6,7 @@ Rerun it locally after a game patch (the dump exists only on the owner's PC):
 
     1. Open the game once so it downloads the patch, then run EndfieldDataDump\\run_all.bat.
     2. python scripts/update-cc.py C:/Users/Albert/Development/EndfieldDataDump/output
-    3. Read the gap list it prints, commit cc/ and purge the art paths on jsDelivr.
+    3. Read the gap list it prints, commit and push cc/ (Cloudflare Pages deploys it).
 
 Flags: --no-art skips the pictures, --no-wiki uses only the tables.
 Text read from the game by hand goes in cc/transcribed/, never in the season files, which are rewritten here.

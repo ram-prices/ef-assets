@@ -4,8 +4,7 @@ P1, P3 and P5 (CharacterPotentialTable's unlockCharPictureItemList, through
 PictureItemTable and PictureTable), from the poster-sized copies
 (ui/textures/spaceship/imageposter/largesize/<imgId>.png), at most 1920 px
 wide. A picture beyond the first at one Potential (Perlica's P1) is
-<id>-p<n>-<extra>.webp. After a change, purge each file on jsDelivr
-(purge.jsdelivr.net/gh/ram-prices/ef-assets@main/<path>).
+<id>-p<n>-<extra>.webp. Browsers keep a picture a day, so a changed file needs a new name.
 
 index.json: {"<operator id>": {"<Potential>": ["<file>", ...]}}, every
 operator the dump's table lists, so the site knows which levels have art,

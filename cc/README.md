@@ -10,7 +10,7 @@ Run it on the owner's PC, where the dump lives:
 python scripts/update-cc.py C:/Users/Albert/Development/EndfieldDataDump/output
 ```
 
-Open the game and run `EndfieldDataDump\run_all.bat` first. `--no-art` skips exporting pictures; `--no-wiki` uses only the tables. The script prints the gaps. Afterwards commit `cc/` and purge changed art on jsDelivr.
+Open the game and run `EndfieldDataDump\run_all.bat` first. `--no-art` skips exporting pictures; `--no-wiki` uses only the tables. The script prints the gaps. Afterwards commit and push `cc/`; Cloudflare Pages deploys it (browsers keep pictures a day, so changed art needs a new file name).
 
 ## Files
 

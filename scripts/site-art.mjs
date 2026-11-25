@@ -102,7 +102,7 @@ function gameArtProblem(pool) {
 const lines = bannersText.split('\n');
 // `"gameArtV": "<fingerprint>"` follows each flag: the first 8 hex of a SHA-1 of the
 // three files, which the site adds to their URLs (?v=), so changed art gets a new
-// address. Browsers keep a jsDelivr file a week; in 1.7 they kept an empty -op layer.
+// address. Browsers keep a picture a day (`_headers`); in 1.7 they kept an empty -op layer.
 const fingerprint = (pool) => {
   const h = createHash('sha1');
   for (const f of gameFiles(pool)) h.update(readFileSync(at(f)));

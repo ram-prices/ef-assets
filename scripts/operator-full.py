@@ -1,8 +1,7 @@
 """Full operator art (operators/full/<id>.webp): the game's character portrait
 (ui/sprites/characterportrait/<id>.png), the operator merged with their
 splash motif on a transparent background, at the game's own size (about
-2048 px), since the site shows it zoomed in. After a change, purge each file
-on jsDelivr (purge.jsdelivr.net/gh/ram-prices/ef-assets@main/<path>).
+2048 px), since the site shows it zoomed in. Browsers keep a picture a day, so a changed file needs a new name (or a ?v= on its URL).
 
 It reads the game files a dump of the client made (the EndfieldDataDump
 checkout), through operator-banner.py's Game class.

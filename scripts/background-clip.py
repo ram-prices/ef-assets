@@ -18,7 +18,7 @@ sound, and writes:
         [--default] [--out <dir>]
 
 Needs ffmpeg on PATH (or the imageio-ffmpeg Python package). Aim for clips
-under 8 MB; the site's CDN won't serve files over 20 MB.
+under 8 MB; Cloudflare Pages won't take files over 25 MiB.
 """
 import argparse
 import json

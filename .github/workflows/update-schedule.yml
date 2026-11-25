@@ -11,10 +11,10 @@ name: Update banner schedule
 # site loads, flags game-screen art in banners.json and lists what is still
 # missing (needs.md), and issue-layers.py splits new Issue art into layers.
 #
-# Changes are committed straight to main (no pull request to merge), then
-# published to the CDN branches here, since a push made with GITHUB_TOKEN
-# triggers no other workflow. Whatever still needs a hand (needs.md, or this
-# run failing) goes into the "ef-assets: needs attention" issue, assigned to
+# Changes are committed straight to main (no pull request to merge); Cloudflare
+# Pages deploys main to assets.itjustlogs.dev on every push. Whatever still
+# needs a hand (needs.md, or this run failing) goes into the "ef-assets:
+# needs attention" issue, assigned to
 # and mentioning ram-prices (scripts/needs-issue.mjs); it closes itself once
 # nothing is listed.
 #
@@ -76,8 +76,6 @@ jobs:
             echo 'Push rejected; trying once more.'
           done
           exit 1
-      - name: Publish the pictures to the CDN branches
-        run: bash scripts/cdn-branches.sh
       - name: Keep the "ef-assets needs attention" issue up to date
         if: always()
         env:
