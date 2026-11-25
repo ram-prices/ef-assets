@@ -1909,7 +1909,8 @@
       "end": null,
       "details": "During the event, progress through missions to unlock the [Exclusion Zone Rebuilding] game mode and related AIC technologies, then use the AIC to produce supplies needed by the Exclusion Zone Rebuilding project, advan...",
       "availability": "Throughout the [Meeting You in the World o'Shrooms] version",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/array-building-mend-the-old-gash.webp"
     },
     {
       "id": 95,
@@ -1943,7 +1944,8 @@
       },
       "details": "Visit the [Old Dam] area in [Wuling] and complete specified missions to claim event rewards such as [Oroberyl]×1200 and [Mark of Perseverance].",
       "availability": "After [Meeting You in the World o'Shrooms] version update – Dec. 23, 2026 at 12:00 (server time)",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/caps-shrooms-fungi.webp"
     },
     {
       "id": 98,
@@ -1973,7 +1975,8 @@
       "end": null,
       "details": "During the event, complete challenge stages to earn rewards, including [Oroberyl]×1200, [Portrait Frame: Crown-Snatcher's Bright Star], [Advanced Progression Selection Crate Ⅱ], [Mark of Perseverance], and [Advanced C...",
       "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/rise-mega-arena.webp"
     },
     {
       "id": 100,
@@ -1987,7 +1990,8 @@
       "end": null,
       "details": "During the event, experience the \"Witchcraft Paradise\" games, complete Games Challenges to earn [Carrot Payper], and spend [Carrot Payper] at the [Souvenir Exchange] to exchange for event rewards, including [Oroberyl]...",
       "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/lucky-carrot-s-games-of-wonder.webp"
     },
     {
       "id": 111,
@@ -2001,7 +2005,8 @@
       "end": null,
       "details": "During the event, log into the game and participate in various game modes to claim the new max-potential 5★ operator [Mimino] and new max-potential 5★ weapon [Star of Tomorrow (Handcannon)].",
       "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/workers-guards-roll-call.webp"
     },
     {
       "id": 101,
@@ -2015,7 +2020,8 @@
       "end": null,
       "details": "Visit the Web Event page to sort gift boxes on transport belts, experience various stages, and claim event rewards, including [Oroberyl]×300 and [T-Creds].",
       "availability": "Dec. 23, 2026 at 12:00 (server time) – Before version update and maintenance",
-      "post": "0740"
+      "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/endmin-let-s-sort-the-prezzies.webp"
     },
     {
       "id": 102,

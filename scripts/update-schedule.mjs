@@ -819,7 +819,14 @@ async function saveGuideEventArt() {
   if (!script) throw new Error('no guide script on the page');
   const bundle = await fetch(script, { headers: UA, signal: AbortSignal.timeout(30000) }).then((r) => r.text());
   const base = script.slice(0, script.lastIndexOf('/') + 1);
-  const assets = Object.fromEntries([...bundle.matchAll(/"((?:gameplay|story|characters)\.\d+\.visual)":\w+\.p\+"(assets\/[^"]+)"/g)].map((m) => [m[1], m[2]]));
+  // The asset table names each file directly ("gameplay.0.visual":l.p+"assets/...")
+  // or, from 1.7 on, through a variable ("gameplay.0.visual":Iv, Iv=l.p+"assets/...").
+  const vars = Object.fromEntries([...bundle.matchAll(/(?<![\w$.])([\w$]+)=\w+\.p\+"(assets\/[^"]+)"/g)].map((m) => [m[1], m[2]]));
+  const assets = Object.fromEntries(
+    [...bundle.matchAll(/"((?:gameplay|story|characters)\.\d+\.visual)":(?:\w+\.p\+"(assets\/[^"]+)"|([\w$]+)(?=[,}]))/g)]
+      .map((m) => [m[1], m[2] ?? vars[m[3]]])
+      .filter(([, f]) => f),
+  );
   const entry = /\{"id":"[^"]+","name":\{/g;
   const saved = [];
   await mkdir(join(ROOT, 'events'), { recursive: true });
@@ -828,7 +835,10 @@ async function saveGuideEventArt() {
     let start = -1;
     entry.lastIndex = Math.max(0, m.index - 30000);
     for (let e; (e = entry.exec(bundle)) && e.index < m.index; ) start = e.index;
-    const name = start < 0 ? null : bundle.slice(start, start + 3000).match(/"en-us":"((?:[^"\\]|\\.)*)"/)?.[1];
+    // The English title inside the card's own "name":{...}; a card titled only in
+    // Chinese (1.7's puzzle card) is skipped rather than named after its description.
+    const names = start < 0 ? null : bundle.slice(start, start + 3000).match(/^\{"id":"[^"]+","name":\{([^}]*)\}/)?.[1];
+    const name = names?.match(/"en-us":"((?:[^"\\]|\\.)*)"/)?.[1];
     const file = assets[`${m[1]}.visual`];
     if (!name || !file) continue;
     const out = join(ROOT, 'events', `${slug(unescapeJs(name))}.webp`);

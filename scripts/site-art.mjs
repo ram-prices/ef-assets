@@ -65,6 +65,24 @@ for (const b of schedule.banners) {
 }
 console.log(copied.length ? `copied banner art:\n  ${copied.join('\n  ')}` : 'banner art: nothing to copy');
 
+// --- 1b. Event art ---------------------------------------------------------------
+// update-schedule.mjs saves the version guide's event art to events/<slug>.webp
+// but only sets `art` on events it adds from the news feed; events from the game
+// dump never got theirs (1.7). Link every saved picture to its event.
+const EVENT_ART = 'https://raw.githubusercontent.com/ram-prices/ef-assets/main/events';
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const linked = [];
+schedule.events = (schedule.events ?? []).map((e) => {
+  const file = `events/${slug(e.name)}.webp`;
+  if (e.art || !has(file)) return e;
+  linked.push(e.name);
+  // Keep `source` last, as the hand-written entries have it.
+  const { source, ...rest } = e;
+  return source === undefined ? { ...rest, art: `${EVENT_ART}/${slug(e.name)}.webp` } : { ...rest, art: `${EVENT_ART}/${slug(e.name)}.webp`, source };
+});
+if (linked.length && !DRY) writeFileSync(at('schedule.json'), JSON.stringify(schedule, null, 2) + '\n');
+console.log(linked.length ? `event art linked: ${linked.join(', ')}` : 'event art: nothing to link');
+
 // --- 2. gameArt flags in banners.json ------------------------------------------
 const gameFiles = (pool) => [`banners/game/${pool}.webp`, `banners/game/layers/${pool}-back.webp`, `banners/game/layers/${pool}-op.webp`];
 /** Why a pool's game-screen art can't be shown, or null when it can. */

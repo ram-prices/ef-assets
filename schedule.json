@@ -2496,6 +2496,7 @@
       },
       "details": null,
       "post": "",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/monumental-etching-forest-of-maras.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d6"
     },
     {
@@ -2677,6 +2678,7 @@
       },
       "details": null,
       "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/array-building-mend-the-old-gash.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_timelimited_wonder_construct (the timed event; time_activity_timeunlimited_wonder_construct, the permanent mode after it, isn't this event)"
     },
     {
@@ -2711,6 +2713,7 @@
       },
       "details": null,
       "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/caps-shrooms-fungi.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_guide_dam"
     },
     {
@@ -2745,6 +2748,7 @@
       },
       "details": null,
       "post": "",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/monumental-revelation-tyranny.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_high_difficulty_v1d7"
     },
     {
@@ -2779,6 +2783,7 @@
       },
       "details": null,
       "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/rise-mega-arena.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_takestwo_2"
     },
     {
@@ -2796,6 +2801,7 @@
       },
       "details": null,
       "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/lucky-carrot-s-games-of-wonder.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_cardgame_v1d7"
     },
     {
@@ -2811,6 +2817,7 @@
       "details": "During the event, log into the game and participate in various game modes to claim the new max-potential 5★ operator [Mimino] and new max-potential 5★ weapon [Star of Tomorrow (Handcannon)].",
       "availability": "Dec. 16, 2026 at 12:00 (server time) – Before version update and maintenance",
       "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/workers-guards-roll-call.webp",
       "source": "news feed"
     },
     {
@@ -2828,6 +2835,7 @@
       },
       "details": null,
       "post": "0740",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/endmin-let-s-sort-the-prezzies.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_activity_belt"
     },
     {
@@ -2842,6 +2850,7 @@
       "end": null,
       "details": null,
       "post": "",
+      "art": "https://raw.githubusercontent.com/ram-prices/ef-assets/main/events/esoteric-mycology.webp",
       "source": "EndfieldDataDump TimeRangeTable: time_puzzle_v1d7 (the new Delver of the Cryptic series; unlocks Dec. 27 and then stays permanent)"
     },
     {
