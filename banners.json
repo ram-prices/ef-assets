@@ -84,6 +84,7 @@
     "type": "Special"
   },
   "special_1_4_1": {
+    "gameArt": true,
     "name": "North Yearns the Rift Vigile",
     "rateUpIds": ["chr_0032_lizhiyan"],
     "rateupName": ["Arcane"],

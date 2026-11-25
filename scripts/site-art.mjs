@@ -29,10 +29,10 @@ const DRY = args.includes('--dry');
 const reportAt = args.indexOf('--wiki-report');
 const wikiReport = reportAt >= 0 ? args[reportAt + 1] : null;
 
-// Pools whose game-screen art is not shown. special_1_4_1 (Arcane): its file
-// draws her about a third too wide (a stretched layer in operator-banner.py).
-// Rebuild it, check it, then take it off this list.
-const HOLD = new Set(['special_1_4_1']);
+// Pools whose game-screen art must not be shown (a broken file): add one here
+// until it's rebuilt and checked. Empty: Arcane's stretched special_1_4_1 was
+// fixed in 6e84af1.
+const HOLD = new Set([]);
 const MIN_OP_LAYER = 10 * 1024;
 
 const at = (p) => join(ROOT, p);
