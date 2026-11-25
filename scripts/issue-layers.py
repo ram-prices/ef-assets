@@ -54,7 +54,7 @@ def main():
     covered = np.asarray(rest.getchannel('A').filter(ImageFilter.MaxFilter(5))) > 20
     covered |= np.asarray(rule.getchannel('A').filter(ImageFilter.MaxFilter(3))) > 20
 
-    pools = sorted(glob.glob(os.path.join(ROOT, 'banners', 'weponbox_*.webp')) + glob.glob(os.path.join(ROOT, 'banners', 'weaponbox_constant_*.webp')))
+    pools = sorted(glob.glob(os.path.join(ROOT, 'banners', 'weponbox_*.webp')) + glob.glob(os.path.join(ROOT, 'banners', 'weaponbox_constant_*.webp')) + glob.glob(os.path.join(ROOT, 'banners', 'rerun_wpn_*.webp')))
     made = []
     for path in pools:
         name = os.path.basename(path)
